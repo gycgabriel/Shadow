@@ -1,0 +1,905 @@
+Using pre-set license
+Built from '2020.3/staging' branch; Version is '2020.3.8f1 (507919d4fff5) revision 5273881'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Home; OS build 19043.985; Version 2009; 64bit' Language: 'en' Physical Memory: 7115 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.8f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/gabri/Desktop/Shadow/Shadow
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+52483
+Successfully changed project path to: C:/Users/gabri/Desktop/Shadow/Shadow
+C:/Users/gabri/Desktop/Shadow/Shadow
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 83.42 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.8f1 (507919d4fff5)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/gabri/Desktop/Shadow/Shadow/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: AMD Radeon(TM) Vega 8 Graphics (ID=0x15d8)
+    Vendor:   
+    VRAM:     3557 MB
+    Driver:   27.20.11036.3
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56492
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.8f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.003172 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 81.62 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.969 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.001740 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 76.37 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.503 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.08 seconds
+Refreshing native plugins compatible for Editor in 0.94 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1848 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 86.6 MB.
+System memory in use after: 86.5 MB.
+
+Unloading 24 unused Assets to reduce memory usage. Loaded Objects now: 2293.
+Total: 4.647400 ms (FindLiveObjects: 0.304300 ms CreateObjectMapping: 0.088100 ms MarkObjects: 3.991300 ms  DeleteObjects: 0.261600 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/Tiles/roguelikeSheet_transparent_948.asset
+  artifactKey: Guid(cbc29548e2be1b64882b9bde6f829b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_948.asset using Guid(cbc29548e2be1b64882b9bde6f829b44) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '73bf46c40d4ac97b6e384d200e007326') in 0.153530 seconds
+  Import took 0.160305 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_952.asset
+  artifactKey: Guid(bc21fa712a7b98041a180b2466c846d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_952.asset using Guid(bc21fa712a7b98041a180b2466c846d8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e1a8d62f4109dc67818005ef81ac22a7') in 0.024620 seconds
+  Import took 0.030872 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1550.asset
+  artifactKey: Guid(090a9d967b56660499f02fc19dfdc974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1550.asset using Guid(090a9d967b56660499f02fc19dfdc974) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '603c9b2402552bb5fb275115fa7599a3') in 0.025800 seconds
+  Import took 0.032882 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000273 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_949.asset
+  artifactKey: Guid(4ab420c1f5e9e1c499740a4f993038f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_949.asset using Guid(4ab420c1f5e9e1c499740a4f993038f0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cac927ac33062063b0099ac7abab653e') in 0.027769 seconds
+  Import took 0.035124 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000329 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1548.asset
+  artifactKey: Guid(b03beb9d1b69eed4caca35173708b599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1548.asset using Guid(b03beb9d1b69eed4caca35173708b599) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '302f51137e2ea1ec14aa79e57a650be4') in 0.024843 seconds
+  Import took 0.031268 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000475 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1549.asset
+  artifactKey: Guid(2e810f36574e8b743a53506c9ad7e302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1549.asset using Guid(2e810f36574e8b743a53506c9ad7e302) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd2b4da812f49f1f5fcf00637a2c2d2e2') in 0.027461 seconds
+  Import took 0.034585 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000312 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1552.asset
+  artifactKey: Guid(af930575077354d4586b91611eebbdd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1552.asset using Guid(af930575077354d4586b91611eebbdd5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9d73ac940a2dce1e327c0888aec4628c') in 0.024136 seconds
+  Import took 0.031508 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_950.asset
+  artifactKey: Guid(56804a434fe7ea34a8c0fb081e4aa86c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_950.asset using Guid(56804a434fe7ea34a8c0fb081e4aa86c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ee3238433174ab2fb007d430e96962a') in 0.027956 seconds
+  Import took 0.034417 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_951.asset
+  artifactKey: Guid(d142ecc3f58476a418da58f56d8a0716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_951.asset using Guid(d142ecc3f58476a418da58f56d8a0716) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a268be483e8248c36be22c07a709284') in 0.025280 seconds
+  Import took 0.031652 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000347 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1551.asset
+  artifactKey: Guid(7c7846917bcc6ed4180fc8213b5a792e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1551.asset using Guid(7c7846917bcc6ed4180fc8213b5a792e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '545869a8bc483e5e4db7718d324dbeaa') in 0.025676 seconds
+  Import took 0.032287 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 142.383418 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_740.asset
+  artifactKey: Guid(70bdb3901440ce94b965f16804048cb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_740.asset using Guid(70bdb3901440ce94b965f16804048cb2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '850154ab144646c3e210ae46fc5ce1d0') in 0.018495 seconds
+  Import took 0.024653 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000323 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_772.asset
+  artifactKey: Guid(c9804b0ccb006d34b9fec27c0d0d1581) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_772.asset using Guid(c9804b0ccb006d34b9fec27c0d0d1581) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0dc9d17d3f307fb1e5bdde8473266746') in 0.019168 seconds
+  Import took 0.024620 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000386 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_742.asset
+  artifactKey: Guid(6e6ed45e92a6c644e9b27aa40b234990) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_742.asset using Guid(6e6ed45e92a6c644e9b27aa40b234990) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2ecb13bd4bd2cda8576406cc0833e811') in 0.026100 seconds
+  Import took 0.030746 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_810.asset
+  artifactKey: Guid(20774e4561228604db3a1331d9f753dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_810.asset using Guid(20774e4561228604db3a1331d9f753dc) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd9e4fe8a4c5838f48e0fb1126be556c0') in 0.017804 seconds
+  Import took 0.023525 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000368 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_811.asset
+  artifactKey: Guid(1943af1e72e722948a4da6135e328ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_811.asset using Guid(1943af1e72e722948a4da6135e328ef3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ccfc10836f815e652b43d65cb35ebb50') in 0.025222 seconds
+  Import took 0.030685 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000374 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_807.asset
+  artifactKey: Guid(028053cd0c15bd34899f45707b5e0f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_807.asset using Guid(028053cd0c15bd34899f45707b5e0f04) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e96b1ae38b992197d185d27fb5c9cd87') in 0.023955 seconds
+  Import took 0.029437 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000309 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_743.asset
+  artifactKey: Guid(d60bc738a64bdb546a10c3236aeac8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_743.asset using Guid(d60bc738a64bdb546a10c3236aeac8ee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9980555ce958b5953e5d490ed0240a42') in 0.017928 seconds
+  Import took 0.023479 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1041.asset
+  artifactKey: Guid(77542ed79a684934d9878d51d6b4f149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1041.asset using Guid(77542ed79a684934d9878d51d6b4f149) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6b2a8b3fa3c78c32f24e19b6652b7500') in 0.020437 seconds
+  Import took 0.026394 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000411 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_773.asset
+  artifactKey: Guid(209c5001cf895174d82eabe0b668642d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_773.asset using Guid(209c5001cf895174d82eabe0b668642d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3016b0c3463f953a90b9c8435d45918a') in 0.022304 seconds
+  Import took 0.028367 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000278 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1156.asset
+  artifactKey: Guid(a9668eedd3e6e3c4f9c31c177565a1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1156.asset using Guid(a9668eedd3e6e3c4f9c31c177565a1ba) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5cd03b799bb7159bfe47b49c1e1c534') in 0.019239 seconds
+  Import took 0.025099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000348 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1158.asset
+  artifactKey: Guid(ea3a5503fa371c141bf4c2a0c7bb9851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1158.asset using Guid(ea3a5503fa371c141bf4c2a0c7bb9851) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10c7f9af95d6127d54ca6e3e0962fa54') in 0.026996 seconds
+  Import took 0.032954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000312 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1293.asset
+  artifactKey: Guid(cf696bb516b250541bc34f9ef97df493) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1293.asset using Guid(cf696bb516b250541bc34f9ef97df493) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b848c7b5b522fdc97828baafbffe1cd8') in 0.018595 seconds
+  Import took 0.024576 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_809.asset
+  artifactKey: Guid(e7877e59a31b53149bada61faeede960) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_809.asset using Guid(e7877e59a31b53149bada61faeede960) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bcb71a43503389f0e7747931fbb6527f') in 0.021984 seconds
+  Import took 0.027671 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000369 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1350.asset
+  artifactKey: Guid(dc06293e69e04b547af96618928da275) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1350.asset using Guid(dc06293e69e04b547af96618928da275) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '923b994fc0df0dcf3ddf5761a4c470c7') in 0.023535 seconds
+  Import took 0.029951 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000318 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1352.asset
+  artifactKey: Guid(629caae9670f94443a8f6da8bec61fc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1352.asset using Guid(629caae9670f94443a8f6da8bec61fc1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48fb745608c5c216533363e8f1a0df62') in 0.019634 seconds
+  Import took 0.024455 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1380.asset
+  artifactKey: Guid(7b9522f2a3f3f1648b945626d567189f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1380.asset using Guid(7b9522f2a3f3f1648b945626d567189f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '53ed65ba62d3cabf19007a7d70dda111') in 0.018132 seconds
+  Import took 0.025039 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000401 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1348.asset
+  artifactKey: Guid(3816ccf9a1ee1d4468a6c97f957609cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1348.asset using Guid(3816ccf9a1ee1d4468a6c97f957609cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '104ede0794e0f132736b5655a1b089eb') in 0.024052 seconds
+  Import took 0.029358 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000341 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1378.asset
+  artifactKey: Guid(3cb302125540f284d9a7b697dfea5ab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1378.asset using Guid(3cb302125540f284d9a7b697dfea5ab3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '70bc3675e5cbc5e9c7419692f4a08e1e') in 0.021258 seconds
+  Import took 0.028458 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000358 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_741.asset
+  artifactKey: Guid(a0fec22ce2c44dc4abcde03469d51fad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_741.asset using Guid(a0fec22ce2c44dc4abcde03469d51fad) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6757a5b95a0dc7737e79f34826a551eb') in 0.024203 seconds
+  Import took 0.033509 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000529 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1037.asset
+  artifactKey: Guid(31c1d9d86513b0d41ae0873d4e7a0d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1037.asset using Guid(31c1d9d86513b0d41ae0873d4e7a0d69) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3b73bffa671013dbccde1b8c30bba806') in 0.021274 seconds
+  Import took 0.026720 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000290 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1382.asset
+  artifactKey: Guid(78e94b881a350d1479e8180132890f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1382.asset using Guid(78e94b881a350d1479e8180132890f13) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebea09502806b9026d231b963f9c5c99') in 0.019214 seconds
+  Import took 0.024950 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1381.asset
+  artifactKey: Guid(a244014f182c11448b5116bd93f4a5b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1381.asset using Guid(a244014f182c11448b5116bd93f4a5b2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '47db05bc15bdf9e4d5fccd15332ca1f4') in 0.022043 seconds
+  Import took 0.034624 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000610 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1289.asset
+  artifactKey: Guid(0adcec86a338f9041ab9e5f302ef2b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1289.asset using Guid(0adcec86a338f9041ab9e5f302ef2b18) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bccd5f743b2f4e3c3974dbbba94603a4') in 0.020643 seconds
+  Import took 0.025618 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1157.asset
+  artifactKey: Guid(f41aea92240664a43a2b0cbdedbf7447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1157.asset using Guid(f41aea92240664a43a2b0cbdedbf7447) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ab57481da3098e910d2b118cb426b2ec') in 0.018374 seconds
+  Import took 0.025380 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000374 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1159.asset
+  artifactKey: Guid(2d9c537509699ec4490992611fb78d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1159.asset using Guid(2d9c537509699ec4490992611fb78d17) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a944c76eb6fcd4f3a885d619e1c7e2c') in 0.021610 seconds
+  Import took 0.028226 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_744.asset
+  artifactKey: Guid(df5576316703f404a98d1979d3f8fd8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_744.asset using Guid(df5576316703f404a98d1979d3f8fd8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4acbe49588dc86f223427e01f22cf949') in 0.021548 seconds
+  Import took 0.026404 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_774.asset
+  artifactKey: Guid(5d4a39bb38c17fe45a1c6e40a0e365cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_774.asset using Guid(5d4a39bb38c17fe45a1c6e40a0e365cd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '60d8dc7455cd411c8bcfdee95ee8e3d2') in 0.019923 seconds
+  Import took 0.029221 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_770.asset
+  artifactKey: Guid(a1accc990ae103240a7a157d8c66c370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_770.asset using Guid(a1accc990ae103240a7a157d8c66c370) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '33f9ac1a7360c662e1efabb2f5fb2a4e') in 0.020561 seconds
+  Import took 0.029518 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000452 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1379.asset
+  artifactKey: Guid(e9f9b97fbd08fca4796538a44a1de34c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1379.asset using Guid(e9f9b97fbd08fca4796538a44a1de34c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4ea1a535c47cd65753f2ace2e3887b1') in 0.019300 seconds
+  Import took 0.024292 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000294 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1155.asset
+  artifactKey: Guid(09a502cf3308d4b4ba2b54f33d899b8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1155.asset using Guid(09a502cf3308d4b4ba2b54f33d899b8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b5f619567b137feebb81d124c12fbe36') in 0.024707 seconds
+  Import took 0.029706 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000331 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_771.asset
+  artifactKey: Guid(5d20c9338b8ff28419e2ec7f3e887be1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_771.asset using Guid(5d20c9338b8ff28419e2ec7f3e887be1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ea23ffcc9f8237e9a483839271039afe') in 0.021518 seconds
+  Import took 0.028004 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000556 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_808.asset
+  artifactKey: Guid(2894f0f411eadc44286fad883efcf852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_808.asset using Guid(2894f0f411eadc44286fad883efcf852) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '61ebf847951930d94075c719edd48c67') in 0.019437 seconds
+  Import took 0.032215 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000304 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1039.asset
+  artifactKey: Guid(446071540cb6f4d409350d34cd297ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1039.asset using Guid(446071540cb6f4d409350d34cd297ba7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f0c9ada58bc254cb9215af52a1db6c72') in 0.021316 seconds
+  Import took 0.030807 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000424 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1290.asset
+  artifactKey: Guid(3cc0e85f730d1754e9d082e334ae042f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1290.asset using Guid(3cc0e85f730d1754e9d082e334ae042f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '20280a24c48599a75e58e0363aa20183') in 0.021222 seconds
+  Import took 0.031397 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000319 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1291.asset
+  artifactKey: Guid(ada4a808a65b2d74db9d1c574ede1e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1291.asset using Guid(ada4a808a65b2d74db9d1c574ede1e8c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '27e3a9cda76aa6f4cb4dda48999ef3fd') in 0.018393 seconds
+  Import took 0.027285 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000511 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1040.asset
+  artifactKey: Guid(04377f17b95c123499edee3762044bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1040.asset using Guid(04377f17b95c123499edee3762044bd2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'bfe80219fe4704f0f65075354ca52ede') in 0.024147 seconds
+  Import took 0.030782 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000284 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1351.asset
+  artifactKey: Guid(9e906b6c6a6ff77429107a702677f801) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1351.asset using Guid(9e906b6c6a6ff77429107a702677f801) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '74085beeed3e1869bef2755a212f1d66') in 0.020554 seconds
+  Import took 0.026477 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000430 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1349.asset
+  artifactKey: Guid(c656750a6e6949d4db578a9697c8273b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1349.asset using Guid(c656750a6e6949d4db578a9697c8273b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dc6c62b1f663cada58b81bf78c7a39da') in 0.020069 seconds
+  Import took 0.026217 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000487 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1292.asset
+  artifactKey: Guid(8556ae88a105ee542a4334fbc03b59b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1292.asset using Guid(8556ae88a105ee542a4334fbc03b59b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2295d5cd367441d088917401ba9ceded') in 0.023368 seconds
+  Import took 0.034375 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000450 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1038.asset
+  artifactKey: Guid(d685af3add2b4514d8e6a6514e86bd30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1038.asset using Guid(d685af3add2b4514d8e6a6514e86bd30) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e5a8bcfb7dfd1a10bb55f6e670fa63d6') in 0.020103 seconds
+  Import took 0.026149 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.411621 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1474.asset
+  artifactKey: Guid(3cce12bbcabbdc94f8c2008f15f8075e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1474.asset using Guid(3cce12bbcabbdc94f8c2008f15f8075e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '158d5585eebfe480071293d9d9c2f6de') in 0.021883 seconds
+  Import took 0.030974 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000326 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1345.asset
+  artifactKey: Guid(6fddc533e6402e54b998faaaf3ccf789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1345.asset using Guid(6fddc533e6402e54b998faaaf3ccf789) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e74c83c3211a86dde56806c22ae38974') in 0.019562 seconds
+  Import took 0.029627 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000378 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1475.asset
+  artifactKey: Guid(42d24ceee3865e44d9151cd5a17d2eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1475.asset using Guid(42d24ceee3865e44d9151cd5a17d2eab) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd95ba01caba26e4a4a2c4b0a0c233555') in 0.020126 seconds
+  Import took 0.030861 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000414 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1341.asset
+  artifactKey: Guid(e2e31f3fbc2384147b181740bd73943f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1341.asset using Guid(e2e31f3fbc2384147b181740bd73943f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8797125721837d571ed5e3157807116') in 0.021285 seconds
+  Import took 0.027432 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000363 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1045.asset
+  artifactKey: Guid(80d94da7500ee4e46b8e8bb1610f12f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1045.asset using Guid(80d94da7500ee4e46b8e8bb1610f12f9) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c2f637754b44bc59bf153181aa90ce14') in 0.018815 seconds
+  Import took 0.023822 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1476.asset
+  artifactKey: Guid(2ff2f40db7692af418e95c963e40d47a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1476.asset using Guid(2ff2f40db7692af418e95c963e40d47a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45479aa56e9db44d8a15743e5d3021ed') in 0.023837 seconds
+  Import took 0.031313 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000427 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1048.asset
+  artifactKey: Guid(b5b84d8a53e8db742af841aa68080c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1048.asset using Guid(b5b84d8a53e8db742af841aa68080c37) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '133f2398e6504e0b8e570bb73fb922cd') in 0.028116 seconds
+  Import took 0.034789 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000355 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1478.asset
+  artifactKey: Guid(ff00f9fd5323d004dade56c5db9a709e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1478.asset using Guid(ff00f9fd5323d004dade56c5db9a709e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f1dab9bb6d7ec41a4151efe7c2d748ab') in 0.018581 seconds
+  Import took 0.024418 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000276 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1046.asset
+  artifactKey: Guid(860d6632a2acf934a8931012eecf08e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1046.asset using Guid(860d6632a2acf934a8931012eecf08e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1c90a9ee2077a79d6a4f0a8ea57c2a86') in 0.023816 seconds
+  Import took 0.030818 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000350 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1044.asset
+  artifactKey: Guid(58f56628e4ff6a043b7600a21d2bf01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1044.asset using Guid(58f56628e4ff6a043b7600a21d2bf01e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2a458a6255fd055c851687f593322d78') in 0.020788 seconds
+  Import took 0.026432 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000349 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1343.asset
+  artifactKey: Guid(878862b447a3e464383787cc5bb7c056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1343.asset using Guid(878862b447a3e464383787cc5bb7c056) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c8c9c38461f45bab418730f7092a9f15') in 0.021671 seconds
+  Import took 0.027158 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000392 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1342.asset
+  artifactKey: Guid(f81ba8456b7ba9b45851bc955c91002e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1342.asset using Guid(f81ba8456b7ba9b45851bc955c91002e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '1642600c5a02c65a3a9c8ffe2c80849c') in 0.023109 seconds
+  Import took 0.029075 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000355 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1344.asset
+  artifactKey: Guid(71b0907a38aba11418e706d5eef4531a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1344.asset using Guid(71b0907a38aba11418e706d5eef4531a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c0198b2a8cdfaf1fb8f4c44d3525bbbb') in 0.022495 seconds
+  Import took 0.027840 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000320 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1477.asset
+  artifactKey: Guid(b102ba8a4c3b66c4ba66aaf9b01e97b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1477.asset using Guid(b102ba8a4c3b66c4ba66aaf9b01e97b1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'cf986bb09a9e1ec2011e07697b02f2b5') in 0.020518 seconds
+  Import took 0.026122 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000477 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1047.asset
+  artifactKey: Guid(b786ff63bcc32da438ecea392fc764f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1047.asset using Guid(b786ff63bcc32da438ecea392fc764f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b15b59cd4c85265ec6ff0471d4b96b7c') in 0.024077 seconds
+  Import took 0.029450 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 221.893632 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_889.asset
+  artifactKey: Guid(a26e1336cb761e44382b764e3f7f219f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_889.asset using Guid(a26e1336cb761e44382b764e3f7f219f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbec81677790f472484a05c065dff782') in 0.021086 seconds
+  Import took 0.026787 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1217.asset
+  artifactKey: Guid(7abada15103aca545b469a6a626f53ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1217.asset using Guid(7abada15103aca545b469a6a626f53ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9cc2e4c90823515a7c177b3bf7f9359f') in 0.020412 seconds
+  Import took 0.025807 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000321 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1216.asset
+  artifactKey: Guid(a57d26fd2f93319489e2b8cbecb5515c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1216.asset using Guid(a57d26fd2f93319489e2b8cbecb5515c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f18da55988cae7b4d0a727f97aec92d9') in 0.026501 seconds
+  Import took 0.031432 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000456 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1527.asset
+  artifactKey: Guid(b6b966b909df40b4787160af43c81350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1527.asset using Guid(b6b966b909df40b4787160af43c81350) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f16d4ff95b7852c65dda8a8b8e8b4b49') in 0.019375 seconds
+  Import took 0.024053 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000277 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_892.asset
+  artifactKey: Guid(f52f15bb0ea0ac94694bab7e7cba08df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_892.asset using Guid(f52f15bb0ea0ac94694bab7e7cba08df) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fd3e4ba89403b906815837dab64ce423') in 0.019215 seconds
+  Import took 0.024682 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000293 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1526.asset
+  artifactKey: Guid(18b53032ab443f8419d927f6c7123e59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1526.asset using Guid(18b53032ab443f8419d927f6c7123e59) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '10b74acbfd13ebccd46fa762b46a6567') in 0.029067 seconds
+  Import took 0.035296 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_891.asset
+  artifactKey: Guid(1d65421a28c31b24fa2a36718427820a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_891.asset using Guid(1d65421a28c31b24fa2a36718427820a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '95cdbd3ae5e56f95e403bd85e42ab642') in 0.019866 seconds
+  Import took 0.025711 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000307 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1530.asset
+  artifactKey: Guid(b3746cf7a6dd89042be335eff4fbd9f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1530.asset using Guid(b3746cf7a6dd89042be335eff4fbd9f5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a1ef90b6c927f02d428451daabb3f65') in 0.019805 seconds
+  Import took 0.025767 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000289 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1529.asset
+  artifactKey: Guid(466b01e4fc06d3a47b55e489d7248f35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1529.asset using Guid(466b01e4fc06d3a47b55e489d7248f35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '3e72ef69ed9709aa199928c018c2d2ef') in 0.022748 seconds
+  Import took 0.028767 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000374 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1215.asset
+  artifactKey: Guid(1f51550674f19744ca483527fe00ea2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1215.asset using Guid(1f51550674f19744ca483527fe00ea2b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9dcb03ef13ffffcf9953bafd04a01c99') in 0.021109 seconds
+  Import took 0.026882 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000328 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1218.asset
+  artifactKey: Guid(12e13a6f9174bf244a43e1de7d966375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1218.asset using Guid(12e13a6f9174bf244a43e1de7d966375) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '322a21377ec4aa0ac612ac6232bc8a9d') in 0.021940 seconds
+  Import took 0.027842 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000387 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_890.asset
+  artifactKey: Guid(4f049c4b82b4f734d8b56e797dd83f32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_890.asset using Guid(4f049c4b82b4f734d8b56e797dd83f32) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '48ea50f39e632ab42e29b66af65b4ec5') in 0.020679 seconds
+  Import took 0.025954 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000282 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_893.asset
+  artifactKey: Guid(c93e464aff813b34d9f77ca98c82c264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_893.asset using Guid(c93e464aff813b34d9f77ca98c82c264) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5a99edc7cd2cf9c970137a4a14d3139') in 0.019247 seconds
+  Import took 0.024564 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000357 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1528.asset
+  artifactKey: Guid(3c78c74da78b43f4a9bee26fe27487f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1528.asset using Guid(3c78c74da78b43f4a9bee26fe27487f7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2128e23c1948e103d0da615d2ece2057') in 0.021006 seconds
+  Import took 0.026153 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000337 seconds.
+  path: Assets/Tiles/roguelikeSheet_transparent_1219.asset
+  artifactKey: Guid(e77feb6a2d3e3d044a77c66ba0d5dac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Tiles/roguelikeSheet_transparent_1219.asset using Guid(e77feb6a2d3e3d044a77c66ba0d5dac6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c5adda3c4f03c00472f0511de6b712d1') in 0.022712 seconds
+  Import took 0.027818 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001496 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 1.04 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.424 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.55 ms, found 1 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1836 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 89.6 MB.
+System memory in use after: 89.6 MB.
+
+Unloading 17 unused Assets to reduce memory usage. Loaded Objects now: 2296.
+Total: 3.349400 ms (FindLiveObjects: 0.314600 ms CreateObjectMapping: 0.175500 ms MarkObjects: 2.706500 ms  DeleteObjects: 0.150300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 744.262401 seconds.
+  path: Assets/Materials/rain_kannagi.mat
+  artifactKey: Guid(6e3090b66dbe6a64784e7a010fc71bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Materials/rain_kannagi.mat using Guid(6e3090b66dbe6a64784e7a010fc71bd1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4000b30cb6ecfbe5790b28b220f42a32') in 0.151746 seconds
+  Import took 0.158264 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.453486 seconds.
+  path: Assets/Prefabs/RedSlime.prefab
+  artifactKey: Guid(88807ecfa3d0ed24eb9d7ac028f265f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/RedSlime.prefab using Guid(88807ecfa3d0ed24eb9d7ac028f265f1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'caec0fd11699162913c1ee379d861b5b') in 0.066098 seconds
+  Import took 0.071828 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 867.718113 seconds.
+  path: Assets/RuleTiles/Grass.asset
+  artifactKey: Guid(1c7233d9fcd483749ad28a51a840c9ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/RuleTiles/Grass.asset using Guid(1c7233d9fcd483749ad28a51a840c9ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '889ed8b7ee82d7d2ec499cdcd424ac9c') in 0.027374 seconds
+  Import took 0.034099 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 787.144818 seconds.
+  path: Assets/Art/[Base]BaseChip_pipo.png
+  artifactKey: Guid(f35081fb458353c4284522356559d70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/[Base]BaseChip_pipo.png using Guid(f35081fb458353c4284522356559d70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a8cd8b444093a8eb7f21d35e985629bc') in 0.190085 seconds
+  Import took 0.196223 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 27.866748 seconds.
+  path: Assets/Art/[Base]BaseChip_pipo.png
+  artifactKey: Guid(f35081fb458353c4284522356559d70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/[Base]BaseChip_pipo.png using Guid(f35081fb458353c4284522356559d70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5c9bcecc2ca3b88e49885114bc8d16ab') in 0.057215 seconds
+  Import took 0.068157 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.181344 seconds.
+  path: Assets/Art/[Base]BaseChip_pipo.png
+  artifactKey: Guid(f35081fb458353c4284522356559d70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/[Base]BaseChip_pipo.png using Guid(f35081fb458353c4284522356559d70e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '82ae322c98fe147430d5c0e9a7c72e61') in 0.023297 seconds
+  Import took 0.029194 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 4176.725600 seconds.
+  path: Assets/Art/Tilesets/A.png
+  artifactKey: Guid(632f38608a4ca41439e6975d160bf6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/A.png using Guid(632f38608a4ca41439e6975d160bf6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '987fee01bff5428af408f1cb6ec8da35') in 0.105937 seconds
+  Import took 0.154805 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 9.104658 seconds.
+  path: Assets/Art/Tilesets/B.png
+  artifactKey: Guid(09d21a39fee47974ea0b7b4dcbebbb16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/B.png using Guid(09d21a39fee47974ea0b7b4dcbebbb16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ed122494a6db4dfd96f2c2b4fbbd0440') in 0.045816 seconds
+  Import took 0.053991 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.001297 seconds.
+  path: Assets/Art/Tilesets/E.png
+  artifactKey: Guid(90647705fe794ed4db8c4dcafe2f6e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/E.png using Guid(90647705fe794ed4db8c4dcafe2f6e50) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'd07ec58be6eeecdaaf876b2ce4583ddb') in 0.056336 seconds
+  Import took 0.070536 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.005743 seconds.
+  path: Assets/Art/Tilesets/C.png
+  artifactKey: Guid(798bd2be076e81e41ab1a0d566e8ebbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/C.png using Guid(798bd2be076e81e41ab1a0d566e8ebbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d83ed80f73b494d8ed9c9ecebfee472') in 0.069552 seconds
+  Import took 0.080751 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000412 seconds.
+  path: Assets/Art/Tilesets/D.png
+  artifactKey: Guid(7633059c5b9efc743a3e51542ab50fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/D.png using Guid(7633059c5b9efc743a3e51542ab50fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0114dcfb644a9fbb3188960f8c231fe1') in 0.045484 seconds
+  Import took 0.052022 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000414 seconds.
+  path: Assets/Art/Tilesets/C.png
+  artifactKey: Guid(798bd2be076e81e41ab1a0d566e8ebbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/C.png using Guid(798bd2be076e81e41ab1a0d566e8ebbf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6d83ed80f73b494d8ed9c9ecebfee472') in 0.036145 seconds
+  Import took 0.048701 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000415 seconds.
+  path: Assets/Art/Tilesets/D.png
+  artifactKey: Guid(7633059c5b9efc743a3e51542ab50fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/D.png using Guid(7633059c5b9efc743a3e51542ab50fe6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0114dcfb644a9fbb3188960f8c231fe1') in 0.035120 seconds
+  Import took 0.045797 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 24.685135 seconds.
+  path: Assets/Art/Tilesets/A.png
+  artifactKey: Guid(632f38608a4ca41439e6975d160bf6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/A.png using Guid(632f38608a4ca41439e6975d160bf6fd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'eea80efb0f25628be7d4e21f22fabbd4') in 0.024672 seconds
+  Import took 0.032869 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 70.579988 seconds.
+  path: Assets/Art/Tilesets/F.png
+  artifactKey: Guid(a6657a45226e9214dac7109eeca6f52a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/F.png using Guid(a6657a45226e9214dac7109eeca6f52a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6e965e6938026521e6ca69bdc4d33e02') in 0.031687 seconds
+  Import took 0.039256 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000343 seconds.
+  path: Assets/Art/Tilesets/G.png
+  artifactKey: Guid(f139fba12dc293244a579adaba411c7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/G.png using Guid(f139fba12dc293244a579adaba411c7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d59eddad271abfd91269ba7da6453b9') in 0.031607 seconds
+  Import took 0.037208 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000334 seconds.
+  path: Assets/Art/Tilesets/H.png
+  artifactKey: Guid(befd12291e0ae2645ad90140b38a2cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/H.png using Guid(befd12291e0ae2645ad90140b38a2cd4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'db3d739c852f7ab4a0b09711294e78af') in 0.033448 seconds
+  Import took 0.039496 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 100.068596 seconds.
+  path: Assets/Art/Tilesets/[Base]BaseChip_pipo.png
+  artifactKey: Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/[Base]BaseChip_pipo.png using Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '5895faa6d5f63664bf3e7a384c83ad3e') in 0.038087 seconds
+  Import took 0.044308 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 17.279822 seconds.
+  path: Assets/Art/Tilesets/[Base]BaseChip_pipo.png
+  artifactKey: Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/[Base]BaseChip_pipo.png using Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0082146376c0b3e2e2e24517cf83cf84') in 0.022975 seconds
+  Import took 0.031088 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 47.422431 seconds.
+  path: Assets/Art/Tilesets/[Base]BaseChip_pipo.png
+  artifactKey: Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/[Base]BaseChip_pipo.png using Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c55bf2927eebf6dbbfc6009d6157ef15') in 6.348795 seconds
+  Import took 6.372936 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 60.341020 seconds.
+  path: Assets/Art/Tilesets/[Base]BaseChip_pipo.png
+  artifactKey: Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Art/Tilesets/[Base]BaseChip_pipo.png using Guid(e4b30072d4bfb8143862ab1ca78bafa8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '45819011855bcd5973d9db3540220b9b') in 4.225421 seconds
+  Import took 4.241310 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 2246.201402 seconds.
+  path: ProjectSettings/TagManager.asset
+  artifactKey: Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing ProjectSettings/TagManager.asset using Guid(00000000000000003000000000000000) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0d20965969099a0f71f262a05a9953a5') in 0.032394 seconds
+  Import took 0.043219 seconds .
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

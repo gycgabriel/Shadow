@@ -26,9 +26,9 @@ TagManager:
   - 
   - 
   - 
-  - 
-  - 
-  - 
+  - Layer 1
+  - Layer 2
+  - Layer 3
   - 
   - 
   - 
@@ -43,14 +43,11 @@ TagManager:
     uniqueID: 0
     locked: 0
   - name: Ground
-    uniqueID: 3220140093
+    uniqueID: 2425651459
+    locked: 0
+  - name: Obstacles
+    uniqueID: 4250941897
     locked: 0
   - name: Player
-    uniqueID: 1627141479
-    locked: 0
-  - name: TallBuildings
-    uniqueID: 1165554063
-    locked: 0
-  - name: UI
-    uniqueID: 3560592317
+    uniqueID: 4189426099
     locked: 0
