@@ -48,3 +48,26 @@ The following packages were updated:
   com.unity.2d.animation from version 5.0.1 to 5.0.4
   com.unity.2d.psdimporter from version 4.0.1 to 4.0.2
   com.unity.2d.spriteshape from version 5.0.1 to 5.1.1
+
+=== Thu May 27 17:55:43 2021
+
+Packages were changed.
+Update Mode: resetToDefaultDependencies
+
+The following packages were removed:
+  com.unity.2d.animation@5.0.4
+  com.unity.2d.pixel-perfect@4.0.1
+  com.unity.2d.psdimporter@4.0.2
+  com.unity.2d.sprite@1.0.0
+  com.unity.2d.spriteshape@5.1.1
+  com.unity.2d.tilemap@1.0.0
+  com.unity.2d.tilemap.extras@1.7.0-preview
+
+=== Thu May 27 20:03:57 2021
+
+Packages were changed.
+Update Mode: updateDependencies
+
+The following packages were updated:
+  com.unity.textmeshpro from version 3.0.4 to 3.0.6
+  com.unity.timeline from version 1.4.7 to 1.4.8
