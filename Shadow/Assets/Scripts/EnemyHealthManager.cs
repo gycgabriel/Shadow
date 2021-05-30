@@ -20,6 +20,8 @@ public class EnemyHealthManager : MonoBehaviour
 
         //Get a component reference to the PlayerStats in the scene
         thePlayerStats = FindObjectOfType<PlayerStats>();      
+
+
     }
 
     // Update is called once per frame

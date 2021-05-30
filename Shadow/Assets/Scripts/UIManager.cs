@@ -58,4 +58,10 @@ public class UIManager : MonoBehaviour
         //Update the Player's current level according to PlayerStats 
         levelText.text = "Lvl " + playerStats.currentLevel;
     }
+
+    public void DestroyLevelUI()
+    {
+        UIExists = false;
+        Destroy(gameObject);
+    }
 }

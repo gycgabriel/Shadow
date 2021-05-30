@@ -42,4 +42,10 @@ public class CameraController : MonoBehaviour
         //Linearly interpolate distance to be travelled by the camera according to its speed and translate it
         transform.position = Vector3.Lerp(transform.position, targetPos, moveSpeed * Time.deltaTime);
     }
+
+    public void DestroyCamera()
+    {
+        cameraExists = false;
+        Destroy(gameObject);
+    }
 }

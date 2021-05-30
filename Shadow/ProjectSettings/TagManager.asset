@@ -23,7 +23,7 @@ TagManager:
   - 
   - 
   - 
-  - 
+  - Blocking
   - 
   - 
   - Layer 1
@@ -53,4 +53,10 @@ TagManager:
     locked: 0
   - name: Player
     uniqueID: 4189426099
+    locked: 0
+  - name: HighBuildings
+    uniqueID: 2794307649
+    locked: 0
+  - name: UI
+    uniqueID: 3750671467
     locked: 0

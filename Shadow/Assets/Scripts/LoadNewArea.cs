@@ -29,7 +29,7 @@ public class LoadNewArea : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         //Check if the Player has entered the doorway (collided with the doorway's collider)
-        if (other.gameObject.name == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             //If the Player entered the doorway, load the new scene
             SceneManager.LoadScene(levelToLoad);

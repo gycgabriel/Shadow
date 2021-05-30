@@ -12,12 +12,15 @@ public class HurtPlayer : MonoBehaviour
     public GameObject damageNumber;     //The object that would display the damage number
 
     private PlayerStats playerStats;    //The PlayerStats object in the scene
+    private Rigidbody2D myRigidBody;        //The slime's Rigidbody2D component
 
     // Start is called before the first frame update
     void Start()
     {
         //Get a component reference to the scene's PlayerStats
         playerStats = FindObjectOfType<PlayerStats>();
+        //Get a component reference to this object's Rigidbody2D
+        myRigidBody = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
@@ -28,8 +31,10 @@ public class HurtPlayer : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
+        //myRigidBody.velocity = Vector2.zero;
+        
         //Check if the enemy collided with the Player
-        if (other.gameObject.name == "Player")
+        /*if (other.gameObject.name == "Player")
         {
             //If the enemy collided with the Player
             //Damage dealt is base damage of the enemy - the Player's defence, with a minimum of zero damage
@@ -44,6 +49,6 @@ public class HurtPlayer : MonoBehaviour
 
             //Set the damage number to be displayed
             clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
-        }
+        }*/
     }
 }

@@ -24,6 +24,8 @@ public class PlayerStartPoint : MonoBehaviour
             //If the Player is spawning at this start point, set the Player's position to this point
             thePlayer.transform.position = transform.position;
 
+            thePlayer.movePoint.position = transform.position;
+
             //Set the Player to face the startDirection
             thePlayer.lastMove = startDirection;
 

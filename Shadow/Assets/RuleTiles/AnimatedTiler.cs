@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEditor;
 using System.Linq;
 
+#if UNITY_EDITOR
+
 public class AnimatedTiler : EditorWindow
 {
     /*
@@ -123,3 +125,5 @@ public class AnimatedTiler : EditorWindow
         return -1;
     }
 }
+
+#endif

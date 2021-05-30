@@ -2,143 +2,211 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script controlling the Player's sprite
 public class PlayerController : MonoBehaviour
 {
 
-    public float moveSpeed;                 //The Player's movement speed
+    public float moveSpeed;
+    public Transform movePoint;
 
-    private Animator anim;                  //The Player's Animator object
-    private Rigidbody2D myRigidBody;        //The Player's RigidBody2D object
+    public Animator anim;
+    public Rigidbody2D myRigidBody;
+    public BoxCollider2D boxCollider;         //The BoxCollider2D component attached to this object.
+    public LayerMask blockingLayer;            //Layer on which collision will be checked.
 
-    private static bool playerExists;       //Whether the Player has been generated
+    //private bool pauseMovementInput;
+    public bool playerMoving;
+    public Vector2 currentMove;
+    public Vector2 lastMove;
 
-    private bool playerMoving;              //Whether the Player is currently moving
-    public Vector2 lastMove;                //The direction vector of the Player's last movement
+    private static bool playerExists;
 
-    private bool playerAttacking;           //Whether the Player is currently attacking
-    public float attackTime;                //The time the Player takes to attack
-    private float attackTimeCounter;        //The time counter for how long the Player has been attacking 
+    private bool playerGoingToAttack;
+    private bool playerAttacking;
+    public float attackTime;
+    //public float attackTimeCounter;
 
-    public string startPoint;               //The name of the start point that the Player will spawn at when loading the scene
+    public string startPoint;
 
     // Start is called before the first frame update
     void Start()
     {
-        //Get a component reference to this object's Animator
-        anim = GetComponent<Animator>();
+        movePoint.parent = null;
 
-        //Get a component reference to this object's RigidBody2D
-        myRigidBody = GetComponent<Rigidbody2D>();
+        //anim = GetComponent<Animator>();
+        //myRigidBody = GetComponent<Rigidbody2D>();
+        //boxCollider = GetComponent<BoxCollider2D>();
 
-        //Only one instance of the Player will exist at any given time
-        //Check if the Player exists (has been generated already)
         if (!playerExists)
         {
-            //If the Player has not been generated yet, generate the Player
-            //Set playerExists to true so no more Player objects will be generated
             playerExists = true;
-
-            //The Player will persist even when a different scene is loaded
-            DontDestroyOnLoad(transform.gameObject);
+            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(movePoint.gameObject);
         }
         else
         {
-            //If the Player already exists, do not generate another Player, destroy this one
+            Destroy(movePoint.gameObject);
             Destroy(gameObject);  
         }
+
+        lastMove = new Vector2(0f, -1f);           //spawn the player initially facing down 
     }
 
     // Update is called once per frame
     void Update()
     {
-        //Set the Player to be not moving by default
-        playerMoving = false;
 
-        //Check if the Player is attacking
-        if (!playerAttacking)
+        if (!PauseMenu.gameIsPaused)
         {
-            //If the Player is not attacking, the Player can receive inputs
+            playerMoving = true;
 
-            //Check for horizontal input
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f)
+            if (!playerAttacking)
             {
-                //If there is horizontal input, set the Player's horizontal velocity to input * movement speed
-                myRigidBody.velocity = new Vector2(Input.GetAxisRaw("Horizontal") * moveSpeed, myRigidBody.velocity.y);
+                //transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+                if (!Move(movePoint.position, out RaycastHit2D hit))
+                {
+                    movePoint.position = transform.position;
+                }
 
-                //Set playerMoving to be true to activate the Player's moving animation
-                playerMoving = true;
+                if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
+                {
+                    if (playerGoingToAttack)
+                    {
+                        //attackTimeCounter = attackTime;
+                        //playerAttacking = true;
+                        StartCoroutine(StartAttackTimer());
+                        playerGoingToAttack = false;
+                    }
+                    else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+                    {
+                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
+                        currentMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
+                        lastMove = currentMove;
+                    }
+                    else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+                    {
+                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
+                        currentMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
+                        lastMove = currentMove;
+                    }
+                    else
+                    {
+                        currentMove = Vector2.zero;
+                        playerMoving = false;
+                    }
 
-                //Set lastMove to the direction of the horizontal input to set direction the Player faces once movement stops
-                lastMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
-            } 
-            else
-            {
-                //if there is no horizontal input, set the Player's horizontal velocity to zero
-                myRigidBody.velocity = new Vector2(0f, myRigidBody.velocity.y);
+                    if (Input.GetKeyDown(KeyCode.J))
+                    {
+                        playerGoingToAttack = true;
+                    }
+                }
+
+
+
             }
-
-            //Check for vertical input
-            if (Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.5f)
+            /*
+            if ()
             {
-                //If there is vertical input, set the Player's vertical velocity to input * movement speed
-                myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, Input.GetAxisRaw("Vertical") * moveSpeed);
+                //Else if the Player is attacking, decrement the attack time counter
+                attackTimeCounter -= Time.deltaTime;
 
-                //Set playerMoving to be true to activate the Player's moving animation
-                playerMoving = true;
-
-                //Set lastMove to the direction of the vertical input to set direction the Player faces once movement stops
-                lastMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
-            } 
-            else
-            {
-                //if there is no vertical input, set the Player's vertical velocity to zero
-                myRigidBody.velocity = new Vector2(myRigidBody.velocity.x, 0f);
+                //Check if the counter time is up
+                if (attackTimeCounter <= 0)
+                {
+                    //If the attack time is up, set playerAttacking to false to stop the attack animation
+                    playerAttacking = false;
+                }
             }
+            */
 
-            //Check if the Player is moving diagonally
-            if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0.5f && Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0.5f)
+            if (!currentMove.Equals(Vector2.zero))
             {
-                //If the Player is moving diagonally, normalize the direction vector so the speed is not boosted
-                Vector2 moveDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-                moveDirection.Normalize();
-                moveDirection *= moveSpeed;
-                myRigidBody.velocity = moveDirection;
+                anim.SetFloat("MoveX", currentMove.x);
+                anim.SetFloat("MoveY", currentMove.y);
             }
-
-            //Check for attack input
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                //If there is attack input, set playerAttacking to be true to activate attack animation
-                playerAttacking = true;
-
-                //Reset the attack time counter
-                attackTimeCounter = attackTime;
-
-                //The player should not be moving while attacking so set the Player's velocity to zero
-                myRigidBody.velocity = Vector2.zero;
-            }
-        }
-        else
-        {
-            //Else if the Player is attacking, decrement the attack time counter
-            attackTimeCounter -= Time.deltaTime;
-
-            //Check if the counter time is up
-            if (attackTimeCounter <= 0)
-            {
-                //If the attack time is up, set playerAttacking to false to stop the attack animation
-                playerAttacking = false;
-            }
+            anim.SetFloat("LastMoveX", lastMove.x);
+            anim.SetFloat("LastMoveY", lastMove.y);
+            anim.SetBool("PlayerMoving", playerMoving);
+            anim.SetBool("PlayerAttacking", playerAttacking);
         }
 
-        //Setting of the Player's Animator's variables
 
-        anim.SetFloat("MoveX", Input.GetAxisRaw("Horizontal")); //Current horizontal input
-        anim.SetFloat("MoveY", Input.GetAxisRaw("Vertical"));   //Current vertical input
-        anim.SetFloat("LastMoveX", lastMove.x);                 //Previous horizontal input
-        anim.SetFloat("LastMoveY", lastMove.y);                 //Previous vertical input
-        anim.SetBool("PlayerMoving", playerMoving);             //Whether the Player is moving
-        anim.SetBool("PlayerAttacking", playerAttacking);       //Whether the Player is attacking
+    }
+
+    IEnumerator StartAttackTimer()
+    {
+        playerAttacking = true;
+        yield return new WaitForSeconds(attackTime);
+        playerAttacking = false;
+    }
+
+    /*IEnumerator MovePlayer()
+    {
+
+    }*/
+
+    //Move returns true if it is able to move and false if not. 
+    //Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
+    protected bool Move(Vector3 end, out RaycastHit2D hit)
+    {
+        //Store start position to move from, based on objects current transform position.
+        Vector2 start = transform.position;
+
+        // Calculate end position based on the direction parameters passed in when calling Move.
+        //Vector2 end = start + new Vector2(xDir, yDir);
+
+        //Disable the boxCollider so that linecast doesn't hit this object's own collider.
+        boxCollider.enabled = false;
+
+        //Cast a line from start point to end point checking collision on blockingLayer.
+        hit = Physics2D.Linecast(start, end, blockingLayer);
+
+        //Re-enable boxCollider after linecast
+        boxCollider.enabled = true;
+
+        //Check if anything was hit
+        if (hit.transform == null)
+        {
+            //If nothing was hit, start SmoothMovement co-routine passing in the Vector2 end as destination
+            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
+
+            //Return true to say that Move was successful
+            return true;
+        }
+
+        //If something was hit, return false, Move was unsuccesful.
+        Debug.Log("Collided with " + hit.collider.name);
+        return false;
+    }
+
+
+    //Co-routine for moving units from one space to next, takes a parameter end to specify where to move to.
+    protected IEnumerator SmoothMovement(Vector3 end)
+    {
+        //Calculate the remaining distance to move based on the square magnitude of the difference between current position and end parameter. 
+        //Square magnitude is used instead of magnitude because it's computationally cheaper.
+        float sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+
+        //While that distance is greater than a very small amount (Epsilon, almost zero):
+        while (sqrRemainingDistance > float.Epsilon)
+        {
+            //Find a new position proportionally closer to the end, based on the moveTime
+            Vector3 newPosition = Vector3.MoveTowards(myRigidBody.position, end, moveSpeed * Time.deltaTime);
+
+            //Call MovePosition on attached Rigidbody2D and move it to the calculated position.
+            myRigidBody.MovePosition(newPosition);
+
+            //Recalculate the remaining distance after moving.
+            sqrRemainingDistance = (transform.position - end).sqrMagnitude;
+
+            //Return and loop until sqrRemainingDistance is close enough to zero to end the function
+            yield return null;
+        }
+    }
+
+    public void DestroyPlayer()
+    {
+        playerExists = false;
+        Destroy(movePoint.gameObject);
+        Destroy(gameObject);
     }
 }

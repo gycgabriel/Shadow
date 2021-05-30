@@ -9,7 +9,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
 using System.Linq;
- 
+
+#if UNITY_EDITOR
 public class RuleTileCloner : EditorWindow
 {
     private RuleTile referenceTile;
@@ -93,3 +94,4 @@ public class RuleTileCloner : EditorWindow
         return -1;
     }
 }
+#endif
