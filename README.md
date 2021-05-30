@@ -2,9 +2,8 @@
 
 A 2D pixel art action-adventure role-playing game (RPG) inspired by classics like Zenonia and Log Horizon. A 2021 NUS Orbital Project.
 
-![Screenshot](/Resources/Screenshots/Shadow-v0.2.0-3.png "Town")
-![Screenshot](/Resources/Screenshots/Shadow-v0.2.0-5.png "Attacking Slimes")
-![Screenshot](/Resources/Screenshots/Shadow-v0.2.0-6.png "Inn")
+| <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/Screenshots/Shadow-v0.2.0-3.png" width="800" /> | <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/Screenshots/Shadow-v0.2.0-5.png" width="800" /> |
+| --- | --- |
 
 
 Many people may have played _Zenonia_, one such action-adventure RPG. Early _Zenonia_ had aesthetics reminiscent of 16-bit JRPGs, but even without stunning graphics, Zenonia was able to captivate players through <span style="text-decoration:underline;">character progression</span> and its <span style="text-decoration:underline;">stress-relieving gameplay</span>.
