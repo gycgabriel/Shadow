@@ -4,34 +4,22 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
-public class PauseMenu : MonoBehaviour
+public class PauseMenu : Singleton<PauseMenu>
 {
     public static bool gameIsPaused = false;      //Whether the game is paused
 
     public GameObject pauseMenuUI;               //The UI of the pause menu
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
 
-    private static bool pauseMenuUIExists;
-
     private PlayerController thePlayer;
     private CameraController mainCamera;
-    private UIManager playerLevelUI;
+    private StatusDrawer playerLevelUI;
 
     private void Start()
     {
-        if (!pauseMenuUIExists)
-        {
-            pauseMenuUIExists = true;
-            DontDestroyOnLoad(gameObject);
-            thePlayer = FindObjectOfType<PlayerController>();
-            mainCamera = FindObjectOfType<CameraController>();
-            playerLevelUI = FindObjectOfType<UIManager>();
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
-
+        thePlayer = FindObjectOfType<PlayerController>();
+        mainCamera = FindObjectOfType<CameraController>();
+        playerLevelUI = FindObjectOfType<StatusDrawer>();
     }
 
     private void Update()
@@ -52,6 +40,7 @@ public class PauseMenu : MonoBehaviour
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
+        playerLevelUI.gameObject.SetActive(true);
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -59,6 +48,7 @@ public class PauseMenu : MonoBehaviour
     public void PauseGame()
     {
         pauseMenuUI.SetActive(true);
+        playerLevelUI.gameObject.SetActive(false);
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
@@ -67,11 +57,11 @@ public class PauseMenu : MonoBehaviour
     {
         thePlayer.DestroyPlayer();
         mainCamera.DestroyCamera();
-        playerLevelUI.DestroyLevelUI();
+        playerLevelUI.Destroy();
         Time.timeScale = 1f;
         gameIsPaused = false;
         SceneManager.LoadScene(levelToLoad_Menu);
-        DestroyPauseMenuUI();
+        Destroy(this.gameObject);
     }
 
     public void QuitGame()
@@ -79,12 +69,5 @@ public class PauseMenu : MonoBehaviour
         Debug.Log("Quitting!");
         Application.Quit();
     }
-
-    public void DestroyPauseMenuUI()
-    {
-        pauseMenuUIExists = false;
-        Destroy(gameObject);
-    }
-
 
 }
