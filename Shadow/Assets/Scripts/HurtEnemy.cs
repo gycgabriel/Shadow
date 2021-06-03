@@ -12,13 +12,13 @@ public class HurtEnemy : MonoBehaviour
     public Transform hitPoint;              //The point where the weapon hits the enemy
     public GameObject damageNumber;         //The object that would display the damage number
 
-    private PlayerStats playerStats;        //The PlayerStats object in the scene
+    private PlayerStatsManager playerStatsManager;        //The PlayerStats object in the scene
 
     // Start is called before the first frame update
     void Start()
     {
         //Get a component reference to the scene's PlayerStats
-        playerStats = FindObjectOfType<PlayerStats>();
+        playerStatsManager = FindObjectOfType<PlayerStatsManager>();
     }
 
     // Update is called once per frame
@@ -34,7 +34,7 @@ public class HurtEnemy : MonoBehaviour
         {
             //If this weapon hits an enemy,
             //Damage dealt is given by base damage of weapon + the Player's attack stat
-            currentDamage = damageToGive + playerStats.currentAttack;
+            currentDamage = damageToGive + playerStatsManager.playerStats[(int) PlayerStatsManager.Stats.ATK];
 
             //Deal the damage to the enemy by notifying the EnemyHealthManager
             other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(currentDamage);

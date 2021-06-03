@@ -735,7 +735,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -1237,10 +1237,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aee0adae56039e74d8e028e49fa3fcb3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  thePlayer: {fileID: 0}
+  thePlayer: {fileID: 7021806160790640468, guid: c12ce0daac982184f8b257125e09b4ce,
+    type: 3}
   hpBar: {fileID: 2090656658663536989}
   mpBar: {fileID: 4270851792042941163}
   expBar: {fileID: 5317841137074534135}
+  characlassText: {fileID: 8510760286683331595}
   levelText: {fileID: 231048773700558057}
   hpText: {fileID: 7909101298086401104}
   mpText: {fileID: 4475076239035390748}
@@ -1681,7 +1683,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
@@ -2093,7 +2095,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

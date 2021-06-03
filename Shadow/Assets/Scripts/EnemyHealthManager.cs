@@ -8,7 +8,7 @@ public class EnemyHealthManager : MonoBehaviour
     public int MaxHealth;                   //The enemy's maximum health points
     public int CurrentHealth;               //The enemy's current health points
 
-    private PlayerStats thePlayerStats;     //The PlayerStats class containing the Player's stats
+    private PlayerStatsManager thePlayerStats;     //The PlayerStats class containing the Player's stats
 
     public int expToGive;                   //The experience points given by this enemy when defeated
 
@@ -19,7 +19,7 @@ public class EnemyHealthManager : MonoBehaviour
         SetMaxHealth();        
 
         //Get a component reference to the PlayerStats in the scene
-        thePlayerStats = FindObjectOfType<PlayerStats>();      
+        thePlayerStats = FindObjectOfType<PlayerStatsManager>();      
 
 
     }

@@ -10,6 +10,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public GameObject pauseMenuUI;               //The UI of the pause menu
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
+    public Button buttonToSelect;            // button to select when paused
 
     private PlayerController thePlayer;
     private CameraController mainCamera;
@@ -24,7 +25,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.X))
         {
             if (gameIsPaused)
             {
@@ -49,6 +50,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         pauseMenuUI.SetActive(true);
         playerLevelUI.gameObject.SetActive(false);
+        buttonToSelect.Select();
         Time.timeScale = 0f;
         gameIsPaused = true;
     }
