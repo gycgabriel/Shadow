@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     private PlayerHealthManager playerHealthManager;
     private PlayerClassingManager playerClassingManager;
 
+    public Image playerPortrait;                        // The Player's portrait
+
     public Slider hpBar;                            // The Player's HP bar
     public Slider mpBar;                            // The Player's MP bar
     public Slider expBar;                           // The Player's experience bar
@@ -55,6 +57,8 @@ public class UIManager : MonoBehaviour
 
         // Update the Player's class (though should be constant)
         characlassText.text = playerClassingManager.playerCharaClass.ToString();
+        playerPortrait.sprite = playerClassingManager.playerPortrait; 
+
     }
 
 }
