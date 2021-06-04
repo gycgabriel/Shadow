@@ -25,6 +25,9 @@ public class PlayerController : MonoBehaviour
     public float attackTime;
     //public float attackTimeCounter;
 
+    //public Transform spellFirePoint;          //The point where the fireball will be generated at    
+    //public Fireball fireballPrefab;           //The fireball object to be launched
+
     public string startPoint;
 
     // Start is called before the first frame update
@@ -74,6 +77,9 @@ public class PlayerController : MonoBehaviour
                         //attackTimeCounter = attackTime;
                         //playerAttacking = true;
                         StartCoroutine(StartAttackTimer());
+
+                        //StartCoroutine(CastFireball());
+
                         playerGoingToAttack = false;
                     }
                     else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
@@ -138,6 +144,16 @@ public class PlayerController : MonoBehaviour
         yield return new WaitForSeconds(attackTime);
         playerAttacking = false;
     }
+
+    
+    //Coroutine to summon fireball, Sorcerer's normal attack
+    /*
+    IEnumerator CastFireball()
+    {
+        yield return new WaitForSeconds(0.3f);
+        Instantiate(fireballPrefab, spellFirePoint.position, spellFirePoint.rotation);
+    }
+    */
 
     /*IEnumerator MovePlayer()
     {

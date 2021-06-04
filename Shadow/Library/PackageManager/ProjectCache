@@ -1,20 +1,20 @@
 m_ProjectFiles:
   m_ManifestFileStatus:
-    m_FilePath: C:/Users/gabri/Desktop/Shadow/Shadow/Packages/manifest.json
+    m_FilePath: C:/Users/Sze Long/Shadow/Shadow/Packages/manifest.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637579600776611612
-    m_Hash: 2518233788
+      ticks: 637578646413731339
+    m_Hash: 3922157395
   m_LockFileStatus:
-    m_FilePath: C:/Users/gabri/Desktop/Shadow/Shadow/Packages/packages-lock.json
+    m_FilePath: C:/Users/Sze Long/Shadow/Shadow/Packages/packages-lock.json
     m_PathExists: 1
     m_ContentTrackingEnabled: 1
     m_ModificationDate:
       serializedVersion: 2
-      ticks: 637579600776631620
-    m_Hash: 380415415
+      ticks: 637578646531972722
+    m_Hash: 1531949900
 m_EmbeddedPackageManifests:
   m_ManifestsStatus: {}
 m_PackageAssets:
@@ -76,7 +76,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.7.0-preview
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.2d.tilemap.extras@1.7.0-preview
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.2d.tilemap.extras@1.7.0-preview
       assetPath: Packages/com.unity.2d.tilemap.extras
       name: com.unity.2d.tilemap.extras
       displayName: 2D Tilemap Extras
@@ -151,7 +151,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.5.7
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.collab-proxy@1.5.7
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.collab-proxy@1.5.7
       assetPath: Packages/com.unity.collab-proxy
       name: com.unity.collab-proxy
       displayName: Version Control
@@ -252,7 +252,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.7
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.ide.rider@2.0.7
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.ide.rider@2.0.7
       assetPath: Packages/com.unity.ide.rider
       name: com.unity.ide.rider
       displayName: JetBrains Rider Editor
@@ -359,7 +359,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 2.0.8
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.ide.visualstudio@2.0.8
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.ide.visualstudio@2.0.8
       assetPath: Packages/com.unity.ide.visualstudio
       name: com.unity.ide.visualstudio
       displayName: Visual Studio Editor
@@ -389,6 +389,7 @@ m_PackageAssets:
         - 2.0.5
         - 2.0.7
         - 2.0.8
+        - 2.0.9
         compatible:
         - 1.0.2
         - 1.0.3
@@ -403,7 +404,8 @@ m_PackageAssets:
         - 2.0.5
         - 2.0.7
         - 2.0.8
-        verified: 2.0.8
+        - 2.0.9
+        verified: 2.0.9
       dependencies:
       - name: com.unity.test-framework
         version: 1.1.9
@@ -442,7 +444,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.2.3
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.ide.vscode@1.2.3
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.ide.vscode@1.2.3
       assetPath: Packages/com.unity.ide.vscode
       name: com.unity.ide.vscode
       displayName: Visual Studio Code Editor
@@ -511,7 +513,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.1.24
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.test-framework@1.1.24
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.test-framework@1.1.24
       assetPath: Packages/com.unity.test-framework
       name: com.unity.test-framework
       displayName: Test Framework
@@ -601,7 +603,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 3.0.6
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.textmeshpro@3.0.6
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.textmeshpro@3.0.6
       assetPath: Packages/com.unity.textmeshpro
       name: com.unity.textmeshpro
       displayName: TextMeshPro
@@ -756,7 +758,7 @@ m_PackageAssets:
       isDirectDependency: 1
       version: 1.4.8
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.timeline@1.4.8
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.timeline@1.4.8
       assetPath: Packages/com.unity.timeline
       name: com.unity.timeline
       displayName: Timeline
@@ -2707,7 +2709,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 1.0.6
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.ext.nunit@1.0.6
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.ext.nunit@1.0.6
       assetPath: Packages/com.unity.ext.nunit
       name: com.unity.ext.nunit
       displayName: Custom NUnit
@@ -2768,7 +2770,7 @@ m_PackageAssets:
       isDirectDependency: 0
       version: 2.0.0
       source: 1
-      resolvedPath: C:\Users\gabri\Desktop\Shadow\Shadow\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0
+      resolvedPath: C:\Users\Sze Long\Shadow\Shadow\Library\PackageCache\com.unity.nuget.newtonsoft-json@2.0.0
       assetPath: Packages/com.unity.nuget.newtonsoft-json
       name: com.unity.nuget.newtonsoft-json
       displayName: Newtonsoft Json
@@ -2777,7 +2779,7 @@ m_PackageAssets:
         email: 
         url: 
       category: 
-      type: library
+      type: 
       description: 'Newtonsoft Json for use in Unity projects and Unity packages.
         Currently synced to version 12.0.2.
 
@@ -2792,9 +2794,27 @@ m_PackageAssets:
       errors: []
       versions:
         all:
+        - 1.0.0-preview.2
+        - 1.0.0-preview.3
+        - 1.0.0-preview.4
+        - 1.0.1-preview.1
+        - 1.1.2
+        - 2.0.0-preview
+        - 2.0.0-preview.1
+        - 2.0.0-preview.2
         - 2.0.0
+        - 2.0.1-preview.1
         compatible:
+        - 1.0.0-preview.2
+        - 1.0.0-preview.3
+        - 1.0.0-preview.4
+        - 1.0.1-preview.1
+        - 1.1.2
+        - 2.0.0-preview
+        - 2.0.0-preview.1
+        - 2.0.0-preview.2
         - 2.0.0
+        - 2.0.1-preview.1
         verified: 2.0.0
       dependencies: []
       resolvedDependencies: []
@@ -2811,7 +2831,7 @@ m_PackageAssets:
       entitlements:
         isAllowed: 1
       isAssetStorePackage: 0
-      datePublishedTicks: 0
+      datePublishedTicks: 637237898320000000
       documentationUrl: 
       hasRepository: 1
       repository:
@@ -2871,5 +2891,5 @@ m_PackageAssets:
         path: 
   m_LocalPackages:
     m_LocalFileStatus: []
-m_ProjectPath: C:/Users/gabri/Desktop/Shadow/Shadow/Packages
+m_ProjectPath: C:/Users/Sze Long/Shadow/Shadow/Packages
 m_EditorVersion: 2020.3.10f1 (297d780c91bc)
