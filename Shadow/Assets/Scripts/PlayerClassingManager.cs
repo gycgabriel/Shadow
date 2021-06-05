@@ -38,6 +38,12 @@ public class PlayerClassingManager : MonoBehaviour
     }
 
 
+    public void ChoosePlayerClassFromButton(string value)
+    {
+        System.Enum.TryParse(value, out CharacterClass myClass);
+        ChoosePlayerClass(myClass);
+    }
+
     // Choose character classes
     public void ChoosePlayerClass(CharacterClass value)
     {

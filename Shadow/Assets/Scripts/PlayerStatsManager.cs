@@ -13,9 +13,17 @@ public class PlayerStatsManager : MonoBehaviour
     public int[] playerStats = new int[] { 100, 50, 20, 20, 20, 20, 20, 0 };
 
     // Math formulas
-    private System.Func<int, int> expFormula = x => Mathf.FloorToInt(Mathf.Pow(x, 3f) + 14f * x);           // Exp formula n^3 + 14n for now
-    private System.Func<int, int> hpFormula = x => x + 50;                                                  // Hp formula n + 50 for now
-    // TODO: all formulae for every stat
+    private System.Func<int, int> expFormula = x => Mathf.FloorToInt(Mathf.Pow(x, 3f) + 14f);
+    private List<System.Func<int, int>> statIncreaseFormula = new List<System.Func<int, int>>() {
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+        x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f),
+    };
 
     private PlayerHealthManager playerHealth;                       // The Player's PlayerHealthManager component
 
@@ -61,14 +69,14 @@ public class PlayerStatsManager : MonoBehaviour
         expToNextLevel = expFormula(currentLevel);
 
         // Set the Player's new stats according to the Player's new level
-        playerStats[(int) Stats.HP] += hpFormula(currentLevel);
-        playerStats[(int) Stats.MP] += 20;
+        for (int i = 0; i < playerStats.Length; i++)
+        {
+            playerStats[i] += statIncreaseFormula[i](currentLevel);
+        }
 
         // Update the Player's new maxHealth stat in the PlayerHealthManager
         playerHealth.playerMaxHealth = playerStats[(int) Stats.HP];
         playerHealth.playerMaxMana = playerStats[(int) Stats.MP];
-
-        // TODO: Raise stats on level up based on formulae above 
 
         // Restore the Player to full HP
         playerHealth.ResetMaxHealth();
