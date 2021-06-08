@@ -14,8 +14,9 @@ GameObject:
   - component: {fileID: 5784762885378763424}
   - component: {fileID: 3078299321004942354}
   - component: {fileID: 3078299321004942355}
-  - component: {fileID: 4386452299678468515}
   - component: {fileID: 513531812816052693}
+  - component: {fileID: 4971915349983963545}
+  - component: {fileID: 8963225019218732868}
   m_Layer: 17
   m_Name: GreenSlime
   m_TagString: Enemy
@@ -165,21 +166,6 @@ MonoBehaviour:
   timeBetweenMove: 2
   timeBetweenMoveCounter: 0
   timeToMove: 1
---- !u!114 &4386452299678468515
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3078299321004942348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d5f215ccd50c2504ab21e2ba26f7ce84, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  MaxHealth: 15
-  CurrentHealth: 0
-  expToGive: 25
 --- !u!114 &513531812816052693
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -195,3 +181,35 @@ MonoBehaviour:
   damageToGive: 10
   damageNumber: {fileID: 4022088767387902098, guid: f20d4060ad3bd584d8abe101b4c3dfe9,
     type: 3}
+--- !u!114 &4971915349983963545
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078299321004942348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b43e31d45d2a4f908b2d5b32d6870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureGO: {fileID: 0}
+--- !u!114 &8963225019218732868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3078299321004942348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22f5e265ddf2c554da93e7e18fc9f6e4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+  currentHP: 40
+  currentMP: 10
+  currentLevel: 0
+  isDead: 0
+  expReward: 1000
+  thePlayer: {fileID: 0}

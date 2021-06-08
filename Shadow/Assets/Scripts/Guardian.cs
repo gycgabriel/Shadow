@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class Guardian : CharacterClass
 {
-    void Awake()
+    public Guardian()
     {
         startStats = new Stats(100, 50, 20, 20, 20, 20, 20, 0);
         expFormula = x => Mathf.FloorToInt(Mathf.Pow(x, 3f) + 14f);
@@ -22,6 +22,11 @@ public class Guardian : CharacterClass
             {"agi", x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f) },
             {"luk", x =>  Mathf.FloorToInt(Mathf.Pow(x, 2f) + 14f) },
         };
+    }
+
+    public string toString()
+    {
+        return "Guardian";
     }
 
 }

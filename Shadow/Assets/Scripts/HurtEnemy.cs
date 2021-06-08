@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script for the weapon to damage the enemy
+//Script for the weapon to damage the enemy             // SCRIPTABLE OBJECT??
 public class HurtEnemy : MonoBehaviour
 {
 
@@ -12,32 +12,22 @@ public class HurtEnemy : MonoBehaviour
     public Transform hitPoint;              //The point where the weapon hits the enemy
     public GameObject damageNumber;         //The object that would display the damage number
 
-    private PlayerStatsManager playerStatsManager;        //The PlayerStats object in the scene
-
-    // Start is called before the first frame update
+    public Player thePlayer;                // or assign when instantiating fireball prefab
     void Start()
     {
-        //Get a component reference to the scene's PlayerStats
-        playerStatsManager = FindObjectOfType<PlayerStatsManager>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        thePlayer = FindObjectOfType<Player>();
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Check if the weapon has hit an enemy
         if (other.gameObject.tag == "Enemy")
         {
             //If this weapon hits an enemy,
             //Damage dealt is given by base damage of weapon + the Player's attack stat
-            currentDamage = damageToGive + playerStatsManager.playerStats[(int) PlayerStatsManager.Stats.ATK];
+            currentDamage = damageToGive + thePlayer.getStats()["atk"];
 
             //Deal the damage to the enemy by notifying the EnemyHealthManager
-            other.gameObject.GetComponent<EnemyHealthManager>().HurtEnemy(currentDamage);
+            other.gameObject.GetComponent<HurtBehaviour>().hurt(currentDamage);
 
             //Generate the blood spurt animation at the hit point
             Instantiate(damageBurst, hitPoint.position, hitPoint.rotation);

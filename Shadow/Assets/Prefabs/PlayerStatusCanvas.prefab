@@ -195,6 +195,7 @@ GameObject:
   - component: {fileID: 3341495041563417917}
   - component: {fileID: 2793831323127004200}
   - component: {fileID: 2619972874548509701}
+  - component: {fileID: 9068985931263833807}
   m_Layer: 5
   m_Name: PlayerFace
   m_TagString: Untagged
@@ -259,6 +260,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &9068985931263833807
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235842058539987292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90890dfc54bef704aa1530e19306cfb3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  portraitOf: {fileID: 0}
 --- !u!1 &2291216143339915495
 GameObject:
   m_ObjectHideFlags: 0
@@ -2054,7 +2068,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   thePlayer: {fileID: 0}
-  playerPortrait: {fileID: 2619972874548509701}
   hpBar: {fileID: 0}
   mpBar: {fileID: 0}
   expBar: {fileID: 0}

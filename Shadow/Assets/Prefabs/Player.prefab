@@ -10,9 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 7021806160790640475}
   - component: {fileID: 7021806160790640472}
-  - component: {fileID: 7021806160790640473}
   - component: {fileID: 7021806160790640474}
-  - component: {fileID: 2185542598404754354}
+  - component: {fileID: 7387898316764795012}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -27,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7021806160790640468}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -6.5, y: 3.75, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -61,20 +60,6 @@ MonoBehaviour:
   lastMove: {x: 0, y: 0}
   attackTime: 0.5
   startPoint: Test House Out
---- !u!114 &7021806160790640473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7021806160790640468}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6576ab354fd9f0f4cab9fb05d48c0057, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerMaxHealth: 50
-  playerCurrentHealth: 0
 --- !u!210 &7021806160790640474
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -86,7 +71,7 @@ SortingGroup:
   m_SortingLayerID: -105541197
   m_SortingLayer: 4
   m_SortingOrder: 1
---- !u!114 &2185542598404754354
+--- !u!114 &7387898316764795012
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -95,18 +80,17 @@ MonoBehaviour:
   m_GameObject: {fileID: 7021806160790640468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a24638fac35a8c941aa95c93264a98d0, type: 3}
+  m_Script: {fileID: 11500000, guid: be0742f4cacfd5644997d23fea85e21c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentLevel: 1
+  skills: []
+  currentHP: 0
+  currentMP: 0
+  currentLevel: 0
+  isDead: 0
+  charclass: {fileID: 0}
   currentExp: 0
-  expToLevelUp: 000000000a00000014000000320000006400000096000000c8000000fa000000f4010000e8030000
-  HPLevels: 3200000032000000370000003c0000004100000046000000500000005a0000006400000078000000
-  attackLevels: 000000000000000001000000020000000400000006000000080000000c0000001000000014000000
-  defenceLevels: 000000000000000001000000020000000400000006000000080000000c0000001000000014000000
-  currentHP: 50
-  currentAttack: 10
-  currentDefence: 10
+  expToNextLevel: 0
 --- !u!1 &7021806160996736911
 GameObject:
   m_ObjectHideFlags: 0

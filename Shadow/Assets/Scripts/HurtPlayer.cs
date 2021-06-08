@@ -11,14 +11,14 @@ public class HurtPlayer : MonoBehaviour
 
     public GameObject damageNumber;     //The object that would display the damage number
 
-    private PlayerStatsManager playerStats;    //The PlayerStats object in the scene
+    private Player thePlayer;    //The PlayerStats object in the scene
     private Rigidbody2D myRigidBody;        //The slime's Rigidbody2D component
 
     // Start is called before the first frame update
     void Start()
     {
         //Get a component reference to the scene's PlayerStats
-        playerStats = FindObjectOfType<PlayerStatsManager>();
+        thePlayer = FindObjectOfType<Player>();
         //Get a component reference to this object's Rigidbody2D
         myRigidBody = GetComponent<Rigidbody2D>();
     }

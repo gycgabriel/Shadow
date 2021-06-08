@@ -58,7 +58,7 @@ MonoBehaviour:
   lastMove: {x: 0, y: 0}
   attackTime: 0.5
   startPoint: Test House Out
---- !u!114 &3836819110530870057
+--- !u!114 &873479794823840223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -67,12 +67,31 @@ MonoBehaviour:
   m_GameObject: {fileID: 3836819111343634842}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff53b875f6d49314683d435a98f5787a, type: 3}
+  m_Script: {fileID: 11500000, guid: ced6a67c09e480247a9817ecdc18f4f7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TheOther: {fileID: 7699529798911463434}
-  playerCharaClass: 1
-  shadowMode: 0
+  portraitPath: 
+  portraitToDisplay: {fileID: 0}
+--- !u!114 &7594919581769388966
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3836819111343634842}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: be0742f4cacfd5644997d23fea85e21c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skills: []
+  currentHP: 200
+  currentMP: 21
+  currentLevel: 0
+  isDead: 0
+  charclass: {fileID: 0}
+  currentExp: 0
+  expToNextLevel: 0
 --- !u!1001 &6074627089699598030
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -83,7 +102,7 @@ PrefabInstance:
     - target: {fileID: 7021806160790640468, guid: c12ce0daac982184f8b257125e09b4ce,
         type: 3}
       propertyPath: m_Name
-      value: Player
+      value: Guardian
       objectReference: {fileID: 0}
     - target: {fileID: 7021806160790640472, guid: c12ce0daac982184f8b257125e09b4ce,
         type: 3}
@@ -157,6 +176,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7021806160790640472, guid: c12ce0daac982184f8b257125e09b4ce, type: 3}
+    - {fileID: 2185542598404754354, guid: c12ce0daac982184f8b257125e09b4ce, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c12ce0daac982184f8b257125e09b4ce, type: 3}
 --- !u!1 &3836819111343634842 stripped
 GameObject:
@@ -256,6 +276,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1212493553920878642, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: playerMaxMana
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212493553920878642, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: playerMaxHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 1212493553920878644, guid: e452839e937e4584692ff9238cb2ad33,
         type: 3}
       propertyPath: TheOther
@@ -266,14 +296,33 @@ PrefabInstance:
       propertyPath: m_Name
       value: Shadow
       objectReference: {fileID: 0}
+    - target: {fileID: 1212493553920878655, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212493554505940626, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1212493555422888804, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067434157272380633, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: playerStats.Array.data[0]
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8067434157272380633, guid: e452839e937e4584692ff9238cb2ad33,
+        type: 3}
+      propertyPath: playerStats.Array.data[1]
+      value: 20
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e452839e937e4584692ff9238cb2ad33, type: 3}
---- !u!1 &7699529798911463434 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1212493553920878655, guid: e452839e937e4584692ff9238cb2ad33,
-    type: 3}
-  m_PrefabInstance: {fileID: 8793733437979670581}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7699529798911463429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1212493553920878640, guid: e452839e937e4584692ff9238cb2ad33,

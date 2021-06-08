@@ -7,7 +7,7 @@ using UnityEngine;
  */
 public class Sorcerer : CharacterClass
 {
-    void Awake()
+    public Sorcerer()
     {
         startStats = new Stats(100, 50, 20, 20, 20, 20, 20, 0);
         expFormula = x => Mathf.FloorToInt(Mathf.Pow(x, 3f) + 14f);
@@ -24,6 +24,9 @@ public class Sorcerer : CharacterClass
         };
     }
 
-
+    public string toString()
+    {
+        return "Sorcerer";
+    }
 
 }

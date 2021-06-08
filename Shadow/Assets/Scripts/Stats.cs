@@ -32,7 +32,7 @@ public class Stats
         return modifiedStats;
     }
 
-    public void addBaseStat(string stat, int value)
+    public void addBaseStat(string stat, int value)             // add stat on level up
     {
         baseStats[stat] += value;
     }
