@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : Singleton<PlayerController>
 {
 
     public float moveSpeed;
@@ -17,8 +17,6 @@ public class PlayerController : MonoBehaviour
     public bool playerMoving;
     public Vector2 currentMove;
     public Vector2 lastMove;
-
-    private static bool playerExists;
 
     private bool playerGoingToAttack;
     private bool playerAttacking;
@@ -38,18 +36,6 @@ public class PlayerController : MonoBehaviour
         //anim = GetComponent<Animator>();
         //myRigidBody = GetComponent<Rigidbody2D>();
         //boxCollider = GetComponent<BoxCollider2D>();
-
-        if (!playerExists)
-        {
-            playerExists = true;
-            DontDestroyOnLoad(gameObject);
-            DontDestroyOnLoad(movePoint.gameObject);
-        }
-        else
-        {
-            Destroy(movePoint.gameObject);
-            Destroy(gameObject);  
-        }
 
         lastMove = new Vector2(0f, -1f);           //spawn the player initially facing down 
     }
@@ -219,9 +205,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void DestroyPlayer()
+    public override void Destroy()
     {
-        playerExists = false;
         Destroy(movePoint.gameObject);
         Destroy(gameObject);
     }

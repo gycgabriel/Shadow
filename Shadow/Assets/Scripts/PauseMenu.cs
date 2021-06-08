@@ -57,8 +57,8 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void ReturnToMenu()
     {
-        thePlayer.DestroyPlayer();
-        mainCamera.DestroyCamera();
+        thePlayer.Destroy();
+        mainCamera.Destroy();
         playerLevelUI.Destroy();
         Time.timeScale = 1f;
         gameIsPaused = false;

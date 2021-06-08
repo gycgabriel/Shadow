@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-/** Parent class for gameObjects that can only exist one at a time.
+/** 
+ * Parent class for gameObjects that can only exist one at a time.
  * Only inherit in child scripts attached to root GameObject! DontDestroyOnLoad requirement.
  */
 
@@ -28,7 +29,8 @@ public class Singleton<T> : MonoBehaviour where T : Component
     }
 
     // Convenience method
-    public void Destroy()
+    // Player has to destroy movepoints and other things so virtual for overriding
+    public virtual void Destroy()
     {
         Destroy(this.gameObject);
     }

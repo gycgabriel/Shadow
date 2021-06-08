@@ -24,7 +24,7 @@ public class UIManager : MonoBehaviour
 
     void Start()
     {
-
+        thePlayer = FindObjectOfType<Player>();
     }
 
     void Update()
