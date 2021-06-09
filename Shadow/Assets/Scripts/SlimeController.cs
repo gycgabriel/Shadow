@@ -106,7 +106,7 @@ public class SlimeController : MonoBehaviour
         }
 
         //If something was hit, return false, Move was unsuccesful.
-        Debug.Log("Slime collided with " + hit.collider.name);
+        //Debug.Log("Slime collided with " + hit.collider.name);
         return false;
     }
 

@@ -16675,7 +16675,7 @@ Tilemap:
       - {fileID: 4967909390688929021, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 1691281573737429660, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -4125396406969222490, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 17, y: -5, z: 0}
@@ -20405,5 +20405,6 @@ PrefabInstance:
       propertyPath: blockingLayer.m_Bits
       value: 131072
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 513531812816052693, guid: 88807ecfa3d0ed24eb9d7ac028f265f1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 88807ecfa3d0ed24eb9d7ac028f265f1, type: 3}

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5784762885378763424}
   - component: {fileID: 3078299321004942354}
   - component: {fileID: 3078299321004942355}
-  - component: {fileID: 513531812816052693}
   - component: {fileID: 4971915349983963545}
   - component: {fileID: 8963225019218732868}
   m_Layer: 17
@@ -166,21 +165,6 @@ MonoBehaviour:
   timeBetweenMove: 2
   timeBetweenMoveCounter: 0
   timeToMove: 1
---- !u!114 &513531812816052693
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3078299321004942348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fec093dc6a5f60541bc3deec9178c38e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageToGive: 10
-  damageNumber: {fileID: 4022088767387902098, guid: f20d4060ad3bd584d8abe101b4c3dfe9,
-    type: 3}
 --- !u!114 &4971915349983963545
 MonoBehaviour:
   m_ObjectHideFlags: 0

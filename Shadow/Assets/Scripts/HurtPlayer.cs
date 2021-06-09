@@ -17,9 +17,10 @@ public class HurtPlayer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Get a component reference to the scene's PlayerStats
+        // Get a component reference to the scene's PlayerStats
         thePlayer = FindObjectOfType<Player>();
-        //Get a component reference to this object's Rigidbody2D
+
+        // Get a component reference to this object's Rigidbody2D
         myRigidBody = GetComponent<Rigidbody2D>();
     }
 
@@ -30,25 +31,25 @@ public class HurtPlayer : MonoBehaviour
     }
 
     void OnCollisionEnter2D(Collision2D other)
-    {
-        //myRigidBody.velocity = Vector2.zero;
-        
-        //Check if the enemy collided with the Player
-        /*if (other.gameObject.name == "Player")
+    {      
+        // Check if the enemy collided with the Player
+        if (other.gameObject.CompareTag("Player"))
         {
-            //If the enemy collided with the Player
-            //Damage dealt is base damage of the enemy - the Player's defence, with a minimum of zero damage
-            currentDamage = Mathf.Max(damageToGive - playerStats.currentDefence, 0);
+            Debug.Log("Hit Player.");
 
-            //Deal the damage to the Player by notifying the PlayerHealthManager
-            other.gameObject.GetComponent<PlayerHealthManager>().HurtPlayer(currentDamage);
+            // If the enemy collided with the Player
+            // Damage dealt is base damage of the enemy - the Player's defence, with a minimum of zero damage
+            currentDamage = Mathf.Max(damageToGive, 0);
 
-            //Generate the object displaying the damage number at where the Player's position
-            //Rotation set to zero to ensure damage number is upright
+            // Deal the damage to the Player by notifying the PlayerHealthManager
+            other.gameObject.GetComponent<HurtBehaviour>().hurt(currentDamage);
+
+            // Generate the object displaying the damage number at where the Player's position
+            // Rotation set to zero to ensure damage number is upright
             GameObject clone = (GameObject) Instantiate(damageNumber, other.transform.position, Quaternion.Euler(Vector3.zero));
 
-            //Set the damage number to be displayed
+            // Set the damage number to be displayed
             clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
-        }*/
+        }
     }
 }

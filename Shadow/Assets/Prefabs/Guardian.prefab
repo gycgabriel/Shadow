@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 7021806160790640474}
   - component: {fileID: 7387898316764795012}
   - component: {fileID: 4756731513656762835}
+  - component: {fileID: 4156385587426568943}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Player
@@ -105,6 +106,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portraitPath: portrait_guardian
   portraitToDisplay: {fileID: 21300000, guid: d97413ecc6f373f4e9343324438949dd, type: 3}
+--- !u!114 &4156385587426568943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021806160790640468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c82b43e31d45d2a4f908b2d5b32d6870, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureGO: {fileID: 0}
 --- !u!1 &7021806160996736911
 GameObject:
   m_ObjectHideFlags: 0
@@ -209,6 +223,7 @@ MonoBehaviour:
   hitPoint: {fileID: 7021806161494929431}
   damageNumber: {fileID: 4022088767387902098, guid: f20d4060ad3bd584d8abe101b4c3dfe9,
     type: 3}
+  isProjectile: 0
   thePlayer: {fileID: 0}
 --- !u!60 &7021806160996736909
 PolygonCollider2D:
@@ -291,7 +306,7 @@ Rigidbody2D:
   m_GameObject: {fileID: 7021806161379852793}
   m_BodyType: 1
   m_Simulated: 1
-  m_UseFullKinematicContacts: 0
+  m_UseFullKinematicContacts: 1
   m_UseAutoMass: 0
   m_Mass: 1
   m_LinearDrag: 0

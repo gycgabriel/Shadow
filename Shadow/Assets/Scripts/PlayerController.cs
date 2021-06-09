@@ -176,7 +176,7 @@ public class PlayerController : Singleton<PlayerController>
         }
 
         //If something was hit, return false, Move was unsuccesful.
-        Debug.Log("Collided with " + hit.collider.name);
+        //Debug.Log("Collided with " + hit.collider.name);
         return false;
     }
 
