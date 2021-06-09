@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[System.Serializable]
 public class CharacterClass
 {
     public enum allClasses { Guardian, Sorcerer, Kannagi };     // list of all possible character classes

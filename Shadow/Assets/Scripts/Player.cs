@@ -62,4 +62,5 @@ public class Player : Creature
         currentHP = stats.getStats(statModifiers)["hp"];
         currentMP = stats.getStats(statModifiers)["mp"];
     }
+
 }

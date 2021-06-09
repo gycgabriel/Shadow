@@ -32,16 +32,22 @@ public class PlayerData
      */
     public PlayerData(Player player)
     {
-
-
+        this.stats = player.stats;
+        this.skills = player.skills;
+        this.statModifiers = player.statModifiers;
+        this.currentHP = player.currentHP;
+        this.currentMP = player.currentMP;
+        this.currentLevel = player.currentLevel;
+        this.isDead = player.isDead;
+        this.charclass = player.charclass;
+        this.currentExp = player.currentExp;
+        this.expToNextLevel = player.expToNextLevel;
 
         sceneName = SceneManager.GetActiveScene().name;
         position = new float[3];
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;
         position[2] = player.transform.position.z;
-
-
-
     }
+
 }

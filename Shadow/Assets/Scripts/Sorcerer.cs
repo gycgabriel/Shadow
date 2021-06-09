@@ -5,6 +5,8 @@ using UnityEngine;
 /**
  * Information unique to Sorcerer class
  */
+
+[System.Serializable]
 public class Sorcerer : CharacterClass
 {
     public Sorcerer()

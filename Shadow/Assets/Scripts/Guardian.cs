@@ -5,6 +5,7 @@ using UnityEngine;
 /**
  * Information unique to Guardian class
  */
+[System.Serializable]
 public class Guardian : CharacterClass
 {
     public Guardian()

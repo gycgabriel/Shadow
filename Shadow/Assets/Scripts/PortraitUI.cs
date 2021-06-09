@@ -15,6 +15,10 @@ public class PortraitUI : MonoBehaviour
         if (who == "player")
         {
             portraitOf = FindObjectOfType<Player>().gameObject.GetComponent<PortraitBehaviour>();
+        } 
+        else
+        {       // TODO: to include shadow and other chars
+            portraitOf = FindObjectOfType<Player>().gameObject.GetComponent<PortraitBehaviour>();
         }
         image = GetComponent<Image>();
         image.sprite = portraitOf.portraitToDisplay;

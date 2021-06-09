@@ -8,8 +8,10 @@ public static class SaveSystem
 {
     public static string saveFolder = "Save";
 
-    public static void SavePlayer(Player player, int saveNum)
+    public static void savePlayer(Player player, int saveNum)
     {
+        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, saveFolder));    // creates Save folder if not exists
+
         string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
 
         BinaryFormatter formatter = new BinaryFormatter();
@@ -22,7 +24,7 @@ public static class SaveSystem
         stream.Close();
     }
 
-    public static PlayerData LoadPlayer(int saveNum)
+    public static PlayerData loadPlayer(int saveNum)
     {
         string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
         string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);

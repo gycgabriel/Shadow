@@ -5,6 +5,7 @@ using UnityEngine;
 /**
  * Base stats system for all creatures in the game
  */
+[System.Serializable]
 public class Stats
 {
     private Dictionary<string, int> baseStats;
