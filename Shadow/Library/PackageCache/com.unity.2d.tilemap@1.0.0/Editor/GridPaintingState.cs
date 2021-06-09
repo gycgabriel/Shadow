@@ -297,6 +297,9 @@ namespace UnityEditor.Tilemaps
             if (validTargets != null && validTargets.Length > 0 && !validTargets.Contains(candidate))
                 return false;
 
+            if (PrefabUtility.IsPartOfPrefabAsset(candidate))
+                return false;
+
             return true;
         }
 
