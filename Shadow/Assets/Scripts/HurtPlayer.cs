@@ -30,26 +30,28 @@ public class HurtPlayer : MonoBehaviour
         
     }
 
-    void OnCollisionEnter2D(Collision2D other)
-    {      
+    void OnTriggerEnter2D(Collider2D other)
+    {
         // Check if the enemy collided with the Player
         if (other.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Hit Player.");
-
             // If the enemy collided with the Player
             // Damage dealt is base damage of the enemy - the Player's defence, with a minimum of zero damage
             currentDamage = Mathf.Max(damageToGive, 0);
 
             // Deal the damage to the Player by notifying the PlayerHealthManager
-            other.gameObject.GetComponent<HurtBehaviour>().hurt(currentDamage);
+            bool attackSuccessful = other.gameObject.GetComponentInParent<HurtBehaviour>().hurt(currentDamage);
 
-            // Generate the object displaying the damage number at where the Player's position
-            // Rotation set to zero to ensure damage number is upright
-            GameObject clone = (GameObject) Instantiate(damageNumber, other.transform.position, Quaternion.Euler(Vector3.zero));
+            if (attackSuccessful)
+            {
+                // Generate the object displaying the damage number at where the Player's position
+                // Rotation set to zero to ensure damage number is upright
+                GameObject clone = (GameObject) Instantiate(damageNumber, other.transform.position, Quaternion.Euler(Vector3.zero));
 
-            // Set the damage number to be displayed
-            clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
+                // Set the damage number to be displayed
+                clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
+            }
+            
         }
     }
 }

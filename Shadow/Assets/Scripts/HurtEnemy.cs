@@ -28,17 +28,21 @@ public class HurtEnemy : MonoBehaviour
             currentDamage = damageToGive + thePlayer.getStats()["atk"];
 
             // Deal the damage to the enemy by notifying the EnemyHealthManager
-            other.gameObject.GetComponent<HurtBehaviour>().hurt(currentDamage);
+            bool attackSuccessful = other.gameObject.GetComponent<HurtBehaviour>().hurt(currentDamage);
 
-            // Generate the blood spurt animation at the hit point
-            Instantiate(damageBurst, hitPoint.position, hitPoint.rotation);
+            if (attackSuccessful)
+            {
+                // Generate the blood spurt animation at the hit point
+                Instantiate(damageBurst, hitPoint.position, hitPoint.rotation);
 
-            // Generate the object displaying the damage number at the hit point
-            // Rotation set to zero to ensure damage number is upright
-            GameObject clone = (GameObject) Instantiate(damageNumber, hitPoint.position, Quaternion.Euler(Vector3.zero));
+                // Generate the object displaying the damage number at the hit point
+                // Rotation set to zero to ensure damage number is upright
+                GameObject clone = (GameObject) Instantiate(damageNumber, hitPoint.position, Quaternion.Euler(Vector3.zero));
 
-            // Set the damage number to be displayed
-            clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
+                // Set the damage number to be displayed
+                clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
+            }
+
         }
 
         if (other.gameObject.tag != "Player" && isProjectile)

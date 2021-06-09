@@ -215,8 +215,12 @@ namespace UnityEditor.U2D.Sprites
             public static readonly GUIContent applyRevertModuleDialogTitle = EditorGUIUtility.TrTextContent("Unapplied module changes");
             public static readonly GUIContent applyRevertModuleDialogContent = EditorGUIUtility.TrTextContent("You have unapplied changes from the current module");
 
-            public static readonly GUIContent loadProgressTitle = EditorGUIUtility.TrTextContent("Loading");
-            public static readonly GUIContent loadContentText = EditorGUIUtility.TrTextContent("Loading Sprites {0}/{1}");
+            public static readonly GUIContent revertConfirmationDialogTitle = EditorGUIUtility.TrTextContent("Revert Changes");
+            public static readonly GUIContent revertConfirmationDialogContent = EditorGUIUtility.TrTextContent("Are you sure you want to revert the changes?");
+            public static readonly GUIContent applyConfirmationDialogTitle = EditorGUIUtility.TrTextContent("Apply Changes");
+            public static readonly GUIContent applyConfirmationDialogContent = EditorGUIUtility.TrTextContent("Are you sure you want to apply the changes?");
+            public static readonly GUIContent yesLabel = EditorGUIUtility.TrTextContent("Yes");
+            public static readonly GUIContent noLabel = EditorGUIUtility.TrTextContent("No");
             public static readonly string styleSheetPath = "Packages/com.unity.2d.sprite/Editor/UI/SpriteEditor/SpriteEditor.uss";
         }
 
@@ -231,6 +235,7 @@ namespace UnityEditor.U2D.Sprites
         private const float k_ModuleListWidth = 90f;
         private const string k_RefreshOnNextRepaintCommandEvent = "RefreshOnNextRepaintCommand";
         bool m_ResetOnNextRepaint;
+        bool m_ResetCommandSent;
 
         private List<SpriteRect> m_RectsCache;
         ISpriteEditorDataProvider m_SpriteDataProvider;
@@ -238,7 +243,7 @@ namespace UnityEditor.U2D.Sprites
         private bool m_RequestRepaint = false;
 
         public static bool s_OneClickDragStarted = false;
-        public string m_SelectedAssetPath;
+        string m_SelectedAssetPath;
 
         private IEventSystem m_EventSystem;
         private IUndoSystem m_UndoSystem;
@@ -288,6 +293,8 @@ namespace UnityEditor.U2D.Sprites
 
         private void OnFocus()
         {
+            if (m_SelectedObject != Selection.activeObject)
+                OnSelectionChange();
             if (selectedProviderChanged)
                 RefreshSpriteEditorWindow();
         }
@@ -334,7 +341,7 @@ namespace UnityEditor.U2D.Sprites
 
         public void InvalidatePropertiesCache()
         {
-            m_RectsCache = null;
+            spriteRects = null;
             m_SpriteDataProvider = null;
         }
 
@@ -362,7 +369,14 @@ namespace UnityEditor.U2D.Sprites
 
         public bool textureIsDirty
         {
-            get; set;
+            get
+            {
+                return hasUnsavedChanges;
+            }
+            set
+            {
+                hasUnsavedChanges = value;
+            }
         }
 
         public bool selectedProviderChanged
@@ -430,6 +444,7 @@ namespace UnityEditor.U2D.Sprites
         {
             InvalidatePropertiesCache();
             textureIsDirty = false;
+            saveChangesMessage = SpriteEditorWindowStyles.applyRevertModuleDialogContent.text;
         }
 
         public void ResetZoomAndScroll()
@@ -471,7 +486,11 @@ namespace UnityEditor.U2D.Sprites
             RefreshRects();
             if (noSelectedSprite)
                 UpdateSelectedSpriteRectFromSelection();
+            UnityEditor.SpriteUtilityWindow.SetApplySpriteEditorWindow(RebuildCache);
+        }
 
+        void CreateGUI()
+        {
             if (SetupVisualElements())
                 InitModules();
         }
@@ -543,11 +562,19 @@ namespace UnityEditor.U2D.Sprites
             }
         }
 
+        public override void SaveChanges()
+        {
+            var oldDelegate = onHandleApplyRevertDialog;
+            onHandleApplyRevertDialog = (x, y) => true;
+            HandleApplyRevertDialog(SpriteEditorWindowStyles.applyRevertDialogTitle.text,
+                String.Format(SpriteEditorWindowStyles.applyRevertDialogContent.text, m_SelectedAssetPath));
+            onHandleApplyRevertDialog = oldDelegate;
+            base.SaveChanges();
+        }
+
         private void OnDisable()
         {
             Undo.undoRedoPerformed -= UndoRedoPerformed;
-            HandleApplyRevertDialog(SpriteEditorWindowStyles.applyRevertDialogTitle.text,
-                String.Format(SpriteEditorWindowStyles.applyRevertDialogContent.text, m_SelectedAssetPath));
             InvalidatePropertiesCache();
             EditorApplication.modifierKeysChanged -= ModifierKeysChanged;
             EditorApplication.playModeStateChanged -= OnPlayModeStateChanged;
@@ -567,6 +594,7 @@ namespace UnityEditor.U2D.Sprites
 
             if (m_CurrentModule != null)
                 m_CurrentModule.OnModuleDeactivate();
+            UnityEditor.SpriteUtilityWindow.SetApplySpriteEditorWindow(null);
         }
 
         void OnPlayModeStateChanged(PlayModeStateChange playModeState)
@@ -609,7 +637,7 @@ namespace UnityEditor.U2D.Sprites
 
         void RefreshRects()
         {
-            m_RectsCache = null;
+            spriteRects = null;
             if (IsSpriteDataProviderValid())
             {
                 m_RectsCache = m_SpriteDataProvider.GetSpriteRects().ToList();
@@ -625,8 +653,9 @@ namespace UnityEditor.U2D.Sprites
                 ResetOnNextRepaint();
             }
 
-            if (UnityEngine.Event.current.type == EventType.ExecuteCommand && UnityEngine.Event.current.commandName == k_RefreshOnNextRepaintCommandEvent)
+            if (m_ResetCommandSent || (UnityEngine.Event.current.type == EventType.ExecuteCommand && UnityEngine.Event.current.commandName == k_RefreshOnNextRepaintCommandEvent))
             {
+                m_ResetCommandSent = false;
                 if (selectedProviderChanged || !IsSpriteDataProviderValid())
                     m_SelectedAssetPath = GetSelectionAssetPath();
                 RebuildCache();
@@ -657,6 +686,7 @@ namespace UnityEditor.U2D.Sprites
             if (m_ResetOnNextRepaint)
             {
                 m_ResetOnNextRepaint = false;
+                m_ResetCommandSent = true;
                 var e = EditorGUIUtility.CommandEvent(k_RefreshOnNextRepaintCommandEvent);
                 this.SendEvent(e);
             }
@@ -678,6 +708,8 @@ namespace UnityEditor.U2D.Sprites
                 return;
             InitStyles();
             UpdateAssetSelectionChange();
+            if (m_ResetCommandSent)
+                return;
             if (!activeDataProviderSelected)
             {
                 using (new EditorGUI.DisabledScope(true))
@@ -780,16 +812,34 @@ namespace UnityEditor.U2D.Sprites
 
                 if (GUI.Button(applyRevertDrawArea, SpriteEditorWindowStyles.applyButtonLabel, EditorStyles.toolbarButton))
                 {
-                    DoApply();
-                    SetupModule(m_CurrentModuleIndex);
+                    var apply = true;
+                    if (SpriteEditorWindowSettings.showApplyConfirmation)
+                    {
+                        apply = EditorUtility.DisplayDialog(SpriteEditorWindowStyles.applyConfirmationDialogTitle.text, SpriteEditorWindowStyles.applyConfirmationDialogContent.text,
+                            SpriteEditorWindowStyles.yesLabel.text, SpriteEditorWindowStyles.noLabel.text);
+                    }
+                    if (apply)
+                    {
+                        DoApply();
+                        SetupModule(m_CurrentModuleIndex);
+                    }
                 }
 
                 applyRevertDrawArea.width = EditorStyles.toolbarButton.CalcSize(SpriteEditorWindowStyles.revertButtonLabel).x;
                 applyRevertDrawArea.x -= applyRevertDrawArea.width;
                 if (GUI.Button(applyRevertDrawArea, SpriteEditorWindowStyles.revertButtonLabel, EditorStyles.toolbarButton))
                 {
-                    DoRevert();
-                    SetupModule(m_CurrentModuleIndex);
+                    var revert = true;
+                    if (SpriteEditorWindowSettings.showRevertConfirmation)
+                    {
+                        revert = EditorUtility.DisplayDialog(SpriteEditorWindowStyles.revertConfirmationDialogTitle.text, SpriteEditorWindowStyles.revertConfirmationDialogContent.text,
+                            SpriteEditorWindowStyles.yesLabel.text, SpriteEditorWindowStyles.noLabel.text);
+                    }
+                    if (revert)
+                    {
+                        DoRevert();
+                        SetupModule(m_CurrentModuleIndex);
+                    }
                 }
             }
 
@@ -817,6 +867,7 @@ namespace UnityEditor.U2D.Sprites
                 m_SpriteDataProvider =
                     m_SpriteDataProviderFactories.GetSpriteEditorDataProviderFromObject(
                         AssetDatabase.LoadMainAssetAtPath(m_CurrentResetContext.assetPath));
+                m_SpriteDataProvider.InitSpriteEditorDataProvider();
                 m_CurrentResetContext = null;
             }
 
@@ -1127,8 +1178,14 @@ namespace UnityEditor.U2D.Sprites
 
         public List<SpriteRect> spriteRects
         {
-            set { m_RectsCache = value; }
+            set
+            {
+                m_RectsCache = value;
+                m_CachedSelectedSpriteRect = null;
+            }
         }
+
+        private SpriteRect m_CachedSelectedSpriteRect;
 
         public SpriteRect selectedSpriteRect
         {
@@ -1139,7 +1196,11 @@ namespace UnityEditor.U2D.Sprites
                     return null;
 
                 var guid = new GUID(m_SelectedSpriteRectGUID);
-                return m_RectsCache.FirstOrDefault(x => x.spriteID == guid);
+                if (m_CachedSelectedSpriteRect == null || m_CachedSelectedSpriteRect.spriteID != guid)
+                {
+                    m_CachedSelectedSpriteRect = m_RectsCache.FirstOrDefault(x => x.spriteID == guid);
+                }
+                return m_CachedSelectedSpriteRect;
             }
             set
             {

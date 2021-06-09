@@ -76,6 +76,7 @@ namespace UnityEditor.Tilemaps
             }
         }
 
+        protected bool isNearestControl { get { return HandleUtility.nearestControl == m_PermanentControlID; } }
         protected bool isHotControl { get { return GUIUtility.hotControl == m_PermanentControlID; } }
         protected bool mouseGridPositionChanged { get { return m_MouseGridPositionChanged; } }
         protected bool inEditMode { get { return PaintableGrid.InGridEditMode(); } }
@@ -91,6 +92,11 @@ namespace UnityEditor.Tilemaps
 
         public virtual void OnGUI()
         {
+            var evt = Event.current;
+
+            if (evt.type == EventType.Layout)
+                HandleUtility.AddDefaultControl(m_PermanentControlID);
+
             if (CanPickOutsideEditMode() || inEditMode)
                 HandleBrushPicking();
 
@@ -103,7 +109,7 @@ namespace UnityEditor.Tilemaps
                 HandleFloodFill();
                 HandleBoxTool();
             }
-            else if (isHotControl && !IsPickingEvent(Event.current))
+            else if (isHotControl && !IsPickingEvent(evt))
             {
                 // Release hot control if it still has it while not in picking or grid edit mode
                 GUIUtility.hotControl = 0;
@@ -189,7 +195,7 @@ namespace UnityEditor.Tilemaps
         {
             Event evt = Event.current;
 
-            if (evt.type == EventType.MouseDown && IsPickingEvent(evt) && !isHotControl)
+            if (isNearestControl && evt.type == EventType.MouseDown && IsPickingEvent(evt) && !isHotControl)
             {
                 m_TypeBeforeExecution = typeof(PaintTool);
                 if (inEditMode && !TilemapEditorTool.IsActive(typeof(PickingTool)))
@@ -266,7 +272,7 @@ namespace UnityEditor.Tilemaps
         {
             Event evt = Event.current;
 
-            if (evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt && (TilemapEditorTool.IsActive(typeof(SelectTool)) || (TilemapEditorTool.IsActive(typeof(MoveTool)) && evt.control)))
+            if (isNearestControl && evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt && (TilemapEditorTool.IsActive(typeof(SelectTool)) || (TilemapEditorTool.IsActive(typeof(MoveTool)) && evt.control)))
             {
                 if (TilemapEditorTool.IsActive(typeof(MoveTool)) && evt.control)
                     TilemapEditorTool.SetActiveEditorTool(typeof(SelectTool));
@@ -306,7 +312,7 @@ namespace UnityEditor.Tilemaps
         {
             Event evt = Event.current;
 
-            if (evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt && TilemapEditorTool.IsActive(typeof(MoveTool)))
+            if (isNearestControl && evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt && TilemapEditorTool.IsActive(typeof(MoveTool)))
             {
                 RegisterUndo();
                 Vector3Int mouse3D = new Vector3Int(mouseGridPosition.x, mouseGridPosition.y, GridSelection.position.zMin);
@@ -358,24 +364,28 @@ namespace UnityEditor.Tilemaps
             switch (evt.type)
             {
                 case EventType.MouseDown:
-                    RegisterUndo();
-                    GUIUtility.hotControl = m_PermanentControlID;
-                    executing = true;
-                    m_TypeBeforeExecution = EditorTools.ToolManager.activeToolType;
-                    if (IsErasingEvent(evt))
+                    if (isNearestControl)
                     {
-                        if (!TilemapEditorTool.IsActive(typeof(EraseTool)))
-                            TilemapEditorTool.SetActiveEditorTool(typeof(EraseTool));
-                        Erase(new Vector3Int(mouseGridPosition.x, mouseGridPosition.y, zPosition));
+                        RegisterUndo();
+                        GUIUtility.hotControl = m_PermanentControlID;
+                        executing = true;
+                        m_TypeBeforeExecution = EditorTools.ToolManager.activeToolType;
+                        if (IsErasingEvent(evt))
+                        {
+                            if (!TilemapEditorTool.IsActive(typeof(EraseTool)))
+                                TilemapEditorTool.SetActiveEditorTool(typeof(EraseTool));
+                            Erase(new Vector3Int(mouseGridPosition.x, mouseGridPosition.y, zPosition));
+                        }
+                        else
+                        {
+                            if (!TilemapEditorTool.IsActive(typeof(PaintTool)))
+                                TilemapEditorTool.SetActiveEditorTool(typeof(PaintTool));
+                            Paint(new Vector3Int(mouseGridPosition.x, mouseGridPosition.y, zPosition));
+                        }
+
+                        Event.current.Use();
+                        GUI.changed = true;
                     }
-                    else
-                    {
-                        if (!TilemapEditorTool.IsActive(typeof(PaintTool)))
-                            TilemapEditorTool.SetActiveEditorTool(typeof(PaintTool));
-                        Paint(new Vector3Int(mouseGridPosition.x, mouseGridPosition.y, zPosition));
-                    }
-                    Event.current.Use();
-                    GUI.changed = true;
                     break;
                 case EventType.MouseDrag:
                     executing = true;
@@ -442,7 +452,7 @@ namespace UnityEditor.Tilemaps
             if (TilemapEditorTool.IsActive(typeof(FillTool)) && GridPaintingState.gridBrush != null && ValidateFloodFillPosition(new Vector3Int(mouseGridPosition.x, mouseGridPosition.y, 0)))
             {
                 Event evt = Event.current;
-                if (evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt)
+                if (isNearestControl && evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt)
                 {
                     GUIUtility.hotControl = m_PermanentControlID;
                     GUI.changed = true;
@@ -465,7 +475,7 @@ namespace UnityEditor.Tilemaps
         {
             Event evt = Event.current;
 
-            if (evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt && TilemapEditorTool.IsActive(typeof(BoxTool)))
+            if (isNearestControl && evt.type == EventType.MouseDown && evt.button == 0 && !evt.alt && TilemapEditorTool.IsActive(typeof(BoxTool)))
             {
                 m_MarqueeStart = mouseGridPosition;
                 m_MarqueeType = MarqueeType.Box;

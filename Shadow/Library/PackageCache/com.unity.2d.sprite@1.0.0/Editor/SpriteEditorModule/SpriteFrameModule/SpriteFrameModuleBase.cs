@@ -118,6 +118,24 @@ namespace UnityEditor.U2D.Sprites
         }
     }
 
+    internal class OutlineSpriteRect : SpriteRect
+    {
+        public List<Vector2[]> outlines;
+
+        public OutlineSpriteRect(SpriteRect rect)
+        {
+            this.name = rect.name;
+            this.originalName = rect.originalName;
+            this.pivot = rect.pivot;
+            this.alignment = rect.alignment;
+            this.border = rect.border;
+            this.rect = rect.rect;
+            this.spriteID = rect.spriteID;
+            this.internalID = rect.internalID;
+            outlines = new List<Vector2[]>();
+        }
+    }
+
     internal abstract partial class SpriteFrameModuleBase : SpriteEditorModuleBase
     {
         protected static UnityType spriteType = UnityType.FindTypeByName("Sprite");
@@ -223,6 +241,21 @@ namespace UnityEditor.U2D.Sprites
                 }
                 var array = m_RectsCache != null ? m_RectsCache.spriteRects.ToArray() : null;
                 m_SpriteDataProvider.SetSpriteRects(array);
+
+                var outlineDataProvider = m_SpriteDataProvider.GetDataProvider<ISpriteOutlineDataProvider>();
+                var physicsDataProvider = m_SpriteDataProvider.GetDataProvider<ISpritePhysicsOutlineDataProvider>();
+                foreach (var rect in array)
+                {
+                    if (rect is OutlineSpriteRect outlineRect)
+                    {
+                        if (outlineRect.outlines.Count > 0)
+                        {
+                            outlineDataProvider.SetOutlines(outlineRect.spriteID, outlineRect.outlines);
+                            physicsDataProvider.SetOutlines(outlineRect.spriteID, outlineRect.outlines);
+                        }
+                    }
+                }
+
                 if (m_RectsCache != null)
                     undoSystem.ClearUndo(m_RectsCache);
             }

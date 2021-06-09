@@ -38,7 +38,7 @@ namespace UnityEngine.UI
         public static Vector2 GetMousePositionRelativeToMainDisplayResolution()
         {
             var position = Input.mousePosition;
-            #if !UNITY_EDITOR
+            #if !UNITY_EDITOR && !UNITY_WSA
             if (Display.main.renderingHeight != Display.main.systemHeight)
             {
                 // The position is relative to the main render area, we need to adjust this so

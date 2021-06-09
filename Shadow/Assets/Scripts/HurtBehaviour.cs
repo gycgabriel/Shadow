@@ -7,6 +7,7 @@ public class HurtBehaviour : MonoBehaviour
     public GameObject creatureGO;                     
     private Creature creature;                      // Enemy or Player
     private SpriteRenderer sprite;
+    private bool isInvincible = false;
 
 
     void Start()
@@ -15,11 +16,19 @@ public class HurtBehaviour : MonoBehaviour
         {
             creature = creatureGO.GetComponent<Creature>();
             sprite = creatureGO.GetComponent<SpriteRenderer>();
+            if (sprite == null)
+            {
+                sprite = creatureGO.GetComponentInChildren<SpriteRenderer>();
+            }
         } 
         else
         {
             creature = GetComponent<Creature>();
             sprite = GetComponent<SpriteRenderer>();
+            if (sprite == null)
+            {
+                sprite = GetComponentInChildren<SpriteRenderer>();
+            }
         }
     }
 
@@ -32,14 +41,21 @@ public class HurtBehaviour : MonoBehaviour
         }
     }
 
-    public void hurt(int damageToGive)
+    // returns whether the creature was successfully hurt
+    public bool hurt(int damageToGive)
     {
-        creature.currentHP = Mathf.Max(creature.currentHP - damageToGive, 0);        // player health will not fall below zero
-        StartCoroutine("hurtEffect");
+        if (!isInvincible)
+        {
+            creature.currentHP = Mathf.Max(creature.currentHP - damageToGive, 0);        // player health will not fall below zero
+            StartCoroutine("hurtEffect");
+            return true;
+        }
+        return false;
     }
 
     IEnumerator hurtEffect()            // change color to show hurt
     {
+        isInvincible = true;
         for (int i = 0; i < 3; i++)     // runs 3 times, 3 flashes
         {
             sprite.color = new Color(1f, 1f, 1f, 0.3f);         //Red, Green, Blue, Alpha/Transparency
@@ -47,5 +63,6 @@ public class HurtBehaviour : MonoBehaviour
             sprite.color = Color.white;
             yield return new WaitForSeconds(.1f);
         }
+        isInvincible = false;
     }
 }

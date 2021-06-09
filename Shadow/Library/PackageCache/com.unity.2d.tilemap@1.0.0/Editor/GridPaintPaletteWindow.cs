@@ -116,6 +116,7 @@ namespace UnityEditor.Tilemaps
             public static readonly GUIContent tilePalette = EditorGUIUtility.TrTextContent("Tile Palette");
             public static readonly GUIContent edit = EditorGUIUtility.TrTextContent("Edit", "Toggle to edit current Tile Palette");
             public static readonly GUIContent editModified = EditorGUIUtility.TrTextContent("Edit*", "Toggle to save edits for current Tile Palette");
+            public static readonly GUIContent gridGizmo = EditorGUIUtility.TrTextContent("Grid", "Toggle visibility of the Grid in the Tile Palette");
             public static readonly GUIContent gizmos = EditorGUIUtility.TrTextContent("Gizmos", "Toggle visibility of Gizmos in the Tile Palette");
             public static readonly GUIContent lockZPosition = EditorGUIUtility.TrTextContent("Lock Z Position", "Toggle editing of Z position");
             public static readonly GUIContent zPosition = EditorGUIUtility.TrTextContent("Z Position", "Set a Z position for the active Brush for painting");
@@ -378,6 +379,14 @@ namespace UnityEditor.Tilemaps
         private GameObject m_Palette;
 
         [SerializeField]
+        private bool m_DrawGridGizmo = true;
+
+        internal bool drawGridGizmo
+        {
+            get { return m_DrawGridGizmo; }
+        }
+
+        [SerializeField]
         private bool m_DrawGizmos;
 
         internal bool drawGizmos
@@ -616,12 +625,7 @@ namespace UnityEditor.Tilemaps
 
         public void InitPreviewUtility()
         {
-            int previewCullingLayer = Camera.PreviewCullingLayer;
-
             m_PreviewUtility = new PreviewRenderUtility(true, true);
-            m_PreviewUtility.camera.cullingMask = 1 << previewCullingLayer;
-            m_PreviewUtility.camera.gameObject.layer = previewCullingLayer;
-            m_PreviewUtility.lights[0].gameObject.layer = previewCullingLayer;
             m_PreviewUtility.camera.orthographic = true;
             m_PreviewUtility.camera.orthographicSize = 5f;
             m_PreviewUtility.camera.transform.position = new Vector3(0f, 0f, -10f);
@@ -1125,14 +1129,19 @@ namespace UnityEditor.Tilemaps
             using (new EditorGUI.DisabledScope(palette == null))
             {
                 EditorGUI.BeginChangeCheck();
+                m_DrawGridGizmo = GUILayout.Toggle(m_DrawGridGizmo, Styles.gridGizmo, EditorStyles.toolbarButton);
+
+                EditorGUI.BeginChangeCheck();
                 m_DrawGizmos = GUILayout.Toggle(m_DrawGizmos, Styles.gizmos, EditorStyles.toolbarButton);
+                if (EditorGUI.EndChangeCheck() && m_DrawGizmos)
+                {
+                    clipboardView.SavePaletteIfNecessary();
+                    ResetPreviewInstance();
+                }
+
                 if (EditorGUI.EndChangeCheck())
                 {
-                    if (m_DrawGizmos)
-                    {
-                        clipboardView.SavePaletteIfNecessary();
-                        ResetPreviewInstance();
-                    }
+                    // Repaint if either option changes
                     Repaint();
                 }
             }
