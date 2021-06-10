@@ -27,7 +27,7 @@ public class LoadBehaviour : MonoBehaviour
         player.expToNextLevel = data.expToNextLevel;
 
 
-        SceneManager.LoadScene(data.sceneName);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(data.sceneName);
         this.player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
     }
 }

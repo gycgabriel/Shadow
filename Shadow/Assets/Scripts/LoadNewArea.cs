@@ -13,14 +13,12 @@ public class LoadNewArea : MonoBehaviour
 
     private PlayerController thePlayer;     //The PlayerController of the Player's sprite
 
-    // Start is called before the first frame update
     void Start()
     {
         //Get a component reference to the Player's sprite's PlayerController
         thePlayer = FindObjectOfType<PlayerController>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         
@@ -32,7 +30,7 @@ public class LoadNewArea : MonoBehaviour
         if (other.gameObject.CompareTag("Player"))
         {
             //If the Player entered the doorway, load the new scene
-            SceneManager.LoadScene(levelToLoad);
+            UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
 
             //Set the Player's start point after loading the new scene
             thePlayer.startPoint = exitPoint;

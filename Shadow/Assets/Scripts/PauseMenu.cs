@@ -62,7 +62,7 @@ public class PauseMenu : Singleton<PauseMenu>
         playerLevelUI.Destroy();
         Time.timeScale = 1f;
         gameIsPaused = false;
-        SceneManager.LoadScene(levelToLoad_Menu);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad_Menu);
         Destroy(this.gameObject);
     }
 

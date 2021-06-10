@@ -16,6 +16,6 @@ public class ChooseCharClassUI : MonoBehaviour
 
     public void bringToScene(string name)
     {
-        SceneManager.LoadScene(name);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(name);
     }
 }

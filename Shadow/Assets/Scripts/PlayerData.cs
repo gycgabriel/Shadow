@@ -43,7 +43,7 @@ public class PlayerData
         this.currentExp = player.currentExp;
         this.expToNextLevel = player.expToNextLevel;
 
-        sceneName = SceneManager.GetActiveScene().name;
+        sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
         position = new float[3];
         position[0] = player.transform.position.x;
         position[1] = player.transform.position.y;

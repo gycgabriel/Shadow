@@ -54,7 +54,7 @@ public class TransferPlayer : MonoBehaviour
     // Teleport can be called from any script
     public static void Teleport(Vector3 coords, Vector2 direction)
     {
-        player.GetComponent<PlayerController>().setPosition(coords, direction);
+        player.GetComponent<PlayerController>().SetPosition(coords, direction);
     }
 
 

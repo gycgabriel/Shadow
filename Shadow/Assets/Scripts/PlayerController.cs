@@ -4,57 +4,48 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
+    private CameraController cameraController;
 
     public float moveSpeed;
+    public Vector3 position;
     public Transform movePoint;
 
     public Animator anim;
     public Rigidbody2D myRigidBody;
-    public BoxCollider2D boxCollider;         //The BoxCollider2D component attached to this object.
-    public LayerMask blockingLayer;            //Layer on which collision will be checked.
+    public BoxCollider2D boxCollider;
+    public LayerMask blockingLayer;            // tilemap layers of non-passable objects
 
     //private bool pauseMovementInput;
     public bool playerMoving;
     public Vector2 currentMove;
     public Vector2 lastMove;
 
+    // Future: Player Animation.cs?
     private bool playerGoingToAttack;
     private bool playerAttacking;
     public float attackTime;
     //public float attackTimeCounter;
 
-    //public Transform spellFirePoint;          //The point where the fireball will be generated at    
-    //public Fireball fireballPrefab;           //The fireball object to be launched
+    //public Transform spellFirePoint;          // The point where the fireball will be generated at    
+    //public Fireball fireballPrefab;           // The fireball object to be launched
 
-    public string startPoint;
-
-    // Start is called before the first frame update
+    
     void Start()
     {
         movePoint.parent = null;
+        lastMove = new Vector2(0f, -1f);           // player face down 
 
-        //anim = GetComponent<Animator>();
-        //myRigidBody = GetComponent<Rigidbody2D>();
-        //boxCollider = GetComponent<BoxCollider2D>();
-
-        lastMove = new Vector2(0f, -1f);           //spawn the player initially facing down 
+        cameraController = FindObjectOfType<CameraController>();
     }
-
-    // Update is called once per frame
     void Update()
     {
-
         if (!PauseMenu.gameIsPaused)
         {
             playerMoving = true;
 
             if (!playerAttacking)
             {
-                //transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-                if (!Move(movePoint.position, out RaycastHit2D hit))
-                {
-                    movePoint.position = transform.position;
-                }
+                Move(movePoint.position);
 
                 if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
                 {
@@ -68,17 +59,15 @@ public class PlayerController : Singleton<PlayerController>
 
                         playerGoingToAttack = false;
                     }
+
+                    // Grid-based movement
                     else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
                     {
-                        movePoint.position += new Vector3(Input.GetAxisRaw("Horizontal"), 0f, 0f);
-                        currentMove = new Vector2(Input.GetAxisRaw("Horizontal"), 0f);
-                        lastMove = currentMove;
+                        UpdateMovePoint(Input.GetAxisRaw("Horizontal"), 0f);
                     }
                     else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
                     {
-                        movePoint.position += new Vector3(0f, Input.GetAxisRaw("Vertical"), 0f);
-                        currentMove = new Vector2(0f, Input.GetAxisRaw("Vertical"));
-                        lastMove = currentMove;
+                        UpdateMovePoint(0f, Input.GetAxisRaw("Vertical"));
                     }
                     else
                     {
@@ -131,7 +120,7 @@ public class PlayerController : Singleton<PlayerController>
         playerAttacking = false;
     }
 
-    
+
     //Coroutine to summon fireball, Sorcerer's normal attack
     /*
     IEnumerator CastFireball()
@@ -141,43 +130,41 @@ public class PlayerController : Singleton<PlayerController>
     }
     */
 
-    /*IEnumerator MovePlayer()
+    /** 
+     * Checks if possible to move to movePoint.
+     */
+    private bool CanMove(Vector3 dest)
     {
-
-    }*/
-
-    //Move returns true if it is able to move and false if not. 
-    //Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
-    protected bool Move(Vector3 end, out RaycastHit2D hit)
-    {
-        //Store start position to move from, based on objects current transform position.
         Vector2 start = transform.position;
-
-        // Calculate end position based on the direction parameters passed in when calling Move.
-        //Vector2 end = start + new Vector2(xDir, yDir);
-
-        //Disable the boxCollider so that linecast doesn't hit this object's own collider.
-        boxCollider.enabled = false;
-
-        //Cast a line from start point to end point checking collision on blockingLayer.
-        hit = Physics2D.Linecast(start, end, blockingLayer);
-
-        //Re-enable boxCollider after linecast
+        boxCollider.enabled = false;                                            // linecast doesn't hit this object's own collider
+        RaycastHit2D hit = Physics2D.Linecast(start, dest, blockingLayer);      // create linecast from player to intended move point
         boxCollider.enabled = true;
+        Debug.Log("Collided with " + hit.collider.name);
+        return (hit.transform == null);
+    }
 
-        //Check if anything was hit
-        if (hit.transform == null)
+
+    /** 
+     * Move returns true if it is able to move and false if not. 
+     * Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
+     */
+    public void Move(Vector3 dest)
+    {
+        if (CanMove(dest))
         {
-            //If nothing was hit, start SmoothMovement co-routine passing in the Vector2 end as destination
-            transform.position = Vector3.MoveTowards(transform.position, movePoint.position, moveSpeed * Time.deltaTime);
-
-            //Return true to say that Move was successful
-            return true;
+            transform.position = Vector3.MoveTowards(transform.position, dest, moveSpeed * Time.deltaTime);
+        } 
+        else
+        {
+            movePoint.position = transform.position;
         }
+    }
 
-        //If something was hit, return false, Move was unsuccesful.
-        //Debug.Log("Collided with " + hit.collider.name);
-        return false;
+    private void UpdateMovePoint(float x, float y)
+    {
+        movePoint.position += new Vector3(x, y, 0f);
+        currentMove = new Vector2(x, y);
+        lastMove = currentMove;
     }
 
 
@@ -210,4 +197,20 @@ public class PlayerController : Singleton<PlayerController>
         Destroy(movePoint.gameObject);
         Destroy(gameObject);
     }
+
+    public void SetPosition(Vector3 coords, Vector2 direction)
+    {
+        if (direction == Vector2.zero)
+        {
+            direction = lastMove;
+        }
+
+        this.transform.position = coords;
+        this.movePoint.position = coords;
+        this.lastMove = direction;
+        cameraController.transform.position = new Vector3(transform.position.x, transform.position.y, cameraController.transform.position.z);
+        // z-axis no change as camera must maintain a distance away
+    }
+
+
 }
