@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : Singleton<PlayerController>
 {
-    private CameraController cameraController;
+    public GameObject cameraController;
 
     public float moveSpeed;
     public Vector3 position;
@@ -34,11 +34,15 @@ public class PlayerController : Singleton<PlayerController>
     {
         movePoint.parent = null;
         lastMove = new Vector2(0f, -1f);           // player face down 
-
-        cameraController = FindObjectOfType<CameraController>();
     }
     void Update()
     {
+        if (cameraController == null)
+        {
+            cameraController = FindObjectOfType<CameraController>().gameObject;
+        }
+
+
         if (!PauseMenu.gameIsPaused)
         {
             playerMoving = true;
@@ -139,7 +143,10 @@ public class PlayerController : Singleton<PlayerController>
         boxCollider.enabled = false;                                            // linecast doesn't hit this object's own collider
         RaycastHit2D hit = Physics2D.Linecast(start, dest, blockingLayer);      // create linecast from player to intended move point
         boxCollider.enabled = true;
-        Debug.Log("Collided with " + hit.collider.name);
+        if (hit.transform != null)
+        {
+            Debug.Log("Collided with " + hit.collider.name);
+        }
         return (hit.transform == null);
     }
 

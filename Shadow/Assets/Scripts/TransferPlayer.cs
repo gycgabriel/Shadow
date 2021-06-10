@@ -14,6 +14,7 @@ public class TransferPlayer : MonoBehaviour
 
     private static string nextTransferTo;    // spawn point in new scene
     private static Vector2 nextDirection;
+    private static Vector3 offset;
 
     void Start()
     {
@@ -31,8 +32,17 @@ public class TransferPlayer : MonoBehaviour
             if (transferTo != "")
             {
                 nextTransferTo = transferTo;
-                nextDirection = directionToFace;
-            } else
+                offset = other.transform.position - this.transform.position;    // step on which part of teleporter
+                if (directionToFace == Vector2.zero)
+                {
+                    nextDirection = player.GetComponent<PlayerController>().lastMove;
+                } 
+                else
+                {
+                    nextDirection = directionToFace;
+                }
+            } 
+            else
             {
                 Teleport(newCoords, directionToFace);
             }
@@ -45,7 +55,8 @@ public class TransferPlayer : MonoBehaviour
         // check if moved from TransferPlayer instance
         if (nextTransferTo != "" && transferFrom == nextTransferTo)
         {
-            Teleport(this.transform.position, nextDirection);
+            Vector3 oneStepAway = this.transform.position + new Vector3(nextDirection.x * 2 + offset.x, nextDirection.y * 2 + offset.y, 0f);      // so doesn't land on TransferPlayer
+            Teleport(oneStepAway, nextDirection);
             nextTransferTo = "";
             nextDirection = Vector2.zero;
         }
