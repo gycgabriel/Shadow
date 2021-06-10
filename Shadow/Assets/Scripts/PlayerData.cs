@@ -23,6 +23,7 @@ public class PlayerData
     // Location of Player
     public string sceneName;
     public float[] position;
+    public float[] direction;
 
     // Future: Flags of opened loot boxes and clearer dungeon levels
     // stored as dictionary
@@ -30,8 +31,9 @@ public class PlayerData
     /**
      * Constructor to pack data from Player script to PlayerData
      */
-    public PlayerData(Player player)
+    public PlayerData(GameObject playerGO)
     {
+        Player player = playerGO.GetComponent<Player>();
         this.stats = player.stats;
         this.skills = player.skills;
         this.statModifiers = player.statModifiers;
@@ -44,10 +46,18 @@ public class PlayerData
         this.expToNextLevel = player.expToNextLevel;
 
         sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
+
+
+        Vector3 playerPosition = playerGO.transform.position;
         position = new float[3];
-        position[0] = player.transform.position.x;
-        position[1] = player.transform.position.y;
-        position[2] = player.transform.position.z;
+        position[0] = playerPosition.x;
+        position[1] = playerPosition.y;
+        position[2] = playerPosition.z;
+
+        PlayerController playerController = playerGO.GetComponent<PlayerController>();
+        direction = new float[2];
+        direction[0] = playerController.lastMove.x;
+        direction[1] = playerController.lastMove.y;
     }
 
 }

@@ -21,6 +21,7 @@ public class HurtEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        //Debug.Log("Hit " + other.gameObject.name);
         if (other.gameObject.tag == "Enemy")
         {
             // If this weapon hits an enemy,
@@ -28,7 +29,7 @@ public class HurtEnemy : MonoBehaviour
             currentDamage = damageToGive + thePlayer.getStats()["atk"];
 
             // Deal the damage to the enemy by notifying the EnemyHealthManager
-            bool attackSuccessful = other.gameObject.GetComponent<HurtBehaviour>().hurt(currentDamage);
+            bool attackSuccessful = other.gameObject.GetComponentInParent<HurtBehaviour>().hurt(currentDamage);
 
             if (attackSuccessful)
             {

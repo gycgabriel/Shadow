@@ -123,6 +123,18 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &559209099 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 572382673, guid: 4b6caf74081abb741a88d6c136f36b83,
+    type: 3}
+  m_PrefabInstance: {fileID: 745607139}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bdc7eef9d4e82a4887705517778a1e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &745607139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -130,6 +142,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 572382673, guid: 4b6caf74081abb741a88d6c136f36b83, type: 3}
+      propertyPath: sorcererPrefab
+      value: 
+      objectReference: {fileID: 7021806160790640468, guid: 714b49d76d6bc9d44a7a5a143dbdac77,
+        type: 3}
+    - target: {fileID: 1908050875058513659, guid: 4b6caf74081abb741a88d6c136f36b83,
+        type: 3}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908050875058513659, guid: 4b6caf74081abb741a88d6c136f36b83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908050875058513659, guid: 4b6caf74081abb741a88d6c136f36b83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 559209099}
+    - target: {fileID: 1908050875058513659, guid: 4b6caf74081abb741a88d6c136f36b83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: chooseSorcerer
+      objectReference: {fileID: 0}
+    - target: {fileID: 1908050875058513659, guid: 4b6caf74081abb741a88d6c136f36b83,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: ChooseCharClassUI, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1908050875502865361, guid: 4b6caf74081abb741a88d6c136f36b83,
         type: 3}
       propertyPath: m_Pivot.x

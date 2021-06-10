@@ -28,6 +28,8 @@ public class LoadBehaviour : MonoBehaviour
 
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(data.sceneName);
-        this.player.transform.position = new Vector3(data.position[0], data.position[1], data.position[2]);
+        this.player.GetComponent<PlayerController>().SetPosition(
+            new Vector3(data.position[0], data.position[1], data.position[2]),
+            new Vector2(data.direction[0], data.direction[1]));
     }
 }

@@ -14,6 +14,6 @@ public class SaveBehaviour : MonoBehaviour
 
     public void save(int saveNum)
     {
-        SaveSystem.savePlayer(player, saveNum);
+        SaveSystem.savePlayer(player.gameObject, saveNum);
     }
 }

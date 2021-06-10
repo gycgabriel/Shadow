@@ -7,7 +7,6 @@ public class PlayerController : Singleton<PlayerController>
     public GameObject cameraController;
 
     public float moveSpeed;
-    public Vector3 position;
     public Transform movePoint;
 
     public Animator anim;
@@ -15,7 +14,6 @@ public class PlayerController : Singleton<PlayerController>
     public BoxCollider2D boxCollider;
     public LayerMask blockingLayer;            // tilemap layers of non-passable objects
 
-    //private bool pauseMovementInput;
     public bool playerMoving;
     public Vector2 currentMove;
     public Vector2 lastMove;
@@ -23,12 +21,6 @@ public class PlayerController : Singleton<PlayerController>
     // Future: Player Animation.cs?
     private bool playerGoingToAttack;
     private bool playerAttacking;
-    public float attackTime;
-    //public float attackTimeCounter;
-
-    //public Transform spellFirePoint;          // The point where the fireball will be generated at    
-    //public Fireball fireballPrefab;           // The fireball object to be launched
-
     
     void Start()
     {
@@ -42,97 +34,69 @@ public class PlayerController : Singleton<PlayerController>
             cameraController = FindObjectOfType<CameraController>().gameObject;
         }
 
-
-        if (!PauseMenu.gameIsPaused)
+        if (PauseMenu.gameIsPaused)
         {
-            playerMoving = true;
-
-            if (!playerAttacking)
-            {
-                Move(movePoint.position);
-
-                if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
-                {
-                    if (playerGoingToAttack)
-                    {
-                        //attackTimeCounter = attackTime;
-                        //playerAttacking = true;
-                        StartCoroutine(StartAttackTimer());
-
-                        //StartCoroutine(CastFireball());
-
-                        playerGoingToAttack = false;
-                    }
-
-                    // Grid-based movement
-                    else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
-                    {
-                        UpdateMovePoint(Input.GetAxisRaw("Horizontal"), 0f);
-                    }
-                    else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
-                    {
-                        UpdateMovePoint(0f, Input.GetAxisRaw("Vertical"));
-                    }
-                    else
-                    {
-                        currentMove = Vector2.zero;
-                        playerMoving = false;
-                    }
-
-                    if (Input.GetKeyDown(KeyCode.J))
-                    {
-                        playerGoingToAttack = true;
-                    }
-                }
-
-
-
-            }
-            /*
-            if ()
-            {
-                //Else if the Player is attacking, decrement the attack time counter
-                attackTimeCounter -= Time.deltaTime;
-
-                //Check if the counter time is up
-                if (attackTimeCounter <= 0)
-                {
-                    //If the attack time is up, set playerAttacking to false to stop the attack animation
-                    playerAttacking = false;
-                }
-            }
-            */
-
-            if (!currentMove.Equals(Vector2.zero))
-            {
-                anim.SetFloat("MoveX", currentMove.x);
-                anim.SetFloat("MoveY", currentMove.y);
-            }
-            anim.SetFloat("LastMoveX", lastMove.x);
-            anim.SetFloat("LastMoveY", lastMove.y);
-            anim.SetBool("PlayerMoving", playerMoving);
-            anim.SetBool("PlayerAttacking", playerAttacking);
+            // If game is paused, freeze the player
+            return;
         }
 
+        playerMoving = true;
 
+        if (!playerAttacking)
+        {
+            Move(movePoint.position);
+
+            if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
+            {
+                // If the player is going to attack, no more movement inputs
+                if (playerGoingToAttack)
+                {
+                    playerAttacking = true;
+                    anim.SetTrigger("Attack");
+                    playerGoingToAttack = false;
+                }
+
+                // Grid-based movement
+                else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+                {
+                    UpdateMovePoint(Input.GetAxisRaw("Horizontal"), 0f);
+                }
+                else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+                {
+                    UpdateMovePoint(0f, Input.GetAxisRaw("Vertical"));
+                }
+                else
+                {
+                    currentMove = Vector2.zero;
+                    playerMoving = false;
+                }
+
+                if (Input.GetKeyDown(KeyCode.J))
+                {
+                    playerGoingToAttack = true;
+                }
+            }
+        }
+
+        if (!currentMove.Equals(Vector2.zero))
+        {
+            anim.SetFloat("MoveX", currentMove.x);
+            anim.SetFloat("MoveY", currentMove.y);
+        }
+        anim.SetFloat("LastMoveX", lastMove.x);
+        anim.SetFloat("LastMoveY", lastMove.y);
+        anim.SetBool("PlayerMoving", playerMoving);
+        anim.SetBool("PlayerAttacking", playerAttacking);
     }
 
-    IEnumerator StartAttackTimer()
+    /**
+     * To be called by SpriteRenderer Component when attack animation ends
+     */
+    public void StopAttack()
     {
-        playerAttacking = true;
-        yield return new WaitForSeconds(attackTime);
+        anim.SetTrigger("StopAttack");
         playerAttacking = false;
     }
-
-
-    //Coroutine to summon fireball, Sorcerer's normal attack
-    /*
-    IEnumerator CastFireball()
-    {
-        yield return new WaitForSeconds(0.3f);
-        Instantiate(fireballPrefab, spellFirePoint.position, spellFirePoint.rotation);
-    }
-    */
 
     /** 
      * Checks if possible to move to movePoint.

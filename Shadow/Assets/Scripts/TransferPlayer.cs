@@ -32,7 +32,7 @@ public class TransferPlayer : MonoBehaviour
             if (transferTo != "")
             {
                 nextTransferTo = transferTo;
-                offset = other.transform.position - this.transform.position;    // step on which part of teleporter
+                offset = player.GetComponent<PlayerController>().movePoint.transform.position - this.transform.position;    // step on which part of teleporter
                 if (directionToFace == Vector2.zero)
                 {
                     nextDirection = player.GetComponent<PlayerController>().lastMove;
@@ -55,7 +55,7 @@ public class TransferPlayer : MonoBehaviour
         // check if moved from TransferPlayer instance
         if (nextTransferTo != "" && transferFrom == nextTransferTo)
         {
-            Vector3 oneStepAway = this.transform.position + new Vector3(nextDirection.x * 2 + offset.x, nextDirection.y * 2 + offset.y, 0f);      // so doesn't land on TransferPlayer
+            Vector3 oneStepAway = this.transform.position + new Vector3(nextDirection.x + offset.x, nextDirection.y + offset.y, 0f);      // so doesn't land on TransferPlayer
             Teleport(oneStepAway, nextDirection);
             nextTransferTo = "";
             nextDirection = Vector2.zero;
