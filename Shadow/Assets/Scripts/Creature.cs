@@ -22,6 +22,11 @@ public class Creature : MonoBehaviour
         return stats.getStats(statModifiers);
     }
 
+    public Dictionary<string, int> getBaseStats()
+    {
+        return stats.getBaseStats();
+    }
+
     private void Update()
     {
         if (currentHP <= 0)

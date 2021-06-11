@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script to control the moster objects
-public class MonsterAI : MonoBehaviour
+//Script to control the monster objects
+public class EnemyAI : MonoBehaviour
 {
     public float moveSpeed;                 // The monster's movement speed
 
@@ -32,6 +32,9 @@ public class MonsterAI : MonoBehaviour
     public float detectionRange;
     public float attackRange;
 
+    public EnemyUIManager enemyUIManager;
+    public Canvas enemyStatusCanvas;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -49,6 +52,9 @@ public class MonsterAI : MonoBehaviour
         anim.SetFloat("LastMoveY", -1f);
 
         isAlert = false;
+
+        enemyUIManager.enabled = false; 
+        enemyStatusCanvas.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -136,6 +142,9 @@ public class MonsterAI : MonoBehaviour
         moveDirection = player.transform.position - this.transform.position;
         anim.SetFloat("LastMoveX", moveDirection.x);
         anim.SetFloat("LastMoveY", moveDirection.y);
+
+        enemyUIManager.enabled = true;
+        enemyStatusCanvas.gameObject.SetActive(true);
     }
 
     /**
@@ -146,6 +155,9 @@ public class MonsterAI : MonoBehaviour
         // The monster loses track of the player and is no longer on alert
         Instantiate(MonsterAlertOff, this.transform.position + alertOffset, Quaternion.Euler(Vector3.zero));
         isAlert = false;
+
+        enemyUIManager.enabled = false;
+        enemyStatusCanvas.gameObject.SetActive(false);
     }
 
     /**

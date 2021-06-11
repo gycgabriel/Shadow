@@ -26,6 +26,11 @@ public class Stats
         };
     }
 
+    public Dictionary<string, int> getBaseStats()
+    {
+        return baseStats;
+    }
+
     public Dictionary<string, int> getStats(Dictionary<string, StatModifier> modifierList)
     {
         modifiedStats = new Dictionary<string, int>(baseStats);             // create a copy

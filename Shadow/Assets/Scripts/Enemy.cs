@@ -7,13 +7,17 @@ using UnityEngine;
  */
 public class Enemy : Creature
 {
-    public int expReward;
+    public EnemyInfo enemyInfo;
 
     public Player thePlayer;
 
     private void Start()
     {
         thePlayer = FindObjectOfType<Player>();
+        stats = enemyInfo.getStats();
+        currentHP = enemyInfo.hp;
+        currentMP = enemyInfo.mp;
+        currentLevel = enemyInfo.level;
     }
 
     private void Update()
@@ -21,7 +25,7 @@ public class Enemy : Creature
         if (currentHP <= 0)
         {
             isDead = true;
-            thePlayer.addExperience(expReward);
+            thePlayer.addExperience(enemyInfo.expReward);
         }
         else
         {

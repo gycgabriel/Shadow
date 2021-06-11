@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemySpriteAnimation : MonoBehaviour
 {
-    public MonsterAI slimeController;
+    public EnemyAI slimeController;
 
     // Start is called before the first frame update
     void Start()

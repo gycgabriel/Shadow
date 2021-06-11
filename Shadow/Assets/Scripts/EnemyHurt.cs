@@ -1,14 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class MonsterHurt : HurtBehaviour
+public class EnemyHurt : HurtBehaviour
 {
-    private MonsterAI monsterAI;
+    private EnemyAI monsterAI;
 
     protected override void Start()
     {
         base.Start();
-        monsterAI = GetComponent<MonsterAI>();
+        monsterAI = GetComponent<EnemyAI>();
     }
 
     public override bool hurt(int damageToGive)
