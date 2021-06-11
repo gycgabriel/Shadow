@@ -12,7 +12,7 @@ public class HurtBehaviour : MonoBehaviour
     private bool isInvincible = false;
 
 
-    void Start()
+    protected virtual void Start()
     {
         if (creatureGO != null)
         {
@@ -36,7 +36,7 @@ public class HurtBehaviour : MonoBehaviour
     }
 
     // returns whether the creature was successfully hurt
-    public bool hurt(int damageToGive)
+    public virtual bool hurt(int damageToGive)
     {
         // if the unit has invincibility frames and is invincible now, no damage will be taken
         if (hasInvincibility && isInvincible)

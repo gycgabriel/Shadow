@@ -363,9 +363,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7360009962843372801}
-  - component: {fileID: 7360009962843372812}
   - component: {fileID: 7360009962843372815}
   - component: {fileID: 7360009962843372814}
+  - component: {fileID: 324035159841629605}
   m_Layer: 17
   m_Name: AggressiveGreenSlime
   m_TagString: Enemy
@@ -389,19 +389,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7360009962843372812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7360009962843372809}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c82b43e31d45d2a4f908b2d5b32d6870, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creatureGO: {fileID: 0}
 --- !u!114 &7360009962843372815
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -437,13 +424,26 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 131072
-  slimeMoving: 0
   timeBetweenMove: 2
-  timeBetweenMoveCounter: 0
-  timeToMove: 1
   MonsterAlertOn: {fileID: 1786019580934016628, guid: e270edfefd6837942993eb8a43c18351,
     type: 3}
   MonsterAlertOff: {fileID: 1786019580934016628, guid: b3843ce38ac85f14b922f5e7229597fa,
     type: 3}
-  alertTime: 10
+  alertOffset: {x: 0, y: 0.25, z: 0}
+  maxAlertLevel: 10
   detectionRange: 5
+  attackRange: 1
+--- !u!114 &324035159841629605
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7360009962843372809}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f04d893f90294c458b87120e833e8fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureGO: {fileID: 0}
+  hasInvincibility: 0
