@@ -5,8 +5,8 @@ using UnityEngine;
 public class HurtBehaviour : MonoBehaviour
 {
     public GameObject creatureGO;                     
-    private Creature creature;                      // Enemy or Player
-    private SpriteRenderer[] sprites;
+    protected Creature creature;                      // Enemy or Player
+    protected SpriteRenderer[] sprites;
     
     public bool hasInvincibility;
     private bool isInvincible = false;
@@ -26,7 +26,7 @@ public class HurtBehaviour : MonoBehaviour
         }
     }
 
-    void Update()
+    protected virtual void Update()
     {
         if (creature.isDead)
         {

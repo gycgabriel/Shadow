@@ -11,6 +11,8 @@ public class Enemy : Creature
 
     public Player thePlayer;
 
+    public string displayName;
+
     private void Start()
     {
         thePlayer = FindObjectOfType<Player>();
@@ -18,6 +20,7 @@ public class Enemy : Creature
         currentHP = enemyInfo.hp;
         currentMP = enemyInfo.mp;
         currentLevel = enemyInfo.level;
+        displayName = enemyInfo.name;
     }
 
     private void Update()

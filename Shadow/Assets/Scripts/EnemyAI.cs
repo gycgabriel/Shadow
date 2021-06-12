@@ -5,19 +5,22 @@ using UnityEngine;
 //Script to control the monster objects
 public class EnemyAI : MonoBehaviour
 {
-    public float moveSpeed;                 // The monster's movement speed
-
     private Collider2D monsterCollider;
     public LayerMask blockingLayer;         // Layer on which collision will be checked.
 
-    private bool monsterMoving;                // Whether the monster is moving or attacking
+    public float moveSpeed;                 // The monster's movement speed
+    private bool monsterMoving;             // Whether the monster is moving or attacking
     public float timeBetweenMove;           // The amount of time between each movement the monster makes
-    private float timeBetweenMoveCounter;    // The time counter for time between movements
+    private float timeBetweenMoveCounter;   // The time counter for time between movements
 
     private Vector2 moveDirection;          // The movement direction vector of the slime
+
     private Vector2[] moveDirections = new Vector2[] //The four possible move directions
     {
-        new Vector2(0f,1f), new Vector2(1f,0f), new Vector2(0f,-1f), new Vector2(-1f,0f)
+        new Vector2(0f,1f),
+        new Vector2(1f,0f),
+        new Vector2(0f,-1f),
+        new Vector2(-1f,0f)
     };
 
     private PlayerController player;
@@ -34,6 +37,7 @@ public class EnemyAI : MonoBehaviour
 
     public EnemyUIManager enemyUIManager;
     public Canvas enemyStatusCanvas;
+    private TargetEnemyUIManager targetEnemyUIManager;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,7 @@ public class EnemyAI : MonoBehaviour
         monsterCollider = GetComponentInChildren<Collider2D>();
         anim = GetComponentInChildren<Animator>();
         player = FindObjectOfType<PlayerController>();
+        targetEnemyUIManager = FindObjectOfType<TargetEnemyUIManager>();
 
         // Set the time counters to their respective times, but with some random variation
         // So not all monsters move at once
@@ -134,6 +139,7 @@ public class EnemyAI : MonoBehaviour
             // If the monster is not already on alert, show alert signal
             Instantiate(MonsterAlertOn, this.transform.position + alertOffset, Quaternion.Euler(Vector3.zero));
             isAlert = true;
+            targetEnemyUIManager.addAlertedEnemy(GetComponent<Enemy>());
         }
         
         alertLevel = maxAlertLevel;
@@ -143,6 +149,7 @@ public class EnemyAI : MonoBehaviour
         anim.SetFloat("LastMoveX", moveDirection.x);
         anim.SetFloat("LastMoveY", moveDirection.y);
 
+        // Display mini HP bar above the enemy
         enemyUIManager.enabled = true;
         enemyStatusCanvas.gameObject.SetActive(true);
     }
@@ -155,9 +162,19 @@ public class EnemyAI : MonoBehaviour
         // The monster loses track of the player and is no longer on alert
         Instantiate(MonsterAlertOff, this.transform.position + alertOffset, Quaternion.Euler(Vector3.zero));
         isAlert = false;
+        targetEnemyUIManager.removeAlertedEnemy(GetComponent<Enemy>());
 
+        // Disable mini HP bar above the enemy
         enemyUIManager.enabled = false;
         enemyStatusCanvas.gameObject.SetActive(false);
+    }
+
+    /**
+     * The enemy is dead
+     */
+    public void Die()
+    {
+        targetEnemyUIManager.removeAlertedEnemy(GetComponent<Enemy>());
     }
 
     /**
