@@ -40,10 +40,10 @@ public class PlayerController : Singleton<PlayerController>
             return;
         }
 
-        playerMoving = true;
 
         if (!playerAttacking)
         {
+            playerMoving = true;
             Move(movePoint.position);
 
             if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
@@ -77,6 +77,13 @@ public class PlayerController : Singleton<PlayerController>
                 }
             }
         }
+        else
+        {
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                anim.SetTrigger("Attack");
+            }
+        }
 
         if (!currentMove.Equals(Vector2.zero))
         {
@@ -94,7 +101,6 @@ public class PlayerController : Singleton<PlayerController>
      */
     public void StopAttack()
     {
-        anim.SetTrigger("StopAttack");
         playerAttacking = false;
     }
 
