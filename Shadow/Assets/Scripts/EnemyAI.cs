@@ -170,10 +170,11 @@ public class EnemyAI : MonoBehaviour
     }
 
     /**
-     * The enemy is dead
+     * Cleanup after the enemy is dead
      */
-    public void Die()
+    void OnDisable()
     {
+        // Stop EnemyUIManager from tracking its status anymore
         targetEnemyUIManager.removeAlertedEnemy(GetComponent<Enemy>());
     }
 

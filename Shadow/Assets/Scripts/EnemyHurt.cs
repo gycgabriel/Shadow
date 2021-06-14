@@ -16,7 +16,7 @@ public class EnemyHurt : HurtBehaviour
     {
         if (creature.isDead)
         {
-            enemyAI.Die();
+            //enemyAI.Die();
             Destroy(gameObject);
         }
     }
