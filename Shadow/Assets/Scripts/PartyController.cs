@@ -10,6 +10,7 @@ public class PartyController : Singleton<PartyController>
     public static PlayerController playerPC;
     public static PlayerController shadowPC;
     public static PlayerController activePC;
+    public static PlayerController inactivePC;
 
     // Start is called before the first frame update
     void Start()
@@ -41,15 +42,18 @@ public class PartyController : Singleton<PartyController>
             if (shadowActive)
             {
                 activePC = shadowPC;
+                inactivePC = playerPC;
             }
             else
             {
                 activePC = playerPC;
+                inactivePC = shadowPC;
             }
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            bool attackInput = Input.GetKeyDown(KeyCode.Z);
-            bool switchToShadowInput = Input.GetKeyDown(KeyCode.S);
+            bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
+            bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);
+            inactivePC.SetPosition(activePC.transform.position, activePC.lastMove);
             activePC.HandleInput(movement, attackInput, switchToShadowInput);
         }
 
@@ -61,13 +65,11 @@ public class PartyController : Singleton<PartyController>
         {
             shadow.SetActive(false);
             player.SetActive(true);
-            activePC = playerPC;
         }
         else
         {
             shadow.SetActive(true);
             player.SetActive(false);
-            activePC = shadowPC;
         }
         shadowActive = !shadowActive;
     }

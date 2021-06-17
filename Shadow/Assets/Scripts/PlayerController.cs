@@ -163,6 +163,11 @@ public class PlayerController : MonoBehaviour
 
     public void SetPosition(Vector3 coords, Vector2 direction)
     {
+        if (cameraController == null)
+        {
+            cameraController = FindObjectOfType<CameraController>().gameObject;
+        }
+
         if (direction == Vector2.zero)
         {
             direction = lastMove;
