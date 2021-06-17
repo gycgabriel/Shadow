@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void HandleInput(Vector2 movement, bool attackInput)
+    public void HandleInput(Vector2 movement, bool attackInput, bool switchToShadowInput)
     {
         if (cameraController == null)
         {
@@ -78,6 +78,11 @@ public class PlayerController : MonoBehaviour
                 if (attackInput)
                 {
                     playerGoingToAttack = true;
+                }
+
+                if (switchToShadowInput)
+                {
+                    PartyController.switchShadow();
                 }
             }
         }

@@ -48,10 +48,28 @@ public class PartyController : Singleton<PartyController>
             }
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            bool attackInput = Input.GetKeyDown(KeyCode.J);
-            activePC.HandleInput(movement, attackInput);
+            bool attackInput = Input.GetKeyDown(KeyCode.Z);
+            bool switchToShadowInput = Input.GetKeyDown(KeyCode.S);
+            activePC.HandleInput(movement, attackInput, switchToShadowInput);
         }
 
+    }
+
+    public static void switchShadow()
+    {
+        if (shadowActive)
+        {
+            shadow.SetActive(false);
+            player.SetActive(true);
+            activePC = playerPC;
+        }
+        else
+        {
+            shadow.SetActive(true);
+            player.SetActive(false);
+            activePC = shadowPC;
+        }
+        shadowActive = !shadowActive;
     }
 
 }
