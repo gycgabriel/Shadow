@@ -80,7 +80,9 @@ public class ChooseCharClassUI : MonoBehaviour
     public void ChooseGuardian()
     {
         GameObject player = Instantiate(guardianPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
+        player.transform.parent = Singleton<PartyController>.gameInstance.transform;
         player.GetComponent<Player>().chooseCharClass("Guardian");
+        Debug.Log("" + player);
         bringToScene("hometown");
         FindObjectOfType<DialogueManager>().Destroy();
     }

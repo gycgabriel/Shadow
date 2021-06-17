@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerController : Singleton<PlayerController>
+public class PlayerController : MonoBehaviour
 {
     public GameObject cameraController;
 
@@ -14,13 +14,12 @@ public class PlayerController : Singleton<PlayerController>
     public BoxCollider2D boxCollider;
     public LayerMask blockingLayer;            // tilemap layers of non-passable objects
 
+    // Anim variables
     public bool playerMoving;
     public Vector2 currentMove;
     public Vector2 lastMove;
-
-    // Future: Player Animation.cs?
-    private bool playerGoingToAttack;
-    private bool playerAttacking;
+    public bool playerGoingToAttack;
+    public bool playerAttacking;
     
     void Start()
     {
@@ -28,6 +27,11 @@ public class PlayerController : Singleton<PlayerController>
         lastMove = new Vector2(0f, -1f);           // player face down 
     }
     void Update()
+    {
+        
+    }
+
+    public void HandleInput(Vector2 movement, bool attackInput)
     {
         if (cameraController == null)
         {
@@ -57,13 +61,13 @@ public class PlayerController : Singleton<PlayerController>
                 }
 
                 // Grid-based movement
-                else if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) == 1f)
+                else if (Mathf.Abs(movement.x) == 1f)
                 {
-                    UpdateMovePoint(Input.GetAxisRaw("Horizontal"), 0f);
+                    UpdateMovePoint(movement.x, 0f);
                 }
-                else if (Mathf.Abs(Input.GetAxisRaw("Vertical")) == 1f)
+                else if (Mathf.Abs(movement.y) == 1f)
                 {
-                    UpdateMovePoint(0f, Input.GetAxisRaw("Vertical"));
+                    UpdateMovePoint(0f, movement.y);
                 }
                 else
                 {
@@ -71,7 +75,7 @@ public class PlayerController : Singleton<PlayerController>
                     playerMoving = false;
                 }
 
-                if (Input.GetKeyDown(KeyCode.J))
+                if (attackInput)
                 {
                     playerGoingToAttack = true;
                 }
@@ -79,12 +83,13 @@ public class PlayerController : Singleton<PlayerController>
         }
         else
         {
-            if (Input.GetKeyDown(KeyCode.J))
+            if (attackInput)
             {
                 anim.SetTrigger("Attack");
             }
         }
 
+        // Update anim vars
         if (!currentMove.Equals(Vector2.zero))
         {
             anim.SetFloat("MoveX", currentMove.x);
@@ -95,6 +100,7 @@ public class PlayerController : Singleton<PlayerController>
         anim.SetBool("PlayerMoving", playerMoving);
         anim.SetBool("PlayerAttacking", playerAttacking);
     }
+
 
     /**
      * To be called by SpriteRenderer Component when attack animation ends
@@ -144,7 +150,7 @@ public class PlayerController : Singleton<PlayerController>
         lastMove = currentMove;
     }
 
-    public override void Destroy()
+    public void Destroy()
     {
         Destroy(movePoint.gameObject);
         Destroy(gameObject);
