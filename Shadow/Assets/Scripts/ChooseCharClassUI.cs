@@ -18,6 +18,9 @@ public class ChooseCharClassUI : MonoBehaviour
     public TMP_Text chosenClassText; 
     public string chosenClass;
 
+    public static string playerClass;
+    public static string shadowClass;
+
     /**
      * Viewing the Guardian Class details.
      */
@@ -82,9 +85,14 @@ public class ChooseCharClassUI : MonoBehaviour
         GameObject player = Instantiate(guardianPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
         player.transform.parent = Singleton<PartyController>.gameInstance.transform;
         player.GetComponent<Player>().chooseCharClass("Guardian");
-        Debug.Log("" + player);
+        //for now twice same
+        GameObject shadow = Instantiate(sorcererPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
+        shadow.transform.parent = Singleton<PartyController>.gameInstance.transform;
+        shadow.GetComponent<Player>().chooseCharClass("Guardian");
+        shadow.SetActive(false);
         bringToScene("hometown");
         FindObjectOfType<DialogueManager>().Destroy();
+
     }
 
     public void ChooseSorcerer()

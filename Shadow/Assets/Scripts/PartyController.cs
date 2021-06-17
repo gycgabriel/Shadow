@@ -5,11 +5,11 @@ using UnityEngine;
 public class PartyController : Singleton<PartyController>
 {
     public static bool shadowActive = false;
-    private GameObject player;
-    private GameObject shadow;
-    private PlayerController playerPC;
-    private PlayerController shadowPC;
-    private PlayerController activePC;
+    public static GameObject player;
+    public static GameObject shadow;
+    public static PlayerController playerPC;
+    public static PlayerController shadowPC;
+    public static PlayerController activePC;
 
     // Start is called before the first frame update
     void Start()
@@ -29,7 +29,7 @@ public class PartyController : Singleton<PartyController>
         if (player == null || shadow == null)
         {
             player = transform.GetChild(0).gameObject;
-            shadow = transform.GetChild(0).gameObject;
+            shadow = transform.GetChild(1).gameObject;
         }
         else if (playerPC == null || shadowPC == null)
         {
@@ -52,7 +52,6 @@ public class PartyController : Singleton<PartyController>
             activePC.HandleInput(movement, attackInput);
         }
 
-        
     }
 
 }
