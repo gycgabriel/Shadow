@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public GameObject cameraController;
+    public static GameObject cameraController;
 
     public float moveSpeed;
     public Transform movePoint;

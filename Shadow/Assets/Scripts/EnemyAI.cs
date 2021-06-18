@@ -45,8 +45,8 @@ public class EnemyAI : MonoBehaviour
         // Get a component references
         monsterCollider = GetComponentInChildren<Collider2D>();
         anim = GetComponentInChildren<Animator>();
-        player = FindObjectOfType<PlayerController>();
-        targetEnemyUIManager = FindObjectOfType<TargetEnemyUIManager>();
+        player = PartyController.playerPC;
+        targetEnemyUIManager = Singleton<TargetEnemyUIManager>.gameInstance.GetComponent<TargetEnemyUIManager>();
 
         // Set the time counters to their respective times, but with some random variation
         // So not all monsters move at once
@@ -65,6 +65,8 @@ public class EnemyAI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        player = PartyController.activePC;
+
         if (monsterMoving)
         {
             // If the monster is in the middle of movement, do nothing
@@ -139,6 +141,7 @@ public class EnemyAI : MonoBehaviour
             // If the monster is not already on alert, show alert signal
             Instantiate(MonsterAlertOn, this.transform.position + alertOffset, Quaternion.Euler(Vector3.zero));
             isAlert = true;
+            Debug.Log(targetEnemyUIManager);
             targetEnemyUIManager.addAlertedEnemy(GetComponent<Enemy>());
         }
         

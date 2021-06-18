@@ -14,13 +14,13 @@ public class PauseMenu : Singleton<PauseMenu>
 
     private PartyController party;
     private CameraController mainCamera;
-    private StatusDrawer playerLevelUI;
+    private PlayerStatusWindow playerLevelUI;
 
     private void Start()
     {
         party = FindObjectOfType<PartyController>();
         mainCamera = FindObjectOfType<CameraController>();
-        playerLevelUI = FindObjectOfType<StatusDrawer>();
+        playerLevelUI = FindObjectOfType<PlayerStatusWindow>();
     }
 
     private void Update()

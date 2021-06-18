@@ -8,7 +8,7 @@ using UnityEngine.SceneManagement;
 /**
  * Manage which enemy is targeted and to display status of
  */
-public class TargetEnemyUIManager : MonoBehaviour
+public class TargetEnemyUIManager : Singleton<TargetEnemyUIManager>
 {
     private Player player;
     public TargetEnemyUIDisplay display;       // The enemy status display
@@ -17,7 +17,6 @@ public class TargetEnemyUIManager : MonoBehaviour
 
     void Start()
     {
-        player = FindObjectOfType<Player>();
         targetedEnemy = null;
         alertedEnemies = new List<Enemy>();
 
@@ -34,6 +33,8 @@ public class TargetEnemyUIManager : MonoBehaviour
 
     private void Update()
     {
+        player = PartyController.activePC.gameObject.GetComponent<Player>();
+
         // If there are no alerted enemies, deactivate the enemy display
         if (alertedEnemies.Count == 0)
         {

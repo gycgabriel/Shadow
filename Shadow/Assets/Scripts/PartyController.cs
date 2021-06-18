@@ -32,7 +32,7 @@ public class PartyController : Singleton<PartyController>
             player = transform.GetChild(0).gameObject;
             shadow = transform.GetChild(1).gameObject;
         }
-        else if (playerPC == null || shadowPC == null)
+        if (playerPC == null || shadowPC == null)
         {
             playerPC = player.GetComponent<PlayerController>();
             shadowPC = shadow.GetComponent<PlayerController>();
