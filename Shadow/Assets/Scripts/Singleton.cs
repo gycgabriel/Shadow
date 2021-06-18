@@ -6,6 +6,7 @@ using UnityEngine;
 /** 
  * Parent class for gameObjects that can only exist one at a time.
  * Only inherit in child scripts attached to root GameObject! DontDestroyOnLoad requirement.
+ * NOTE: DO NOT HAVE AWAKE() IN CHILDREN OF THIS CLASS ( it will override singleton behaviour ) 
  */
 
 public class Singleton<T> : MonoBehaviour where T : Component

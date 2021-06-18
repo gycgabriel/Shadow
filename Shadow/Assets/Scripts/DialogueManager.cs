@@ -6,7 +6,7 @@ using TMPro;
 
 public class DialogueManager : Singleton<DialogueManager>
 {
-    private Queue<string> sentences;
+    private Queue<string> sentences = new Queue<string>();
 
     public GameObject dialogueBox;
     public TMP_Text nameText;
@@ -16,11 +16,8 @@ public class DialogueManager : Singleton<DialogueManager>
     public bool typingDialogue;
     public string currentSentence;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        sentences = new Queue<string>();
-    }
+    private System.Action nextDialogue;
+
 
     public void StartDialogue(Dialogue dialogue)
     { 
@@ -30,7 +27,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
         sentences.Clear();
 
-        foreach (string sentence in dialogue.sentences)
+        foreach (string sentence in dialogue.text)
         {
             sentences.Enqueue(sentence);
         }
@@ -40,12 +37,28 @@ public class DialogueManager : Singleton<DialogueManager>
         DisplayNextSentence();
     }
 
+    public void StartDialogue(Dialogue dialogue, System.Action nextDialogue)
+    {
+        StartDialogue(dialogue);
+        this.nextDialogue = nextDialogue;
+    }
+
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
-            EndDialogue();
+            if (this.nextDialogue != null)
+            {
+                System.Action temp = this.nextDialogue;
+                this.nextDialogue = null;
+                temp();
+            } 
+            else
+            {
+                EndDialogue();
+            }
             return;
+
         }
 
         currentSentence = sentences.Dequeue();
@@ -78,6 +91,8 @@ public class DialogueManager : Singleton<DialogueManager>
         }
 
         typingDialogue = false;
+
+        // TODO: the arrow thingy to wait for click to move on to next dialogue
     }
 
     public void EndDialogue()
