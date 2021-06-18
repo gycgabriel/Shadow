@@ -13,7 +13,7 @@ public class TransferPlayer : MonoBehaviour
 
     public static string nextTransferSpot;
     public static Vector2 nextDirection;
-    private static Vector3 offset;
+    public static Vector3 offset;
 
     void Start()
     {
