@@ -74,4 +74,10 @@ public class PartyController : Singleton<PartyController>
         shadowActive = !shadowActive;
     }
 
+
+    public override void Destroy()
+    {
+        playerPC.Destroy();
+        shadowPC.Destroy();
+    }
 }

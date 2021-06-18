@@ -12,13 +12,13 @@ public class PauseMenu : Singleton<PauseMenu>
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
     public Button buttonToSelect;            // button to select when paused
 
-    private PlayerController thePlayer;
+    private PartyController party;
     private CameraController mainCamera;
     private StatusDrawer playerLevelUI;
 
     private void Start()
     {
-        thePlayer = FindObjectOfType<PlayerController>();
+        party = FindObjectOfType<PartyController>();
         mainCamera = FindObjectOfType<CameraController>();
         playerLevelUI = FindObjectOfType<StatusDrawer>();
     }
@@ -57,7 +57,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void ReturnToMenu()
     {
-        thePlayer.Destroy();
+        party.Destroy();
         mainCamera.Destroy();
         playerLevelUI.Destroy();
         Time.timeScale = 1f;

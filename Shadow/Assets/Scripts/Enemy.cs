@@ -9,13 +9,15 @@ public class Enemy : Creature
 {
     public EnemyInfo enemyInfo;
 
-    public Player thePlayer;
+    public Player player;
+    public Player shadow;
 
     public string displayName;
 
     private void Start()
     {
-        thePlayer = FindObjectOfType<Player>();
+        player = PartyController.player.GetComponent<Player>();
+        shadow = PartyController.shadow.GetComponent<Player>();
         stats = enemyInfo.getStats();
         currentHP = enemyInfo.hp;
         currentMP = enemyInfo.mp;
@@ -28,7 +30,8 @@ public class Enemy : Creature
         if (currentHP <= 0)
         {
             isDead = true;
-            thePlayer.addExperience(enemyInfo.expReward);
+            player.addExperience(enemyInfo.expReward);
+            shadow.addExperience(enemyInfo.expReward);
         }
         else
         {

@@ -88,7 +88,7 @@ public class ChooseCharClassUI : MonoBehaviour
         //for now twice same
         GameObject shadow = Instantiate(sorcererPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
         shadow.transform.parent = Singleton<PartyController>.gameInstance.transform;
-        shadow.GetComponent<Player>().chooseCharClass("Guardian");
+        shadow.GetComponent<Player>().chooseCharClass("Sorcerer");
         shadow.SetActive(false);
         bringToScene("hometown");
         FindObjectOfType<DialogueManager>().Destroy();

@@ -6,21 +6,31 @@ using TMPro;
 
 public class PortraitUI : MonoBehaviour
 {
-    public string who;              // player or shadow
+    public bool isStatus;
+    public bool isShadow;
     public PortraitBehaviour portraitOf;
     private Image image;
 
     void Start()
     {
-        if (who == "player")
+        if (isShadow)
         {
-            portraitOf = FindObjectOfType<Player>().gameObject.GetComponent<PortraitBehaviour>();
+            portraitOf = PartyController.shadow.GetComponent<PortraitBehaviour>();
         } 
         else
-        {       // TODO: to include shadow and other chars
-            portraitOf = FindObjectOfType<Player>().gameObject.GetComponent<PortraitBehaviour>();
+        {
+            portraitOf = PartyController.player.GetComponent<PortraitBehaviour>();
         }
         image = GetComponent<Image>();
+        image.sprite = portraitOf.portraitToDisplay;
+    }
+
+    private void Update()
+    {
+        if (isStatus)
+        {
+            portraitOf = PartyController.activePC.gameObject.GetComponent<PortraitBehaviour>();
+        }
         image.sprite = portraitOf.portraitToDisplay;
     }
 

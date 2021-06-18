@@ -16,7 +16,6 @@ public class Player : Creature
 
     private void Start()
     {
-        chooseCharClass("Sorcerer");
     }
 
     public void addExperience(int expToAdd)
