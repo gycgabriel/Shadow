@@ -23,7 +23,7 @@ public class DialogueManager : Singleton<DialogueManager>
     }
 
     public void StartDialogue(Dialogue dialogue)
-    {
+    { 
         inDialogue = true;
 
         nameText.text = dialogue.name;
@@ -49,6 +49,7 @@ public class DialogueManager : Singleton<DialogueManager>
         }
 
         currentSentence = sentences.Dequeue();
+        StopAllCoroutines();
         StartCoroutine(TypeSentence(currentSentence));
     }
 
