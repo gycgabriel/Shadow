@@ -216,10 +216,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Sorcerer
-    sentences:
-    - Sorcerer... A Magic Class that specialises in a variety of powerful offensive
-      spells. A Sorcerer specialises in dealing high magic damage to the enemy using
-      different spells, but in exchange has a weak defense.
+    text:
+    - Choose sorcerer...
 --- !u!114 &242012722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,9 +657,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Kannagi
-    sentences:
-    - Kannagi... A Class of great culture. A Kannagi specialises in summon great
-      barriers that would protect and buff party members or debuff enemies.
+    text: []
 --- !u!1 &630000869
 GameObject:
   m_ObjectHideFlags: 0
@@ -854,10 +850,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dialogue:
     name: Guardian
-    sentences:
-    - A Tank Class that specialises in defence. A Guardian specialises in having
-      a high defense and deals physical damage to the enemy with sword skills.
-    - Stoic loyal fighters that do not flinch in the face of adversity.
+    text:
+    - Choose guardian...
 --- !u!1 &954038113
 GameObject:
   m_ObjectHideFlags: 0
