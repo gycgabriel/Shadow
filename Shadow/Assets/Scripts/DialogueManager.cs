@@ -16,11 +16,11 @@ public class DialogueManager : Singleton<DialogueManager>
     public bool typingDialogue;
     public string currentSentence;
 
-    private System.Action nextDialogue;
+    private bool hasNextDialogue;
 
 
     public void StartDialogue(Dialogue dialogue)
-    { 
+    {
         inDialogue = true;
 
         nameText.text = dialogue.name;
@@ -37,28 +37,18 @@ public class DialogueManager : Singleton<DialogueManager>
         DisplayNextSentence();
     }
 
-    public void StartDialogue(Dialogue dialogue, System.Action nextDialogue)
+    public void StartDialogue(Dialogue dialogue, bool hasNextDialogue)
     {
+        this.hasNextDialogue = hasNextDialogue;
         StartDialogue(dialogue);
-        this.nextDialogue = nextDialogue;
     }
 
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
-            if (this.nextDialogue != null)
-            {
-                System.Action temp = this.nextDialogue;
-                this.nextDialogue = null;
-                temp();
-            } 
-            else
-            {
-                EndDialogue();
-            }
+            EndDialogue();
             return;
-
         }
 
         currentSentence = sentences.Dequeue();
@@ -97,7 +87,15 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void EndDialogue()
     {
-        dialogueBox.SetActive(false);
         inDialogue = false;
+        if (hasNextDialogue)
+        {
+            Singleton<ScenarioManager>.scriptInstance.ContinueText();
+        }
+        else
+        {
+            dialogueBox.SetActive(false);
+        }
     }
 }
+        

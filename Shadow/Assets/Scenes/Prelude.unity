@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 427952669}
   - component: {fileID: 427952668}
   - component: {fileID: 427952670}
+  - component: {fileID: 427952667}
   m_Layer: 0
   m_Name: Start
   m_TagString: Untagged
@@ -141,6 +142,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &427952667
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 427952666}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5effa217b9166134a9164fb0d98722c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &427952668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -659,9 +672,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1908050875034215488}
-        m_TargetAssemblyTypeName: DialogueManager, Assembly-CSharp
-        m_MethodName: ContinueDialogue
+      - m_Target: {fileID: 427952667}
+        m_TargetAssemblyTypeName: ScenarioManager, Assembly-CSharp
+        m_MethodName: ContinueText
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

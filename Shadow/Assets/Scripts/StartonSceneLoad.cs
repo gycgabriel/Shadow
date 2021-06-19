@@ -17,7 +17,7 @@ public class StartonSceneLoad : MonoBehaviour
     {
         if (!done)
         {
-            GetComponent<GetText>().PlayScenario();
+            Singleton<ScenarioManager>.scriptInstance.PlayScenario();
             done = true;
         }
     }

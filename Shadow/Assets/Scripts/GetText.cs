@@ -13,8 +13,6 @@ public class GetText : MonoBehaviour
 
     private Chapter chapter;
     private Scenario scenario;
-    private Queue<Dialogue> queue = new Queue<Dialogue>();
-    private DialogueManager dm;
 
     void Start()
     {
@@ -24,35 +22,7 @@ public class GetText : MonoBehaviour
         Debug.Log("Loaded chapter " + chapter.id);
         scenario = chapter.data[0];
         Debug.Log("Loaded scenario " + scenario.id);
-
-        Dialogue[] dialogues = scenario.data;
-
-        dm = Singleton<DialogueManager>.scriptInstance;
-
-        foreach (Dialogue dialogue in dialogues)
-        {
-            queue.Enqueue(dialogue);
-        }
-    }
-
-    public void PlayScenario()
-    {
-        if (queue.Count == 0)
-        {
-            dm.EndDialogue();
-            Debug.Log("END");
-            return;
-        }
-
-        if (!dm.inDialogue)
-        {
-            dm.StartDialogue(queue.Dequeue(), () => ContinueScenario());
-        }
-    }
-
-    public void ContinueScenario()
-    {
-        PlayScenario();
+        Singleton<ScenarioManager>.scriptInstance.InitScenario(scenario);
     }
 
 }
