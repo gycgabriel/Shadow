@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55965f393574a0f4783215f584177b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 0}
   moveSpeed: 10
   movePoint: {fileID: 7021806161722600644}
   anim: {fileID: 7021806162762431602}
@@ -61,6 +60,8 @@ MonoBehaviour:
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
+  playerGoingToAttack: 0
+  playerAttacking: 0
 --- !u!210 &7021806160790640474
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -680,7 +681,7 @@ SpriteRenderer:
   m_SortingLayerID: -105541197
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: -4872243641895233855, guid: aa755226cc7303249a25d02fa09a4c12,
+  m_Sprite: {fileID: -3468398767205409831, guid: 8136ca805e8fec24182c48b170940f75,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
