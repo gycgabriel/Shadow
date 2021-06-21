@@ -52,9 +52,10 @@ public class PartyController : Singleton<PartyController>
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
+            bool ultimateInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.U);
             bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);
             inactivePC.SetPosition(activePC.transform.position, activePC.lastMove);
-            activePC.HandleInput(movement, attackInput, switchToShadowInput);
+            activePC.HandleInput(movement, attackInput, ultimateInput, switchToShadowInput);
         }
 
     }

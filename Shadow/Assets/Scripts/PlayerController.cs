@@ -19,6 +19,7 @@ public class PlayerController : MonoBehaviour
     public Vector2 currentMove;
     public Vector2 lastMove;
     public bool playerGoingToAttack;
+    public bool playerGoingToUltimate;
     public bool playerAttacking;
     
     void Start()
@@ -31,7 +32,7 @@ public class PlayerController : MonoBehaviour
         
     }
 
-    public void HandleInput(Vector2 movement, bool attackInput, bool switchToShadowInput)
+    public void HandleInput(Vector2 movement, bool attackInput, bool ultimateInput, bool switchToShadowInput)
     {
         if (cameraController == null)
         {
@@ -53,7 +54,14 @@ public class PlayerController : MonoBehaviour
             if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
             {
                 // If the player is going to attack, no more movement inputs
-                if (playerGoingToAttack)
+                if (playerGoingToUltimate)
+                {
+                    playerAttacking = true;
+                    anim.SetTrigger("UltimateAttack");
+                    playerGoingToUltimate = false;
+                    playerGoingToAttack = false;
+                }
+                else if (playerGoingToAttack)
                 {
                     playerAttacking = true;
                     anim.SetTrigger("Attack");
@@ -74,11 +82,17 @@ public class PlayerController : MonoBehaviour
                     currentMove = Vector2.zero;
                     playerMoving = false;
                 }
-
-                if (attackInput)
+                
+                if (ultimateInput)
+                {
+                    playerGoingToUltimate = true;
+                }
+                else if (attackInput)
                 {
                     playerGoingToAttack = true;
                 }
+
+                
 
                 if (switchToShadowInput)
                 {

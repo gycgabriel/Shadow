@@ -50,6 +50,15 @@ TextureImporter:
   - first:
       213: -2424950513911117106
     second: Guardian_Attacks_15
+  - first:
+      213: -278964319818034521
+    second: Guardian_Attacks_16
+  - first:
+      213: -2964185317971777710
+    second: Guardian_Attacks_17
+  - first:
+      213: 1753884520502749558
+    second: Guardian_Attacks_18
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -470,6 +479,69 @@ TextureImporter:
       bones: []
       spriteID: eca4d640b58d85ed0800000000000000
       internalID: -2424950513911117106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guardian_Attacks_16
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7a2dc3cdd6be02cf0800000000000000
+      internalID: -278964319818034521
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guardian_Attacks_17
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2572dd188291dd6d0800000000000000
+      internalID: -2964185317971777710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Guardian_Attacks_18
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 32
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6796f9dcdac075810800000000000000
+      internalID: 1753884520502749558
       vertices: []
       indices: 
       edges: []

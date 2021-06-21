@@ -34,11 +34,11 @@ public class HurtEnemy : MonoBehaviour
             if (attackSuccessful)
             {
                 // Generate the blood spurt animation at the hit point
-                Instantiate(damageBurst, hitPoint.position, hitPoint.rotation);
+                Instantiate(damageBurst, other.transform.position, Quaternion.Euler(Vector3.zero));
 
                 // Generate the object displaying the damage number at the hit point
                 // Rotation set to zero to ensure damage number is upright
-                GameObject clone = (GameObject) Instantiate(damageNumber, hitPoint.position, Quaternion.Euler(Vector3.zero));
+                GameObject clone = (GameObject) Instantiate(damageNumber, other.transform.position, Quaternion.Euler(Vector3.zero));
 
                 // Set the damage number to be displayed
                 clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
@@ -50,7 +50,7 @@ public class HurtEnemy : MonoBehaviour
         {
             if (other.gameObject.tag != "Enemy")
             {
-                Instantiate(damageBurst, hitPoint.position, hitPoint.rotation);
+                Instantiate(damageBurst, other.transform.position, Quaternion.Euler(Vector3.zero));
             }
             Destroy(gameObject);
         }
