@@ -32,6 +32,18 @@ public class PlayerController : MonoBehaviour
         
     }
 
+    public void Dash(bool dashInput)
+    {
+        if (dashInput)
+        {
+            moveSpeed = 18f;
+        } else
+        {
+            moveSpeed = 10f;
+        }
+    }
+
+
     public void HandleInput(Vector2 movement, bool attackInput, bool ultimateInput, bool switchToShadowInput)
     {
         if (cameraController == null)

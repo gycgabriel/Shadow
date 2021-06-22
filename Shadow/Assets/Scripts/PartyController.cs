@@ -55,7 +55,9 @@ public class PartyController : Singleton<PartyController>
             bool ultimateInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.U);
             bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);
             inactivePC.SetPosition(activePC.transform.position, activePC.lastMove);
+            activePC.Dash(Input.GetKey(KeyCode.LeftShift));
             activePC.HandleInput(movement, attackInput, ultimateInput, switchToShadowInput);
+            
         }
 
     }
