@@ -9,6 +9,8 @@ public class PauseMenu : Singleton<PauseMenu>
     public static bool gameIsPaused = false;      //Whether the game is paused
 
     public GameObject pauseMenuUI;               //The UI of the pause menu
+    public GameObject statsScreen;
+
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
     public Button buttonToSelect;            // button to select when paused
 
@@ -27,6 +29,11 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.X))
         {
+            if (statsScreen.activeSelf == true)
+            {
+                HideStats();
+                return;
+            }
             if (gameIsPaused)
             {
                 ResumeGame();
@@ -70,6 +77,19 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         Debug.Log("Quitting!");
         Application.Quit();
+    }
+
+
+    public void ShowStats()
+    {
+        pauseMenuUI.SetActive(false);
+        statsScreen.SetActive(true);
+    }
+
+    public void HideStats()
+    {
+        statsScreen.SetActive(false);
+        pauseMenuUI.SetActive(true);
     }
 
 }
