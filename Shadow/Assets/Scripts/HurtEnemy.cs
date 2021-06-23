@@ -50,7 +50,7 @@ public class HurtEnemy : MonoBehaviour
         {
             if (other.gameObject.tag != "Enemy")
             {
-                Instantiate(damageBurst, other.transform.position, Quaternion.Euler(Vector3.zero));
+                Instantiate(damageBurst, this.transform.position, Quaternion.Euler(Vector3.zero));
             }
             Destroy(gameObject);
         }

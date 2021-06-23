@@ -58,6 +58,8 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 131072
+  playerSkills: {fileID: 8754808651645558989}
+  skillsUIManager: {fileID: 0}
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
@@ -138,6 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3eecadab7a6192f44844f689162fc6a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ultimateSkill: {fileID: 11400000, guid: 4ec62332c93362f4b9afff938d81e78e, type: 2}
+  animator: {fileID: 537751579799166600}
   spellFirePoint: {fileID: 7179753382793844231}
   fireballPrefab: {fileID: 4838358407724080169, guid: 7b2e2a06f183b9a4298cfe77e0f9c453,
     type: 3}

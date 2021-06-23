@@ -150,6 +150,7 @@ GameObject:
   - component: {fileID: 7387898316764795012}
   - component: {fileID: 4756731513656762835}
   - component: {fileID: 4156385587426568943}
+  - component: {fileID: 1450755230046836200}
   m_Layer: 0
   m_Name: Guardian
   m_TagString: Player
@@ -193,6 +194,8 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 131072
+  playerSkills: {fileID: 1450755230046836200}
+  skillsUIManager: {fileID: 0}
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
@@ -261,6 +264,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureGO: {fileID: 0}
   hasInvincibility: 1
+--- !u!114 &1450755230046836200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021806160790640468}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69aaac4f94810514eacb1568a68c4604, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ultimateSkill: {fileID: 11400000, guid: 9921a348adc98e940bf81ec682c4fc79, type: 2}
+  animator: {fileID: 7021806162762431602}
 --- !u!1 &7021806160996736911
 GameObject:
   m_ObjectHideFlags: 0

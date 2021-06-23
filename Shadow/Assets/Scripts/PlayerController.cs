@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRigidBody;
     public BoxCollider2D boxCollider;
     public LayerMask blockingLayer;            // tilemap layers of non-passable objects
+    public Skills playerSkills;
+    public SkillsUIManager skillsUIManager;
 
     // Anim variables
     public bool playerMoving;
@@ -50,6 +52,10 @@ public class PlayerController : MonoBehaviour
         {
             cameraController = FindObjectOfType<CameraController>().gameObject;
         }
+        if (skillsUIManager == null)
+        {
+            skillsUIManager = SkillsUIManager.scriptInstance;
+        }
 
         if (PauseMenu.gameIsPaused)
         {
@@ -57,66 +63,26 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-
-        if (!playerAttacking)
+        if (playerAttacking)
         {
-            playerMoving = true;
-            Move(movePoint.position);
-
-            if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
-            {
-                // If the player is going to attack, no more movement inputs
-                if (playerGoingToUltimate)
-                {
-                    playerAttacking = true;
-                    anim.SetTrigger("UltimateAttack");
-                    playerGoingToUltimate = false;
-                    playerGoingToAttack = false;
-                }
-                else if (playerGoingToAttack)
-                {
-                    playerAttacking = true;
-                    anim.SetTrigger("Attack");
-                    playerGoingToAttack = false;
-                }
-
-                // Grid-based movement
-                else if (Mathf.Abs(movement.x) == 1f)
-                {
-                    UpdateMovePoint(movement.x, 0f);
-                }
-                else if (Mathf.Abs(movement.y) == 1f)
-                {
-                    UpdateMovePoint(0f, movement.y);
-                }
-                else
-                {
-                    currentMove = Vector2.zero;
-                    playerMoving = false;
-                }
-                
-                if (ultimateInput)
-                {
-                    playerGoingToUltimate = true;
-                }
-                else if (attackInput)
-                {
-                    playerGoingToAttack = true;
-                }
-
-                
-
-                if (switchToShadowInput)
-                {
-                    PartyController.switchShadow();
-                }
-            }
+            // When player is attacking, player can continue to attack but cannot move or change to shadow
+            HandleSkillsInput(attackInput, ultimateInput);
+            return;
         }
-        else
-        {
-            if (attackInput)
+
+
+        Move(movePoint.position);
+
+        // Only handle other inputs when player is at target position
+        if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
+        { 
+            HandleSkillsInput(attackInput, ultimateInput);
+            
+            if (!playerAttacking)
             {
-                anim.SetTrigger("Attack");
+                // Grid-based movement
+                HandleMovementInput(movement);
+                HandleChangeShadowInput(switchToShadowInput);
             }
         }
 
@@ -139,6 +105,51 @@ public class PlayerController : MonoBehaviour
     public void StopAttack()
     {
         playerAttacking = false;
+    }
+
+    private void HandleSkillsInput(bool attackInput, bool ultimateInput)
+    {
+        if (!playerAttacking && ultimateInput && !skillsUIManager.isPlayerSkillCooldown)
+        {
+            playerMoving = false;
+            playerAttacking = true;
+            playerSkills.UltimateAttack();
+            skillsUIManager.UseSkill();
+        }
+        else if (attackInput)
+        {
+            playerMoving = false;
+            playerAttacking = true;
+            playerSkills.NormalAttack();
+        }
+    }
+
+    private void HandleMovementInput(Vector2 movement)
+    {
+        if (Mathf.Abs(movement.x) == 1f)
+        {
+            playerMoving = true;
+            UpdateMovePoint(movement.x, 0f);
+        }
+        else if (Mathf.Abs(movement.y) == 1f)
+        {
+            playerMoving = true;
+            UpdateMovePoint(0f, movement.y);
+        }
+        else
+        {
+            playerMoving = false;
+            currentMove = Vector2.zero;
+        }
+    }
+
+    private void HandleChangeShadowInput(bool switchToShadowInput)
+    {
+        if (switchToShadowInput)
+        {
+            playerMoving = false;
+            PartyController.switchShadow();
+        }
     }
 
     /** 

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1fb4d05c5f97b64faabd23eb0f9b9de, type: 3}
+  m_Name: Excalibur
+  m_EditorClassIdentifier: 
+  name: Excalibur
+  skillIcon: {fileID: 21300000, guid: 696c2beb6b921bf4f9bdb133d54463b0, type: 3}
+  skillCooldown: 5
