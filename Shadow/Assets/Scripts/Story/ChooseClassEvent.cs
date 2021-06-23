@@ -45,15 +45,33 @@ public class ChooseClassEvent : MonoBehaviour
         }
     }
     void NextScene() 
-    {   
-        // for now
-        GameObject player = Instantiate(guardianPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-        player.transform.parent = Singleton<PartyController>.gameInstance.transform;
-        player.GetComponent<Player>().chooseCharClass("Guardian");
-        GameObject shadow = Instantiate(sorcererPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-        shadow.transform.parent = Singleton<PartyController>.gameInstance.transform;
-        shadow.GetComponent<Player>().chooseCharClass("Sorcerer");
+    {
+        GameObject player = chooseClass(playerClass);
+        GameObject shadow = chooseClass(shadowClass);
         shadow.SetActive(false);
         SceneManager.LoadScene("hometown");
+    }
+
+    public GameObject chooseClass(string name)        // Guardian, Sorcerer, (first letter caps)
+    {
+        GameObject player = Instantiate(getPrefab(name), new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
+        player.transform.parent = Singleton<PartyController>.gameInstance.transform;
+        player.GetComponent<Player>().chooseCharClass(name);
+        return player;
+    }
+
+
+    private GameObject getPrefab(string name)
+    {
+        switch (name)
+        {
+            case "Guardian":
+                return guardianPrefab;
+            case "Sorcerer":
+                return sorcererPrefab;
+            default:
+                Debug.Log("Warning: Class string incorrect, default to Guardian.");
+                return guardianPrefab;
+        }
     }
 }
