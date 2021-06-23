@@ -6,6 +6,7 @@ public class ScenarioManager : Singleton<ScenarioManager>
 {
     private Queue<Dialogue> queue = new Queue<Dialogue>();
     public static DialogueManager dm;
+    private System.Action onScenarioEnd;
 
     public void InitScenario(Scenario scenario)
     {
@@ -19,32 +20,39 @@ public class ScenarioManager : Singleton<ScenarioManager>
         }
     }
 
-    public void PlayScenario()
+    public void PlayScenario(System.Action nextAction = null)
     {
+        // Assign to keep track for future ContinueText() from button press
+        this.onScenarioEnd = nextAction;
+
         if (queue.Count == 0)
         {
+            dm.scenarioOngoing = false;
             dm.EndDialogue();
             Debug.Log("Scenario ended");
-        } 
-        else if (queue.Count == 1) 
-        {
-            dm.StartDialogue(queue.Dequeue(), false);
+            if (onScenarioEnd != null)
+                onScenarioEnd();
         }
         else
         {
-            dm.StartDialogue(queue.Dequeue(), true);
+            dm.scenarioOngoing = true;
+            dm.StartDialogue(queue.Dequeue());
         }
     }
 
+    /**
+     * For assigning to buttons when playing scenario
+     */
     public void ContinueText()
     {
+        // Clicking while in dialogue
         if (dm.inDialogue)
         {
             dm.ContinueDialogue();
         }
         else
         {
-            PlayScenario();
+            PlayScenario(this.onScenarioEnd);
         }
     }
 }

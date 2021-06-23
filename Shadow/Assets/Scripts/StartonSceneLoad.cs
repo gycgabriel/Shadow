@@ -1,23 +1,27 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class StartonSceneLoad : MonoBehaviour
 {
     public bool done = false;
 
-    // Start is called before the first frame update
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!done)
         {
-            Singleton<ScenarioManager>.scriptInstance.PlayScenario();
+            GetText.LoadChapter(0);
+            GetText.LoadScenario(0);
+            Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
+                Singleton<DialogueManager>.scriptInstance.Reset();
+                SceneManager.LoadScene("ChooseClassScreen"); 
+            });
             done = true;
         }
     }

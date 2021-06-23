@@ -36,4 +36,14 @@ public class Singleton<T> : MonoBehaviour where T : Component
         Destroy(this.gameObject);
     }
 
+    /**
+     * When making another instance the singleton instead
+     */
+    public void Reset()
+    {
+        Destroy();
+        scriptInstance = null;
+        gameInstance = null;
+    }
+
 }

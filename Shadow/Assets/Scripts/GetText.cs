@@ -6,21 +6,24 @@ using System.IO;
 /**
  * Get text from JSON file
  */
-public class GetText : MonoBehaviour
+public static class GetText
 {
-    public string fileName;
-    public int scenarioId;
+    private static string filePrefix = "chapter";               // chapter0.json, chapter1.json...
 
-    private Chapter chapter;
-    private Scenario scenario;
+    private static Chapter chapter;
+    private static Scenario scenario;
 
-    void Start()
+    public static void LoadChapter(int chapterNum)
     {
-        string filepath = Path.Combine(Application.dataPath, "Text", fileName + ".json");
+        string filepath = Path.Combine(Application.dataPath, "Text", filePrefix + chapterNum + ".json");
         string jsonString = File.ReadAllText(filepath);
         chapter = JsonUtility.FromJson<Chapter>(jsonString);
         Debug.Log("Loaded chapter " + chapter.id);
-        scenario = chapter.data[0];
+    }
+
+    public static void LoadScenario(int scenarioIndex)
+    {
+        scenario = chapter.data[scenarioIndex];
         Debug.Log("Loaded scenario " + scenario.id);
         Singleton<ScenarioManager>.scriptInstance.InitScenario(scenario);
     }

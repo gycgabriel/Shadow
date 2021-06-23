@@ -876,6 +876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2693dbe910c643eb805f20c63599b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeSpeed: 6
   dialogueBox: {fileID: 1511855703}
   nameText: {fileID: 658679410}
   dialogueText: {fileID: 495386432}

@@ -8,6 +8,7 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     private Queue<string> sentences = new Queue<string>();
 
+    public float typeSpeed;
     public GameObject dialogueBox;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
@@ -16,11 +17,14 @@ public class DialogueManager : Singleton<DialogueManager>
     public bool typingDialogue;
     public string currentSentence;
 
-    private bool hasNextDialogue;
+    public bool scenarioOngoing;
+    private System.Action onDialogueEnd;
 
-
-    public void StartDialogue(Dialogue dialogue)
+    public void StartDialogue(Dialogue dialogue, System.Action nextAction = null)
     {
+        // Assign to keep track for future ContinueText() from button press
+        this.onDialogueEnd = nextAction;
+
         inDialogue = true;
 
         nameText.text = dialogue.name;
@@ -37,31 +41,37 @@ public class DialogueManager : Singleton<DialogueManager>
         DisplayNextSentence();
     }
 
-    public void StartDialogue(Dialogue dialogue, bool hasNextDialogue)
-    {
-        this.hasNextDialogue = hasNextDialogue;
-        StartDialogue(dialogue);
-    }
-
     public void DisplayNextSentence()
     {
         if (sentences.Count == 0)
         {
             EndDialogue();
+            Debug.Log("Dialogue ended");
             return;
         }
 
         currentSentence = sentences.Dequeue();
+
         StopAllCoroutines();
-        StartCoroutine(TypeSentence(currentSentence));
+
+        if (typeSpeed == 0 || typeSpeed > 10)
+        {
+            dialogueText.text = currentSentence;
+        }
+        else
+        {
+            StartCoroutine(TypeSentence(currentSentence));
+        }
     }
 
     public void ContinueDialogue()
     {
+        // Show instantly on click again
         if (typingDialogue)
         {
-            StopCoroutine("TypeSentence");
+            StopAllCoroutines();
             dialogueText.text = currentSentence;
+            typingDialogue = false;
         }
         else
         {
@@ -77,7 +87,7 @@ public class DialogueManager : Singleton<DialogueManager>
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return null;
+            yield return new WaitForSeconds(1 / (typeSpeed * 20));          // 20 is arbituary
         }
 
         typingDialogue = false;
@@ -88,7 +98,11 @@ public class DialogueManager : Singleton<DialogueManager>
     public void EndDialogue()
     {
         inDialogue = false;
-        if (hasNextDialogue)
+
+        if (onDialogueEnd != null)
+            onDialogueEnd();
+
+        if (scenarioOngoing)
         {
             Singleton<ScenarioManager>.scriptInstance.ContinueText();
         }
@@ -98,4 +112,3 @@ public class DialogueManager : Singleton<DialogueManager>
         }
     }
 }
-        
