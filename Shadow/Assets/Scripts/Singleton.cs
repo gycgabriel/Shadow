@@ -19,7 +19,7 @@ public class Singleton<T> : MonoBehaviour where T : Component
     {
         if (gameInstance == null && this.gameObject != gameInstance)
         {
-            DontDestroyOnLoad(this.gameObject);
+            this.gameObject.DontDestroyOnLoad();
             scriptInstance = this as T;
             gameInstance = this.gameObject;
         }

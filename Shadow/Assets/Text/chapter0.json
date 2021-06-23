@@ -12,13 +12,13 @@
                         "He founded an empire, and the world prospered in these peaceful times.",
                         "The dragon swore an oath to defend the empire against enemies of the empire. Alas, this was not to be.",
                         "As centuries and the generations passed, the dragon grew weary. The hero that he had sworn his bond too was no longer in the world, yet he continues to look upon the world that they once shared.",
-                        "The kingdom that was once glorious had worn down through peace, the nobles bathed in their wealth batting nary a eye to governning the people. The honourbale kingdom was no more.",
-                        "The dragon to the den and sealed himself away. For he could not go back on the oath he made with the hero even as his wrath stirred in him."
+                        "The kingdom that was once glorious had worn down through peace, the nobles bathed in their wealth batting nary a eye to governing the people. The honourable kingdom was no more.",
+                        "The dragon retreated to the den and sealed himself away. For he could not go back on the oath he made with the hero even as much as he despised the current kingdom."
                     ]
                 },
                 {
                     "name": "",
-                    "text": [".... The end"]
+                    "text": ["... ..."]
                 },
                 {
                     "name": "",
@@ -37,6 +37,15 @@
         },
         {
             "id": 3,
+            "data": [
+                {
+                    "name": "",
+                    "text": ["Your journey has just begun."]
+                }
+            ]
+        },
+        {
+            "id": 2000,
             "data": [
                 {
                     "name": "Rain",

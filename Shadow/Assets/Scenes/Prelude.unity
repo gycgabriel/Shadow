@@ -371,25 +371,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2114371245}
-    - target: {fileID: 2458730609890897883, guid: 95890e03dc4623349a1e5cb529475b4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4063909735525096881, guid: 95890e03dc4623349a1e5cb529475b4c,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4063909735525096882, guid: 95890e03dc4623349a1e5cb529475b4c,
         type: 3}
       propertyPath: m_Name
       value: DialogueCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 4063909735525096882, guid: 95890e03dc4623349a1e5cb529475b4c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4063909735525096894, guid: 95890e03dc4623349a1e5cb529475b4c,
         type: 3}

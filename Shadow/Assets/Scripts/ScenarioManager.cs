@@ -6,7 +6,7 @@ public class ScenarioManager : Singleton<ScenarioManager>
 {
     private Queue<Dialogue> queue = new Queue<Dialogue>();
     public static DialogueManager dm;
-    private System.Action onScenarioEnd;
+    private System.Action onScenarioEnd = null;
 
     public void InitScenario(Scenario scenario)
     {
@@ -31,7 +31,10 @@ public class ScenarioManager : Singleton<ScenarioManager>
             dm.EndDialogue();
             Debug.Log("Scenario ended");
             if (onScenarioEnd != null)
+            {
+                Debug.Log(onScenarioEnd);
                 onScenarioEnd();
+            }
         }
         else
         {

@@ -88,15 +88,20 @@ public class ChooseCharClassUI : MonoBehaviour
         confirmed = true;
         confirmWindow.SetActive(false);
         this.gameObject.SetActive(false);
+        chooseGuardianButton.interactable = true;
+        chooseSorcererButton.interactable = true;
+        selectClassButton.gameObject.SetActive(false);
     }
 
     public void ChooseSorcerer()
     {
         chosenClass = "Sorcerer";
         confirmed = true;
-
         confirmWindow.SetActive(false);
         this.gameObject.SetActive(false);
+        chooseGuardianButton.interactable = true;
+        chooseSorcererButton.interactable = true;
+        selectClassButton.gameObject.SetActive(false);
     }
 
 }

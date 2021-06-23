@@ -10,8 +10,8 @@ public class ChooseClassEvent : MonoBehaviour
     public GameObject sorcererPrefab;
 
     public ChooseCharClassUI cccUI;
-    public static string playerClass;
-    public static string shadowClass;
+    public string playerClass;
+    public string shadowClass;
 
     void Start()
     {
@@ -28,8 +28,7 @@ public class ChooseClassEvent : MonoBehaviour
             cccUI.gameObject.SetActive(false);
             GetText.LoadChapter(0);
             GetText.LoadScenario(1);
-            Singleton<ScenarioManager>.scriptInstance.PlayScenario(() =>
-            {
+            Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
                 cccUI.gameObject.SetActive(true);
             });
         }
@@ -38,7 +37,11 @@ public class ChooseClassEvent : MonoBehaviour
             shadowClass = cccUI.chosenClass;
             cccUI.confirmed = false;
             cccUI.gameObject.SetActive(false);
-            NextScene();
+            GetText.LoadChapter(0);
+            GetText.LoadScenario(2);
+            Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
+                NextScene();
+            }); 
         }
     }
     void NextScene() 
