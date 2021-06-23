@@ -133,7 +133,6 @@ GameObject:
   m_Component:
   - component: {fileID: 427952669}
   - component: {fileID: 427952668}
-  - component: {fileID: 427952670}
   - component: {fileID: 427952667}
   m_Layer: 0
   m_Name: Start
@@ -181,20 +180,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &427952670
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 427952666}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 50c15b1546f336f4c9e5710ae4ea6de0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fileName: chapter0
-  scenarioId: 0
 --- !u!1 &495386431
 GameObject:
   m_ObjectHideFlags: 0
@@ -883,3 +868,4 @@ MonoBehaviour:
   inDialogue: 0
   typingDialogue: 0
   currentSentence: 
+  scenarioOngoing: 0
