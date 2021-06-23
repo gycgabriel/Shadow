@@ -50,7 +50,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55965f393574a0f4783215f584177b85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cameraController: {fileID: 0}
   moveSpeed: 10
   movePoint: {fileID: 537751578691505726}
   anim: {fileID: 537751579799166600}
@@ -62,6 +61,9 @@ MonoBehaviour:
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
+  playerGoingToAttack: 0
+  playerGoingToUltimate: 0
+  playerAttacking: 0
 --- !u!210 &7021806160790640474
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -93,6 +95,7 @@ MonoBehaviour:
   charclass: {}
   currentExp: 0
   expToNextLevel: 0
+  statPoints: 0
 --- !u!114 &4756731513656762835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +110,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portraitPath: portrait_sorcerer
   portraitToDisplay: {fileID: 21300000, guid: d017db0655fdb6d43b295b0df57ab9cf, type: 3}
+  spriteToDisplay: {fileID: -2120301941766223111, guid: ac05cd22a7ca69643a8faf57cb74c030,
+    type: 3}
 --- !u!114 &4156385587426568943
 MonoBehaviour:
   m_ObjectHideFlags: 0

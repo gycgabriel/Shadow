@@ -230,6 +230,7 @@ MonoBehaviour:
   charclass: {}
   currentExp: 0
   expToNextLevel: 0
+  statPoints: 0
 --- !u!114 &4756731513656762835
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -244,6 +245,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portraitPath: portrait_guardian
   portraitToDisplay: {fileID: 21300000, guid: d97413ecc6f373f4e9343324438949dd, type: 3}
+  spriteToDisplay: {fileID: -8210665073084493155, guid: d7defede9e243824dbe2cd52dcb2d590,
+    type: 3}
 --- !u!114 &4156385587426568943
 MonoBehaviour:
   m_ObjectHideFlags: 0

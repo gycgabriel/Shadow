@@ -12,6 +12,7 @@ public class Player : Creature
 
     public int currentExp;
     public int expToNextLevel;                // full exp of this level not accounting for exp already gained;
+    public int statPoints;                    // to allocate
 
 
     private void Start()
@@ -33,10 +34,13 @@ public class Player : Creature
         currentLevel++;
         expToNextLevel = charclass.getExpToNextLevel(currentLevel);  // set requirement for next level
 
-        charclass.raiseStats(stats, currentLevel);              // stat increase on levelup
+        charclass.raiseStats(stats, currentLevel );              // stat increase on levelup
 
         currentHP = stats.getStats(statModifiers)["hp"];        // change current hp to new full hp
         currentMP = stats.getStats(statModifiers)["mp"];
+        statPoints += 5;
+
+        
         if (currentExp >= expToNextLevel)       // check if current experience points is enough to level up
         {
             levelUp();
@@ -60,6 +64,7 @@ public class Player : Creature
         stats = charclass.startStats;
         currentHP = stats.getStats(statModifiers)["hp"];
         currentMP = stats.getStats(statModifiers)["mp"];
+        statPoints = 10;
     }
 
 }

@@ -13,6 +13,8 @@ public class PortraitBehaviour : MonoBehaviour
 {
     public string portraitPath;             // Addressable asset path to portrait 
     public Sprite portraitToDisplay;
+    public Sprite spriteToDisplay;
+
 
     void Awake()
     {
