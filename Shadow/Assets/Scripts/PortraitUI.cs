@@ -9,7 +9,6 @@ public class PortraitUI : MonoBehaviour
     public bool isStatus;
     public bool isShadow;
     public PortraitBehaviour portraitOf;
-    private Image image;
 
     void Start()
     {
@@ -21,8 +20,8 @@ public class PortraitUI : MonoBehaviour
         {
             portraitOf = PartyController.player.GetComponent<PortraitBehaviour>();
         }
-        image = GetComponent<Image>();
-        image.sprite = portraitOf.portraitToDisplay;
+
+        GetComponent<Image>().sprite = portraitOf.portraitToDisplay;
     }
 
     private void Update()
@@ -31,7 +30,11 @@ public class PortraitUI : MonoBehaviour
         {
             portraitOf = PartyController.activePC.gameObject.GetComponent<PortraitBehaviour>();
         }
-        image.sprite = portraitOf.portraitToDisplay;
+
+        if (portraitOf.portraitToDisplay != null)
+        {
+            GetComponent<Image>().sprite = portraitOf.portraitToDisplay;
+        }
     }
 
 }

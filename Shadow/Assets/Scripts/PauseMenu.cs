@@ -71,6 +71,7 @@ public class PauseMenu : Singleton<PauseMenu>
         gameIsPaused = false;
         UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad_Menu);
         Destroy(this.gameObject);
+        DontDestroyOnLoadManager.DestroyAll();
     }
 
     public void QuitGame()

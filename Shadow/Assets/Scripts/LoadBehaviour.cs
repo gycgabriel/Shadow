@@ -25,6 +25,7 @@ public class LoadBehaviour : MonoBehaviour
         player.charclass = data.charclass;
         player.currentExp = data.currentExp;
         player.expToNextLevel = data.expToNextLevel;
+        player.statPoints = data.statPoints;
 
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(data.sceneName);

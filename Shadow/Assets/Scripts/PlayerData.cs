@@ -19,6 +19,7 @@ public class PlayerData
     public CharacterClass charclass;
     public int currentExp;
     public int expToNextLevel;
+    public int statPoints;
 
     // Location of Player
     public string sceneName;
@@ -44,6 +45,7 @@ public class PlayerData
         this.charclass = player.charclass;
         this.currentExp = player.currentExp;
         this.expToNextLevel = player.expToNextLevel;
+        this.statPoints = player.statPoints;
 
         sceneName = UnityEngine.SceneManagement.SceneManager.GetActiveScene().name;
 

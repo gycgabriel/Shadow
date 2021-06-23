@@ -19,7 +19,6 @@ public class StartonSceneLoad : MonoBehaviour
             GetText.LoadChapter(0);
             GetText.LoadScenario(0);
             Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
-                Singleton<DialogueManager>.scriptInstance.Reset();
                 SceneManager.LoadScene("ChooseClassScreen"); 
             });
             done = true;

@@ -5,11 +5,11 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/**
+ * Choose Class UI ignorant of Shadow and Player
+ */
 public class ChooseCharClassUI : MonoBehaviour
 {
-    public GameObject guardianPrefab;
-    public GameObject sorcererPrefab;
-
     public Button chooseGuardianButton;
     public Button chooseSorcererButton;
     public Button selectClassButton;
@@ -17,15 +17,15 @@ public class ChooseCharClassUI : MonoBehaviour
     public Button confirmClassButton;
     public TMP_Text chosenClassText; 
     public string chosenClass;
-
-    public static string playerClass;
-    public static string shadowClass;
+    public bool confirmed;
 
     /**
      * Viewing the Guardian Class details.
      */
     public void SelectingGuardian()
     {
+        selectClassButton.gameObject.SetActive(true);
+        selectClassButton.interactable = true;
         selectClassButton.onClick.RemoveAllListeners();
         selectClassButton.onClick.AddListener(ConfirmingGuardian);
     }
@@ -35,6 +35,8 @@ public class ChooseCharClassUI : MonoBehaviour
      */
     public void SelectingSorcerer()
     {
+        selectClassButton.gameObject.SetActive(true);
+        selectClassButton.interactable = true;
         selectClassButton.onClick.RemoveAllListeners();
         selectClassButton.onClick.AddListener(ConfirmingSorcerer);
     }
@@ -82,29 +84,24 @@ public class ChooseCharClassUI : MonoBehaviour
 
     public void ChooseGuardian()
     {
-        GameObject player = Instantiate(guardianPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-        player.transform.parent = Singleton<PartyController>.gameInstance.transform;
-        player.GetComponent<Player>().chooseCharClass("Guardian");
-        //for now twice same
-        GameObject shadow = Instantiate(sorcererPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-        shadow.transform.parent = Singleton<PartyController>.gameInstance.transform;
-        shadow.GetComponent<Player>().chooseCharClass("Sorcerer");
-        shadow.SetActive(false);
-        bringToScene("hometown");
-        FindObjectOfType<DialogueManager>().Destroy();
-
+        chosenClass = "Guardian";
+        confirmed = true;
+        confirmWindow.SetActive(false);
+        this.gameObject.SetActive(false);
+        chooseGuardianButton.interactable = true;
+        chooseSorcererButton.interactable = true;
+        selectClassButton.gameObject.SetActive(false);
     }
 
     public void ChooseSorcerer()
     {
-        GameObject player = Instantiate(sorcererPrefab, new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-        player.GetComponent<Player>().chooseCharClass("Sorcerer");
-        bringToScene("hometown");
-        FindObjectOfType<DialogueManager>().Destroy();
+        chosenClass = "Sorcerer";
+        confirmed = true;
+        confirmWindow.SetActive(false);
+        this.gameObject.SetActive(false);
+        chooseGuardianButton.interactable = true;
+        chooseSorcererButton.interactable = true;
+        selectClassButton.gameObject.SetActive(false);
     }
 
-    public void bringToScene(string name)
-    {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(name);
-    }
 }

@@ -9,6 +9,6 @@ public class DialogueTrigger : MonoBehaviour
 
     public void TriggerDialogue()
     {
-        FindObjectOfType<DialogueManager>().StartDialogue(dialogue);
+        Singleton<DialogueManager>.scriptInstance.StartDialogue(dialogue);
     }
 }
