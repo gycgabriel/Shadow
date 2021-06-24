@@ -164,13 +164,30 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 start = transform.position;
         boxCollider.enabled = false;                                            // linecast doesn't hit this object's own collider
-        RaycastHit2D hit = Physics2D.Linecast(start, dest, blockingLayer);      // create linecast from player to intended move point
+
+        // Create linecast from player to the middle and the four edges of the intended move point
+        RaycastHit2D[] hit = new RaycastHit2D[5];
+        hit[0] = Physics2D.Linecast(start, dest, blockingLayer);                            // Center
+        hit[1] = Physics2D.Linecast(start, dest + new Vector3(0f, 0.495f), blockingLayer);    // Top edge
+        hit[2] = Physics2D.Linecast(start, dest + new Vector3(0f, -0.495f), blockingLayer);   // Bottom edge
+        hit[3] = Physics2D.Linecast(start, dest + new Vector3(0.495f, 0f), blockingLayer);    // Right edge
+        hit[4] = Physics2D.Linecast(start, dest + new Vector3(-0.495f, 0f), blockingLayer);   // Left edge
+        
         boxCollider.enabled = true;
-        if (hit.transform != null)
+
+        bool canMove = true;
+        for (int i = 0; i < 5; i++)
         {
-            Debug.Log("Collided with " + hit.collider.name);
+            if (hit[i].transform != null)
+            {
+                // Obstacle detected, unable to move to destination
+                Debug.Log("Player collided with " + hit[i].collider.name);
+                canMove = false;
+                break;
+            }
         }
-        return (hit.transform == null);
+        
+        return canMove;
     }
 
 

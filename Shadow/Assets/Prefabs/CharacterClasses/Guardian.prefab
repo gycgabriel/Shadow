@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8967009326805543931}
   - component: {fileID: 8375101171116195270}
   - component: {fileID: 1310464049859803463}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: SwordWave
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -290,7 +290,7 @@ GameObject:
   - component: {fileID: 7021806160996737011}
   - component: {fileID: 7021806160996736908}
   - component: {fileID: 7021806160996736909}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: swing_big
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -545,7 +545,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7021806161494929431}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5698,7 +5698,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7161799988645529791}
-  m_Layer: 17
+  m_Layer: 18
   m_Name: HitPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}

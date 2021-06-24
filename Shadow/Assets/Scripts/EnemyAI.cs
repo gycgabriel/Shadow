@@ -5,7 +5,7 @@ using UnityEngine;
 //Script to control the monster objects
 public class EnemyAI : MonoBehaviour
 {
-    private Collider2D monsterCollider;
+    public Collider2D monsterGridCollider;
     public LayerMask blockingLayer;         // Layer on which collision will be checked.
 
     public float moveSpeed;                 // The monster's movement speed
@@ -43,7 +43,6 @@ public class EnemyAI : MonoBehaviour
     void Start()
     {
         // Get a component references
-        monsterCollider = GetComponentInChildren<Collider2D>();
         anim = GetComponentInChildren<Animator>();
         player = PartyController.playerPC;
         targetEnemyUIManager = Singleton<TargetEnemyUIManager>.gameInstance.GetComponent<TargetEnemyUIManager>();
@@ -206,7 +205,6 @@ public class EnemyAI : MonoBehaviour
      */
     bool MoveTowardsPlayer()
     {
-        monsterMoving = true;
         moveDirection = player.transform.position - this.transform.position;
 
         bool moveSuccessful = false;
@@ -241,14 +239,31 @@ public class EnemyAI : MonoBehaviour
     private bool CanMove(Vector3 dest)
     {
         Vector2 start = this.transform.position;
-        monsterCollider.enabled = false;                                         // linecast doesn't hit this object's own collider
-        RaycastHit2D hit = Physics2D.Linecast(start, dest, blockingLayer);      // create linecast from object to intended move point
-        monsterCollider.enabled = true;
-        if (hit.transform != null)
+        monsterGridCollider.enabled = false;                                         // linecast doesn't hit this object's own collider
+
+        // Create linecast from player to the middle and the four edges of the intended move point
+        RaycastHit2D[] hit = new RaycastHit2D[5];
+        hit[0] = Physics2D.Linecast(start, dest, blockingLayer);                            // Center
+        hit[1] = Physics2D.Linecast(start, dest + new Vector3(0f, 0.495f), blockingLayer);    // Top edge
+        hit[2] = Physics2D.Linecast(start, dest + new Vector3(0f, -0.495f), blockingLayer);   // Bottom edge
+        hit[3] = Physics2D.Linecast(start, dest + new Vector3(0.495f, 0f), blockingLayer);    // Right edge
+        hit[4] = Physics2D.Linecast(start, dest + new Vector3(-0.495f, 0f), blockingLayer);   // Left edge
+
+        monsterGridCollider.enabled = true;
+
+        bool canMove = true;
+        for (int i = 0; i < 5; i++)
         {
-            //Debug.Log("Collided with " + hit.collider.name);
+            if (hit[i].transform != null)
+            {
+                // Obstacle detected, unable to move to destination
+                Debug.Log("Slime collided with " + hit[i].collider.name);
+                canMove = false;
+                break;
+            }
         }
-        return (hit.transform == null);
+
+        return canMove;
     }
 
 
