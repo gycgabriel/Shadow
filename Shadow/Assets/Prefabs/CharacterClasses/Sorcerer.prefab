@@ -145,6 +145,8 @@ MonoBehaviour:
   spellFirePoint: {fileID: 7179753382793844231}
   fireballPrefab: {fileID: 4838358407724080169, guid: 7b2e2a06f183b9a4298cfe77e0f9c453,
     type: 3}
+  manaBurstPrefab: {fileID: 3791734075851934111, guid: db0c843d25c3e7a41ab3c749e90eaf9e,
+    type: 3}
 --- !u!1 &7021806161379852793
 GameObject:
   m_ObjectHideFlags: 0

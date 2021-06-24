@@ -5,84 +5,91 @@ using UnityEngine.UI;
 
 public class SkillsUIManager : Singleton<SkillsUIManager>
 {
-    public Image ultimateSkillImage;
-    public Image ultimateSkillCDImage;
+    const int PlayerChar = 0, ShadowChar = 1;
+
+    public Image activeUltimateSkillImage;
+    public Image activeUltimateSkillCDImage;
+
+    public Image inactiveUltimateSkillImage;
+    public Image inactiveUltimateSkillCDImage;
 
     // Player's skill 
-    public Skill playerSkill;
-    public float playerSkillCDCounter = 0;
-    public bool isPlayerSkillCooldown = false;
-
-    
-    // Shadow's skill
-    public Skill shadowSkill;
-    public float shadowSkillCDCounter = 0;
-    public bool isShadowSkillCooldown = false;
+    public Skill[] skill;
+    public float[] skillCDCounter;
+    public bool[] isUltimateSkillCooldown;
     
 
     // Start is called before the first frame update
     void Start()
     {
-
+        skill = new Skill[2];
+        skillCDCounter = new float[2] { 0, 0 };
+        isUltimateSkillCooldown = new bool[2] { false, false };
     }
 
     // Update is called once per frame
     void Update()
     {
-        playerSkill = PartyController.playerPC.playerSkills.ultimateSkill;
-        shadowSkill = PartyController.shadowPC.playerSkills.ultimateSkill;
+        skill[PlayerChar] = PartyController.playerPC.playerSkills.ultimateSkill;
+        skill[ShadowChar] = PartyController.shadowPC.playerSkills.ultimateSkill;
 
-        if (isPlayerSkillCooldown)
-        {
-            playerSkillCDCounter -= Time.deltaTime;
+        // Update skill cooldown timers
+        UpdateSkillCooldown(PlayerChar);
+        UpdateSkillCooldown(ShadowChar);
 
-            if (playerSkillCDCounter <= 0)
-            {
-                playerSkillCDCounter = 0;
-                isPlayerSkillCooldown = false;
-            }
-        }
-
-        if (isShadowSkillCooldown)
-        {
-            shadowSkillCDCounter -= Time.deltaTime;
-
-            if (shadowSkillCDCounter <= 0)
-            {
-                shadowSkillCDCounter = 0;
-                isShadowSkillCooldown = false;
-            }
-        }
-
-        if (!PartyController.shadowActive)
-        {
-            ultimateSkillImage.sprite = playerSkill.skillIcon;
-            ultimateSkillCDImage.sprite = playerSkill.skillIcon;
-            ultimateSkillCDImage.fillAmount = playerSkillCDCounter / playerSkill.skillCooldown;
-        }
-        else
-        {
-            ultimateSkillImage.sprite = shadowSkill.skillIcon;
-            ultimateSkillCDImage.sprite = shadowSkill.skillIcon;
-            ultimateSkillCDImage.fillAmount = shadowSkillCDCounter / shadowSkill.skillCooldown;
-        }
-        
+        // Update skill cooldown display based on active character
+        UpdateSkillCDImage(PartyController.shadowActive);
     }
 
-    public void UseSkill()
+    public void UseUltimateSkill(bool shadowActive)
     {
-        if (!PartyController.shadowActive)
+        // if shadowActive is true, then active character is Shadow, else is Player
+        int character = shadowActive ? ShadowChar : PlayerChar;
+
+        // Start skill cooldown timer
+        isUltimateSkillCooldown[character] = true;
+        skillCDCounter[character] = skill[character].skillCooldown;
+
+        // Update skill cooldown image
+        UpdateSkillCDImage(shadowActive);
+    }
+
+    private void UpdateSkillCooldown(int character)
+    {
+        if (isUltimateSkillCooldown[character])
         {
-            isPlayerSkillCooldown = true;
-            playerSkillCDCounter = playerSkill.skillCooldown;
-            ultimateSkillCDImage.fillAmount = 1;
+            skillCDCounter[character] -= Time.deltaTime;
+
+            if (skillCDCounter[character] <= 0)
+            {
+                skillCDCounter[character] = 0;
+                isUltimateSkillCooldown[character] = false;
+            }
         }
-        else
-        {
-            isShadowSkillCooldown = true;
-            shadowSkillCDCounter = shadowSkill.skillCooldown;
-            ultimateSkillCDImage.fillAmount = 1;
-        }
-        
+    }
+
+    private void UpdateSkillCDImage(bool shadowActive)
+    {
+        // if shadowActive is true, then active character is Shadow, else is Player
+        int activeChar = shadowActive ? ShadowChar : PlayerChar;
+        int inactiveChar = shadowActive ? PlayerChar : ShadowChar;
+
+        activeUltimateSkillImage.sprite = skill[activeChar].skillIcon;
+        activeUltimateSkillCDImage.sprite = skill[activeChar].skillIcon;
+        activeUltimateSkillCDImage.fillAmount = skillCDCounter[activeChar] / skill[activeChar].skillCooldown;
+
+        inactiveUltimateSkillImage.sprite = skill[inactiveChar].skillIcon;
+        inactiveUltimateSkillCDImage.sprite = skill[inactiveChar].skillIcon;
+        inactiveUltimateSkillCDImage.fillAmount = skillCDCounter[inactiveChar] / skill[inactiveChar].skillCooldown;
+    }
+
+    /**
+     * Checks ultimate skill cooldown. shadowActive determines to check player's or shadow's cooldown.
+     */
+    public bool IsUltimateSkillOnCooldown(bool shadowActive)
+    {
+        int character = shadowActive ? ShadowChar : PlayerChar;
+
+        return isUltimateSkillCooldown[character];
     }
 }

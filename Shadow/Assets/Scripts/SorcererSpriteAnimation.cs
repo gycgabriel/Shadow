@@ -19,6 +19,11 @@ public class SorcererSpriteAnimation : MonoBehaviour
         sorcererSkills.CastFireball();
     }
 
+    public void CastManaBurst()
+    {
+        sorcererSkills.CastManaBurst();
+    }
+
     public void StopAttack()
     {
         playerController.StopAttack();

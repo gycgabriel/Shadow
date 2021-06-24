@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour
         {
             cameraController = FindObjectOfType<CameraController>().gameObject;
         }
+
         if (skillsUIManager == null)
         {
             skillsUIManager = SkillsUIManager.scriptInstance;
@@ -109,12 +110,15 @@ public class PlayerController : MonoBehaviour
 
     private void HandleSkillsInput(bool attackInput, bool ultimateInput)
     {
-        if (!playerAttacking && ultimateInput && !skillsUIManager.isPlayerSkillCooldown)
+        // Player can use ultimate skill only when player is not in the middle of attacking,
+        // and ultimate skill is not on cooldown.
+        if (!playerAttacking && ultimateInput 
+            && !skillsUIManager.IsUltimateSkillOnCooldown(PartyController.shadowActive))
         {
             playerMoving = false;
             playerAttacking = true;
             playerSkills.UltimateAttack();
-            skillsUIManager.UseSkill();
+            skillsUIManager.UseUltimateSkill(PartyController.shadowActive);
         }
         else if (attackInput)
         {
@@ -126,6 +130,7 @@ public class PlayerController : MonoBehaviour
 
     private void HandleMovementInput(Vector2 movement)
     {
+        // Grid-based Movement
         if (Mathf.Abs(movement.x) == 1f)
         {
             playerMoving = true;
