@@ -697,6 +697,8 @@ MonoBehaviour:
   cccUI: {fileID: 242012722}
   playerClass: 
   shadowClass: 
+  loadCoords: {x: 21.5, y: -4.5, z: 0}
+  loadMap: Oakheart
 --- !u!4 &1052057975
 Transform:
   m_ObjectHideFlags: 0
