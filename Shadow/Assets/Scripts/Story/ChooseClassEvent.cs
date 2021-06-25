@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class ChooseClassEvent : MonoBehaviour
 {
@@ -10,8 +11,12 @@ public class ChooseClassEvent : MonoBehaviour
     public GameObject sorcererPrefab;
 
     public ChooseCharClassUI cccUI;
+    public Image guardianSpriteDisplay; // The preview of the Guardian's sprite
+    public Image sorcererSpriteDisplay; // The preview of the Sorcerer's sprite
+
     public string playerClass;
     public string shadowClass;
+
 
     void Start()
     {
@@ -30,6 +35,10 @@ public class ChooseClassEvent : MonoBehaviour
             GetText.LoadScenario(1);
             Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
                 cccUI.gameObject.SetActive(true);
+
+                // Change displayed sprites for Shadow to darker color theme
+                guardianSpriteDisplay.color = new Color32(0, 100, 170, 255);
+                sorcererSpriteDisplay.color = new Color32(0, 100, 170, 255);
             });
         }
         else if (cccUI.confirmed && shadowClass == "")
@@ -48,6 +57,14 @@ public class ChooseClassEvent : MonoBehaviour
     {
         GameObject player = chooseClass(playerClass);
         GameObject shadow = chooseClass(shadowClass);
+
+        // Changing Shadow's sprite to a darker color theme
+        SpriteRenderer[] shadowSprites = shadow.GetComponentsInChildren<SpriteRenderer>();
+        foreach (SpriteRenderer shadowSprite in shadowSprites)
+        {
+            shadowSprite.color = new Color32(0, 100, 170, 255);
+        }
+
         shadow.SetActive(false);
         SceneManager.LoadScene("hometown");
     }

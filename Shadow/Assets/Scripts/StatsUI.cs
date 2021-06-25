@@ -57,10 +57,12 @@ public class StatsUI : MonoBehaviour
         if (isShadow)
         {
             player = PartyController.shadow.GetComponent<Player>();
+            portrait.color = new Color32(0, 100, 170, 255);
         }
         else
         {
             player = PartyController.player.GetComponent<Player>();
+            portrait.color = Color.white;
         }
         ClearPoints();
     }

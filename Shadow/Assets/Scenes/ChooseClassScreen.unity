@@ -695,6 +695,8 @@ MonoBehaviour:
   sorcererPrefab: {fileID: 7021806160790640468, guid: 714b49d76d6bc9d44a7a5a143dbdac77,
     type: 3}
   cccUI: {fileID: 242012722}
+  guardianSpriteDisplay: {fileID: 7192775489681031272}
+  sorcererSpriteDisplay: {fileID: 8507614496370739252}
   playerClass: 
   shadowClass: 
 --- !u!4 &1052057975
@@ -2728,7 +2730,7 @@ GameObject:
   - component: {fileID: 7568405131691204559}
   - component: {fileID: 8507614496370739252}
   m_Layer: 5
-  m_Name: Guardian
+  m_Name: Sorcerer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2746,7 +2748,7 @@ GameObject:
   - component: {fileID: 7568405132639976771}
   - component: {fileID: 8507614497604201144}
   m_Layer: 5
-  m_Name: Guardian
+  m_Name: Kannagi
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

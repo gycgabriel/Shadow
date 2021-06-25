@@ -29,6 +29,16 @@ public class PortraitUI : MonoBehaviour
         if (isStatus)
         {
             portraitOf = PartyController.activePC.gameObject.GetComponent<PortraitBehaviour>();
+
+            // Set normal color theme if Player, darker color theme if Shadow
+            if (!PartyController.shadowActive)
+            {
+                GetComponent<Image>().color = Color.white;
+            }
+            else
+            {
+                GetComponent<Image>().color = new Color32(0, 100, 170, 255);
+            }
         }
 
         if (portraitOf.portraitToDisplay != null)
