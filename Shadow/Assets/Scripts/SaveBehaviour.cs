@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class SaveBehaviour : MonoBehaviour
 {
-    private Player player;
+    private PartyController party;
     
     // Start is called before the first frame update
     void Start()
     {
-        player = FindObjectOfType<Player>();
+        party = FindObjectOfType<PartyController>();
     }
 
     public void save(int saveNum)
     {
-        SaveSystem.savePlayer(player.gameObject, saveNum);
+        SaveSystem.savePlayer(party.gameObject, saveNum);
     }
 }

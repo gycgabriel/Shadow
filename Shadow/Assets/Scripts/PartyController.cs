@@ -1,4 +1,4 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -68,11 +68,15 @@ public class PartyController : Singleton<PartyController>
         {
             shadow.SetActive(false);
             player.SetActive(true);
+            activePC = playerPC;
+            inactivePC = shadowPC;
         }
         else
         {
             shadow.SetActive(true);
             player.SetActive(false);
+            activePC = shadowPC;
+            inactivePC = playerPC;
         }
         shadowActive = !shadowActive;
     }

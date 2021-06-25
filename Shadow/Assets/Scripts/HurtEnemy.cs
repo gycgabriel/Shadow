@@ -21,8 +21,8 @@ public class HurtEnemy : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        //Debug.Log("Hit " + other.gameObject.name);
-        if (other.gameObject.tag == "Enemy")
+        // Only deal damage when hitting the enemy's Units collider, not its Obstacle collider
+        if (other.gameObject.tag == "Enemy" && other.gameObject.layer == LayerMask.NameToLayer("Units"))
         {
             // If this weapon hits an enemy,
             // The damage dealt will be added by the Player's atk stat
@@ -44,14 +44,16 @@ public class HurtEnemy : MonoBehaviour
                 clone.GetComponent<FloatingNumbers>().damageNumber = currentDamage;
             }
 
+            if (isProjectile)
+            {
+                Destroy(gameObject);
+            }
         }
 
-        if (other.gameObject.tag != "Player" && isProjectile)
+        // If hit something else other than Player or Enemy, projectile is blocked
+        else if (!other.gameObject.CompareTag("Player") && !other.gameObject.CompareTag("Enemy") && isProjectile)
         {
-            if (other.gameObject.tag != "Enemy")
-            {
-                Instantiate(damageBurst, this.transform.position, Quaternion.Euler(Vector3.zero));
-            }
+            Instantiate(damageBurst, this.transform.position, Quaternion.Euler(Vector3.zero));
             Destroy(gameObject);
         }
     }

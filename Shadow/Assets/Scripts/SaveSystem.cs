@@ -8,7 +8,7 @@ public static class SaveSystem
 {
     public static string saveFolder = "Save";
 
-    public static void savePlayer(GameObject playerGO, int saveNum)
+    public static void savePlayer(GameObject partyGO, int saveNum)
     {
         Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, saveFolder));    // creates Save folder if not exists
 
@@ -18,7 +18,7 @@ public static class SaveSystem
         string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);
 
         FileStream stream = new FileStream(path, FileMode.Create);
-        PlayerData data = new PlayerData(playerGO);
+        PlayerData data = new PlayerData(partyGO);
 
         formatter.Serialize(stream, data);
         stream.Close();

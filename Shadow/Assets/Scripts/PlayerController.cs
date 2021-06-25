@@ -27,11 +27,10 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
-        lastMove = new Vector2(0f, -1f);           // player face down 
-    }
-    void Update()
-    {
-        
+        if (lastMove == Vector2.zero)
+        {
+            lastMove = new Vector2(0f, -1f);           // player face down 
+        }
     }
 
     public void Dash(bool dashInput)
