@@ -17,6 +17,9 @@ public class ChooseClassEvent : MonoBehaviour
     public string playerClass;
     public string shadowClass;
 
+    // Instantiate where
+    public Vector3 loadCoords = new Vector3(-10.5f, 3.5f, 0f);
+    public string loadMap = "hometown";
 
     void Start()
     {
@@ -66,12 +69,12 @@ public class ChooseClassEvent : MonoBehaviour
         }
 
         shadow.SetActive(false);
-        SceneManager.LoadScene("hometown");
+        SceneManager.LoadScene(loadMap);
     }
 
     public GameObject chooseClass(string name)        // Guardian, Sorcerer, (first letter caps)
     {
-        GameObject player = Instantiate(getPrefab(name), new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
+        GameObject player = Instantiate(getPrefab(name), loadCoords, Quaternion.identity);
         player.transform.parent = Singleton<PartyController>.gameInstance.transform;
         player.GetComponent<Player>().chooseCharClass(name);
         return player;
