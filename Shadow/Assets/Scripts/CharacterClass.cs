@@ -7,6 +7,7 @@ public class CharacterClass
 {
     public enum allClasses { Guardian, Sorcerer, Kannagi };     // list of all possible character classes
 
+    public string className;
     public Stats startStats;
     public System.Func<int, int> expFormula;
     public Dictionary<string, System.Func<int, int>> statIncreaseFormula;

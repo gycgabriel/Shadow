@@ -81,6 +81,16 @@ public class PartyController : Singleton<PartyController>
         shadowActive = !shadowActive;
     }
 
+    public void initialize(GameObject playerGO, GameObject shadowGO)
+    {
+        PartyController.player = playerGO;
+        PartyController.shadow = shadowGO;
+        PlayerController playerPC = playerGO.GetComponent<PlayerController>();
+        PlayerController shadowPC = shadowGO.GetComponent<PlayerController>();
+        PlayerController activePC = playerGO.GetComponent<PlayerController>();
+        PlayerController inactivePC = shadowGO.GetComponent<PlayerController>();
+    }
+
 
     public override void Destroy()
     {

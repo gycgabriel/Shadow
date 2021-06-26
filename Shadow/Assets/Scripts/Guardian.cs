@@ -10,6 +10,7 @@ public class Guardian : CharacterClass
 {
     public Guardian()
     {
+        className = "Guardian";
         startStats = new Stats(100, 50, 20, 20, 20, 20, 20, 0);
         expFormula = x => Mathf.FloorToInt(Mathf.Pow(x, 3f) + 14f);
         statIncreaseFormula = new Dictionary<string, System.Func<int, int>>()
