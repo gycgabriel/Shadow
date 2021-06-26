@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public Rigidbody2D myRigidBody;
     public BoxCollider2D boxCollider;
     public LayerMask blockingLayer;            // tilemap layers of non-passable objects
+    public LayerMask interactableLayer;         // layer for all dialogue/event triggering interactables
     public Skills playerSkills;
     public SkillsUIManager skillsUIManager;
 
@@ -75,7 +76,24 @@ public class PlayerController : MonoBehaviour
 
         // Only handle other inputs when player is at target position
         if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
-        { 
+        {
+            if (attackInput)
+            {
+                if (Singleton<DialogueManager>.scriptInstance.inDialogue)
+                {
+                    Singleton<ScenarioManager>.scriptInstance.ContinueText();
+                    return;
+                }
+
+                GameObject interactObject = GetInteractable();
+                
+                if (interactObject != null)
+                {
+                    interactObject.GetComponent<Interactable>().Interact();
+                    return;
+                }
+            }
+
             HandleSkillsInput(attackInput, ultimateInput);
             
             if (!playerAttacking)
@@ -238,5 +256,10 @@ public class PlayerController : MonoBehaviour
         // z-axis no change as camera must maintain a distance away
     }
 
+    public GameObject GetInteractable()
+    {
+        RaycastHit2D ray = Physics2D.Raycast(transform.position, lastMove, 1.5f, interactableLayer);
+        return (ray.collider == null) ? null : ray.collider.gameObject;
+    }
 
 }

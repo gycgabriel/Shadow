@@ -2,7 +2,7 @@
     "id": 0,
     "data": [
         {
-            "id": 1,
+            "id": 0,
             "data": [
                 {
                     "name": "",
@@ -27,7 +27,7 @@
             ]
         },
         {
-            "id": 2,
+            "id": 1,
             "data": [
                 {
                     "name": "",
@@ -36,7 +36,7 @@
             ]
         },
         {
-            "id": 3,
+            "id": 2,
             "data": [
                 {
                     "name": "",
@@ -45,27 +45,28 @@
             ]
         },
         {
-            "id": 2000,
+            "id": 3,
             "data": [
                 {
                     "name": "Rain",
-                    "text": ["Stupid draquon"]
+                    "text": ["It's so hot as usual...", "Time to check what things I need to do today."]
                 },
                 {
-                    "name": "Rain",
-                    "text": ["baka"]
-                },
+                    "name": "",
+                    "text": ["This is a demo version.", "Please head north to Nactara Forest to try your hands at beating some slimes", "You can check what you have to do at the red notice board."]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "data": [
                 {
                     "name": "Rain",
-                    "text": ["pls write the dragon story I have no passion for dragons"]
+                    "text": ["Wow! I leveled up!", "Let's see if I've gotten any stronger."]
                 },
                 {
-                    "name": "Rain",
-                    "text": ["I tried okay"]
-                },
-                {
-                    "name": "Rain",
-                    "text": ["omae wa mo shindeiru"]
+                    "name": "",
+                    "text": ["Open the pause menu with 'X' or escape key.", "Select stats to view your stats.", "You can assign your character stats to make them stronger."]
                 }
             ]
         }

@@ -194,6 +194,9 @@ MonoBehaviour:
   blockingLayer:
     serializedVersion: 2
     m_Bits: 131072
+  interactableLayer:
+    serializedVersion: 2
+    m_Bits: 32768
   playerSkills: {fileID: 1450755230046836200}
   skillsUIManager: {fileID: 0}
   playerMoving: 0
@@ -230,7 +233,8 @@ MonoBehaviour:
   currentMP: 0
   currentLevel: 0
   isDead: 0
-  charclass: {}
+  charclass:
+    className: 
   currentExp: 0
   expToNextLevel: 0
   statPoints: 0
