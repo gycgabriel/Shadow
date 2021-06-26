@@ -54,15 +54,17 @@ public class HurtBehaviour : MonoBehaviour
         isInvincible = true;
         for (int i = 0; i < 3; i++)     // runs 3 times, 3 flashes
         {
+            Color[] originalColors = new Color[sprites.Length]; 
             for (int j = 0; j < sprites.Length; j++)
             {
-                sprites[j].color = new Color(1f, 1f, 1f, 0.3f);         //Red, Green, Blue, Alpha/Transparency
+                originalColors[j] = sprites[j].color;
+                sprites[j].color = new Color(originalColors[j].r, originalColors[j].g, originalColors[j].b, 0.3f);         //Red, Green, Blue, Alpha/Transparency
             }
             yield return new WaitForSeconds(.1f);
 
             for (int j = 0; j < sprites.Length; j++)
             {
-                sprites[j].color = Color.white;
+                sprites[j].color = new Color(originalColors[j].r, originalColors[j].g, originalColors[j].b, 1f);
             }
             yield return new WaitForSeconds(.1f);
         }
