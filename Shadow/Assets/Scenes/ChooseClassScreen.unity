@@ -217,7 +217,9 @@ MonoBehaviour:
   dialogue:
     name: Sorcerer
     text:
-    - Choose sorcerer...
+    - A Magic Class that specialises in a variety of powerful offensive spells. A
+      Sorcerer specialises in dealing high magic damage to the enemy using different
+      spells, but in exchange has a weak defense.
 --- !u!114 &242012722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -577,7 +579,9 @@ MonoBehaviour:
   dialogue:
     name: Guardian
     text:
-    - Choose guardian...
+    - A Tank class that specialises in defence. A Guardian specialises in taking
+      damage and deals physical damage to the enemy with sword skills. Stoic loyal
+      fighters that do not flinch in the face of adversity.
 --- !u!1 &954038113
 GameObject:
   m_ObjectHideFlags: 0
