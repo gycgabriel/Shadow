@@ -10,6 +10,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public GameObject pauseMenuUI;               //The UI of the pause menu
     public GameObject statsScreen;
+    public GameObject howToPlayUI;
 
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
     public Button buttonToSelect;            // button to select when paused
@@ -83,13 +84,25 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public void ShowStats()
     {
-        pauseMenuUI.SetActive(false);
         statsScreen.SetActive(true);
+        pauseMenuUI.SetActive(false);
     }
 
     public void HideStats()
     {
         statsScreen.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
+
+    public void ShowHowToPlay()
+    {
+        howToPlayUI.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
+
+    public void HideHowToPlay()
+    {
+        howToPlayUI.SetActive(false);
         pauseMenuUI.SetActive(true);
     }
 
