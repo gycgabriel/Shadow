@@ -19,7 +19,7 @@ public class InstantiateIfNull : MonoBehaviour
 
         if (Singleton<PartyController>.gameInstance == null)
         {
-            Instantiate(party);
+            Instantiate(party, transform);
         }
 
         if (Singleton<PlayerStatusWindow>.gameInstance == null)

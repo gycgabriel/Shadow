@@ -18,6 +18,7 @@ public class OnFirstLevelUpEvent : MonoBehaviour
             {
                 StartEvent();
                 done = true;
+                Singleton<StoryManager>.scriptInstance.SetEvoked(0, 4);
             }
         }
     }

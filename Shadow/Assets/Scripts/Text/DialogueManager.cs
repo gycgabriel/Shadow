@@ -22,6 +22,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void StartDialogue(Dialogue dialogue, System.Action nextAction = null)
     {
+        //Pause game?
+        Time.timeScale = 0f;
+        
         // Assign to keep track for future ContinueText() from button press
         this.onDialogueEnd = nextAction;
 
@@ -87,7 +90,7 @@ public class DialogueManager : Singleton<DialogueManager>
         foreach (char letter in sentence.ToCharArray())
         {
             dialogueText.text += letter;
-            yield return new WaitForSeconds(1 / (typeSpeed * 20));          // 20 is arbituary
+            yield return new WaitForSecondsRealtime(1 / (typeSpeed * 20));          // 20 is arbituary
         }
 
         typingDialogue = false;
@@ -97,6 +100,9 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void EndDialogue()
     {
+        //Pause game?
+        Time.timeScale = 1f;
+
         inDialogue = false;
 
         if (onDialogueEnd != null)
