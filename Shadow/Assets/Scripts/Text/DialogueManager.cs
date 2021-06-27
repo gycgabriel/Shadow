@@ -8,7 +8,9 @@ public class DialogueManager : Singleton<DialogueManager>
 {
     private Queue<string> sentences = new Queue<string>();
 
-    public float typeSpeed;
+    public bool autoDialogue;
+    public float autoSpeed = 4f;
+    public float typeSpeed = 6f;
     public GameObject dialogueBox;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
@@ -57,9 +59,15 @@ public class DialogueManager : Singleton<DialogueManager>
 
         StopAllCoroutines();
 
-        if (typeSpeed == 0 || typeSpeed > 10)
+        if (typeSpeed == 0f || typeSpeed > 2000f)
         {
             dialogueText.text = currentSentence;
+
+            // (instant + auto) = skip text
+            if (autoDialogue)
+            {
+                StartCoroutine(WaitBeforeAutoDialogue());
+            }
         }
         else
         {
@@ -89,14 +97,26 @@ public class DialogueManager : Singleton<DialogueManager>
         dialogueText.text = "";
         foreach (char letter in sentence.ToCharArray())
         {
+            float actualSpeed = 1f / (typeSpeed * 20f);
             dialogueText.text += letter;
-            yield return new WaitForSecondsRealtime(1 / (typeSpeed * 20));          // 20 is arbituary
+            yield return new WaitForSecondsRealtime(actualSpeed);          // 20 is arbituary
                     // Realtime means cannot pause game mid-typing
         }
 
         typingDialogue = false;
 
+        if (autoDialogue)
+        {
+            StartCoroutine(WaitBeforeAutoDialogue());
+        }
+
         // TODO: the arrow thingy to wait for click to move on to next dialogue
+    }
+
+    IEnumerator WaitBeforeAutoDialogue()
+    {
+        yield return new WaitForSecondsRealtime(10f / (autoSpeed * 4f));
+        ContinueDialogue();
     }
 
     public void EndDialogue()
@@ -117,4 +137,21 @@ public class DialogueManager : Singleton<DialogueManager>
             Time.timeScale = 1f;
         }
     }
+
+    public void SkipDialogue(bool skipInput)
+    {
+        if (skipInput)
+        {
+            typeSpeed = 200f;
+            autoSpeed = 10f;
+            autoDialogue = true;
+        } 
+        else
+        {
+            typeSpeed = 6f;
+            autoSpeed = 4f;
+            autoDialogue = false;
+        }
+    }
+
 }
