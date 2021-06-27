@@ -61,7 +61,7 @@ public class PartyController : Singleton<PartyController>
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
-            bool skipInput = Input.GetKey(KeyCode.Tab);
+            bool skipInput = Input.GetKey(KeyCode.LeftControl);
             bool dashInput = Input.GetKey(KeyCode.LeftShift);
             bool ultimateInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.U);
             bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);

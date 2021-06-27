@@ -5,14 +5,11 @@ using UnityEngine;
 public class ScenarioManager : Singleton<ScenarioManager>
 {
     private Queue<Dialogue> queue = new Queue<Dialogue>();
-    public static DialogueManager dm;
     private System.Action onScenarioEnd = null;
 
     public void InitScenario(Scenario scenario)
     {
         Dialogue[] dialogues = scenario.data;
-
-        dm = Singleton<DialogueManager>.scriptInstance;
 
         foreach (Dialogue dialogue in dialogues)
         {
@@ -27,8 +24,8 @@ public class ScenarioManager : Singleton<ScenarioManager>
 
         if (queue.Count == 0)
         {
-            dm.scenarioOngoing = false;
-            dm.EndDialogue();
+            Singleton<DialogueManager>.scriptInstance.scenarioOngoing = false;
+            Singleton<DialogueManager>.scriptInstance.EndDialogue();
             Debug.Log("Scenario ended");
             if (onScenarioEnd != null)
             {
@@ -38,8 +35,8 @@ public class ScenarioManager : Singleton<ScenarioManager>
         }
         else
         {
-            dm.scenarioOngoing = true;
-            dm.StartDialogue(queue.Dequeue());
+            Singleton<DialogueManager>.scriptInstance.scenarioOngoing = true;
+            Singleton<DialogueManager>.scriptInstance.StartDialogue(queue.Dequeue());
         }
     }
 
@@ -49,9 +46,9 @@ public class ScenarioManager : Singleton<ScenarioManager>
     public void ContinueText()
     {
         // Clicking while in dialogue
-        if (dm.inDialogue)
+        if (Singleton<DialogueManager>.scriptInstance.inDialogue)
         {
-            dm.ContinueDialogue();
+            Singleton<DialogueManager>.scriptInstance.ContinueDialogue();
         }
         else
         {
