@@ -516,12 +516,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2693dbe910c643eb805f20c63599b7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  typeSpeed: 0
   dialogueBox: {fileID: 2953213637067778496}
   nameText: {fileID: 2953213635236469221}
   dialogueText: {fileID: 2953213635886334167}
   inDialogue: 0
   typingDialogue: 0
   currentSentence: 
+  scenarioOngoing: 0
 --- !u!1 &2953213637067778496
 GameObject:
   m_ObjectHideFlags: 0
@@ -539,7 +541,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2953213637067778511
 RectTransform:
   m_ObjectHideFlags: 0

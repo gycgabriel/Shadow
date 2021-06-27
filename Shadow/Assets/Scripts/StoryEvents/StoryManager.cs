@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class StoryManager : Singleton<StoryManager>
 {
-    Dictionary<int, Dictionary<int, bool>> evokedStory = new Dictionary<int, Dictionary<int, bool>>();
+    public Dictionary<int, Dictionary<int, bool>> evokedStory = new Dictionary<int, Dictionary<int, bool>>();
 
     public void SetEvoked(int chapter, int scenario)
     {
@@ -17,7 +17,7 @@ public class StoryManager : Singleton<StoryManager>
 
     public bool CheckEvoked(int chapter, int scenario)
     {
-        Debug.Log("" + chapter + " "+ scenario);
+        // Debug.Log("" + chapter + " "+ scenario);
         if (!evokedStory.ContainsKey(chapter))
         {
             evokedStory.Add(chapter, new Dictionary<int, bool>());

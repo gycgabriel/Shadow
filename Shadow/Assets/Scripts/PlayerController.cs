@@ -15,7 +15,6 @@ public class PlayerController : MonoBehaviour
     public LayerMask blockingLayer;            // tilemap layers of non-passable objects
     public LayerMask interactableLayer;         // layer for all dialogue/event triggering interactables
     public Skills playerSkills;
-    public SkillsUIManager skillsUIManager;
 
     // Anim variables
     public bool playerMoving;
@@ -52,11 +51,6 @@ public class PlayerController : MonoBehaviour
         if (cameraController == null)
         {
             cameraController = FindObjectOfType<CameraController>().gameObject;
-        }
-
-        if (skillsUIManager == null)
-        {
-            skillsUIManager = SkillsUIManager.scriptInstance;
         }
 
         if (PauseMenu.gameIsPaused)
@@ -139,13 +133,13 @@ public class PlayerController : MonoBehaviour
     {
         // Player can use ultimate skill only when player is not in the middle of attacking,
         // and ultimate skill is not on cooldown.
-        if (!playerAttacking && ultimateInput
-            && !skillsUIManager.IsUltimateSkillOnCooldown(PartyController.shadowActive))
+        if (!playerAttacking && ultimateInput 
+            && !PartyController.skillsUIManager.IsUltimateSkillOnCooldown(PartyController.shadowActive))
         {
             playerMoving = false;
             playerAttacking = true;
             playerSkills.UltimateAttack();
-            skillsUIManager.UseUltimateSkill(PartyController.shadowActive);
+            PartyController.skillsUIManager.UseUltimateSkill(PartyController.shadowActive);
         }
         else if (attackInput)
         {
@@ -208,7 +202,7 @@ public class PlayerController : MonoBehaviour
             if (hit[i].transform != null)
             {
                 // Obstacle detected, unable to move to destination
-                Debug.Log("Player collided with " + hit[i].collider.name);
+                //Debug.Log("Player collided with " + hit[i].collider.name);
                 canMove = false;
                 break;
             }
@@ -251,7 +245,7 @@ public class PlayerController : MonoBehaviour
     {
         if (cameraController == null)
         {
-            cameraController = FindObjectOfType<CameraController>().gameObject;
+            cameraController = CameraController.gameInstance;
         }
 
         if (direction == Vector2.zero)
@@ -262,7 +256,11 @@ public class PlayerController : MonoBehaviour
         this.transform.position = coords;
         this.movePoint.position = coords;
         this.lastMove = direction;
-        cameraController.transform.position = new Vector3(transform.position.x, transform.position.y, cameraController.transform.position.z);
+
+        if (cameraController != null)
+        {
+            cameraController.transform.position = new Vector3(transform.position.x, transform.position.y, cameraController.transform.position.z);
+        }
         // z-axis no change as camera must maintain a distance away
     }
 

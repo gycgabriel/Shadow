@@ -45,4 +45,20 @@ public static class SaveSystem
             return null;
         }
     }
+
+    public static bool HaveSaveData(int saveNum)
+    {
+        string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
+        string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);
+
+        return File.Exists(path);
+    }
+
+    public static void DeleteSaveData(int saveNum)
+    {
+        string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
+        string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);
+
+        File.Delete(path);
+    }
 }

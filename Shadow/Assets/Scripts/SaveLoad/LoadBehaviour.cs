@@ -10,6 +10,7 @@ public class LoadBehaviour : MonoBehaviour
     public GameObject sorcererPrefab;
 
     public GameObject partyPrefab;
+    public GameObject managersPrefab;
 
     private PartyController party;
     private void Start()
@@ -20,6 +21,11 @@ public class LoadBehaviour : MonoBehaviour
     public void load(int saveNum)
     {
         PlayerData data = SaveSystem.loadPlayer(saveNum);
+
+        if (data == null)
+        {
+            return;
+        }
 
         UnityEngine.SceneManagement.SceneManager.LoadScene(data.sceneName);
 
@@ -78,14 +84,17 @@ public class LoadBehaviour : MonoBehaviour
             new Vector3(data.position[0], data.position[1], data.position[2]),
             new Vector2(data.direction[0], data.direction[1]));
 
-        PartyController.activePC.skillsUIManager.skillCDCounter = data.ultimateSkillCooldown;
-        PartyController.activePC.skillsUIManager.isUltimateSkillCooldown = data.isUltimateSkillCooldown;
+        PartyController.skillsUIManager.skillCDCounter = data.ultimateSkillCooldown;
+        PartyController.skillsUIManager.isUltimateSkillCooldown = data.isUltimateSkillCooldown;
 
         PartyController.activePC.playerMoving = false;
         PartyController.activePC.playerAttacking = false;
         PartyController.inactivePC.playerMoving = false;
         PartyController.inactivePC.playerAttacking = false;
         PartyController.activePC.anim.Play("Base Layer.IdleFace", 0, 0f);
+
+        Instantiate(managersPrefab);
+        StoryManager.scriptInstance.evokedStory = data.evokedStory;
     }
 
     private GameObject getPrefab(string name)

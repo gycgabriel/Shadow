@@ -17,19 +17,30 @@ public class SkillsUIManager : Singleton<SkillsUIManager>
     public Skill[] skill;
     public float[] skillCDCounter;
     public bool[] isUltimateSkillCooldown;
-    
 
     // Start is called before the first frame update
     void Start()
     {
-        skill = new Skill[2];
-        skillCDCounter = new float[2] { 0, 0 };
-        isUltimateSkillCooldown = new bool[2] { false, false };
+        if (skill.Length == 0)
+        {
+            skill = new Skill[2];
+            Debug.Log("initializing skill");
+        }
+        if (skillCDCounter.Length == 0)
+        {
+            skillCDCounter = new float[2] { 0, 0 };
+        }
+        if (isUltimateSkillCooldown.Length == 0)
+        {
+            isUltimateSkillCooldown = new bool[2] { false, false };
+        }
+        Debug.Log("skill.length: " + skill.Length);
     }
 
     // Update is called once per frame
     void Update()
     {
+
         skill[PlayerChar] = PartyController.playerPC.playerSkills.ultimateSkill;
         skill[ShadowChar] = PartyController.shadowPC.playerSkills.ultimateSkill;
 

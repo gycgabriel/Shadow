@@ -8,9 +8,35 @@ public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;              //The name of the scene to be loaded
 
+    public GameObject confirmNewGameWindow;
+    public GameObject confirmNoSaveDataWindow;
+
     public void PlayGame()
     {
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
+        if (SaveSystem.HaveSaveData(1))
+        {
+            confirmNewGameWindow.SetActive(true);
+            foreach (Button button in GetComponentsInChildren<Button>())
+            {
+                button.interactable = false;
+            }
+        }
+        else
+        {
+            ConfirmStartNewGame();
+        }
+    }
+
+    public void CheckLoadGame()
+    {
+        if (!SaveSystem.HaveSaveData(1))
+        {
+            confirmNoSaveDataWindow.SetActive(true);
+            foreach (Button button in GetComponentsInChildren<Button>())
+            {
+                button.interactable = false;
+            }
+        }
     }
 
     public void QuitGame()
@@ -19,4 +45,27 @@ public class MainMenu : MonoBehaviour
         Application.Quit();
     }
 
+    public void ConfirmStartNewGame()
+    {
+        SaveSystem.DeleteSaveData(1);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
+    }
+
+    public void CancelStartNewGame()
+    {
+        confirmNewGameWindow.SetActive(false);
+        foreach (Button button in GetComponentsInChildren<Button>())
+        {
+            button.interactable = true;
+        }
+    }
+
+    public void ConfirmNoSaveData()
+    {
+        confirmNoSaveDataWindow.SetActive(false);
+        foreach (Button button in GetComponentsInChildren<Button>())
+        {
+            button.interactable = true;
+        }
+    }
 }

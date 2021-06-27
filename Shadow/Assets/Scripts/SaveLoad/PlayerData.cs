@@ -43,6 +43,8 @@ public class PlayerData
     public float[] ultimateSkillCooldown;
     public bool[] isUltimateSkillCooldown;
 
+    public Dictionary<int, Dictionary<int, bool>> evokedStory;
+
     // Future: Flags of opened loot boxes and clearer dungeon levels
     // stored as dictionary
 
@@ -93,8 +95,21 @@ public class PlayerData
         direction[0] = playerController.lastMove.x;
         direction[1] = playerController.lastMove.y;
 
-        ultimateSkillCooldown = playerController.skillsUIManager.skillCDCounter;
-        isUltimateSkillCooldown = playerController.skillsUIManager.isUltimateSkillCooldown;
+        ultimateSkillCooldown = PartyController.skillsUIManager.skillCDCounter;
+        isUltimateSkillCooldown = PartyController.skillsUIManager.isUltimateSkillCooldown;
+
+        evokedStory = StoryManager.scriptInstance.evokedStory;
+
+        Debug.Log("Saved Story: ");
+        foreach (KeyValuePair<int, Dictionary<int, bool>> kvp in evokedStory)
+        {
+            Debug.Log("Chapter " + kvp.Key + ":");
+            foreach (KeyValuePair<int, bool> kvp2 in kvp.Value)
+            {
+                Debug.Log("Values: " + kvp2.Key + " " + kvp2.Value);
+            }
+        }
+        
     }
 
 }

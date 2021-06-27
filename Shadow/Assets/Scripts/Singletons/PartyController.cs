@@ -11,6 +11,9 @@ public class PartyController : Singleton<PartyController>
     public static PlayerController shadowPC;
     public static PlayerController activePC;
     public static PlayerController inactivePC;
+    public static SkillsUIManager skillsUIManager;
+
+    public SkillsUIManager skillsUIManagerPrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +35,12 @@ public class PartyController : Singleton<PartyController>
             player = transform.GetChild(0).gameObject;
             shadow = transform.GetChild(1).gameObject;
         }
+
+        if (skillsUIManager == null)
+        {
+            skillsUIManager = SkillsUIManager.scriptInstance;
+        }
+
         if (playerPC == null || shadowPC == null)
         {
             playerPC = player.GetComponent<PlayerController>();
@@ -85,10 +94,19 @@ public class PartyController : Singleton<PartyController>
     {
         PartyController.player = playerGO;
         PartyController.shadow = shadowGO;
-        PlayerController playerPC = playerGO.GetComponent<PlayerController>();
-        PlayerController shadowPC = shadowGO.GetComponent<PlayerController>();
-        PlayerController activePC = playerGO.GetComponent<PlayerController>();
-        PlayerController inactivePC = shadowGO.GetComponent<PlayerController>();
+        PartyController.playerPC = playerGO.GetComponent<PlayerController>();
+        PartyController.shadowPC = shadowGO.GetComponent<PlayerController>();
+        PartyController.activePC = playerGO.GetComponent<PlayerController>();
+        PartyController.inactivePC = shadowGO.GetComponent<PlayerController>();
+
+        if (SkillsUIManager.scriptInstance == null)
+        {
+            skillsUIManager = Instantiate(skillsUIManagerPrefab);
+        }
+        else
+        {
+            skillsUIManager = SkillsUIManager.scriptInstance;
+        }
     }
 
 
