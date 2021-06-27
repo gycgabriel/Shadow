@@ -91,6 +91,7 @@ public class DialogueManager : Singleton<DialogueManager>
         {
             dialogueText.text += letter;
             yield return new WaitForSecondsRealtime(1 / (typeSpeed * 20));          // 20 is arbituary
+                    // Realtime means cannot pause game mid-typing
         }
 
         typingDialogue = false;
@@ -100,8 +101,6 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void EndDialogue()
     {
-        //Pause game?
-        Time.timeScale = 1f;
 
         inDialogue = false;
 
@@ -115,6 +114,7 @@ public class DialogueManager : Singleton<DialogueManager>
         else
         {
             dialogueBox.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
 }

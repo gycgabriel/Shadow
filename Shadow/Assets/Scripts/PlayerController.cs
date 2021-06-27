@@ -24,7 +24,7 @@ public class PlayerController : MonoBehaviour
     public bool playerGoingToAttack;
     public bool playerGoingToUltimate;
     public bool playerAttacking;
-    
+
     void Start()
     {
         movePoint.parent = null;
@@ -39,7 +39,8 @@ public class PlayerController : MonoBehaviour
         if (dashInput)
         {
             moveSpeed = 18f;
-        } else
+        }
+        else
         {
             moveSpeed = 10f;
         }
@@ -64,6 +65,20 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
+        if (Singleton<DialogueManager>.scriptInstance.inDialogue)
+        {
+            if (attackInput)
+            {
+                Singleton<ScenarioManager>.scriptInstance.ContinueText();
+                return;
+            }
+            else
+            {
+                return;     // no action while dialogue open
+            }
+        }
+
+
         if (playerAttacking)
         {
             // When player is attacking, player can continue to attack but cannot move or change to shadow
@@ -77,16 +92,11 @@ public class PlayerController : MonoBehaviour
         // Only handle other inputs when player is at target position
         if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
         {
+
             if (attackInput)
             {
-                if (Singleton<DialogueManager>.scriptInstance.inDialogue)
-                {
-                    Singleton<ScenarioManager>.scriptInstance.ContinueText();
-                    return;
-                }
-
                 GameObject interactObject = GetInteractable();
-                
+
                 if (interactObject != null)
                 {
                     interactObject.GetComponent<Interactable>().Interact();
@@ -95,7 +105,7 @@ public class PlayerController : MonoBehaviour
             }
 
             HandleSkillsInput(attackInput, ultimateInput);
-            
+
             if (!playerAttacking)
             {
                 // Grid-based movement
@@ -129,7 +139,7 @@ public class PlayerController : MonoBehaviour
     {
         // Player can use ultimate skill only when player is not in the middle of attacking,
         // and ultimate skill is not on cooldown.
-        if (!playerAttacking && ultimateInput 
+        if (!playerAttacking && ultimateInput
             && !skillsUIManager.IsUltimateSkillOnCooldown(PartyController.shadowActive))
         {
             playerMoving = false;
@@ -189,7 +199,7 @@ public class PlayerController : MonoBehaviour
         hit[2] = Physics2D.Linecast(start, dest + new Vector3(0f, -0.495f), blockingLayer);   // Bottom edge
         hit[3] = Physics2D.Linecast(start, dest + new Vector3(0.495f, 0f), blockingLayer);    // Right edge
         hit[4] = Physics2D.Linecast(start, dest + new Vector3(-0.495f, 0f), blockingLayer);   // Left edge
-        
+
         boxCollider.enabled = true;
 
         bool canMove = true;
@@ -203,7 +213,7 @@ public class PlayerController : MonoBehaviour
                 break;
             }
         }
-        
+
         return canMove;
     }
 
@@ -217,7 +227,7 @@ public class PlayerController : MonoBehaviour
         if (CanMove(dest))
         {
             transform.position = Vector3.MoveTowards(transform.position, dest, moveSpeed * Time.deltaTime);
-        } 
+        }
         else
         {
             movePoint.position = transform.position;

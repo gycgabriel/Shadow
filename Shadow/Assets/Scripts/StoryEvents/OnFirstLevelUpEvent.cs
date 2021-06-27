@@ -25,6 +25,15 @@ public class OnFirstLevelUpEvent : MonoBehaviour
 
     public void StartEvent()
     {
+        StartCoroutine(WaitForPlayerIdle());       // to let attack animations clear
+    }
+
+    IEnumerator WaitForPlayerIdle()
+    {
+        yield return new WaitUntil(() => !PartyController.activePC.playerAttacking && !PartyController.activePC.playerMoving);
+
+        yield return new WaitForSeconds(0.5f);
+
         GetText.LoadChapter(0);
         GetText.LoadScenario(4);
         Singleton<ScenarioManager>.scriptInstance.PlayScenario();
