@@ -48,7 +48,7 @@ public class MainMenu : MonoBehaviour
     public void ConfirmStartNewGame()
     {
         SaveSystem.DeleteSaveData(1);
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad);
+        SceneManager.LoadScene(levelToLoad);
     }
 
     public void CancelStartNewGame()

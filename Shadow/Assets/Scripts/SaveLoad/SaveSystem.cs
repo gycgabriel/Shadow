@@ -26,6 +26,8 @@ public static class SaveSystem
 
     public static PlayerData loadPlayer(int saveNum)
     {
+        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, saveFolder));    // creates Save folder if not exists
+
         string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
         string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);
         
@@ -48,6 +50,8 @@ public static class SaveSystem
 
     public static bool HaveSaveData(int saveNum)
     {
+        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, saveFolder));    // creates Save folder if not exists
+
         string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
         string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);
 
@@ -56,6 +60,8 @@ public static class SaveSystem
 
     public static void DeleteSaveData(int saveNum)
     {
+        Directory.CreateDirectory(Path.Combine(Application.persistentDataPath, saveFolder));    // creates Save folder if not exists
+
         string saveName = "Save" + saveNum.ToString().PadLeft(2, '0') + ".bin";           // Save01.bin
         string path = Path.Combine(Application.persistentDataPath, saveFolder, saveName);
 
