@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b1fb4d05c5f97b64faabd23eb0f9b9de, type: 3}
-  m_Name: ManaBurst
+  m_Script: {fileID: 11500000, guid: dd294705fec923445b63f97fcf7df908, type: 3}
+  m_Name: Guardian_Excalibur
   m_EditorClassIdentifier: 
-  name: Mana Burst
-  skillIcon: {fileID: 21300000, guid: b192c0d44d629bc48a826003a2e732e8, type: 3}
-  skillMPCost: 100
-  skillCooldown: 15
+  baseDamage: 300
+  attackMultiplier: 500
+  isPhysical: 1

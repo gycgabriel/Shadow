@@ -13,17 +13,16 @@ public class SkillsUIManager : Singleton<SkillsUIManager>
     public Image inactiveUltimateSkillImage;
     public Image inactiveUltimateSkillCDImage;
 
-    // Player's skill 
-    public Skill[] skill;
+    public SkillSet[] skillSet;
     public float[] skillCDCounter;
     public bool[] isUltimateSkillCooldown;
 
     // Start is called before the first frame update
     void Start()
     {
-        if (skill.Length == 0)
+        if (skillSet.Length == 0)
         {
-            skill = new Skill[2];
+            skillSet = new SkillSet[2];
             Debug.Log("initializing skill");
         }
         if (skillCDCounter.Length == 0)
@@ -34,15 +33,14 @@ public class SkillsUIManager : Singleton<SkillsUIManager>
         {
             isUltimateSkillCooldown = new bool[2] { false, false };
         }
-        Debug.Log("skill.length: " + skill.Length);
+        Debug.Log("skill.length: " + skillSet.Length);
     }
 
     // Update is called once per frame
     void Update()
     {
-
-        skill[PlayerChar] = PartyController.playerPC.playerSkills.ultimateSkill;
-        skill[ShadowChar] = PartyController.shadowPC.playerSkills.ultimateSkill;
+        skillSet[PlayerChar] = PartyController.playerPC.playerSkillSet;
+        skillSet[ShadowChar] = PartyController.shadowPC.playerSkillSet;
 
         // Update skill cooldown timers
         UpdateSkillCooldown(PlayerChar);
@@ -59,7 +57,7 @@ public class SkillsUIManager : Singleton<SkillsUIManager>
 
         // Start skill cooldown timer
         isUltimateSkillCooldown[character] = true;
-        skillCDCounter[character] = skill[character].skillCooldown;
+        skillCDCounter[character] = skillSet[character].ultimateSkill.skillCooldown;
 
         // Update skill cooldown image
         UpdateSkillCDImage(shadowActive);
@@ -85,13 +83,13 @@ public class SkillsUIManager : Singleton<SkillsUIManager>
         int activeChar = shadowActive ? ShadowChar : PlayerChar;
         int inactiveChar = shadowActive ? PlayerChar : ShadowChar;
 
-        activeUltimateSkillImage.sprite = skill[activeChar].skillIcon;
-        activeUltimateSkillCDImage.sprite = skill[activeChar].skillIcon;
-        activeUltimateSkillCDImage.fillAmount = skillCDCounter[activeChar] / skill[activeChar].skillCooldown;
+        activeUltimateSkillImage.sprite = skillSet[activeChar].ultimateSkill.skillIcon;
+        activeUltimateSkillCDImage.sprite = skillSet[activeChar].ultimateSkill.skillIcon;
+        activeUltimateSkillCDImage.fillAmount = skillCDCounter[activeChar] / skillSet[activeChar].ultimateSkill.skillCooldown;
 
-        inactiveUltimateSkillImage.sprite = skill[inactiveChar].skillIcon;
-        inactiveUltimateSkillCDImage.sprite = skill[inactiveChar].skillIcon;
-        inactiveUltimateSkillCDImage.fillAmount = skillCDCounter[inactiveChar] / skill[inactiveChar].skillCooldown;
+        inactiveUltimateSkillImage.sprite = skillSet[inactiveChar].ultimateSkill.skillIcon;
+        inactiveUltimateSkillCDImage.sprite = skillSet[inactiveChar].ultimateSkill.skillIcon;
+        inactiveUltimateSkillCDImage.fillAmount = skillCDCounter[inactiveChar] / skillSet[inactiveChar].ultimateSkill.skillCooldown;
     }
 
     /**

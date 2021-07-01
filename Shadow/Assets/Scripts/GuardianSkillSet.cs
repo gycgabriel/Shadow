@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardianSkills : Skills
+public class GuardianSkillSet : SkillSet
 {
+    public Player player;
     public Animator animator;
 
     public override void NormalAttack()
@@ -11,8 +12,9 @@ public class GuardianSkills : Skills
         animator.SetTrigger("Attack");
     }
 
-    public override void UltimateAttack()
+    public override void UltimateSkill()
     {
-        animator.SetTrigger("UltimateAttack");
+        player.currentMP -= ultimateSkill.skillMPCost;
+        animator.SetTrigger("UltimateSkill");
     }
 }

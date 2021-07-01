@@ -188,9 +188,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3513541791f4d4c97c976272e3d28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackMultiplier: 120
-  baseDamage: 50
-  isPhysical: 0
+  attackInfo: {fileID: 11400000, guid: fc4c6203e5e9f16428cabae0f6e89b77, type: 2}
   damageBurst: {fileID: 4446072348626244338, guid: f7a0392a38303ea4ca92d492e5eecc11,
     type: 3}
   hitPoint: {fileID: 4838358407577134746}

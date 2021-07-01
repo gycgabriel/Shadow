@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-abstract public class Skills : MonoBehaviour
+abstract public class SkillSet : MonoBehaviour
 {
-    public Skill ultimateSkill;
+    public SkillInfo ultimateSkill;
     abstract public void NormalAttack();
-    abstract public void UltimateAttack();
+    abstract public void UltimateSkill();
 }

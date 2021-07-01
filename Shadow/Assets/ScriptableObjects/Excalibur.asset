@@ -14,4 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Excalibur
   skillIcon: {fileID: 21300000, guid: 696c2beb6b921bf4f9bdb133d54463b0, type: 3}
+  skillMPCost: 50
   skillCooldown: 10

@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SorcererSkills : Skills
+public class SorcererSkills : SkillSet
 {
+    public Player player;
     public Animator animator;
     public Transform spellFirePoint;          // The point where the fireball will be generated at    
-    public Fireball fireballPrefab;           // The fireball object to be launched
+    public GameObject fireballPrefab;           // The fireball object to be launched
     public GameObject manaBurstPrefab;
 
     public override void NormalAttack()
@@ -14,9 +15,10 @@ public class SorcererSkills : Skills
         animator.SetTrigger("Attack");
     }
 
-    public override void UltimateAttack()
+    public override void UltimateSkill()
     {
-        animator.SetTrigger("UltimateAttack");
+        player.currentMP -= ultimateSkill.skillMPCost;
+        animator.SetTrigger("UltimateSkill");
     }
 
     /**
@@ -24,7 +26,8 @@ public class SorcererSkills : Skills
      */
     public void CastFireball()
     {
-        Instantiate(fireballPrefab, spellFirePoint.position, spellFirePoint.rotation);
+        GameObject fireball = Instantiate(fireballPrefab, spellFirePoint.position, spellFirePoint.rotation);
+        fireball.GetComponentInChildren<HurtEnemy>().thePlayer = GetComponentInParent<Player>();
     }
 
     /**
@@ -32,6 +35,7 @@ public class SorcererSkills : Skills
      */
     public void CastManaBurst()
     {
-        Instantiate(manaBurstPrefab, spellFirePoint.position, spellFirePoint.rotation);
+        GameObject manaBurst = Instantiate(manaBurstPrefab, spellFirePoint.position, spellFirePoint.rotation);
+        manaBurst.GetComponentInChildren<HurtEnemy>().thePlayer = GetComponentInParent<Player>();
     }
 }

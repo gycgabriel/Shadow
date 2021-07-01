@@ -14,7 +14,10 @@ public class PlayerController : MonoBehaviour
     public BoxCollider2D boxCollider;
     public LayerMask blockingLayer;            // tilemap layers of non-passable objects
     public LayerMask interactableLayer;         // layer for all dialogue/event triggering interactables
-    public Skills playerSkills;
+    public SkillSet playerSkillSet;
+
+    public float regenInterval;
+    private float regenCounter;
 
     // Anim variables
     public bool playerMoving;
@@ -30,6 +33,16 @@ public class PlayerController : MonoBehaviour
         if (lastMove == Vector2.zero)
         {
             lastMove = new Vector2(0f, -1f);           // player face down 
+        }
+    }
+
+    private void Update()
+    {
+        regenCounter -= Time.deltaTime;
+        if (regenCounter <= 0)
+        {
+            PassiveRegenOverTime();
+            regenCounter = regenInterval;
         }
     }
 
@@ -133,19 +146,19 @@ public class PlayerController : MonoBehaviour
     {
         // Player can use ultimate skill only when player is not in the middle of attacking,
         // and ultimate skill is not on cooldown.
-        if (!playerAttacking && ultimateInput 
+        if (!playerAttacking && ultimateInput && GetComponent<Player>().currentMP >= playerSkillSet.ultimateSkill.skillMPCost
             && !PartyController.skillsUIManager.IsUltimateSkillOnCooldown(PartyController.shadowActive))
         {
             playerMoving = false;
             playerAttacking = true;
-            playerSkills.UltimateAttack();
+            playerSkillSet.UltimateSkill();
             PartyController.skillsUIManager.UseUltimateSkill(PartyController.shadowActive);
         }
         else if (attackInput)
         {
             playerMoving = false;
             playerAttacking = true;
-            playerSkills.NormalAttack();
+            playerSkillSet.NormalAttack();
         }
     }
 
@@ -270,4 +283,18 @@ public class PlayerController : MonoBehaviour
         return (ray.collider == null) ? null : ray.collider.gameObject;
     }
 
+    void PassiveRegenOverTime()
+    {
+        Player player = GetComponent <Player>();
+        if (player.currentHP < player.getStats()["hp"])
+        {
+            player.currentHP += Mathf.FloorToInt(0.2f * player.getStats()["hp"]);
+            player.currentHP = Mathf.Min(player.currentHP, player.getStats()["hp"]);
+        }
+        if (player.currentMP < player.getStats()["mp"])
+        {
+            player.currentMP += Mathf.FloorToInt(0.2f * player.getStats()["mp"]);
+            player.currentMP = Mathf.Min(player.currentMP, player.getStats()["mp"]);
+        }
+    }
 }

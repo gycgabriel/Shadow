@@ -6,10 +6,11 @@ using UnityEngine.UI;
 /**
  * Template for storing information for the different types of enemies.
  */
-[CreateAssetMenu(fileName = "New Skill", menuName = "Skill")]
-public class Skill : ScriptableObject
+[CreateAssetMenu(fileName = "New SkillInfo", menuName = "SkillInfo")]
+public class SkillInfo : ScriptableObject
 {
     public new string name;
     public Sprite skillIcon;
+    public int skillMPCost;
     public float skillCooldown;
 }
