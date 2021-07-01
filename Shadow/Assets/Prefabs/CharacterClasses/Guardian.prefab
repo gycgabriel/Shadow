@@ -99,7 +99,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3513541791f4d4c97c976272e3d28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 10
+  attackMultiplier: 300
+  baseDamage: 200
+  isPhysical: 1
   damageBurst: {fileID: 8548108328306060339, guid: 60301be0221d18d40a6718bbde76645c,
     type: 3}
   hitPoint: {fileID: 7161799988645529791}
@@ -198,7 +200,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   playerSkills: {fileID: 1450755230046836200}
-  skillsUIManager: {fileID: 0}
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
@@ -381,7 +382,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee3513541791f4d4c97c976272e3d28e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageToGive: 10
+  attackMultiplier: 80
+  baseDamage: 50
+  isPhysical: 1
   damageBurst: {fileID: 8548108328306060339, guid: 60301be0221d18d40a6718bbde76645c,
     type: 3}
   hitPoint: {fileID: 7021806161494929431}

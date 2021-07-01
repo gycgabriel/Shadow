@@ -2,11 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//Script for the weapon to damage the enemy             // SCRIPTABLE OBJECT??
+//Script for the attack to damage the enemy             // SCRIPTABLE OBJECT??
 public class HurtEnemy : MonoBehaviour
 {
-
-    public int damageToGive;                // The base damage of this weapon
+    public int attackMultiplier;            // The attack multiplier
+    public int baseDamage;                  // The base damage of the attack
+    public bool isPhysical;                 // Whether the damage type is physical or magical
     private int currentDamage;              // The final damage to be dealt to the enemy
     public GameObject damageBurst;          // The blood spurt animation object
     public Transform hitPoint;              // The point where the weapon hits the enemy
@@ -26,7 +27,9 @@ public class HurtEnemy : MonoBehaviour
         {
             // If this weapon hits an enemy,
             // The damage dealt will be added by the Player's atk stat
-            currentDamage = damageToGive + thePlayer.getStats()["atk"];
+            currentDamage = CalculateDamage(isPhysical, baseDamage, thePlayer,
+                other.GetComponentInParent<Enemy>());
+            
 
             // Deal the damage to the enemy by notifying the EnemyHealthManager
             bool attackSuccessful = other.gameObject.GetComponentInParent<HurtBehaviour>().hurt(currentDamage);
@@ -56,5 +59,29 @@ public class HurtEnemy : MonoBehaviour
             Instantiate(damageBurst, this.transform.position, Quaternion.Euler(Vector3.zero));
             Destroy(gameObject);
         }
+    }
+
+    /**
+     * Method to calculate damage done to the target.
+     * Returns the damage done.
+     */
+    public int CalculateDamage(bool isPhysical, int baseDamage, Creature attacker, Creature target)
+    {
+        int attackStat;
+        int defenseStat;
+
+        if (isPhysical)
+        {
+            attackStat = attacker.getStats()["atk"];
+            defenseStat = target.getStats()["def"];
+        }
+        else
+        {
+            attackStat = attacker.getStats()["matk"];
+            defenseStat = target.getStats()["mdef"];
+        }
+
+        return Mathf.FloorToInt((baseDamage + attackStat * attackMultiplier / 100f)
+            / 1f + (0.01f * defenseStat));
     }
 }

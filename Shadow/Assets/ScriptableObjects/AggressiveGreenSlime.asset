@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Aggressive Green Slime
   level: 1
-  expReward: 200
-  hp: 100
+  expReward: 50
+  hp: 1000
   mp: 0
   atk: 10
   def: 10
