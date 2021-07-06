@@ -38,7 +38,7 @@ public class LoadBehaviour : MonoBehaviour
             GameObject shadowGO = Instantiate(getPrefab(data.shadowCharclass.className), new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
             shadowGO.transform.parent = Singleton<PartyController>.gameInstance.transform;
 
-            party.initialize(playerGO, shadowGO);
+            party.Initialize(playerGO, shadowGO);
 
             // Changing Shadow's sprite to a darker color theme
             SpriteRenderer[] shadowSprites = shadowGO.GetComponentsInChildren<SpriteRenderer>();
@@ -77,7 +77,7 @@ public class LoadBehaviour : MonoBehaviour
 
         if (PartyController.shadowActive != data.shadowActive)
         {
-            PartyController.switchShadow();
+            PartyController.SwitchShadow();
         }
 
         PartyController.activePC.SetPosition(

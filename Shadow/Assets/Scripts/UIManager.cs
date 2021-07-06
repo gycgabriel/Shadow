@@ -63,7 +63,7 @@ public class UIManager : MonoBehaviour
         levelText.text = "" + player.currentLevel;
 
         // Update the Player's class (though should be constant)
-        characlassText.text = player.getCharClass();
+        characlassText.text = player.GetCharClass();
 
     }
 

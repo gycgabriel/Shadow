@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
         if (switchToShadowInput)
         {
             playerMoving = false;
-            PartyController.switchShadow();
+            PartyController.SwitchShadow();
         }
     }
 

@@ -7,8 +7,8 @@ public class DialogueTrigger : MonoBehaviour
 {
     public Dialogue dialogue;           // The dialogue to be triggered
 
-    public void TriggerDialogue()
+    public void TriggerDialogue(System.Action nextAction = null)
     {
-        Singleton<DialogueManager>.scriptInstance.StartDialogue(dialogue);
+        Singleton<DialogueManager>.scriptInstance.StartDialogue(dialogue, nextAction);
     }
 }

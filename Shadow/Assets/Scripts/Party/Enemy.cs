@@ -30,8 +30,8 @@ public class Enemy : Creature
         if (currentHP <= 0)
         {
             isDead = true;
-            player.addExperience(enemyInfo.expReward);
-            shadow.addExperience(enemyInfo.expReward);
+            PartyController.AddExperience(enemyInfo.expReward);
+            PartyController.EnemyKilled(enemyInfo.name);
         }
         else
         {

@@ -19,16 +19,16 @@ public class Player : Creature
     {
     }
 
-    public void addExperience(int expToAdd)
+    public void AddExperience(int expToAdd)
     {
         currentExp += expToAdd;
         if (currentExp >= expToNextLevel)       // check if current experience points is enough to level up
         {
-            levelUp();
+            LevelUp();
         }
     }
 
-    public void levelUp()
+    public void LevelUp()
     {
         currentExp -= expToNextLevel;           // deduct the experience points needed to level up from current experience points
         currentLevel++;
@@ -43,16 +43,16 @@ public class Player : Creature
         
         if (currentExp >= expToNextLevel)       // check if current experience points is enough to level up
         {
-            levelUp();
+            LevelUp();
         }
     }
 
-    public string getCharClass()
+    public string GetCharClass()
     {
         return charclass.ToString();
     }
 
-    public void chooseCharClass(string value)
+    public void ChooseCharClass(string value)
     {
         charclass = CharacterClass.getCharClass(value);
         Debug.Log("Character class is " + charclass.ToString());

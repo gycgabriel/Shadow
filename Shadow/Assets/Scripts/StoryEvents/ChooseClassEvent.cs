@@ -76,7 +76,7 @@ public class ChooseClassEvent : MonoBehaviour
     {
         GameObject player = Instantiate(getPrefab(name), loadCoords, Quaternion.identity);
         player.transform.parent = Singleton<PartyController>.gameInstance.transform;
-        player.GetComponent<Player>().chooseCharClass(name);
+        player.GetComponent<Player>().ChooseCharClass(name);
         return player;
     }
 

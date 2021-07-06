@@ -7,13 +7,18 @@ public class PartyController : Singleton<PartyController>
     public static bool shadowActive = false;
     public static GameObject player;
     public static GameObject shadow;
+
+    public static Player playerP;
+    public static Player shadowP;
     public static PlayerController playerPC;
     public static PlayerController shadowPC;
     public static PlayerController activePC;
     public static PlayerController inactivePC;
-    public static SkillsUIManager skillsUIManager;
 
+    public static SkillsUIManager skillsUIManager;
     public SkillsUIManager skillsUIManagerPrefab;
+
+    public static Quest quest;
 
     // Start is called before the first frame update
     void Start()
@@ -23,11 +28,8 @@ public class PartyController : Singleton<PartyController>
     // Update is called once per frame
     void Update()
     {
-
         if (transform.childCount <= 0)
-        {
             return;
-        }
 
         // init
         if (player == null || shadow == null)
@@ -41,6 +43,11 @@ public class PartyController : Singleton<PartyController>
             skillsUIManager = SkillsUIManager.scriptInstance;
         }
 
+        if (playerP == null || shadowP == null)
+        {
+            playerP = player.GetComponent<Player>();
+            shadowP = shadow.GetComponent<Player>();
+        }
         if (playerPC == null || shadowPC == null)
         {
             playerPC = player.GetComponent<PlayerController>();
@@ -75,7 +82,7 @@ public class PartyController : Singleton<PartyController>
 
     }
 
-    public static void switchShadow()
+    public static void SwitchShadow()
     {
         if (shadowActive)
         {
@@ -94,7 +101,7 @@ public class PartyController : Singleton<PartyController>
         shadowActive = !shadowActive;
     }
 
-    public void initialize(GameObject playerGO, GameObject shadowGO)
+    public void Initialize(GameObject playerGO, GameObject shadowGO)
     {
         PartyController.player = playerGO;
         PartyController.shadow = shadowGO;
@@ -118,5 +125,27 @@ public class PartyController : Singleton<PartyController>
     {
         playerPC.Destroy();
         shadowPC.Destroy();
+    }
+
+    public static void AddExperience(int value)
+    {
+        playerP.AddExperience(value);
+        shadowP.AddExperience(value);
+    }
+
+    // Questing
+    public static void EnemyKilled(string tag)
+    {
+        if (quest != null && quest.isActive)
+        {
+            quest.goal.EnemyKilled(tag);
+            if (quest.goal.IsReached())
+            {
+                AddExperience(quest.expReward);
+                // add gold
+                QuestWindow.scriptInstance.completed.SetActive(true);
+                quest.Complete();
+            }
+        }
     }
 }

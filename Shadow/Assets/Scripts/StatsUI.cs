@@ -76,7 +76,7 @@ public class StatsUI : MonoBehaviour
         }
 
         portrait.sprite = player.gameObject.GetComponent<PortraitBehaviour>().portraitToDisplay;
-        characlassText.text = player.getCharClass();
+        characlassText.text = player.GetCharClass();
         levelText.text = "" + player.currentLevel;
         pointsText.text = "" + tempPoints;
         
