@@ -143,7 +143,10 @@ public class PartyController : Singleton<PartyController>
             {
                 AddExperience(quest.expReward);
                 // add gold
-                QuestWindow.scriptInstance.completed.SetActive(true);
+                QuestWindow qw = QuestWindow.scriptInstance;
+                qw.completedExp.text = quest.expReward.ToString();
+                qw.completedGold.text = quest.goldReward.ToString();
+                qw.completed.SetActive(true);
                 quest.Complete();
             }
         }
