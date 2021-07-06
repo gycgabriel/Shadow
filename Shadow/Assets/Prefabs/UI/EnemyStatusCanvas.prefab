@@ -712,6 +712,7 @@ GameObject:
   - component: {fileID: 3062302592758161632}
   - component: {fileID: 3062302592758161633}
   - component: {fileID: 7159498806472305607}
+  - component: {fileID: 3415420151505989406}
   m_Layer: 5
   m_Name: EnemyStatusCanvas
   m_TagString: Untagged
@@ -815,6 +816,17 @@ MonoBehaviour:
   display: {fileID: 170679986547839169}
   targetedEnemy: {fileID: 0}
   alertedEnemies: []
+--- !u!210 &3415420151505989406
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3062302592758161634}
+  m_Enabled: 1
+  m_SortingLayerID: -544295829
+  m_SortingLayer: 6
+  m_SortingOrder: 1
 --- !u!1 &5312176502129285794
 GameObject:
   m_ObjectHideFlags: 0

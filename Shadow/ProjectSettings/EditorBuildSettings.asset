@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/RainHouse.unity
     guid: 10ec235bf395d6e47984b63d3924b3a4
+  - enabled: 1
+    path: Assets/Scenes/NactaraForest.unity
+    guid: 3af2cf59fd8ec234cb0818ead122bf10
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 40a5d803c3d67954fa33931dc3a967bf,
       type: 2}
