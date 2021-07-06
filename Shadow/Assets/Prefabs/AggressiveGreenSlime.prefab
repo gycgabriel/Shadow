@@ -375,7 +375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 72dddb7b44b871d44aeb2a698cfcb435, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  slimeController: {fileID: 7360009962843372814}
+  slimeController: {fileID: 2667886838111953109}
 --- !u!1 &6054528990673537008
 GameObject:
   m_ObjectHideFlags: 0
@@ -798,7 +798,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7360009962843372801}
   - component: {fileID: 7360009962843372815}
-  - component: {fileID: 7360009962843372814}
+  - component: {fileID: 2667886838111953109}
   - component: {fileID: 324035159841629605}
   - component: {fileID: 3320574824021740258}
   - component: {fileID: 5941545887830614376}
@@ -845,10 +845,7 @@ MonoBehaviour:
   currentLevel: 0
   isDead: 0
   enemyInfo: {fileID: 11400000, guid: de88e8119f6474bcf97c852bf7dad83c, type: 2}
-  player: {fileID: 0}
-  shadow: {fileID: 0}
-  displayName: 
---- !u!114 &7360009962843372814
+--- !u!114 &2667886838111953109
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -857,7 +854,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7360009962843372809}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b358f47f831a5b24f9d937f995733c02, type: 3}
+  m_Script: {fileID: 11500000, guid: 7505dfba4fd1e4f4c9319ea6547bf81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   monsterGridCollider: {fileID: 2109990555404633411}
@@ -865,7 +862,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 131072
   moveSpeed: 3
-  timeBetweenMove: 2
+  timeBetweenMove: 3
   MonsterAlertOn: {fileID: 1786019580934016628, guid: e270edfefd6837942993eb8a43c18351,
     type: 3}
   MonsterAlertOff: {fileID: 1786019580934016628, guid: b3843ce38ac85f14b922f5e7229597fa,

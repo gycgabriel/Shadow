@@ -9,15 +9,11 @@ public class Enemy : Creature
 {
     public EnemyInfo enemyInfo;
 
-    public Player player;
-    public Player shadow;
-
+    [System.NonSerialized]
     public string displayName;
 
     private void Start()
     {
-        player = PartyController.player.GetComponent<Player>();
-        shadow = PartyController.shadow.GetComponent<Player>();
         stats = enemyInfo.getStats();
         currentHP = enemyInfo.hp;
         currentMP = enemyInfo.mp;
