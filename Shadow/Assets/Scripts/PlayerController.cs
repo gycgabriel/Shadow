@@ -46,6 +46,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        Move(movePoint.position);
+    }
+
     public void Dash(bool dashInput)
     {
         if (dashInput)
@@ -92,9 +97,6 @@ public class PlayerController : MonoBehaviour
             HandleSkillsInput(attackInput, ultimateInput);
             return;
         }
-
-
-        Move(movePoint.position);
 
         // Only handle other inputs when player is at target position
         if (Vector3.Distance(transform.position, movePoint.position) <= float.Epsilon)
