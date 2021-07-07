@@ -8463,7 +8463,7 @@ Tilemap:
       - {fileID: 3749969626445832572, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -2432148692876737034, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1409731893350466857, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 6, y: -1, z: 0}
@@ -8477,7 +8477,7 @@ Tilemap:
       - {fileID: -3507631363423911605, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1058041613564468788, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 2381533152569664635, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 7, y: -1, z: 0}
@@ -8963,12 +8963,12 @@ PrefabInstance:
     - target: {fileID: 7021806160790640475, guid: c12ce0daac982184f8b257125e09b4ce,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.5
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 7021806160790640475, guid: c12ce0daac982184f8b257125e09b4ce,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.5
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 7021806160790640475, guid: c12ce0daac982184f8b257125e09b4ce,
         type: 3}
@@ -9022,12 +9022,12 @@ PrefabInstance:
     - target: {fileID: 2058203373932035786, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2058203373932035786, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
@@ -9092,7 +9092,7 @@ PrefabInstance:
     - target: {fileID: 7360009962843372809, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b351871b89b7c4409354f3b0dbcf8c8, type: 3}
@@ -10912,7 +10912,6 @@ GameObject:
   - component: {fileID: 926238600516678362}
   - component: {fileID: 926238600516678365}
   - component: {fileID: 926238600516678364}
-  - component: {fileID: 926238600516678363}
   - component: {fileID: 926238600516678366}
   m_Layer: 17
   m_Name: MinotaurSprite
@@ -10939,19 +10938,6 @@ Transform:
   m_Father: {fileID: 4537562445702855606}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &926238600516678363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 926238600516678361}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 72dddb7b44b871d44aeb2a698cfcb435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enemyController: {fileID: 4537562445702855615}
 --- !u!95 &926238600516678364
 Animator:
   serializedVersion: 3
@@ -11011,7 +10997,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -105541197
   m_SortingLayer: 4
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -2991773290986861209, guid: 6b2c9b9f336e41240b10fb536a387b5b,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -11041,6 +11027,10 @@ MonoBehaviour:
   waveFirePoint: {fileID: 250482265}
   impactWavePrefab: {fileID: 936887320675984849, guid: e718286bb7b8af841a314bc3f173452f,
     type: 3}
+  fallingRocksPrefab: {fileID: 3760251734490834427, guid: 6a42f6c7a0779814fb23f9956bad430e,
+    type: 3}
+  numOfFallingRocks: 5
+  fallingRocksRange: 5
 --- !u!1 &926238601501376839
 GameObject:
   m_ObjectHideFlags: 0

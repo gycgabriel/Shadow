@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3760251734490834420}
   - component: {fileID: 3760251734490834422}
   - component: {fileID: 3760251734490834421}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FallingRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -65,7 +65,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a878062327e9b04ca2e0a5f6d33e37c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDestroy: 1
+  timeToDestroy: 2
 --- !u!1 &3760251735762150231
 GameObject:
   m_ObjectHideFlags: 0
@@ -76,7 +76,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3760251735762150224}
   - component: {fileID: 3760251735762150225}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FallingRockSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -161,7 +161,7 @@ GameObject:
   - component: {fileID: 3760251735778156867}
   - component: {fileID: 3760251735778156893}
   - component: {fileID: 3760251735778156892}
-  m_Layer: 0
+  m_Layer: 16
   m_Name: FallingRockCollider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
