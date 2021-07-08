@@ -77,11 +77,6 @@ public class PlayerController : MonoBehaviour
             return;
         }
 
-        if (Singleton<DialogueManager>.scriptInstance.inDialogue)
-        {
-            return;     // no action while dialogue open
-        }
-
 
         if (playerAttacking)
         {
@@ -98,7 +93,7 @@ public class PlayerController : MonoBehaviour
             {
                 GameObject interactObject = GetInteractable();
 
-                if (interactObject != null)
+                if (interactObject != null && !Singleton<DialogueManager>.scriptInstance.dialogueBox.activeSelf)
                 {
                     interactObject.GetComponent<Interactable>().Interact();
                     return;

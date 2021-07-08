@@ -28,6 +28,23 @@ public class PartyController : Singleton<PartyController>
     // Update is called once per frame
     void Update()
     {
+        if (PauseMenu.gameIsPaused)
+            return;
+
+        if (DialogueManager.scriptInstance.dialogueBox.activeSelf)
+        {
+            bool skipInput = Input.GetKey(KeyCode.LeftControl);     // hold down to skip
+            bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
+
+            Singleton<DialogueManager>.scriptInstance.SkipDialogue(skipInput);
+
+            if (attackInput)
+            {
+                Singleton<ScenarioManager>.scriptInstance.ContinueText();
+            }
+            return;     // no action while dialogue open
+        }
+
         if (transform.childCount <= 0)
             return;
 
@@ -68,6 +85,7 @@ public class PartyController : Singleton<PartyController>
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
+            
             bool dashInput = Input.GetKey(KeyCode.LeftShift);
             bool ultimateInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.U);
             bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);

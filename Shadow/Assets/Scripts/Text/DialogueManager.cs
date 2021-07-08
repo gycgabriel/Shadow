@@ -121,9 +121,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void EndDialogue()
     {
-
         inDialogue = false;
-
         if (onDialogueEnd != null)
             onDialogueEnd();
 
@@ -145,46 +143,17 @@ public class DialogueManager : Singleton<DialogueManager>
             typeSpeed = 200f;
             autoSpeed = 10f;
             autoDialogue = true;
+            // for instant text when skipping
+            if (typingDialogue)
+                Singleton<ScenarioManager>.scriptInstance.ContinueText();
+            StartCoroutine("WaitBeforeAutoDialogue");
         } 
         else
         {
             typeSpeed = 6f;
             autoSpeed = 4f;
             autoDialogue = false;
+            StopCoroutine("WaitBeforeAutoDialogue");
         }
     }
-
-    void Update()
-    {
-        if (PauseMenu.gameIsPaused)
-        {
-            // If game is paused, freeze the player
-            return;
-        }
-
-        bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
-        bool skipInput = Input.GetKey(KeyCode.LeftControl);
-
-        if (inDialogue)
-        {
-            if (skipInput)
-            {
-                SkipDialogue(skipInput);
-                // for instant text when skipping
-                //if (typingDialogue)
-                    //Singleton<ScenarioManager>.scriptInstance.ContinueText();
-                StartCoroutine(WaitBeforeAutoDialogue());
-            } 
-            else if (attackInput)
-            {
-                Singleton<ScenarioManager>.scriptInstance.ContinueText();
-                return;
-            }
-            else
-            {
-                return;     // no action while dialogue open
-            }
-        }
-    }
-
 }
