@@ -35,7 +35,6 @@ public class EnemyAI : MonoBehaviour
     [System.NonSerialized]
     public float alertLevel;
 
-
     public EnemyUIManager enemyUIManager;
     public Canvas enemyStatusCanvas;
 
@@ -44,7 +43,7 @@ public class EnemyAI : MonoBehaviour
 
     public StateMachine<EnemyAI> stateMachine { get; set; }
 
-    private void Start()
+    protected virtual void Start()
     {
         stateMachine = new StateMachine<EnemyAI>(this);
         stateMachine.ChangeState(NonAlertIdleState.Instance);
@@ -62,14 +61,14 @@ public class EnemyAI : MonoBehaviour
         enemyStatusCanvas.gameObject.SetActive(false);
     }
 
-    private void Update()
+    protected virtual void Update()
     {
         player = PartyController.activePC;
         targetEnemyUIManager = Singleton<TargetEnemyUIManager>.scriptInstance;
         stateMachine.Update();
     }
 
-    public void StopAttack()
+    public virtual void StopAttack()
     {
         stateMachine.ChangeState(AlertIdleState.Instance);
     }

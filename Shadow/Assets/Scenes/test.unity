@@ -2016,7 +2016,7 @@ MonoBehaviour:
   attackInfo: {fileID: 11400000, guid: 744806622ea68614193eeb9d87a3aa81, type: 2}
   damageNumber: {fileID: 4022088767387902098, guid: f20d4060ad3bd584d8abe101b4c3dfe9,
     type: 3}
-  attackingEnemy: {fileID: 0}
+  attackingEnemy: {fileID: 4537562445702855608}
 --- !u!212 &840895379
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -7791,7 +7791,7 @@ Tilemap:
       - {fileID: -3125072173478643431, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 1259975196905808054, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -6911151430771080587, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -1, y: -5, z: 0}
@@ -7861,7 +7861,7 @@ Tilemap:
       - {fileID: -4066561435097321230, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -5536298882523217839, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 8620935075240847253, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 5, y: -5, z: 0}
@@ -8477,7 +8477,7 @@ Tilemap:
       - {fileID: -3507631363423911605, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1058041613564468788, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 2381533152569664635, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 7, y: -1, z: 0}
@@ -8561,7 +8561,7 @@ Tilemap:
       - {fileID: -8982490486928151587, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -8775461644060069500, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -3133523015186128396, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: 13, y: -1, z: 0}
@@ -11022,7 +11022,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 41d58f7512c822a4d940be2deb3000d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemyController: {fileID: 4537562445702855615}
+  enemyController: {fileID: 4537562445702855616}
   animator: {fileID: 926238600516678364}
   waveFirePoint: {fileID: 250482265}
   impactWavePrefab: {fileID: 936887320675984849, guid: e718286bb7b8af841a314bc3f173452f,
@@ -11545,9 +11545,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4537562445702855606}
-  - component: {fileID: 4537562445702855615}
+  - component: {fileID: 4537562445702855616}
   - component: {fileID: 4537562445702855608}
-  - component: {fileID: 6675354251486618386}
+  - component: {fileID: 4537562445702855615}
   - component: {fileID: 8559555247779073109}
   m_Layer: 17
   m_Name: Minotaur
@@ -11565,7 +11565,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 4537562445702855614}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7505dfba4fd1e4f4c9319ea6547bf81d, type: 3}
+  m_Script: {fileID: 11500000, guid: bf30392072412f04fbe15c49051e5e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  creatureGO: {fileID: 0}
+  hasInvincibility: 0
+--- !u!114 &4537562445702855616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4537562445702855614}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4569d5ffc95754a91de1564ce066c2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   monsterGridCollider: {fileID: 5013801795559523316}
@@ -11581,9 +11595,24 @@ MonoBehaviour:
   alertOffset: {x: 0, y: 0.25, z: 0}
   maxAlertLevel: 100
   detectionRange: 10
-  attackRange: 10
-  enemyUIManager: {fileID: 8559555247779073109}
-  enemyStatusCanvas: {fileID: 2797621804888238972}
+  attackRange: 8
+  enemyUIManager: {fileID: 0}
+  enemyStatusCanvas: {fileID: 0}
+  currentPhase: 0
+  attackPattern: []
+  attackPatternCounter: 0
+  attackPatternPhase1:
+  - smashAttack
+  attackPatternPhase2:
+  - rocksAttack
+  - smashAttack
+  - smashAttack
+  attackPatternPhase3:
+  - spinAttack
+  - smashAttack
+  - rocksAttack
+  timeBetweenMovePhase2: 2
+  timeBetweenMovePhase3: 1.5
 --- !u!222 &4804328685415175809
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11757,20 +11786,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &6675354251486618386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4537562445702855614}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9f04d893f90294c458b87120e833e8fa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  creatureGO: {fileID: 0}
-  hasInvincibility: 0
 --- !u!224 &7100097778857937132
 RectTransform:
   m_ObjectHideFlags: 0
