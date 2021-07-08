@@ -79,15 +79,7 @@ public class PlayerController : MonoBehaviour
 
         if (Singleton<DialogueManager>.scriptInstance.inDialogue)
         {
-            if (attackInput)
-            {
-                Singleton<ScenarioManager>.scriptInstance.ContinueText();
-                return;
-            }
-            else
-            {
-                return;     // no action while dialogue open
-            }
+            return;     // no action while dialogue open
         }
 
 

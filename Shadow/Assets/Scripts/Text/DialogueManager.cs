@@ -154,4 +154,37 @@ public class DialogueManager : Singleton<DialogueManager>
         }
     }
 
+    void Update()
+    {
+        if (PauseMenu.gameIsPaused)
+        {
+            // If game is paused, freeze the player
+            return;
+        }
+
+        bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
+        bool skipInput = Input.GetKey(KeyCode.LeftControl);
+
+        if (inDialogue)
+        {
+            if (skipInput)
+            {
+                SkipDialogue(skipInput);
+                // for instant text when skipping
+                //if (typingDialogue)
+                    //Singleton<ScenarioManager>.scriptInstance.ContinueText();
+                StartCoroutine(WaitBeforeAutoDialogue());
+            } 
+            else if (attackInput)
+            {
+                Singleton<ScenarioManager>.scriptInstance.ContinueText();
+                return;
+            }
+            else
+            {
+                return;     // no action while dialogue open
+            }
+        }
+    }
+
 }
