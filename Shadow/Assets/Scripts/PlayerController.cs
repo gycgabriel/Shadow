@@ -63,7 +63,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-
     public void HandleInput(Vector2 movement, bool attackInput, bool ultimateInput, bool switchToShadowInput)
     {
         if (cameraController == null)
@@ -76,7 +75,6 @@ public class PlayerController : MonoBehaviour
             // If game is paused, freeze the player
             return;
         }
-
 
         if (playerAttacking)
         {
@@ -121,7 +119,6 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("PlayerMoving", playerMoving);
         anim.SetBool("PlayerAttacking", playerAttacking);
     }
-
 
     /**
      * To be called by SpriteRenderer Component when attack animation ends
@@ -170,7 +167,6 @@ public class PlayerController : MonoBehaviour
             currentMove = Vector2.zero;
         }
     }
-
     private void HandleChangeShadowInput(bool switchToShadowInput)
     {
         if (switchToShadowInput)
@@ -213,7 +209,6 @@ public class PlayerController : MonoBehaviour
         return canMove;
     }
 
-
     /** 
      * Move returns true if it is able to move and false if not. 
      * Move takes parameters for x direction, y direction and a RaycastHit2D to check collision.
@@ -226,13 +221,18 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
+            float newX = RoundToNearestGrid(transform.position.x);
+            float newY = RoundToNearestGrid(transform.position.y);
+            transform.position = new Vector3(newX, newY);
             movePoint.position = transform.position;
         }
     }
 
     private void UpdateMovePoint(float x, float y)
     {
-        movePoint.position += new Vector3(x, y, 0f);
+        float newX = RoundToNearestGrid(movePoint.position.x + x);
+        float newY = RoundToNearestGrid(movePoint.position.y + y);
+        movePoint.position = new Vector3(newX, newY);
         currentMove = new Vector2(x, y);
         lastMove = currentMove;
     }
@@ -285,5 +285,13 @@ public class PlayerController : MonoBehaviour
             player.currentMP += Mathf.FloorToInt(0.2f * player.getStats()["mp"]);
             player.currentMP = Mathf.Min(player.currentMP, player.getStats()["mp"]);
         }
+    }
+
+    /**
+     * Rounds the coordinate to nearest 0.5, to be on grid.
+     */
+    float RoundToNearestGrid(float x)
+    {
+        return (float)Mathf.Round(x - 0.5f) + 0.5f;
     }
 }
