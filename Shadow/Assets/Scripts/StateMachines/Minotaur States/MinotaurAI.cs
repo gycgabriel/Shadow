@@ -6,17 +6,18 @@ using MinotaurStates;
 
 public class MinotaurAI : EnemyAI
 {
+    public int numOfPhases;
+    [System.NonSerialized]
     public int currentPhase;
 
+    [System.NonSerialized]
     public List<string> attackPattern;
+    [System.NonSerialized]
     public int attackPatternCounter;
 
-    public List<string> attackPatternPhase1;
-    public List<string> attackPatternPhase2;
-    public List<string> attackPatternPhase3;
+    public AttackPatternInfo[] attackPatterns;
 
-    public float timeBetweenMovePhase2;
-    public float timeBetweenMovePhase3;
+    public float[] timeBetweenMoveArray;
     public new StateMachine<MinotaurAI> stateMachine { get; set; }
 
     protected override void Start()
@@ -34,8 +35,9 @@ public class MinotaurAI : EnemyAI
         anim.SetFloat("LastMoveY", moveDirection.y);*/
 
         currentPhase = 1;
-        attackPattern = attackPatternPhase1;
+        attackPattern = attackPatterns[0].attackPattern;
         attackPatternCounter = 0;
+        timeBetweenMove = timeBetweenMoveArray[0];
     }
 
     protected override void Update()
@@ -64,39 +66,16 @@ public class MinotaurAI : EnemyAI
         return nextAttackTrigger;
     }
 
-    public void CheckPhase()
+    public bool CheckForNextPhase()
     {
-        float currentHP = GetComponent<Enemy>().currentHP;
-        float maxHP = GetComponent<Enemy>().getStats()["hp"];
-        // Debug.Log("Checking Phase: currentHP - " + currentHP + ", maxHP - " + maxHP);
-        if (currentPhase == 1 && currentHP < maxHP * (2f/3f))
+        if (currentPhase == numOfPhases)
         {
-            EnterPhase2();
-            return;
+            return false;
         }
-        else if (currentPhase == 2 && currentHP < maxHP * (1f/3f))
-        {
-            EnterPhase3();
-            return;
-        }
-    }
 
-    public void EnterPhase2()
-    {
-        Debug.Log("Entering Phase 2");
-        currentPhase = 2;
-        attackPattern = attackPatternPhase2;
-        attackPatternCounter = 0;
-        stateMachine.ChangeState(MinotaurStates.AttackState.Instance);
-        timeBetweenMove = timeBetweenMovePhase2;
-    }
-    public void EnterPhase3()
-    {
-        Debug.Log("Entering Phase 3");
-        currentPhase = 3;
-        attackPattern = attackPatternPhase3;
-        attackPatternCounter = 0;
-        stateMachine.ChangeState(MinotaurStates.AttackState.Instance);
-        timeBetweenMove = timeBetweenMovePhase3;
+        int currentHP = GetComponent<Enemy>().currentHP;
+        int maxHP = GetComponent<Enemy>().getStats()["hp"];
+
+        return currentHP <= maxHP * (numOfPhases - currentPhase) / numOfPhases;
     }
 }

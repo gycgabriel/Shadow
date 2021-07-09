@@ -52,7 +52,10 @@ namespace MinotaurStates
             _owner.anim.SetFloat("LastMoveX", moveDirection.x);
             _owner.anim.SetFloat("LastMoveY", moveDirection.y);
 
-            _owner.CheckPhase();
+            if (_owner.CheckForNextPhase())
+            {
+                _owner.stateMachine.ChangeState(EnterNextPhaseState.Instance);
+            }
 
             // Update Movement Timer
             _owner.timeBetweenMoveCounter -= Time.deltaTime;

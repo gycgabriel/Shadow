@@ -5,11 +5,31 @@ using UnityEngine;
 public class MinotaurSpriteAnimation : EnemySpriteAnimation
 {
     public Animator animator;
-    public Transform waveFirePoint;          // The point where the impact wave will be generated at    
+    public Transform waveFirePoint;          // The point where the impact wave will be generated at
+    public Vector3 waveTargetLocation;
     public GameObject impactWavePrefab;      // The impact wave object to be launched
     public GameObject fallingRocksPrefab;
     public int numOfFallingRocks;
     public int fallingRocksRange;
+    public List<SpriteRenderer> spritesToBerserk;
+
+    private void Start()
+    {
+        // Add impact wave sprites to be reddened by berserk effect too
+        SpriteRenderer[] waveSprites = impactWavePrefab.GetComponentsInChildren<SpriteRenderer>();
+        spritesToBerserk.AddRange(waveSprites);
+    }
+
+    /**
+     * Method to set target for Minotaur's Impact Wave
+     */
+    public void SetImpactWaveTarget(AnimationEvent ae)
+    {
+        if (ae.animatorClipInfo.weight > 0.5f)
+        {
+            waveTargetLocation = enemyController.player.transform.position;
+        }
+    }
 
     /**
      * Method to instantiate Impact Wave upon Minotaur's smash attack
@@ -19,8 +39,7 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
         if (ae.animatorClipInfo.weight > 0.5f)
         {
             GameObject impactWave = Instantiate(impactWavePrefab, waveFirePoint.position, Quaternion.Euler(Vector3.zero));
-            impactWave.GetComponentInChildren<Projectile>().SetDirection(
-                enemyController.player.transform.position - waveFirePoint.position);
+            impactWave.GetComponentInChildren<Projectile>().SetDirection(waveTargetLocation - waveFirePoint.position);
             impactWave.GetComponentInChildren<HurtPlayer>().attackingEnemy = enemyController.GetComponent<Enemy>();
         }
     }
@@ -85,6 +104,19 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
         }
 
         return fallingRockLocations;
+    }
+
+    public void AddBerserkEffect(AnimationEvent ae)            // change color to show hurt
+    {
+        if (ae.animatorClipInfo.weight > 0.5f)
+        {
+            foreach (SpriteRenderer sprite in spritesToBerserk)
+            {
+                // Increase reddish hue of each sprite
+                Color.RGBToHSV(sprite.color, out _, out float saturation, out _);
+                sprite.color = Color.HSVToRGB(0, saturation + 0.20f, 1);
+            }
+        }
     }
 
 }

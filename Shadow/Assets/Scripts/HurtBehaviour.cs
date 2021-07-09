@@ -9,7 +9,8 @@ public class HurtBehaviour : MonoBehaviour
     protected SpriteRenderer[] sprites;
     
     public bool hasInvincibility;
-    private bool isInvincible = false;
+    [System.NonSerialized]
+    public bool isInvincible = false;
 
 
     protected virtual void Start()
@@ -44,12 +45,12 @@ public class HurtBehaviour : MonoBehaviour
             return false;
         }
 
-        creature.currentHP = Mathf.Max(creature.currentHP - damageToGive, 0);        // player health will not fall below zero
+        creature.currentHP = Mathf.Max(creature.currentHP - damageToGive, 0);        // creature health will not fall below zero
         StartCoroutine("hurtEffect");
         return true;
     }
 
-    IEnumerator hurtEffect()            // change color to show hurt
+    protected IEnumerator hurtEffect()            // change color to show hurt
     {
         isInvincible = true;
         for (int i = 0; i < 3; i++)     // runs 3 times, 3 flashes

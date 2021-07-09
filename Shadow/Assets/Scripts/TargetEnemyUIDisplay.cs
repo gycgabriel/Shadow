@@ -9,14 +9,14 @@ using TMPro;
  */
 public class TargetEnemyUIDisplay : MonoBehaviour
 {
-    private Enemy targetedEnemy;            // The Enemy
+    public Enemy targetedEnemy;            // The Enemy
 
     public Slider hpBar;                    // The Enemy's HP bar
 
     public TMP_Text nameText;               // The Text object displaying the Enemy's name
     public TMP_Text levelText;              // The Text object displaying the Enemy's level
 
-    void Update()
+    protected virtual void Update()
     {
         Dictionary<string, int> enemyStats = targetedEnemy.getStats();
 
