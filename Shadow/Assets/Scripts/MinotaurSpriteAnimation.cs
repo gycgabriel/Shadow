@@ -13,13 +13,6 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
     public int fallingRocksRange;
     public List<SpriteRenderer> spritesToBerserk;
 
-    private void Start()
-    {
-        // Add impact wave sprites to be reddened by berserk effect too
-        SpriteRenderer[] waveSprites = impactWavePrefab.GetComponentsInChildren<SpriteRenderer>();
-        spritesToBerserk.AddRange(waveSprites);
-    }
-
     /**
      * Method to set target for Minotaur's Impact Wave
      */
@@ -41,6 +34,12 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
             GameObject impactWave = Instantiate(impactWavePrefab, waveFirePoint.position, Quaternion.Euler(Vector3.zero));
             impactWave.GetComponentInChildren<Projectile>().SetDirection(waveTargetLocation - waveFirePoint.position);
             impactWave.GetComponentInChildren<HurtPlayer>().attackingEnemy = enemyController.GetComponent<Enemy>();
+
+            // Match impact wave's color with Minotaur's sprite
+            foreach (SpriteRenderer sprite in impactWave.GetComponentsInChildren<SpriteRenderer>())
+            {
+                sprite.color = spritesToBerserk[1].color;
+            }
         }
     }
 
