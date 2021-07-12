@@ -54,8 +54,9 @@ public class EnemyAI : MonoBehaviour
         targetEnemyUIManager = Singleton<TargetEnemyUIManager>.scriptInstance;
 
         // Monster is facing down by default
-        anim.SetFloat("LastMoveX", 0f);
-        anim.SetFloat("LastMoveY", -1f);
+        moveDirection = new Vector2(0f, -1f);
+        anim.SetFloat("LastMoveX", moveDirection.x);
+        anim.SetFloat("LastMoveY", moveDirection.y);
 
         enemyUIManager.enabled = false;
         enemyStatusCanvas.gameObject.SetActive(false);

@@ -9,17 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03d5e8f82c99241b3967f1161e017225, type: 3}
-  m_Name: SkeletonWarrior
+  m_Script: {fileID: 11500000, guid: dd294705fec923445b63f97fcf7df908, type: 3}
+  m_Name: GoblinSlinger_Pellet
   m_EditorClassIdentifier: 
-  name: Skeleton Warrior
-  level: 10
-  expReward: 300
-  hp: 3000
-  mp: 0
-  atk: 50
-  def: 30
-  matk: 0
-  mdef: 30
-  agi: 0
-  luk: 0
+  baseDamage: 20
+  attackMultiplier: 50
+  isPhysical: 1

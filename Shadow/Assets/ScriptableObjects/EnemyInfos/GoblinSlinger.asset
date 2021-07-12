@@ -10,16 +10,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 03d5e8f82c99241b3967f1161e017225, type: 3}
-  m_Name: SkeletonWarrior
+  m_Name: GoblinSlinger
   m_EditorClassIdentifier: 
-  name: Skeleton Warrior
-  level: 10
-  expReward: 300
-  hp: 3000
+  name: Goblin Slinger
+  level: 7
+  expReward: 200
+  hp: 1500
   mp: 0
   atk: 50
-  def: 30
+  def: 15
   matk: 0
-  mdef: 30
+  mdef: 15
   agi: 0
   luk: 0
