@@ -1,0 +1,241 @@
+{
+    "id": 0,
+    "data": [
+        {
+            "id": 0,
+            "data": [
+                {
+                    "name": "",
+                    "text": [
+                        "This is a story of a past long forgotten.",
+                        "In this world, there once lived a strong ancient hero. With a dragon by his side, the hero conquered the continent and brought peace to the war-torn land. ",
+                        "He founded an empire, and the world prospered in these peaceful times.",
+                        "The dragon swore an oath to defend the empire against enemies of the empire. Alas, this was not to be.",
+                        "As centuries and the generations passed, the dragon grew weary. The hero that he had sworn his bond too was no longer in the world, yet he continues to look upon the world that they once shared.",
+                        "The kingdom that was once glorious had worn down through peace, the nobles bathed in their wealth batting nary a eye to governing the people. The honourable kingdom was no more.",
+                        "The dragon retreated to the den and sealed himself away. For he could not go back on the oath he made with the hero even as much as he despised the current kingdom."
+                    ]
+                },
+                {
+                    "name": "",
+                    "text": ["... ..."]
+                },
+                {
+                    "name": "",
+                    "text": ["Please choose your player's character class: "]
+                }
+            ]
+        },
+        {
+            "id": 1,
+            "data": [
+                {
+                    "name": "",
+                    "text": ["Please choose your shadow's character class: "]
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "data": [
+                {
+                    "name": "",
+                    "text": ["Your journey has just begun."]
+                }
+            ]
+        },
+        {
+            "id": 3,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["It's so hot as usual...", "Time to check what things I need to do today.", "Let's go talk to Cecilia below. She should be in her usual spot beside the lake."]
+                }
+            ]
+        },
+        {
+            "id": 4,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Wow! I leveled up!", "Let's see if I've gotten any stronger."]
+                },
+                {
+                    "name": "",
+                    "text": ["Open the pause menu with 'X' or escape key.", "Select stats to view your stats.", "You can assign your character stats to make them stronger."]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "data": [
+                {
+                    "name": "Cecilia",
+                    "text": ["Hey Rain, are you still having those dreams? You seem to get them a lot ever since you went missing in that cave a few years back."]
+                },
+                {
+                    "name": "Rain",
+                    "text": ["Ah yeah… That day I was playing hide-and-seek with you but ended up falling into a cave. The cave was very, very dark, but there was something shining in the middle, a black crystal.", "Out of curiosity I tried to touch it, but I can’t seem to recall what happened after that.."]
+                }, 
+                {
+                    "name": "Cecilia",
+                    "text": ["Oh, I remember that day… After you went missing, the whole village set out in the forest to look for you! And we just found you sleeping in a field."]
+                },
+                {
+                    "name": "Rain",
+                    "text": ["I wonder what happened then…"]
+                },
+                {
+                    "name": "Cecilia",
+                    "text": ["Anyway, the number of slimes in the forest seems to be increasing lately, and they appear to be more aggressive. The chief requested you to help thin out their numbers."]
+                },
+                {
+                    "name": "Rain",
+                    "text": ["Sure, leave it to me!"]
+                },
+                {
+                    "name": "Cecilia",
+                    "text": ["Be careful out there!"]
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Alright, that should settle things for now. Hmmm, since I’m here, maybe I should look for some of Cecilia’s favorite flowers. I’m sure it’ll be a pleasant surprise for her."]
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Hmm? What’s that crystal? Let’s take a closer look.."]
+                }
+            ]
+        },
+        {
+            "id": 7,
+            "data": [
+                {
+                    "name": "",
+                    "text": ["The black wisp flickered, it’s voice weakening as it faded out."]
+                }, 
+                {
+                    "name": "Shadow",
+                    "text": ["Young hero, my power is fading...", "Find the other fragments… before the world is destroyed."]
+                },
+                {
+                    "name": "",
+                    "text": ["The black wisp vanished into the ground overlapping the young hero’s shadow."]
+                }
+            ]
+        },
+        {
+            "id": 8,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["What was that?! Was that my… memories from when I was in the cave?", "And who are you, or rather, what are you!? Why do you look like me?"]
+                }, 
+                {
+                    "name": "Shadow",
+                    "text": ["I have no idea… I can’t remember anything…", "But… I feel some sort of connection to you… Do you know anything about me?"]
+                },
+                {
+                    "name": "Rain",
+                    "text": ["(thinking to himself) Is he the black wisp I saw in the cave? But he doesn’t remember anything… Argh there’s too many questions and no answers. Maybe I should bring him back with me first?", "Alright, honestly I have no clue as to who and what you are. But since you seem to be connected to me, how about you come with me? Not that you seem to have a choice though… What’s your name?"]
+                },
+                {
+                    "name": "Shadow",
+                    "text": ["I’ll… follow you. As for a name, I don’t remember at all."]
+                },
+                {
+                    "name": "Rain",
+                    "text": ["Hmmm… Then I’ll call you Pancakes! Listen here Pancakes, my dream is to become a top-tier adventurer with lots of gold to spare. Let’s explore the world together and find some treasure!"]
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Ah, there seems to be more slimes ahead. This is going to be troublesome."]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["I think I can aid you in battle. I can’t recall much of where I came from, but I can fight. Let me help you."]
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Wow Pancakes, you’re pretty strong! Well that should be alright for now, let’s head back to the village first, otherwise Cecilia’s going to get worried."]
+                }
+            ]
+        },
+        {
+            "id": 11,
+            "data": [
+                {
+                    "name": "Cecilia",
+                    "text": ["There seems to be some sort of commotion in the forest today. The chief requested you to check if there’s anything out of the ordinary that might have caused this."]
+                }, 
+                {
+                    "name": "Rain",
+                    "text": ["I’ll take care of it!"]
+                }, 
+                {
+                    "name": "Cecilia",
+                    "text": ["Don’t push yourself too much alright! Just check things out and come back safely Rain."]
+                },
+                {
+                    "name": "Rain",
+                    "text": ["I got it I got it~"]
+                }
+            ]
+        },
+        {
+            "id": 12,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Woah, it’s… a dungeon? It wasn’t here before.. A dungeon just opened up next to the village?"]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["There’s something mysteriously familiar about this place…", "I feel… as if it’s calling out to me to go in…"]
+                }, 
+                {
+                    "name": "Rain",
+                    "text": ["Could the appearance of this dungeon be linked to Pancakes? It appeared the day after I found another crystal in the forest…", "I think I might find some answers as to what Pancakes is in here. But it might be dangerous, so we should make more preparations before entering. I need to let the village know as well."]
+                }
+            ]
+        },
+        {
+            "id": 13,
+            "data": [
+                {
+                    "name": "Elder",
+                    "text": ["What?! A dungeon appeared next to our village?"]
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "data": [
+                {
+                    "name": "Pancakes",
+                    "text": ["What’s this… it’s all coming back to me"]
+                }
+            ]
+        }
+    ]
+}

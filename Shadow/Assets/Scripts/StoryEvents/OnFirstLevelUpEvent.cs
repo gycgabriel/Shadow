@@ -10,7 +10,7 @@ public class OnFirstLevelUpEvent : MonoBehaviour
     {
         if (!done)
         {
-            if (Singleton<StoryManager>.scriptInstance.CheckEvoked(0, 4))
+            if (Singleton<StoryManager>.scriptInstance.CheckEvoked(0, 3))
             {
                 done = true;
             }
@@ -18,7 +18,7 @@ public class OnFirstLevelUpEvent : MonoBehaviour
             {
                 StartEvent();
                 done = true;
-                Singleton<StoryManager>.scriptInstance.SetEvoked(0, 4);
+                Singleton<StoryManager>.scriptInstance.SetEvoked(0, 3);
             }
         }
     }
@@ -35,7 +35,7 @@ public class OnFirstLevelUpEvent : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
 
         GetText.LoadChapter(0);
-        GetText.LoadScenario(4);
+        GetText.LoadScenario(3);
         Singleton<ScenarioManager>.scriptInstance.PlayScenario();
     }
 }
