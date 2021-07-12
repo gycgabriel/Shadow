@@ -24,7 +24,7 @@ public class OnQuestCompleteEvent : MonoBehaviour
             {
                 done = true;
             }
-            else if (PartyController.quest.title == QuestName && !PartyController.quest.isActive)
+            else if (PartyController.quest != null && PartyController.quest.title == QuestName && !PartyController.quest.isActive)
             {
                 StartEvent();
                 done = true;
@@ -46,16 +46,28 @@ public class OnQuestCompleteEvent : MonoBehaviour
 
         GetText.LoadChapter(chapter);
         GetText.LoadScenario(scenario);
+        QuestGiver qw = GetComponent<QuestGiver>();
         Singleton<ScenarioManager>.scriptInstance.PlayScenario(delegate () {
-            if (nextScene != "")
-            {
-                SceneManager.LoadScene(nextScene);
-                TransferPlayer.Teleport(newCoords, directionToFace);
-            }
+            
             if (giveNextQuest)
             {
-                GetComponent<QuestGiver>().OpenQuestWindow();
+                qw.OpenQuestWindow();
+                StartCoroutine(WaitUntilQuestAccepted());
             }
+
+            
         });
+    }
+
+    IEnumerator WaitUntilQuestAccepted()
+    {
+        QuestGiver qw = GetComponent<QuestGiver>();
+        yield return new WaitUntil(() => PartyController.quest.title == qw.quest.title);
+        if (nextScene != "")       // accepted quest, then teleport
+        {
+            SceneManager.LoadScene(nextScene);
+            TransferPlayer.Teleport(newCoords, directionToFace);
+        }
+
     }
 }

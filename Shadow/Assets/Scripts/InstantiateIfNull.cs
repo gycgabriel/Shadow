@@ -10,6 +10,7 @@ public class InstantiateIfNull : MonoBehaviour
     public GameObject enemyStatus;
     public GameObject pauseMenu;
     public GameObject dialogueManager;
+    public GameObject sceneStorymanager;
 
     void Start()
     {
@@ -41,6 +42,11 @@ public class InstantiateIfNull : MonoBehaviour
         if (Singleton<DialogueManager>.gameInstance == null)
         {
             Instantiate(dialogueManager);
+        }
+
+        if (Singleton<ScenarioManager>.gameInstance == null || StoryManager.gameInstance == null)
+        {
+            Instantiate(sceneStorymanager);
         }
     }
 
