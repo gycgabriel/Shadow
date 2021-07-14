@@ -4,11 +4,10 @@ using UnityEngine.UI;
 
 /* Sits on all InventorySlots. */
 
-public class InventorySlot : MonoBehaviour {
+public class InventorySlot : MonoBehaviour  {
 
 	public Image icon;
 	public Button itemButton;
-	public Button removeButton; 
 	public TMP_Text stackText;
 
 	public Item item;  // Current item in the slot
@@ -46,4 +45,5 @@ public class InventorySlot : MonoBehaviour {
     {
 		GetComponentInParent<InventoryUI>().SelectItem(this);
 	}
+
 }

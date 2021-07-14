@@ -38,19 +38,10 @@ public class InventoryUI : MonoBehaviour {
 		UpdateUI();
     }
 
-    void Update () {
-		/*
-		// Check to see if we should open/close the inventory
-		if (Input.GetButtonDown("Inventory"))
-		{
-			inventoryUI.SetActive(!inventoryUI.activeSelf);
-		}
-		*/
-	}
-
 	// Update the inventory UI by:
 	//		- Adding items
 	//		- Clearing empty slots
+	//		- Updating selected item
 	// This is called using a delegate on the Inventory.
 	void UpdateUI ()
 	{
@@ -77,21 +68,8 @@ public class InventoryUI : MonoBehaviour {
 
 	public void SelectItem(InventorySlot slot)
     {
-		if (selectedItem == slot.item)
-		{
-            DisplayItemOptionsWindow(slot.transform.position);
-		}
-		else
-		{
-			itemOptionsWindow.gameObject.SetActive(false);
-			selectedItem = slot.item;
-			selectedItemDisplay.UpdateUI();
-		}
-	}
-
-	public void DisplayItemOptionsWindow(Vector3 position)
-	{
-		itemOptionsWindow.gameObject.SetActive(true);
-		itemOptionsWindow.transform.position = position + new Vector3(16f, -16f);
+		itemOptionsWindow.gameObject.SetActive(false);
+		selectedItem = slot.item;
+		selectedItemDisplay.UpdateUI();
 	}
 }

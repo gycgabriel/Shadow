@@ -126,7 +126,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 2328271432122394017}
   itemButton: {fileID: 6664473786167431729}
-  removeButton: {fileID: 0}
   stackText: {fileID: 6757414115805004484}
   item: {fileID: 0}
 --- !u!1 &6557010303900921150
@@ -141,6 +140,7 @@ GameObject:
   - component: {fileID: 7363179740981611745}
   - component: {fileID: 2134052739016218356}
   - component: {fileID: 6664473786167431729}
+  - component: {fileID: 8362012110748104172}
   m_Layer: 5
   m_Name: ItemButton
   m_TagString: Untagged
@@ -263,6 +263,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8362012110748104172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6557010303900921150}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df0b1b8a682d9994db4c3238613eadd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemOptionsWindow: {fileID: 0}
 --- !u!1 &7616705268659890025
 GameObject:
   m_ObjectHideFlags: 0
