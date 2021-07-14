@@ -62,6 +62,11 @@ public class PartyController : Singleton<PartyController>
             skillsUIManager = SkillsUIManager.scriptInstance;
         }
 
+        if (inventory == null)
+        {
+            inventory = new Inventory();
+        }
+
         if (playerP == null || shadowP == null)
         {
             playerP = player.GetComponent<Player>();
