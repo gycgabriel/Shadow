@@ -10,6 +10,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public GameObject pauseMenuUI;               //The UI of the pause menu
     public GameObject statsScreen;
+    public GameObject inventoryScreen;
     public GameObject howToPlayUI;
 
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
@@ -23,7 +24,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         party = FindObjectOfType<PartyController>();
         mainCamera = FindObjectOfType<CameraController>();
-        playerLevelUI = FindObjectOfType<PlayerStatusWindow>();
+        playerLevelUI = FindObjectOfType<PlayerStatusWindow>(true);
     }
 
     private void Update()
@@ -33,6 +34,11 @@ public class PauseMenu : Singleton<PauseMenu>
             if (statsScreen.activeSelf == true)
             {
                 HideStats();
+                return;
+            }
+            if (inventoryScreen.activeSelf == true)
+            {
+                HideInventory();
                 return;
             }
             if (gameIsPaused)
@@ -103,6 +109,17 @@ public class PauseMenu : Singleton<PauseMenu>
     public void HideHowToPlay()
     {
         howToPlayUI.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
+    public void ShowInventory()
+    {
+        inventoryScreen.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
+
+    public void HideInventory()
+    {
+        inventoryScreen.SetActive(false);
         pauseMenuUI.SetActive(true);
     }
 

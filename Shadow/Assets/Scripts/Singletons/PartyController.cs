@@ -20,6 +20,8 @@ public class PartyController : Singleton<PartyController>
 
     public static Quest quest;
 
+    public static Inventory inventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -134,6 +136,8 @@ public class PartyController : Singleton<PartyController>
         {
             skillsUIManager = SkillsUIManager.scriptInstance;
         }
+
+        inventory = new Inventory();
     }
 
 

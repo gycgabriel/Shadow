@@ -46,7 +46,7 @@ public class TargetEnemyUIManager : Singleton<TargetEnemyUIManager>
         targetedEnemy = findClosestEnemy();
 
         display.gameObject.SetActive(true);
-        display.setTargetedEnemy(this.targetedEnemy);
+        display.SetTargetedEnemy(this.targetedEnemy);
     }
 
     /**

@@ -31,7 +31,7 @@ public class TargetEnemyUIDisplay : MonoBehaviour
         nameText.text = targetedEnemy.displayName;
     }
 
-    public void setTargetedEnemy(Enemy enemy)
+    public void SetTargetedEnemy(Enemy enemy)
     {
         targetedEnemy = enemy;
     }
