@@ -9,13 +9,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac90a348c58454695edd4a4be58523, type: 3}
-  m_Name: HealthPotion_M
+  m_Script: {fileID: 11500000, guid: a65cee22957426f4e829b75ad4238bb5, type: 3}
+  m_Name: HealthPotion_S 1
   m_EditorClassIdentifier: 
   name: Health Potion (M)
-  icon: {fileID: 21300000, guid: 1534ed72523ca4a44886e2c67b17296d, type: 3}
+  icon: {fileID: 21300000, guid: 231308dda26c6f743a0e585b2c86a6ad, type: 3}
   isStackable: 1
   currentAmt: 1
   description: Drink to recover 1000HP.
   flavorText: Tastes of blackcurrants and valberries. Might've been made by a certain
     maid knight.
+  consumableType: 0

@@ -12,7 +12,6 @@ public class DiscardWindow : MonoBehaviour
 
     public GameObject discardAmtPanel;
     public GameObject confirmDiscardPanel;
-    public GameObject infoPanel;
 
     private void OnEnable()
     {
@@ -27,11 +26,11 @@ public class DiscardWindow : MonoBehaviour
         selectedAmt = int.Parse(discardAmtInputField.text);
         if (selectedAmt <= 0) 
         {
-            PopInfoWindow("Amount must be greater than 0.");
+            PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
         }
         else if (selectedAmt > InventoryUI.selectedItem.GetAmtInInventory())
         {
-            PopInfoWindow("You do not have that much to discard.");
+            PauseMenu.scriptInstance.PopInfoWindow("You do not have that much to discard.");
         }
         else
         {
@@ -51,7 +50,7 @@ public class DiscardWindow : MonoBehaviour
     public void ConfirmDiscard()
     {
         InventoryUI.selectedItem.RemoveFromInventory(selectedAmt);
-        PopInfoWindow("Discarded!");
+        PauseMenu.scriptInstance.PopInfoWindow("Discarded!");
         gameObject.SetActive(false);
     }
 
@@ -62,16 +61,4 @@ public class DiscardWindow : MonoBehaviour
         discardAmtPanel.SetActive(true);
     }
 
-    // Pop up window with a message and an "OK" button
-    public void PopInfoWindow(string message)
-    {
-        infoPanel.SetActive(true);
-        infoPanel.GetComponentInChildren<TMP_Text>().text = message;
-    }
-
-    // Closing of pop up window
-    public void Return()
-    {
-        infoPanel.SetActive(false);
-    }
 }

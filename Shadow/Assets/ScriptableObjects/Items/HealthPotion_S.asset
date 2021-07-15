@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9cac90a348c58454695edd4a4be58523, type: 3}
+  m_Script: {fileID: 11500000, guid: a65cee22957426f4e829b75ad4238bb5, type: 3}
   m_Name: HealthPotion_S
   m_EditorClassIdentifier: 
   name: Health Potion (S)
@@ -19,3 +19,4 @@ MonoBehaviour:
   description: Drink to recover 100HP.
   flavorText: Tastes of strawberries and calla lilies. Might've been made by a certain
     cat bartender.
+  consumableType: 0

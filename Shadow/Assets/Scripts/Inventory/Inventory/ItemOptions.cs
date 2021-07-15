@@ -5,20 +5,47 @@ using UnityEngine.UI;
 
 public class ItemOptions : MonoBehaviour
 {
-	public DiscardWindow discardWindow;
+	public GameObject setHotkeyWindow;
+	public GameObject discardWindow;
+	public Button useButton;
+	public Button setHotkeyButton;
 
-	// Called when the remove button is pressed
-	public void OnRemoveButton()
+	private void OnEnable()
 	{
-		discardWindow.gameObject.SetActive(true);
-		gameObject.SetActive(false);
+		useButton.interactable = InventoryUI.selectedItem.GetType().Equals(typeof(Consumable));
+		setHotkeyButton.interactable = InventoryUI.selectedItem.GetType().Equals(typeof(Consumable));
 	}
 
-	// Called when the item is pressed
 	public void UseItem()
 	{
-		InventoryUI.selectedItem.Use();
-		InventoryUI.selectedItem.RemoveFromInventory(1);
+		Consumable item = (Consumable) InventoryUI.selectedItem;
+		if (!ItemHotkeyUIManager.scriptInstance.IsItemOnCooldown(item))
+        {
+			InventoryUI.selectedItem.Use();
+			InventoryUI.selectedItem.RemoveFromInventory(1);
+			ItemHotkeyUIManager.scriptInstance.UseItem(item);
+			gameObject.SetActive(false);
+		}
+		else
+        {
+			float remainingCD = ItemHotkeyUIManager.scriptInstance.GetRemainingCooldown(item);
+			string message = string.Format("Item still on cooldown!\n Cooldown: {0:F1}s", remainingCD);
+			PauseMenu.scriptInstance.PopInfoWindow(message);
+        }
+	}
+
+	public void OnSetHotKeyButton()
+    {
+		setHotkeyWindow.SetActive(true);
 		gameObject.SetActive(false);
 	}
+
+    // Called when the remove button is pressed
+    public void OnDiscardButton()
+	{
+		discardWindow.SetActive(true);
+		gameObject.SetActive(false);
+	}
+
+
 }

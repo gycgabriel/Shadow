@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using TMPro;
 
 public class PauseMenu : Singleton<PauseMenu>
 {
@@ -19,6 +20,8 @@ public class PauseMenu : Singleton<PauseMenu>
     private PartyController party;
     private CameraController mainCamera;
     private PlayerStatusWindow playerLevelUI;
+
+    public GameObject infoPanel;
 
     private void Start()
     {
@@ -123,4 +126,16 @@ public class PauseMenu : Singleton<PauseMenu>
         pauseMenuUI.SetActive(true);
     }
 
+    // Pop up window with a message and an "OK" button
+    public void PopInfoWindow(string message)
+    {
+        infoPanel.SetActive(true);
+        infoPanel.GetComponentInChildren<TMP_Text>().text = message;
+    }
+
+    // Closing of pop up window
+    public void Return()
+    {
+        infoPanel.SetActive(false);
+    }
 }

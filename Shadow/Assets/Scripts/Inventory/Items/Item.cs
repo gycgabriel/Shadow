@@ -38,5 +38,4 @@ public class Item : ScriptableObject {
 		return PartyController.inventory.GetItemAmt(this);
 
 	}
-
 }
