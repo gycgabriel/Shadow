@@ -32,6 +32,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Dungeon.unity
     guid: e942431a6c02d894d9fae687c30bdbc1
+  - enabled: 1
+    path: Assets/Scenes/Flower.unity
+    guid: eba6a24de0bdf5549ae947491e9bf299
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 40a5d803c3d67954fa33931dc3a967bf,
       type: 2}

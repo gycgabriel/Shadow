@@ -17,6 +17,19 @@ public class ScenarioManager : Singleton<ScenarioManager>
         }
     }
 
+    // Overloaded for convenience 
+    public void PlayScenario(int chapter, int scenario, System.Action nextAction = null)
+    {
+        if (chapter == -1)
+        {
+            nextAction?.Invoke();
+            return;
+        }
+        GetText.LoadChapter(chapter);
+        GetText.LoadScenario(scenario);
+        PlayScenario(nextAction);
+    }
+
     public void PlayScenario(System.Action nextAction = null)
     {
         // Assign to keep track for future ContinueText() from button press

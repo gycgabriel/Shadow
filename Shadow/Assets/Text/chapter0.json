@@ -49,11 +49,11 @@
             "data": [
                 {
                     "name": "Rain",
-                    "text": ["It's so hot as usual...", "Time to check what things I need to do today."]
+                    "text": ["Wow! I leveled up!", "Let's see if I've gotten any stronger."]
                 },
                 {
-                    "name": "",
-                    "text": ["This is a demo version.", "Please head north to Nactara Forest to try your hands at beating some slimes", "You can check what you have to do at the red notice board."]
+                    "name": "Tutorial",
+                    "text": ["Open the pause menu with 'X' or escape key.", "Select stats to view your stats.", "You can assign your character stats to make them stronger!"]
                 }
             ]
         },
@@ -61,12 +61,8 @@
             "id": 4,
             "data": [
                 {
-                    "name": "Rain",
-                    "text": ["Wow! I leveled up!", "Let's see if I've gotten any stronger."]
-                },
-                {
-                    "name": "",
-                    "text": ["Open the pause menu with 'X' or escape key.", "Select stats to view your stats.", "You can assign your character stats to make them stronger."]
+                    "name": "Tutorial",
+                    "text": ["Switch between you and your shadow with the C or Q button."]
                 }
             ]
         }
