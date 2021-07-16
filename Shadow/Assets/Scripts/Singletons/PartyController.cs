@@ -18,14 +18,9 @@ public class PartyController : Singleton<PartyController>
     public static SkillsUIManager skillsUIManager;
     public SkillsUIManager skillsUIManagerPrefab;
 
+    public static QuestChain questChain;
     public static Quest quest;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (PauseMenu.gameIsPaused)
@@ -159,11 +154,7 @@ public class PartyController : Singleton<PartyController>
             {
                 AddExperience(quest.expReward);
                 // add gold
-                QuestWindow qw = QuestWindow.scriptInstance;
-                qw.completedExp.text = quest.expReward.ToString();
-                qw.completedGold.text = quest.goldReward.ToString();
-                qw.completed.SetActive(true);
-                quest.Complete();
+                QuestWindow.scriptInstance.OpenCompleted(quest, questChain);
             }
         }
     }

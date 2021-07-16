@@ -17,6 +17,7 @@ public class QuestWindow : Singleton<QuestWindow>
 
     public TMP_Text completedGold;
     public TMP_Text completedExp;
+    public Button ok;
 
     private void Start()
     {
@@ -35,5 +36,47 @@ public class QuestWindow : Singleton<QuestWindow>
         TMP_Text[] ctextArr = completed.GetComponentsInChildren<TMP_Text>(true);
         completedGold = ctextArr[1];
         completedExp = ctextArr[2];
+
+        Button[] cbuttonArr = completed.GetComponentsInChildren<Button>(true);
+        ok = cbuttonArr[0];
     }
+
+    public void Open(Quest quest, QuestChain questChain = null)
+    {
+        panel.SetActive(true);
+
+        // set texts in quest window
+        title.text = quest.title;
+        desc.text = quest.desc;
+        gold.text = quest.goldReward.ToString();
+        exp.text = quest.expReward.ToString();
+
+        accept.onClick.AddListener(delegate () {
+            panel.SetActive(false);
+            PartyController.questChain = questChain;        // set to null if not questchain
+            PartyController.quest = quest;
+            quest.Accept();
+        });
+    }
+
+    public void OpenCompleted(Quest quest, QuestChain questChain = null)
+    {
+        completedExp.text = quest.expReward.ToString();
+        completedGold.text = quest.goldReward.ToString();
+        completed.SetActive(true);
+        ok.onClick.AddListener(delegate () {
+            completed.SetActive(false);
+            quest.Complete(delegate() {
+                if (questChain != null)
+                {
+                    Debug.Log("Theres a quest chain");
+                    Open(questChain.Next(), questChain);
+                } else
+                {
+                    Debug.Log("No quest chain");
+                }
+            });
+        });
+    }
+
 }

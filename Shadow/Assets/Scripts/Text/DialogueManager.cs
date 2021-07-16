@@ -51,7 +51,6 @@ public class DialogueManager : Singleton<DialogueManager>
         if (sentences.Count == 0)
         {
             EndDialogue();
-            Debug.Log("Dialogue ended");
             return;
         }
 

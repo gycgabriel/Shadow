@@ -7,6 +7,10 @@ public class PlayScenarioOnSceneLoad : MonoBehaviour
     public int chapter;
     public int scenario;
 
+    public bool hasReq;
+    public int reqChapter;
+    public int reqScenario;
+
     public bool done = false;
 
     void Update()
@@ -16,6 +20,10 @@ public class PlayScenarioOnSceneLoad : MonoBehaviour
             if (Singleton<StoryManager>.scriptInstance.CheckEvoked(chapter, scenario))
             {
                 done = true;
+            }
+            else if (hasReq && !StoryManager.scriptInstance.CheckEvoked(reqChapter, reqScenario))
+            {
+                return;         // required story not played yet
             }
             else
             {

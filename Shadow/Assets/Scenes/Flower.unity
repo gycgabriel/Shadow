@@ -1479,12 +1479,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 643774421}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83f5891352b87a54faf41450f2b63a76, type: 3}
+  m_Script: {fileID: 11500000, guid: baeb1c6878f301643a5f63aeca7d8423, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 55f14fa79f8e60b41ab47fad93cb94ba, type: 2}
   chapter: 1
   scenario: 3
-  done: 0
 --- !u!4 &643774423
 Transform:
   m_ObjectHideFlags: 0
@@ -3287,6 +3287,7 @@ GameObject:
   - component: {fileID: 2318910646764588592}
   - component: {fileID: 2318910646764588595}
   - component: {fileID: 2318910646764588594}
+  - component: {fileID: 2318910646764588596}
   m_Layer: 0
   m_Name: Flower
   m_TagString: Untagged
@@ -3326,3 +3327,19 @@ MonoBehaviour:
   scenario: 4
   reqChapter: 1
   reqScenario: 3
+--- !u!114 &2318910646764588596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2318910646764588593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4e59cb25ffd9cb4bb220d4d56aacd72, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  chapter: 1
+  scenario: 5
+  reqChapter: 0
+  reqScenario: 4
