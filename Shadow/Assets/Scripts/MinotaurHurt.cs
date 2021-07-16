@@ -20,7 +20,7 @@ public class MinotaurHurt : HurtBehaviour
         }
     }
 
-    public override bool hurt(int damageToGive)
+    public override bool Hurt(int damageToGive)
     {
         // if the unit has invincibility frames and is invincible now, no damage will be taken
         if (hasInvincibility && isInvincible)
@@ -32,7 +32,7 @@ public class MinotaurHurt : HurtBehaviour
 
         CheckPhase();
 
-        StartCoroutine("hurtEffect");
+        StartCoroutine(HurtEffect());
         return true;
     }
 

@@ -21,9 +21,9 @@ public class EnemyHurt : HurtBehaviour
         }
     }
 
-    public override bool hurt(int damageToGive)
+    public override bool Hurt(int damageToGive)
     {
         enemyAI.AlertOn();
-        return base.hurt(damageToGive);
+        return base.Hurt(damageToGive);
     }
 }

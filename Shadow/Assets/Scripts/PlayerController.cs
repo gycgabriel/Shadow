@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     public LayerMask interactableLayer;         // layer for all dialogue/event triggering interactables
     public SkillSet playerSkillSet;
 
+    public Player player;
+    public PlayerHurt playerHurt;
     public float regenInterval;
     private float regenCounter;
 
@@ -274,17 +276,8 @@ public class PlayerController : MonoBehaviour
 
     void PassiveRegenOverTime()
     {
-        Player player = GetComponent <Player>();
-        if (player.currentHP < player.getStats()["hp"])
-        {
-            player.currentHP += Mathf.FloorToInt(0.2f * player.getStats()["hp"]);
-            player.currentHP = Mathf.Min(player.currentHP, player.getStats()["hp"]);
-        }
-        if (player.currentMP < player.getStats()["mp"])
-        {
-            player.currentMP += Mathf.FloorToInt(0.2f * player.getStats()["mp"]);
-            player.currentMP = Mathf.Min(player.currentMP, player.getStats()["mp"]);
-        }
+        playerHurt.RecoverHP(Mathf.FloorToInt(0.1f * player.getStats()["hp"]));
+        playerHurt.RecoverMP(Mathf.FloorToInt(0.1f * player.getStats()["mp"]));
     }
 
     /**

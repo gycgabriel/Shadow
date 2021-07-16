@@ -17,7 +17,7 @@ public class HurtPlayer : MonoBehaviour
         {
             currentDamage = attackInfo.CalculateDamage(attackingEnemy, other.GetComponentInParent<Player>());
 
-            bool attackSuccessful = other.gameObject.GetComponentInParent<HurtBehaviour>().hurt(currentDamage);
+            bool attackSuccessful = other.gameObject.GetComponentInParent<HurtBehaviour>().Hurt(currentDamage);
 
             // Check if attack was successful or Player was invincible
             if (attackSuccessful)

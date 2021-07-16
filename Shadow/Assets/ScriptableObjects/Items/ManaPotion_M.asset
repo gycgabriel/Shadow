@@ -9,14 +9,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a65cee22957426f4e829b75ad4238bb5, type: 3}
-  m_Name: HealthPotion_S 1
+  m_Script: {fileID: 11500000, guid: 793ffbb7af6492d41b1ec7901bb3e2d7, type: 3}
+  m_Name: ManaPotion_M
   m_EditorClassIdentifier: 
-  name: Health Potion (M)
-  icon: {fileID: 21300000, guid: 231308dda26c6f743a0e585b2c86a6ad, type: 3}
+  name: Mana Potion (M)
+  icon: {fileID: -5688591430339772144, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to recover 1000HP.
+  description: Drink to recover 250MP.
   flavorText: Tastes of blackcurrants and valberries. Might've been made by a certain
     maid knight.
-  consumableType: 0
+  consumableType: 1
+  recoveryAmt: 250
+  recoveryEffect: {fileID: 0}

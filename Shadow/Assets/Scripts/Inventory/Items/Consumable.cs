@@ -1,7 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "New Consumable Item", menuName = "Inventory/Consumable")]
-public class Consumable : Item
+public abstract class Consumable : Item
 {
     public const float HealthPotionCD = 5f;
     public const float ManaPotionCD = 5f;
@@ -22,5 +21,4 @@ public class Consumable : Item
     }
 }
 
-[System.Serializable]
 public enum ConsumableType { HealthPotion, ManaPotion }

@@ -12,8 +12,8 @@ public class ItemOptions : MonoBehaviour
 
 	private void OnEnable()
 	{
-		useButton.interactable = InventoryUI.selectedItem.GetType().Equals(typeof(Consumable));
-		setHotkeyButton.interactable = InventoryUI.selectedItem.GetType().Equals(typeof(Consumable));
+		useButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
+		setHotkeyButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
 	}
 
 	public void UseItem()

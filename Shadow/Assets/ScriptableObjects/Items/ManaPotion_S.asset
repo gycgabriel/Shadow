@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 793ffbb7af6492d41b1ec7901bb3e2d7, type: 3}
-  m_Name: HealthPotion_S
+  m_Name: ManaPotion_S
   m_EditorClassIdentifier: 
-  name: Health Potion (S)
-  icon: {fileID: -7981245606723706876, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
+  name: Mana Potion (S)
+  icon: {fileID: -1738724421029491433, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to recover 100HP.
+  description: Drink to recover 50MP.
   flavorText: Tastes of strawberries and calla lilies. Might've been made by a certain
     cat bartender.
-  consumableType: 0
-  recoveryAmt: 100
+  consumableType: 1
+  recoveryAmt: 50
   recoveryEffect: {fileID: 0}

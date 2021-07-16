@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7021806160790640474}
   - component: {fileID: 7387898316764795012}
   - component: {fileID: 4756731513656762835}
-  - component: {fileID: 4156385587426568943}
+  - component: {fileID: 1543881687975510557}
   - component: {fileID: 8754808651645558989}
   m_Layer: 0
   m_Name: Sorcerer
@@ -62,7 +62,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   playerSkillSet: {fileID: 8754808651645558989}
-  regenInterval: 5
+  player: {fileID: 7387898316764795012}
+  playerHurt: {fileID: 1543881687975510557}
+  regenInterval: 10
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
@@ -118,7 +120,7 @@ MonoBehaviour:
   portraitToDisplay: {fileID: 21300000, guid: d017db0655fdb6d43b295b0df57ab9cf, type: 3}
   spriteToDisplay: {fileID: -2120301941766223111, guid: ac05cd22a7ca69643a8faf57cb74c030,
     type: 3}
---- !u!114 &4156385587426568943
+--- !u!114 &1543881687975510557
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -127,7 +129,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7021806160790640468}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c82b43e31d45d2a4f908b2d5b32d6870, type: 3}
+  m_Script: {fileID: 11500000, guid: 953b9eea206f13943b0aa2c9b448a7e0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   creatureGO: {fileID: 0}

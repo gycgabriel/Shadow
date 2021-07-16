@@ -19,7 +19,7 @@ public class ClickItemOption : MonoBehaviour, IPointerClickHandler
         {
 			Debug.Log("Right click");
 			GetComponentInParent<InventorySlot>().SelectItem();
-			if (InventoryUI.selectedItem.GetType().Equals(typeof(Consumable)))
+			if (InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable)))
             {
 				itemOptionsWindow.gameObject.SetActive(true);
 				itemOptionsWindow.transform.position = Input.mousePosition;

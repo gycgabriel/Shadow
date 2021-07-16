@@ -37,7 +37,7 @@ public class HurtBehaviour : MonoBehaviour
     }
 
     // returns whether the creature was successfully hurt
-    public virtual bool hurt(int damageToGive)
+    public virtual bool Hurt(int damageToGive)
     {
         // if the unit has invincibility frames and is invincible now, no damage will be taken
         if (hasInvincibility && isInvincible)
@@ -46,11 +46,11 @@ public class HurtBehaviour : MonoBehaviour
         }
 
         creature.currentHP = Mathf.Max(creature.currentHP - damageToGive, 0);        // creature health will not fall below zero
-        StartCoroutine("hurtEffect");
+        StartCoroutine(HurtEffect());
         return true;
     }
 
-    protected IEnumerator hurtEffect()            // change color to show hurt
+    protected IEnumerator HurtEffect()            // change color to show hurt
     {
         isInvincible = true;
         for (int i = 0; i < 3; i++)     // runs 3 times, 3 flashes
