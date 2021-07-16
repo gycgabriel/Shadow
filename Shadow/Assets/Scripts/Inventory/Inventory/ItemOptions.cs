@@ -21,8 +21,6 @@ public class ItemOptions : MonoBehaviour
 		Consumable item = (Consumable) InventoryUI.selectedItem;
 		if (!ItemHotkeyUIManager.scriptInstance.IsItemOnCooldown(item))
         {
-			InventoryUI.selectedItem.Use();
-			InventoryUI.selectedItem.RemoveFromInventory(1);
 			ItemHotkeyUIManager.scriptInstance.UseItem(item);
 			gameObject.SetActive(false);
 		}

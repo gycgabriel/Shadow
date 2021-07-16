@@ -65,7 +65,8 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void HandleInput(Vector2 movement, bool attackInput, bool ultimateInput, bool switchToShadowInput)
+    public void HandleInput(Vector2 movement, bool attackInput, bool ultimateInput, bool switchToShadowInput,
+        bool[] hotkeyInputs)
     {
         if (cameraController == null)
         {
@@ -83,6 +84,16 @@ public class PlayerController : MonoBehaviour
             // When player is attacking, player can continue to attack but cannot move or change to shadow
             HandleSkillsInput(attackInput, ultimateInput);
             return;
+        }
+
+        // Check if hotkey is pressed to use hotkey items
+        for (int i = 0; i < ItemHotkeyUIManager.NumOfHotkeys; i++)
+        {
+            // If hotkey is pressed and there is usable item on hotkey, use the item.
+            if (hotkeyInputs[i] && !ItemHotkeyUIManager.scriptInstance.IsHotkeyItemOnCooldown(i))
+            {
+                ItemHotkeyUIManager.scriptInstance.UseHotkeyItem(i);
+            }
         }
 
         // Only handle other inputs when player is at target position

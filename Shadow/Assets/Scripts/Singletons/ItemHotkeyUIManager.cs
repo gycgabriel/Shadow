@@ -16,7 +16,6 @@ public class ItemHotkeyUIManager : Singleton<ItemHotkeyUIManager>
     public Dictionary<ConsumableType, float> consumableCDCounters;
     public Dictionary<ConsumableType, bool> isConsumableOnCooldown;
 
-    // Start is called before the first frame update
     void Start()
     {
         if (hotkeyItems.Length == 0)
@@ -47,19 +46,6 @@ public class ItemHotkeyUIManager : Singleton<ItemHotkeyUIManager>
     void Update()
     {
         UpdateConsumableCooldowns();
-        UpdateHotkeyIcons();
-    }
-
-    public void UseHotkeyItem(int hotkeyNum)
-    {
-        ConsumableType itemType = hotkeyItems[hotkeyNum].consumableType;
-
-        isConsumableOnCooldown[itemType] = true;
-
-        // Update cooldown time counter for the used item's consumable type
-        consumableCDCounters[itemType] = Consumable.GetConsumableTypeCD(itemType);
-
-        // Update skill cooldown image
         UpdateHotkeyIcons();
     }
 
@@ -113,11 +99,14 @@ public class ItemHotkeyUIManager : Singleton<ItemHotkeyUIManager>
     }
 
     /**
-     * Checks ultimate skill cooldown. shadowActive determines to check player's or shadow's cooldown.
+     * Checks if hotkeyed item is on cooldown. if no hotkeyed item, return true as well.
      */
     public bool IsHotkeyItemOnCooldown(int hotkeyNum)
     {
-        return isConsumableOnCooldown[hotkeyItems[hotkeyNum].consumableType];
+        if (hotkeyItems[hotkeyNum] == null)
+            return true;
+        else
+            return isConsumableOnCooldown[hotkeyItems[hotkeyNum].consumableType];
     }
 
     public bool IsItemOnCooldown(Consumable item)
@@ -130,8 +119,16 @@ public class ItemHotkeyUIManager : Singleton<ItemHotkeyUIManager>
         return consumableCDCounters[item.consumableType];
     }
 
+    public void UseHotkeyItem(int hotkeyNum)
+    {
+        UseItem(hotkeyItems[hotkeyNum]);
+    }
+
     public void UseItem(Consumable item)
     {
+        item.Use();
+        item.RemoveFromInventory(1);
+
         ConsumableType itemType = item.consumableType;
 
         isConsumableOnCooldown[itemType] = true;
@@ -139,7 +136,7 @@ public class ItemHotkeyUIManager : Singleton<ItemHotkeyUIManager>
         // Update cooldown time counter for the used item's consumable type
         consumableCDCounters[itemType] = Consumable.GetConsumableTypeCD(itemType);
 
-        // Update skill cooldown image
+        // Update hotkey item cooldown images
         UpdateHotkeyIcons();
     }
 

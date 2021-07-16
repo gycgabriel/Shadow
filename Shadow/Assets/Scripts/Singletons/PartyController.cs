@@ -96,10 +96,15 @@ public class PartyController : Singleton<PartyController>
             bool dashInput = Input.GetKey(KeyCode.LeftShift);
             bool ultimateInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.U);
             bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);
+            bool[] hotkeyInputs = new bool[4] { 
+                Input.GetKeyDown(KeyCode.Alpha1), 
+                Input.GetKeyDown(KeyCode.Alpha2) , 
+                Input.GetKeyDown(KeyCode.Alpha3) , 
+                Input.GetKeyDown(KeyCode.Alpha4) };
 
             inactivePC.SetPosition(activePC.transform.position, activePC.lastMove);
             activePC.Dash(dashInput);
-            activePC.HandleInput(movement, attackInput, ultimateInput, switchToShadowInput);
+            activePC.HandleInput(movement, attackInput, ultimateInput, switchToShadowInput, hotkeyInputs);
             
         }
 
