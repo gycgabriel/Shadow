@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 16dd01d8c3ce44644909b827e8edd737, type: 3}
+  m_Name: GoblinSlinger_LootTable
+  m_EditorClassIdentifier: 
+  loots:
+  - item: {fileID: 1112410174959049543, guid: 0684c17c41755ea478b4bccb2ed2d3b2, type: 3}
+    lots: 30
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 7622051132336045339, guid: eb49fe14923dde94eb2a9a7630b658cf, type: 3}
+    lots: 30
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 8114788595793461745, guid: 6bb2cf396d9fe2d45b5af75a313892bf, type: 3}
+    lots: 5
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 3892271112326970188, guid: 149be3a81e0535f43b15677fa2a3b9db, type: 3}
+    lots: 5
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 0}
+    lots: 30
+    minQuantity: 1
+    maxQuantity: 1

@@ -730,6 +730,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureGO: {fileID: 0}
   hasInvincibility: 0
+  lootTable: {fileID: 11400000, guid: 977f7009933cae34cbbca37d726d09a7, type: 2}
 --- !u!114 &2736032673129525964
 MonoBehaviour:
   m_ObjectHideFlags: 0
