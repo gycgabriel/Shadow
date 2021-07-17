@@ -5,7 +5,6 @@ using System.Collections;
 public class EnemyHurt : HurtBehaviour
 {
     private EnemyAI enemyAI;
-    public LootTable lootTable;
 
     protected override void Start()
     {
@@ -17,7 +16,6 @@ public class EnemyHurt : HurtBehaviour
     {
         if (creature.isDead)
         {
-            DropLoot();
             Destroy(gameObject);
         }
     }
@@ -26,25 +24,5 @@ public class EnemyHurt : HurtBehaviour
     {
         enemyAI.AlertOn();
         return base.Hurt(damageToGive);
-    }
-
-    void DropLoot()
-    {
-        Loot lootDropped = lootTable.GetLoot();
-        if (lootDropped.item != null)
-        {
-            ItemPickup spawnedItem = Instantiate(lootDropped.item, RoundToNearestGrid(transform.position), Quaternion.identity);
-            spawnedItem.itemAmt = lootDropped.Quantity;
-        }
-    }
-
-    Vector3 RoundToNearestGrid(Vector3 position)
-    {
-        Vector3 newPosition = new Vector3
-        {
-            x = (float)Mathf.Round(position.x - 0.5f) + 0.5f,
-            y = (float)Mathf.Round(position.y - 0.5f) + 0.5f
-        };
-        return newPosition;
     }
 }

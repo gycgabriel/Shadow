@@ -9,10 +9,11 @@ public class Inventory {
 	public delegate void OnItemChanged();
 	public OnItemChanged onItemChangedCallback;
 
-	public int space = 24;	// Amount of slots in inventory
+	public int space = 24;  // Amount of slots in inventory
 
-	// Current list of items in inventory
-	public List<Item> items = new List<Item>();
+	public int Gold { get; set; }
+
+	public List<Item> items = new List<Item>(); // Current list of items in inventory
 
 	// Add a new item. If there is enough room we
 	// return true. Else we return false.

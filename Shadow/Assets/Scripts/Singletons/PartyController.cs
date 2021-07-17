@@ -59,7 +59,7 @@ public class PartyController : Singleton<PartyController>
 
         if (inventory == null)
         {
-            inventory = new Inventory();
+            inventory = new Inventory { Gold = 0 };
         }
 
         if (playerP == null || shadowP == null)
@@ -142,7 +142,7 @@ public class PartyController : Singleton<PartyController>
             skillsUIManager = SkillsUIManager.scriptInstance;
         }
 
-        inventory = new Inventory();
+        inventory = new Inventory { Gold = 0 };
     }
 
 
@@ -156,6 +156,12 @@ public class PartyController : Singleton<PartyController>
     {
         playerP.AddExperience(value);
         shadowP.AddExperience(value);
+    }
+
+    public static void AddGold(int amt)
+    {
+        Debug.Log("Added " + amt + " Gold");
+        inventory.Gold += amt;
     }
 
     // Questing

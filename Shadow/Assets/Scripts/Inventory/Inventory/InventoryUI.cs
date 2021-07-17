@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 /* This object updates the inventory UI. */
@@ -6,6 +7,7 @@ public class InventoryUI : MonoBehaviour {
 
 	public Transform itemsParent;	// The parent object of all the items
 	public GameObject inventoryUI;  // The entire UI
+	public TMP_Text goldText;
 
 	public ItemOptions itemOptionsWindow;
 	public SelectedItemDisplay selectedItemDisplay;
@@ -14,7 +16,8 @@ public class InventoryUI : MonoBehaviour {
 
 	Inventory inventory;	// Our current inventory
 
-	InventorySlot[] slots;	// List of all the slots
+	InventorySlot[] slots;  // List of all the slots
+
 
 	void Start () {
 		inventory = PartyController.inventory;
@@ -45,7 +48,7 @@ public class InventoryUI : MonoBehaviour {
 	// This is called using a delegate on the Inventory.
 	void UpdateUI ()
 	{
-		Debug.Log("Updating Inventory UI.");
+		// Debug.Log("Updating Inventory UI.");
 		// Loop through all the slots
 		for (int i = 0; i < slots.Length; i++)
 		{
@@ -64,6 +67,8 @@ public class InventoryUI : MonoBehaviour {
 			selectedItem = null;
         }
 		selectedItemDisplay.UpdateUI();
+
+		goldText.text = "" + inventory.Gold;
 	}
 
 	public void SelectItem(InventorySlot slot)

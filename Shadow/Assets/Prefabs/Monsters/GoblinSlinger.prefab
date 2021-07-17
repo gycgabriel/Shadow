@@ -688,6 +688,7 @@ MonoBehaviour:
   currentLevel: 0
   isDead: 0
   enemyInfo: {fileID: 11400000, guid: c2ecca90340b8ac43804ad6775a8a789, type: 2}
+  lootTable: {fileID: 11400000, guid: 977f7009933cae34cbbca37d726d09a7, type: 2}
 --- !u!114 &3380909179715639547
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -730,7 +731,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureGO: {fileID: 0}
   hasInvincibility: 0
-  lootTable: {fileID: 11400000, guid: 977f7009933cae34cbbca37d726d09a7, type: 2}
 --- !u!114 &2736032673129525964
 MonoBehaviour:
   m_ObjectHideFlags: 0

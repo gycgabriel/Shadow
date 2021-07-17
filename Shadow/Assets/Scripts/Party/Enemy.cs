@@ -8,6 +8,7 @@ using UnityEngine;
 public class Enemy : Creature
 {
     public EnemyInfo enemyInfo;
+    public LootTable lootTable;
 
     [System.NonSerialized]
     public string displayName;
@@ -28,11 +29,33 @@ public class Enemy : Creature
             isDead = true;
             PartyController.AddExperience(enemyInfo.expReward);
             PartyController.EnemyKilled(enemyInfo.name);
+            PartyController.AddGold(lootTable.GetGoldDrop());
+            DropLoot();
         }
         else
         {
             isDead = false;
         }
+    }
+
+    void DropLoot()
+    {
+        Loot lootDropped = lootTable.GetLoot();
+        if (lootDropped.item != null)
+        {
+            ItemPickup spawnedItem = Instantiate(lootDropped.item, RoundToNearestGrid(transform.position), Quaternion.identity);
+            spawnedItem.itemAmt = lootDropped.Quantity;
+        }
+    }
+
+    Vector3 RoundToNearestGrid(Vector3 position)
+    {
+        Vector3 newPosition = new Vector3
+        {
+            x = (float)Mathf.Round(position.x - 0.5f) + 0.5f,
+            y = (float)Mathf.Round(position.y - 0.5f) + 0.5f
+        };
+        return newPosition;
     }
 
 }

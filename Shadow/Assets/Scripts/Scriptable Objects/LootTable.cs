@@ -17,6 +17,9 @@ public class Loot
 [CreateAssetMenu]
 public class LootTable : ScriptableObject
 {
+    public int minGoldDrop;
+    public int maxGoldDrop;
+
     public Loot[] loots;
 
     public Loot GetLoot()
@@ -47,6 +50,11 @@ public class LootTable : ScriptableObject
         }
 
         return lootDropped;
+    }
+
+    public int GetGoldDrop()
+    {
+        return Random.Range(minGoldDrop, maxGoldDrop + 1);
     }
 
     public int RandomQuantity(Loot loot)

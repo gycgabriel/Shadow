@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16dd01d8c3ce44644909b827e8edd737, type: 3}
   m_Name: GoblinSlinger_LootTable
   m_EditorClassIdentifier: 
+  minGoldDrop: 50
+  maxGoldDrop: 75
   loots:
   - item: {fileID: 1112410174959049543, guid: 0684c17c41755ea478b4bccb2ed2d3b2, type: 3}
     lots: 30
