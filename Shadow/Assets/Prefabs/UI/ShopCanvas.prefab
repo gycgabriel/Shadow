@@ -5273,6 +5273,7 @@ MonoBehaviour:
   goldText: {fileID: 3320556958032211607}
   itemOptionsWindow: {fileID: 0}
   amtConfirmWindow: {fileID: 3806954541132197628}
+  selectHotkeyWindow: {fileID: 0}
   selectedItemDisplay: {fileID: 20810136451539026}
   shopItemList:
   - {fileID: 11400000, guid: 9f1bfd096fb40eb4b98b5dada2283c8b, type: 2}
@@ -5281,6 +5282,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: b9f39a0350b1c04499c2c8acc9b58b5b, type: 2}
   - {fileID: 11400000, guid: 35d81616be1d9d84b8f6b2c15e303d4e, type: 2}
   - {fileID: 11400000, guid: 95bdb07b98c9e544a999fc2db20e954d, type: 2}
+  - {fileID: 11400000, guid: a49ae1ff3de61ac48b94d06201e11c27, type: 2}
+  - {fileID: 11400000, guid: 4baf154d4c0f2b446a8727f68b5bcb87, type: 2}
+  - {fileID: 11400000, guid: 76b2f6a0ea2bebd48b893d80f8f08353, type: 2}
+  - {fileID: 11400000, guid: 5079f1be4bad70447b178956fcdd2f4a, type: 2}
+  - {fileID: 11400000, guid: 40cd2667c50496c48b8c4beadbb2aa87, type: 2}
+  - {fileID: 11400000, guid: b50e133797d6fa14e8823d469b6e79e4, type: 2}
 --- !u!1 &4994868057434469751
 GameObject:
   m_ObjectHideFlags: 0
@@ -9972,6 +9979,7 @@ MonoBehaviour:
   goldText: {fileID: 4917529541762962473}
   itemOptionsWindow: {fileID: 0}
   amtConfirmWindow: {fileID: 541836001117151945}
+  selectHotkeyWindow: {fileID: 0}
   selectedItemDisplay: {fileID: 7304766645629787909}
 --- !u!1 &8716360153524228295
 GameObject:
