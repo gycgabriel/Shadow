@@ -19,6 +19,8 @@ MonoBehaviour:
   description: Drink to recover 1000HP.
   flavorText: Tastes of blackcurrants and valberries. Might've been made by a certain
     maid knight.
+  buyPrice: 500
+  sellPrice: 250
   consumableType: 0
   recoveryAmt: 1000
   recoveryEffect: {fileID: 0}

@@ -46,4 +46,13 @@ public class InventorySlot : MonoBehaviour  {
 		GetComponentInParent<InventoryUI>().SelectItem(this);
 	}
 
+	public void SelectItemToSell()
+    {
+
+    }
+	public void SelectItemToBuy()
+	{
+
+	}
+
 }

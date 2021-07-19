@@ -9,6 +9,7 @@ public class InstantiateIfNull : MonoBehaviour
     public GameObject playerStatus;
     public GameObject enemyStatus;
     public GameObject pauseMenu;
+    public GameObject shopMenu;
     public GameObject dialogueManager;
     public GameObject sceneStorymanager;
 
@@ -37,6 +38,11 @@ public class InstantiateIfNull : MonoBehaviour
         if (Singleton<PauseMenu>.gameInstance == null)
         {
             Instantiate(pauseMenu);
+        }
+
+        if (Singleton<ShopMenu>.gameInstance == null)
+        {
+            Instantiate(shopMenu);
         }
 
         if (Singleton<DialogueManager>.gameInstance == null)

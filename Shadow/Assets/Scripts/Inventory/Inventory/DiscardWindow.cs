@@ -1,30 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using TMPro;
-using UnityEngine;
-using UnityEngine.UI;
-
-public class DiscardWindow : MonoBehaviour
+public class DiscardWindow : AmtConfirmWindow
 {
-    public int selectedAmt;
-    public TMP_InputField discardAmtInputField;
-    public TMP_Text confirmDiscardText;
-
-    public GameObject discardAmtPanel;
-    public GameObject confirmDiscardPanel;
-
-    private void OnEnable()
+    public override void ConfirmAmt()
     {
-        confirmDiscardPanel.SetActive(false);
-        discardAmtPanel.SetActive(true);
-        discardAmtInputField.text = "";
-    }
-
-    // Confirm button on entering how much to discard
-    public void ConfirmDiscardAmt()
-    {
-        selectedAmt = int.Parse(discardAmtInputField.text);
-        if (selectedAmt <= 0) 
+        selectedAmt = int.Parse(amtInputField.text);
+        if (selectedAmt <= 0)
         {
             PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
         }
@@ -34,31 +13,21 @@ public class DiscardWindow : MonoBehaviour
         }
         else
         {
-            confirmDiscardPanel.SetActive(true);
-            discardAmtPanel.SetActive(false);
-            confirmDiscardText.text = "Discarding\n" + InventoryUI.selectedItem.name + " x" + selectedAmt + "\nConfirm?";
+            amtPanel.SetActive(false);
+            confirmPanel.SetActive(true);
+            confirmActionText.text = string.Format(
+                "Discarding\n" +
+                "{0} x {1}\n" +
+                "Confirm?",
+                InventoryUI.selectedItem.name, selectedAmt);
         }
     }
 
-    // Cancel button on entering how much to discard
-    public void CancelDiscardAmt()
-    {
-        gameObject.SetActive(false);
-    }
-
     // Confirm button on discarding entered amount of items
-    public void ConfirmDiscard()
+    public override void ConfirmAction()
     {
         InventoryUI.selectedItem.RemoveFromInventory(selectedAmt);
         PauseMenu.scriptInstance.PopInfoWindow("Discarded!");
         gameObject.SetActive(false);
     }
-
-    // Cancel button on discarding entered amount of items
-    public void CancelDiscard()
-    {
-        confirmDiscardPanel.SetActive(false);
-        discardAmtPanel.SetActive(true);
-    }
-
 }

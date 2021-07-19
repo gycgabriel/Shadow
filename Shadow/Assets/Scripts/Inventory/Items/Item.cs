@@ -14,6 +14,9 @@ public class Item : ScriptableObject {
 	[TextArea(3, 10)]
 	public string flavorText;
 
+	public int buyPrice;
+	public int sellPrice;
+
 	// Called when the item is pressed in the inventory
 	public virtual void Use ()
 	{
@@ -37,5 +40,11 @@ public class Item : ScriptableObject {
     {
 		return PartyController.inventory.GetItemAmt(this);
 
+	}
+
+	public void SoldForGold(int amt)
+    {
+		PartyController.inventory.Gold += sellPrice * amt;
+		PartyController.inventory.Remove(this, amt);
 	}
 }
