@@ -20,8 +20,9 @@ public static class DontDestroyOnLoadManager
     {
         foreach (GameObject go in ddolObjects)
             if (go != null)
+            {
                 UnityEngine.Object.Destroy(go);
-
+            }
         ddolObjects.Clear();
     }
 }

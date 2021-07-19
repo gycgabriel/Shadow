@@ -9,12 +9,11 @@ using UnityEngine;
  * NOTE: DO NOT HAVE AWAKE() IN CHILDREN OF THIS CLASS ( it will override singleton behaviour ) 
  */
 
-public class Singleton<T> : MonoBehaviour where T : Component
+public class Singleton<T> : SingletonParent where T : Component
 {
     public static T scriptInstance;
     public static GameObject gameInstance;
 
-    // Start is called before the first frame update
     void Awake()
     {
         if (gameInstance == null && this.gameObject != gameInstance)

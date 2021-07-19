@@ -8,37 +8,36 @@ public class LoadBehaviour : MonoBehaviour
     // Prefabs of all possible classes
     public GameObject guardianPrefab;
     public GameObject sorcererPrefab;
-
     public GameObject partyPrefab;
-    public GameObject managersPrefab;
-
-    private PartyController party;
-    private void Start()
-    {
-        party = Singleton<PartyController>.scriptInstance;
-    }
+    public GameObject scenarioStoryManagerPrefab;
 
     public void load(int saveNum)
     {
         PlayerData data = SaveSystem.loadPlayer(saveNum);
 
         if (data == null)
-        {
             return;
-        }
 
-        UnityEngine.SceneManagement.SceneManager.LoadScene(data.sceneName);
+        SceneManager.LoadScene("Loading");
 
-        if (party == null)
+        if (PartyController.scriptInstance == null)
+            Instantiate(partyPrefab);
+
+        if (StoryManager.scriptInstance == null)
+            Instantiate(scenarioStoryManagerPrefab);
+
+        GameObject partyGO = PartyController.gameInstance;
+
+        Debug.Log(partyGO);
+
+        if (partyGO.transform.childCount == 0)
         {
-            party = Instantiate(partyPrefab).GetComponent<PartyController>();
+            GameObject playerGO = Instantiate(getPrefab(data.playerCharclass.className));
+            playerGO.transform.parent = partyGO.transform;
+            GameObject shadowGO = Instantiate(getPrefab(data.shadowCharclass.className));
+            shadowGO.transform.parent = partyGO.transform;
 
-            GameObject playerGO = Instantiate(getPrefab(data.playerCharclass.className), new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-            playerGO.transform.parent = Singleton<PartyController>.gameInstance.transform;
-            GameObject shadowGO = Instantiate(getPrefab(data.shadowCharclass.className), new Vector3(-10.5f, 3.5f, 0f), Quaternion.identity);
-            shadowGO.transform.parent = Singleton<PartyController>.gameInstance.transform;
-
-            party.Initialize(playerGO, shadowGO);
+            PartyController.scriptInstance.Initialize(playerGO, shadowGO);
 
             // Changing Shadow's sprite to a darker color theme
             SpriteRenderer[] shadowSprites = shadowGO.GetComponentsInChildren<SpriteRenderer>();
@@ -50,7 +49,7 @@ public class LoadBehaviour : MonoBehaviour
             shadowGO.SetActive(false);
         }
 
-        Player player = party.GetComponentsInChildren<Player>(true)[0];
+        Player player = partyGO.GetComponentsInChildren<Player>(true)[0];
         player.stats = data.playerStats;
         player.skills = data.playerSkills;
         player.statModifiers = data.playerStatModifiers;
@@ -59,7 +58,7 @@ public class LoadBehaviour : MonoBehaviour
         player.currentLevel = data.playerCurrentLevel;
         player.isDead = data.playerIsDead;
 
-        Player shadow = party.GetComponentsInChildren<Player>(true)[1];
+        Player shadow = partyGO.GetComponentsInChildren<Player>(true)[1];
         shadow.stats = data.shadowStats;
         shadow.skills = data.shadowSkills;
         shadow.statModifiers = data.shadowStatModifiers;
@@ -73,12 +72,12 @@ public class LoadBehaviour : MonoBehaviour
         player.currentExp = data.currentExp;
         player.expToNextLevel = data.expToNextLevel;
         player.statPoints = data.playerStatPoints;
+        shadow.currentExp = data.currentExp;
+        shadow.expToNextLevel = data.expToNextLevel;
         shadow.statPoints = data.shadowStatPoints;
 
         if (PartyController.shadowActive != data.shadowActive)
-        {
             PartyController.SwitchShadow();
-        }
 
         PartyController.activePC.SetPosition(
             new Vector3(data.position[0], data.position[1], data.position[2]),
@@ -93,8 +92,10 @@ public class LoadBehaviour : MonoBehaviour
         PartyController.inactivePC.playerAttacking = false;
         PartyController.activePC.anim.Play("Base Layer.IdleFace", 0, 0f);
 
-        Instantiate(managersPrefab);
         StoryManager.scriptInstance.evokedStory = data.evokedStory;
+
+        // Finally bring to scene
+        SceneManager.LoadScene(data.sceneName);
     }
 
     private GameObject getPrefab(string name)

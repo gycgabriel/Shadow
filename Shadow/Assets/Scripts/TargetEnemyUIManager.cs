@@ -31,8 +31,11 @@ public class TargetEnemyUIManager : Singleton<TargetEnemyUIManager>
         alertedEnemies = new List<Enemy>();
     }
 
-    private void Update()
+    void Update()
     {
+        if (PartyController.activePC == null)
+            return;
+
         player = PartyController.activePC.gameObject.GetComponent<Player>();
 
         // If there are no alerted enemies, deactivate the enemy display

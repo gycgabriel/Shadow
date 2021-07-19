@@ -23,20 +23,20 @@ public class UIManager : MonoBehaviour
     public TMP_Text mpText;
     public TMP_Text expText;
 
-    void Start()
+    void Update()
     {
+        if (PartyController.player == null)
+            return;
+
         if (isShadow)
         {
             player = PartyController.shadow.GetComponent<Player>();
-        } 
+        }
         else
         {
             player = PartyController.player.GetComponent<Player>();
         }
-    }
 
-    void Update()
-    {
         if (isStatus)
         {
             player = PartyController.activePC.gameObject.GetComponent<Player>();

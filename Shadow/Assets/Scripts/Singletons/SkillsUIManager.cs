@@ -39,6 +39,9 @@ public class SkillsUIManager : Singleton<SkillsUIManager>
     // Update is called once per frame
     void Update()
     {
+        if (PartyController.playerPC == null)
+            return;
+
         skillSet[PlayerChar] = PartyController.playerPC.playerSkillSet;
         skillSet[ShadowChar] = PartyController.shadowPC.playerSkillSet;
 

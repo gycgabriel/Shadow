@@ -11,33 +11,24 @@ public class PlayScenarioOnSceneLoad : MonoBehaviour
     public int reqChapter;
     public int reqScenario;
 
-    public bool done = false;
-
     void Update()
     {
-        if (!done)
+        if (StoryManager.scriptInstance.CheckEvoked(chapter, scenario) || 
+            (hasReq && !StoryManager.scriptInstance.CheckEvoked(reqChapter, reqScenario)))
         {
-            if (Singleton<StoryManager>.scriptInstance.CheckEvoked(chapter, scenario))
-            {
-                done = true;
-            }
-            else if (hasReq && !StoryManager.scriptInstance.CheckEvoked(reqChapter, reqScenario))
-            {
-                return;         // required story not played yet
-            }
-            else
-            {
-                StartEvent();
-                done = true;
-                Singleton<StoryManager>.scriptInstance.SetEvoked(chapter, scenario);
-            }
+            return;
+        }
+        else
+        {
+            StoryManager.scriptInstance.SetEvoked(chapter, scenario);
+            StartCoroutine(StartEvent());
         }
     }
 
-    public void StartEvent()
+    IEnumerator StartEvent()
     {
-        GetText.LoadChapter(chapter);
-        GetText.LoadScenario(scenario);
-        Singleton<ScenarioManager>.scriptInstance.PlayScenario();
+        yield return new WaitForSeconds(1);
+        ScenarioManager.scriptInstance.PlayScenario(chapter, scenario);
     }
+
 }

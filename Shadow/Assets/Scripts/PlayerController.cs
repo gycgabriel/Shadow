@@ -32,6 +32,7 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         movePoint.parent = null;
+        movePoint.gameObject.DontDestroyOnLoad();               // add to be removed on destroyall
         if (lastMove == Vector2.zero)
         {
             lastMove = new Vector2(0f, -1f);           // player face down 

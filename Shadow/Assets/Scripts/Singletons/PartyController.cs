@@ -33,11 +33,11 @@ public class PartyController : Singleton<PartyController>
             bool skipInput = Input.GetKey(KeyCode.LeftControl);     // hold down to skip
             bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
 
-            Singleton<DialogueManager>.scriptInstance.SkipDialogue(skipInput);
+            DialogueManager.scriptInstance.SkipDialogue(skipInput);
 
             if (attackInput)
             {
-                Singleton<ScenarioManager>.scriptInstance.ContinueText();
+                ScenarioManager.scriptInstance.ContinueText();
             }
             return;     // no action while dialogue open
         }
@@ -146,13 +146,6 @@ public class PartyController : Singleton<PartyController>
         }
 
         inventory = new Inventory { Gold = 0 };
-    }
-
-
-    public override void Destroy()
-    {
-        playerPC.Destroy();
-        shadowPC.Destroy();
     }
 
     public static void AddExperience(int value)

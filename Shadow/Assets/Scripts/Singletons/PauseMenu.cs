@@ -17,18 +17,7 @@ public class PauseMenu : Singleton<PauseMenu>
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
     public Button buttonToSelect;            // button to select when paused
 
-    private PartyController party;
-    private CameraController mainCamera;
-    private PlayerStatusWindow playerLevelUI;
-
     public GameObject infoPanel;
-
-    private void Start()
-    {
-        party = FindObjectOfType<PartyController>();
-        mainCamera = FindObjectOfType<CameraController>();
-        playerLevelUI = FindObjectOfType<PlayerStatusWindow>(true);
-    }
 
     private void Update()
     {
@@ -63,26 +52,23 @@ public class PauseMenu : Singleton<PauseMenu>
     public void ResumeGame()
     {
         pauseMenuUI.SetActive(false);
-        playerLevelUI.gameObject.SetActive(true);
+        PlayerStatusWindow.gameInstance.SetActive(true);
         Resume();
     }
 
     public void PauseGame()
     {
         pauseMenuUI.SetActive(true);
-        playerLevelUI.gameObject.SetActive(false);
+        PlayerStatusWindow.gameInstance.SetActive(false);
         buttonToSelect.Select();
         Pause();
     }
 
     public void ReturnToMenu()
     {
-        party.Destroy();
-        mainCamera.Destroy();
-        playerLevelUI.Destroy();
         Time.timeScale = 1f;
         gameIsPaused = false;
-        UnityEngine.SceneManagement.SceneManager.LoadScene(levelToLoad_Menu);
+        SceneManager.LoadScene(levelToLoad_Menu);
         Destroy(this.gameObject);
         DontDestroyOnLoadManager.DestroyAll();
     }

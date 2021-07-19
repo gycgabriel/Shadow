@@ -35,6 +35,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Flower.unity
     guid: eba6a24de0bdf5549ae947491e9bf299
+  - enabled: 1
+    path: Assets/Scenes/Loading.unity
+    guid: af9cdc4b69d19524883c78f40f096d5f
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 40a5d803c3d67954fa33931dc3a967bf,
       type: 2}
