@@ -94,6 +94,10 @@ public class LoadBehaviour : MonoBehaviour
 
         StoryManager.scriptInstance.evokedStory = data.evokedStory;
 
+        PartyController.quest = Quest.LoadQuest(data.currQuest);
+        PartyController.questChain = QuestChain.LoadQuestChain(data.questChain);
+
+
         // Finally bring to scene
         SceneManager.LoadScene(data.sceneName);
     }

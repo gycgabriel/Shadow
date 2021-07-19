@@ -45,6 +45,11 @@ public class PlayerData
 
     public Dictionary<int, Dictionary<int, bool>> evokedStory;
 
+    // Quests
+    public SerializableQuestChain questChain;
+    public SerializableQuest currQuest;
+
+
     // Future: Flags of opened loot boxes and clearer dungeon levels
     // stored as dictionary
 
@@ -99,6 +104,8 @@ public class PlayerData
         isUltimateSkillCooldown = PartyController.skillsUIManager.isUltimateSkillCooldown;
 
         evokedStory = StoryManager.scriptInstance.evokedStory;
+        currQuest = PartyController.quest?.SaveQuest();
+        questChain = PartyController.questChain?.SaveQuestChain();
 
         Debug.Log("Saved Story: ");
         foreach (KeyValuePair<int, Dictionary<int, bool>> kvp in evokedStory)

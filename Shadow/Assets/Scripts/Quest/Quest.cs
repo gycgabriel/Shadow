@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[System.Serializable]
 [CreateAssetMenu(fileName = "New Quest", menuName = "Quest")]
 
 public class Quest : ScriptableObject
@@ -20,6 +19,23 @@ public class Quest : ScriptableObject
     public int endScenario;
 
     public QuestGoal goal;
+
+    public static Quest LoadQuest(SerializableQuest squest)
+    {
+        if (squest == null)
+            return null;
+        Quest q = CreateInstance<Quest>();
+        squest.CopyTo(q);
+        return q;
+    }
+
+    public SerializableQuest SaveQuest()
+    {
+        SerializableQuest s = new SerializableQuest();
+        this.CopyTo(s);
+        return s;
+    }
+
 
     public void Accept()
     {
