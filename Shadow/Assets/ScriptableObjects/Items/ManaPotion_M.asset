@@ -19,6 +19,8 @@ MonoBehaviour:
   description: Drink to recover 250MP.
   flavorText: Tastes of blackcurrants and valberries. Might've been made by a certain
     maid knight.
+  buyPrice: 650
+  sellPrice: 325
   consumableType: 1
   recoveryAmt: 250
   recoveryEffect: {fileID: 0}

@@ -10,13 +10,15 @@ public class InventoryUI : MonoBehaviour {
 	public TMP_Text goldText;
 
 	public ItemOptions itemOptionsWindow;
+	public AmtConfirmWindow amtConfirmWindow;
+	public SelectHotkeyWindow selectHotkeyWindow;
 	public SelectedItemDisplay selectedItemDisplay;
 
 	public static Item selectedItem;
 
-	Inventory inventory;	// Our current inventory
+	protected Inventory inventory;	// Our current inventory
 
-	InventorySlot[] slots;  // List of all the slots
+	protected InventorySlot[] slots;  // List of all the slots
 
 
 	void Start () {
@@ -37,7 +39,15 @@ public class InventoryUI : MonoBehaviour {
         {
 			slots = itemsParent.GetComponentsInChildren<InventorySlot>();
 		}
-		itemOptionsWindow.gameObject.SetActive(false);
+
+		// if there are any open windows, set it to inactive
+		if (itemOptionsWindow != null)
+			itemOptionsWindow.gameObject.SetActive(false);
+		if (amtConfirmWindow != null)
+			amtConfirmWindow.gameObject.SetActive(false);
+		if (selectHotkeyWindow != null)
+			selectHotkeyWindow.gameObject.SetActive(false);
+
 		UpdateUI();
     }
 
@@ -46,7 +56,7 @@ public class InventoryUI : MonoBehaviour {
 	//		- Clearing empty slots
 	//		- Updating selected item
 	// This is called using a delegate on the Inventory.
-	void UpdateUI ()
+	protected virtual void UpdateUI ()
 	{
 		// Debug.Log("Updating Inventory UI.");
 		// Loop through all the slots
@@ -73,7 +83,12 @@ public class InventoryUI : MonoBehaviour {
 
 	public void SelectItem(InventorySlot slot)
     {
-		itemOptionsWindow.gameObject.SetActive(false);
+		// if there is itemOptionsWindow, set it to inactive
+		if (itemOptionsWindow != null)
+		{
+			itemOptionsWindow.gameObject.SetActive(false);
+		}
+
 		selectedItem = slot.item;
 		selectedItemDisplay.UpdateUI();
 	}

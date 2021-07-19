@@ -34,6 +34,11 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.X))
         {
+            if (infoPanel.activeSelf)
+            {
+                Return();
+                return;
+            }
             if (statsScreen.activeSelf == true)
             {
                 HideStats();
@@ -59,8 +64,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         pauseMenuUI.SetActive(false);
         playerLevelUI.gameObject.SetActive(true);
-        Time.timeScale = 1f;
-        gameIsPaused = false;
+        Resume();
     }
 
     public void PauseGame()
@@ -68,8 +72,7 @@ public class PauseMenu : Singleton<PauseMenu>
         pauseMenuUI.SetActive(true);
         playerLevelUI.gameObject.SetActive(false);
         buttonToSelect.Select();
-        Time.timeScale = 0f;
-        gameIsPaused = true;
+        Pause();
     }
 
     public void ReturnToMenu()
@@ -137,5 +140,19 @@ public class PauseMenu : Singleton<PauseMenu>
     public void Return()
     {
         infoPanel.SetActive(false);
+    }
+
+    // Method to pause the game
+    public void Pause()
+    {
+        Time.timeScale = 0f;
+        gameIsPaused = true;
+    }
+
+    // Method to resume the game
+    public void Resume()
+    {
+        Time.timeScale = 1f;
+        gameIsPaused = false;
     }
 }

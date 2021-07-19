@@ -2669,7 +2669,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1812087179723932390}
         m_TargetAssemblyTypeName: DiscardWindow, Assembly-CSharp
-        m_MethodName: ConfirmDiscardAmt
+        m_MethodName: ConfirmAmt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2769,10 +2769,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selectedAmt: 0
-  discardAmtInputField: {fileID: 7189476342349147879}
-  confirmDiscardText: {fileID: 3000501430443241149}
-  discardAmtPanel: {fileID: 7532181757505955641}
-  confirmDiscardPanel: {fileID: 6144853228233294795}
+  amtInputField: {fileID: 7189476342349147879}
+  amtPanel: {fileID: 7532181757505955641}
+  confirmPanel: {fileID: 6144853228233294795}
+  confirmActionText: {fileID: 3000501430443241149}
 --- !u!1 &1942577230734004284
 GameObject:
   m_ObjectHideFlags: 0
@@ -4751,8 +4751,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1812087179723932390}
-        m_TargetAssemblyTypeName: DiscardWindow, Assembly-CSharp
-        m_MethodName: CancelDiscard
+        m_TargetAssemblyTypeName: AmtConfirmWindow, Assembly-CSharp
+        m_MethodName: CancelAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4791,8 +4791,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 2.4007468, y: 2.4007468, z: 2.4007468}
   m_Children:
-  - {fileID: 656989997499755227}
   - {fileID: 2601865372536182367}
+  - {fileID: 656989997499755227}
   m_Father: {fileID: 4350001014649201253}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5234,7 +5234,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1812087179723932390}
         m_TargetAssemblyTypeName: DiscardWindow, Assembly-CSharp
-        m_MethodName: ConfirmDiscard
+        m_MethodName: ConfirmAction
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -6940,8 +6940,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1812087179723932390}
-        m_TargetAssemblyTypeName: DiscardWindow, Assembly-CSharp
-        m_MethodName: CancelDiscardAmt
+        m_TargetAssemblyTypeName: AmtConfirmWindow, Assembly-CSharp
+        m_MethodName: CancelAmt
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -10440,7 +10440,7 @@ RectTransform:
   - {fileID: 3000501430458475395}
   - {fileID: 3000501429043922089}
   m_Father: {fileID: 3000501429160142011}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -11922,7 +11922,7 @@ RectTransform:
   - {fileID: 6455848795031254950}
   - {fileID: 4197877696954281439}
   m_Father: {fileID: 3000501429160142011}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -12055,7 +12055,7 @@ GameObject:
   - component: {fileID: 4597459665402433184}
   - component: {fileID: 2444921885577560649}
   m_Layer: 5
-  m_Name: 'ConfirmationText '
+  m_Name: 'ConfirmAmtText '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12245,6 +12245,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 7679442140344977561}
   goldText: {fileID: 6440866947748931971}
   itemOptionsWindow: {fileID: 5986319945353807880}
+  amtConfirmWindow: {fileID: 1812087179723932390}
+  selectHotkeyWindow: {fileID: 7784846238770683966}
   selectedItemDisplay: {fileID: 7110734237271229348}
 --- !u!1 &7795425146459182823
 GameObject:
@@ -12720,8 +12722,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 100000
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: ba47570ec44908c41bf3ed1f5a7ac35a, type: 2}
+  m_sharedMaterial: {fileID: -2723709967013355490, guid: ba47570ec44908c41bf3ed1f5a7ac35a,
+    type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -12745,7 +12748,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.8
+  m_fontSize: 72
   m_fontSizeBase: 72
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -12753,7 +12756,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 0
   m_HorizontalAlignment: 4
-  m_VerticalAlignment: 512
+  m_VerticalAlignment: 4096
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -12784,7 +12787,7 @@ MonoBehaviour:
   m_margin: {x: -131.67155, y: 0, z: 12.76704, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &7988770793957521200
@@ -16667,6 +16670,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70cda8ba605286949ba619e06a976503, type: 3}
+--- !u!224 &180709071292416151 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4014300330896760649, guid: 70cda8ba605286949ba619e06a976503,
+    type: 3}
+  m_PrefabInstance: {fileID: 3834719497114542046}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1519094306754653757 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2315766280040952291, guid: 70cda8ba605286949ba619e06a976503,
@@ -16679,12 +16688,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!224 &180709071292416151 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4014300330896760649, guid: 70cda8ba605286949ba619e06a976503,
-    type: 3}
-  m_PrefabInstance: {fileID: 3834719497114542046}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3998378970020275356
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18224,15 +18227,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6efb7d7386d4248a5f539113b5ca8f, type: 3}
---- !u!224 &3469660868762493311 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 7177613725258715879, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-    type: 3}
-  m_PrefabInstance: {fileID: 6033336457784652696}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3469660868762493310 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7177613725258715878, guid: cb6efb7d7386d4248a5f539113b5ca8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 6033336457784652696}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &3469660868762493311 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7177613725258715879, guid: cb6efb7d7386d4248a5f539113b5ca8f,
     type: 3}
   m_PrefabInstance: {fileID: 6033336457784652696}
   m_PrefabAsset: {fileID: 0}
@@ -19634,15 +19637,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70cda8ba605286949ba619e06a976503, type: 3}
---- !u!224 &6362082372254075173 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 4014300330896760649, guid: 70cda8ba605286949ba619e06a976503,
-    type: 3}
-  m_PrefabInstance: {fileID: 8070169969568978540}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &3338928523787841734 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4731384459828668074, guid: 70cda8ba605286949ba619e06a976503,
+    type: 3}
+  m_PrefabInstance: {fileID: 8070169969568978540}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &6362082372254075173 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 4014300330896760649, guid: 70cda8ba605286949ba619e06a976503,
     type: 3}
   m_PrefabInstance: {fileID: 8070169969568978540}
   m_PrefabAsset: {fileID: 0}

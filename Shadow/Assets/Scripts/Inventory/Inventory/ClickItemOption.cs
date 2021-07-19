@@ -10,7 +10,7 @@ public class ClickItemOption : MonoBehaviour, IPointerClickHandler
 
     private void Start()
     {
-		itemOptionsWindow = FindObjectOfType<ItemOptions>(true);
+		itemOptionsWindow = GetComponentInParent<InventoryUI>().itemOptionsWindow;
     }
 
     public void OnPointerClick(PointerEventData eventData)

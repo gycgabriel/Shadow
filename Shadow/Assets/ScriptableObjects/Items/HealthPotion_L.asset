@@ -19,6 +19,8 @@ MonoBehaviour:
   description: Drink to recover 2000HP.
   flavorText: Tastes of raspberries and... Jueyun Chili Peppers?! Might've been made
     by a certain spice-loving nun idol.
+  buyPrice: 900
+  sellPrice: 450
   consumableType: 0
   recoveryAmt: 2000
   recoveryEffect: {fileID: 0}

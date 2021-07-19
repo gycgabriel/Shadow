@@ -1,40 +1,43 @@
-public class DiscardWindow : AmtConfirmWindow
+public class SellWindow : AmtConfirmWindow
 {
     public override void ConfirmAmt()
     {
         if (string.IsNullOrEmpty(amtInputField.text))
         {
-            PauseMenu.scriptInstance.PopInfoWindow("Please enter something.");
+            ShopMenu.scriptInstance.PopInfoWindow("Please enter something.");
         }
         else
         {
             selectedAmt = int.Parse(amtInputField.text);
             if (selectedAmt <= 0)
             {
-                PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
+                ShopMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
             }
             else if (selectedAmt > InventoryUI.selectedItem.GetAmtInInventory())
             {
-                PauseMenu.scriptInstance.PopInfoWindow("You do not have that much to discard.");
+                ShopMenu.scriptInstance.PopInfoWindow("You do not have that much to sell.");
             }
             else
             {
                 amtPanel.SetActive(false);
                 confirmPanel.SetActive(true);
                 confirmActionText.text = string.Format(
-                    "Discarding\n" +
+                    "Selling\n" +
                     "{0} x {1}\n" +
+                    "for\n" +
+                    "{2} <sprite=3>\n" +
                     "Confirm?",
-                    InventoryUI.selectedItem.name, selectedAmt);
+                    InventoryUI.selectedItem.name, selectedAmt, InventoryUI.selectedItem.sellPrice * selectedAmt);
             }
         }
     }
 
-    // Confirm button on discarding entered amount of items
+    // Confirm button on selling entered amount of items
     public override void ConfirmAction()
     {
-        InventoryUI.selectedItem.RemoveFromInventory(selectedAmt);
-        PauseMenu.scriptInstance.PopInfoWindow("Discarded!");
+        InventoryUI.selectedItem.SoldForGold(selectedAmt);
+        ShopMenu.scriptInstance.PopInfoWindow("Sold!");
         gameObject.SetActive(false);
     }
 }
+

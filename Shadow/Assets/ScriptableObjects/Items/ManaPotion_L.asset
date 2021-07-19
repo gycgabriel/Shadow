@@ -19,6 +19,8 @@ MonoBehaviour:
   description: Drink to recover 1000MP.
   flavorText: Tastes of raspberries and... Jueyun Chili Peppers?! Might've been made
     by a certain spice-loving nun idol.
+  buyPrice: 1200
+  sellPrice: 600
   consumableType: 1
   recoveryAmt: 1000
   recoveryEffect: {fileID: 0}
