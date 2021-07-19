@@ -19,6 +19,8 @@ public class QuestWindow : Singleton<QuestWindow>
     public TMP_Text completedExp;
     public Button ok;
 
+    public bool isOpen;
+
     private void Start()
     {
         panel = transform.GetChild(0).gameObject;
@@ -43,7 +45,10 @@ public class QuestWindow : Singleton<QuestWindow>
 
     public void Open(Quest quest, QuestChain questChain = null)
     {
+        //Pause game?
+        Time.timeScale = 0f;
         panel.SetActive(true);
+        isOpen = true;
 
         // set texts in quest window
         title.text = quest.title;
@@ -53,19 +58,25 @@ public class QuestWindow : Singleton<QuestWindow>
 
         accept.onClick.AddListener(delegate () {
             panel.SetActive(false);
+            isOpen = false;
             PartyController.questChain = questChain;        // set to null if not questchain
             PartyController.quest = quest;
             quest.Accept();
+            Time.timeScale = 1f;
         });
     }
 
     public void OpenCompleted(Quest quest, QuestChain questChain = null)
     {
+        //Pause game?
+        Time.timeScale = 0f;
         completedExp.text = quest.expReward.ToString();
         completedGold.text = quest.goldReward.ToString();
         completed.SetActive(true);
+        isOpen = true;
         ok.onClick.AddListener(delegate () {
             completed.SetActive(false);
+            isOpen = false;
             quest.Complete(delegate() {
                 if (questChain != null)
                 {
@@ -76,6 +87,7 @@ public class QuestWindow : Singleton<QuestWindow>
                     Debug.Log("No quest chain");
                 }
             });
+            Time.timeScale = 1f;
         });
     }
 

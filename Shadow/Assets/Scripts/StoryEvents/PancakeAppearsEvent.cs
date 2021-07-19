@@ -6,13 +6,11 @@ public class PancakeAppearsEvent : MonoBehaviour
 {
     private void Update()
     {
+        if (StoryManager.scriptInstance.CheckEvoked(1, 5))
+            return;
         if (PartyController.shadowActive && StoryManager.scriptInstance.CheckEvoked(0, 4))          // tut for switch chara
         {
-            if (StoryManager.scriptInstance.CheckEvoked(1, 5))
-                return;
-            GetText.LoadChapter(1);
-            GetText.LoadScenario(5);
-            Singleton<ScenarioManager>.scriptInstance.PlayScenario();
+            ScenarioManager.scriptInstance.PlayScenario(1, 5);
             StoryManager.scriptInstance.SetEvoked(1, 5);
         }
     }
