@@ -42,6 +42,9 @@ public class PartyController : Singleton<PartyController>
             return;     // no action while dialogue open
         }
 
+        if (QuestWindow.scriptInstance.isOpen)
+            return;
+
         if (transform.childCount <= 0)
             return;
 

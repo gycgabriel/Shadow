@@ -10,13 +10,17 @@ public class ScenarioInteractable : Interactable
     public int chapter;
     public int scenario;
 
+    public int reqChapter;
+    public int reqScenario;
+
     public override void Interact()
     {
         if (StoryManager.scriptInstance.CheckEvoked(chapter, scenario))
             return;
-        GetText.LoadChapter(chapter);
-        GetText.LoadScenario(scenario);
-        Singleton<ScenarioManager>.scriptInstance.PlayScenario();
-        StoryManager.scriptInstance.SetEvoked(chapter, scenario);
+        if (reqChapter != 0 && reqScenario != 0 && StoryManager.scriptInstance.CheckEvoked(reqChapter, reqScenario))
+        {
+            ScenarioManager.scriptInstance.PlayScenario(chapter, scenario);
+            StoryManager.scriptInstance.SetEvoked(chapter, scenario);
+        }
     }
 }
