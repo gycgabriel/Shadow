@@ -2,24 +2,31 @@ public class DiscardWindow : AmtConfirmWindow
 {
     public override void ConfirmAmt()
     {
-        selectedAmt = int.Parse(amtInputField.text);
-        if (selectedAmt <= 0)
+        if (string.IsNullOrEmpty(amtInputField.text))
         {
-            PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
-        }
-        else if (selectedAmt > InventoryUI.selectedItem.GetAmtInInventory())
-        {
-            PauseMenu.scriptInstance.PopInfoWindow("You do not have that much to discard.");
+            PauseMenu.scriptInstance.PopInfoWindow("Please enter something.");
         }
         else
         {
-            amtPanel.SetActive(false);
-            confirmPanel.SetActive(true);
-            confirmActionText.text = string.Format(
-                "Discarding\n" +
-                "{0} x {1}\n" +
-                "Confirm?",
-                InventoryUI.selectedItem.name, selectedAmt);
+            selectedAmt = int.Parse(amtInputField.text);
+            if (selectedAmt <= 0)
+            {
+                PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
+            }
+            else if (selectedAmt > InventoryUI.selectedItem.GetAmtInInventory())
+            {
+                PauseMenu.scriptInstance.PopInfoWindow("You do not have that much to discard.");
+            }
+            else
+            {
+                amtPanel.SetActive(false);
+                confirmPanel.SetActive(true);
+                confirmActionText.text = string.Format(
+                    "Discarding\n" +
+                    "{0} x {1}\n" +
+                    "Confirm?",
+                    InventoryUI.selectedItem.name, selectedAmt);
+            }
         }
     }
 

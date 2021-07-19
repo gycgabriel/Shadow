@@ -5,9 +5,9 @@ public class ShopMenu : Singleton<ShopMenu>
 {
     public static bool gameIsPaused = false;      //Whether the game is paused
 
-    public GameObject ShopMenuUI;
-    public GameObject SellUI;               
+    public GameObject ShopMenuUI;               
     public GameObject BuyUI;
+    public GameObject SellUI;
 
     public GameObject infoPanel;
 
@@ -21,8 +21,8 @@ public class ShopMenu : Singleton<ShopMenu>
     // Resume game when Player exits the Shop
     public void CloseShop()
     {
-        PauseMenu.scriptInstance.Resume();
         ShopMenuUI.SetActive(false);
+        PauseMenu.scriptInstance.Resume();
     }
 
     public void ShowBuyUI()

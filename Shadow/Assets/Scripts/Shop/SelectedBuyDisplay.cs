@@ -4,39 +4,36 @@ using TMPro;
 /**
  * Manage the item description display of item selected by the player
  */
-public class SelectedSellDisplay : SelectedItemDisplay
+public class SelectedBuyDisplay : SelectedItemDisplay
 {
     public TMP_Text priceText;
-    public GameObject sellWindow;
+    public GameObject buyWindow;
 
     public override void UpdateUI()
     {
-        // Debug.Log("Updating SelectedItemDisplay.");
         if (InventoryUI.selectedItem == null)
         {
-            // Debug.Log("selectedItem: null");
             nameText.text = "";
             descText.text = "";
             priceText.text = " <sprite=3>";
         }
         else
         {
-            // Debug.Log("selectedItem: " + InventoryUI.selectedItem.name + " x " + InventoryUI.selectedItem.currentAmt);
             nameText.text = InventoryUI.selectedItem.name;
             descText.text = InventoryUI.selectedItem.description;
-            priceText.text = InventoryUI.selectedItem.sellPrice + " <sprite=3>";
+            priceText.text = InventoryUI.selectedItem.buyPrice + " <sprite=3>";
         }
     }
 
-    public void OnSellButton()
+    public void OnBuyButton()
     {
         if (InventoryUI.selectedItem == null)
         {
-            ShopMenu.scriptInstance.PopInfoWindow("Please select something to sell.");
-        }
+            ShopMenu.scriptInstance.PopInfoWindow("Please select something to buy.");
+        } 
         else
         {
-            sellWindow.SetActive(true);
+            buyWindow.SetActive(true);
         }
     }
 

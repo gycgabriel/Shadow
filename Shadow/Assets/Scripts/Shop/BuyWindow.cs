@@ -1,4 +1,4 @@
-public class SellWindow : AmtConfirmWindow
+public class BuyWindow : AmtConfirmWindow
 {
     public override void ConfirmAmt()
     {
@@ -13,31 +13,31 @@ public class SellWindow : AmtConfirmWindow
             {
                 ShopMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
             }
-            else if (selectedAmt > InventoryUI.selectedItem.GetAmtInInventory())
+            else if (selectedAmt * InventoryUI.selectedItem.buyPrice > PartyController.inventory.Gold)
             {
-                ShopMenu.scriptInstance.PopInfoWindow("You do not have that much to sell.");
+                ShopMenu.scriptInstance.PopInfoWindow("You do not have enough gold.");
             }
             else
             {
                 amtPanel.SetActive(false);
                 confirmPanel.SetActive(true);
                 confirmActionText.text = string.Format(
-                    "Selling\n" +
+                    "Buying\n" +
                     "{0} x {1}\n" +
                     "for\n" +
                     "{2} <sprite=3>\n" +
                     "Confirm?",
-                    InventoryUI.selectedItem.name, selectedAmt, InventoryUI.selectedItem.sellPrice * selectedAmt);
+                    InventoryUI.selectedItem.name, selectedAmt, InventoryUI.selectedItem.buyPrice * selectedAmt);
             }
         }
+        
     }
 
-    // Confirm button on selling entered amount of items
+    // Confirm button on buying entered amount of items
     public override void ConfirmAction()
     {
-        InventoryUI.selectedItem.SoldForGold(selectedAmt);
-        ShopMenu.scriptInstance.PopInfoWindow("Sold!");
+        InventoryUI.selectedItem.BoughtForGold(selectedAmt);
+        ShopMenu.scriptInstance.PopInfoWindow("Bought!");
         gameObject.SetActive(false);
     }
 }
-

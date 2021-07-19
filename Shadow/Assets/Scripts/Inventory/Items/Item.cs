@@ -42,6 +42,14 @@ public class Item : ScriptableObject {
 
 	}
 
+	public void BoughtForGold(int amt)
+    {
+		PartyController.inventory.Gold -= buyPrice * amt;
+		Item clone = Instantiate(this);
+		clone.currentAmt = amt;
+		PartyController.inventory.Add(clone);
+	}
+
 	public void SoldForGold(int amt)
     {
 		PartyController.inventory.Gold += sellPrice * amt;

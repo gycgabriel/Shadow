@@ -12245,6 +12245,8 @@ MonoBehaviour:
   inventoryUI: {fileID: 7679442140344977561}
   goldText: {fileID: 6440866947748931971}
   itemOptionsWindow: {fileID: 5986319945353807880}
+  amtConfirmWindow: {fileID: 1812087179723932390}
+  selectHotkeyWindow: {fileID: 7784846238770683966}
   selectedItemDisplay: {fileID: 7110734237271229348}
 --- !u!1 &7795425146459182823
 GameObject:

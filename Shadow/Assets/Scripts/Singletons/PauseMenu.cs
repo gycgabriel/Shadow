@@ -34,6 +34,11 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.X))
         {
+            if (infoPanel.activeSelf)
+            {
+                Return();
+                return;
+            }
             if (statsScreen.activeSelf == true)
             {
                 HideStats();
