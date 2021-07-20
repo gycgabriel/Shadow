@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: AtkTonic
   m_EditorClassIdentifier: 
   name: Attack Tonic
+  itemNumber: 9
   icon: {fileID: -1808174821709965779, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to gain +10 ATK.
+  description: Drink to gain +50 ATK.
   flavorText: A very bitter tonic.
   buyPrice: 5000
   sellPrice: 2500
   consumableType: 2
   statToBoost: 2
-  statBoostAmt: 10
+  statBoostAmt: 50

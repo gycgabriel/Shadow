@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealthEssence
   m_EditorClassIdentifier: 
   name: Health Essence
+  itemNumber: 7
   icon: {fileID: -6947657686336534177, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1

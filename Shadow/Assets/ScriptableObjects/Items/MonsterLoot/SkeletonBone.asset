@@ -13,7 +13,8 @@ MonoBehaviour:
   m_Name: SkeletonBone
   m_EditorClassIdentifier: 
   name: Skeleton Bone
-  icon: {fileID: 6751781010683169555, guid: bc0b784125d6b6848ab0ed4c1390ebc0, type: 3}
+  itemNumber: 15
+  icon: {fileID: -1981024477956164540, guid: bc0b784125d6b6848ab0ed4c1390ebc0, type: 3}
   isStackable: 1
   currentAmt: 1
   description: Loot obtained from Skeleton Warriors.

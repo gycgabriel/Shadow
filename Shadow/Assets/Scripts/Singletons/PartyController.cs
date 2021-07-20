@@ -17,6 +17,7 @@ public class PartyController : Singleton<PartyController>
 
     public static SkillsUIManager skillsUIManager;
     public SkillsUIManager skillsUIManagerPrefab;
+    public static ItemHotkeyUIManager itemHotkeyUIManager;
 
     public static QuestChain questChain;
     public static Quest quest;
@@ -58,6 +59,11 @@ public class PartyController : Singleton<PartyController>
         if (skillsUIManager == null)
         {
             skillsUIManager = SkillsUIManager.scriptInstance;
+        }
+
+        if (itemHotkeyUIManager == null)
+        {
+            itemHotkeyUIManager = ItemHotkeyUIManager.scriptInstance;
         }
 
         if (inventory == null)
@@ -144,6 +150,7 @@ public class PartyController : Singleton<PartyController>
         {
             skillsUIManager = SkillsUIManager.scriptInstance;
         }
+        itemHotkeyUIManager = ItemHotkeyUIManager.scriptInstance;
 
         inventory = new Inventory { Gold = 0 };
     }

@@ -152,4 +152,61 @@ public class ItemHotkeyUIManager : Singleton<ItemHotkeyUIManager>
         }
         hotkeyItems[hotkeyNum] = item;
     }
+
+    public int[] SaveHotkeys()
+    {
+        int[] hotkeys = new int[NumOfHotkeys];
+        for (int i = 0; i < NumOfHotkeys; i++)
+        {
+            if (hotkeyItems[i] == null)
+                hotkeys[i] = 0;
+            else
+                hotkeys[i] = hotkeyItems[i].itemNumber;
+        }
+
+        return hotkeys;
+    }
+
+    public float[] SaveHotkeyCooldown()
+    {
+        float[] hotkeyCooldown = new float[consumableCDCounters.Count];
+        consumableCDCounters.Values.CopyTo(hotkeyCooldown, 0);
+        return hotkeyCooldown;
+    }
+
+    public bool[] SaveIsHotkeyOnCooldown()
+    {
+        bool[] isHotkeyOnCooldown = new bool[isConsumableOnCooldown.Count];
+        isConsumableOnCooldown.Values.CopyTo(isHotkeyOnCooldown, 0);
+        return isHotkeyOnCooldown;
+    }
+
+    public void LoadHotkeys(int[] hotkeys)
+    {
+        hotkeyItems = new Consumable[NumOfHotkeys];
+        for (int i = 0; i < NumOfHotkeys; i++)
+        {
+            hotkeyItems[i] = (Consumable) PartyController.inventory.GetItem(hotkeys[i]);
+        }
+    }
+
+    public void LoadHotkeyCooldown(float[] hotkeyCooldown) 
+    {
+        consumableCDCounters = new Dictionary<ConsumableType, float>();
+        ConsumableType[] types = (ConsumableType[])System.Enum.GetValues(typeof(ConsumableType));
+        for (int i = 0; i < types.Length; i++)
+        {
+            consumableCDCounters.Add(types[i], hotkeyCooldown[i]);
+        }
+    }
+
+    public void LoadIsHotkeyOnCooldown(bool[] isHotkeyOnCooldown)
+    {
+        isConsumableOnCooldown = new Dictionary<ConsumableType, bool>();
+        ConsumableType[] types = (ConsumableType[])System.Enum.GetValues(typeof(ConsumableType));
+        for (int i = 0; i < types.Length; i++)
+        {
+            isConsumableOnCooldown.Add(types[i], isHotkeyOnCooldown[i]);
+        }
+    }
 }

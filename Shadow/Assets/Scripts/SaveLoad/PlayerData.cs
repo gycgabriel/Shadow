@@ -49,6 +49,15 @@ public class PlayerData
     public SerializableQuestChain questChain;
     public SerializableQuest currQuest;
 
+    // Inventory
+    public int[,] inventory;
+    public int gold;
+
+    // Hotkeys and cooldowns of Player
+    public int[] hotkeys;
+    public float[] hotkeyCooldown;
+    public bool[] isHotkeyOnCooldown;
+
 
     // Future: Flags of opened loot boxes and clearer dungeon levels
     // stored as dictionary
@@ -103,6 +112,10 @@ public class PlayerData
         ultimateSkillCooldown = PartyController.skillsUIManager.skillCDCounter;
         isUltimateSkillCooldown = PartyController.skillsUIManager.isUltimateSkillCooldown;
 
+        hotkeys = PartyController.itemHotkeyUIManager.SaveHotkeys();
+        hotkeyCooldown = PartyController.itemHotkeyUIManager.SaveHotkeyCooldown();
+        isHotkeyOnCooldown = PartyController.itemHotkeyUIManager.SaveIsHotkeyOnCooldown();
+
         evokedStory = StoryManager.scriptInstance.evokedStory;
         currQuest = PartyController.quest?.SaveQuest();
         questChain = PartyController.questChain?.SaveQuestChain();
@@ -116,7 +129,9 @@ public class PlayerData
                 Debug.Log("Values: " + kvp2.Key + " " + kvp2.Value);
             }
         }
-        
+
+        inventory = PartyController.inventory.SaveInventory();
+        gold = PartyController.inventory.Gold;
     }
 
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ManaPotion_L
   m_EditorClassIdentifier: 
   name: Mana Potion (L)
+  itemNumber: 6
   icon: {fileID: 258794442815200856, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1

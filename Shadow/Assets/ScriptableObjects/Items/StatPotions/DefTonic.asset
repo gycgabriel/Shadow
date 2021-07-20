@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: DefTonic
   m_EditorClassIdentifier: 
   name: Defence Tonic
+  itemNumber: 10
   icon: {fileID: -3459909617181983804, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to gain +10 DEF.
+  description: Drink to gain +50 DEF.
   flavorText: A very bitter tonic.
   buyPrice: 2500
   sellPrice: 1250
   consumableType: 2
   statToBoost: 3
-  statBoostAmt: 10
+  statBoostAmt: 50

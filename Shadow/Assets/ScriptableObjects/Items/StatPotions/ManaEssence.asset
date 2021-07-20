@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ManaEssence
   m_EditorClassIdentifier: 
   name: Mana Essence
+  itemNumber: 8
   icon: {fileID: -8786025424518815347, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1

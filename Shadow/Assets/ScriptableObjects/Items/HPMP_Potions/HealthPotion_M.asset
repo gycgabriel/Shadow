@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: HealthPotion_M
   m_EditorClassIdentifier: 
   name: Health Potion (M)
+  itemNumber: 2
   icon: {fileID: 5168887866551961611, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: MAtkTonic
   m_EditorClassIdentifier: 
   name: Magic Attack Tonic
+  itemNumber: 11
   icon: {fileID: 6846048004002876534, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to gain +10 MATK.
+  description: Drink to gain +50 MATK.
   flavorText: A very bitter tonic.
   buyPrice: 5000
   sellPrice: 2500
   consumableType: 2
   statToBoost: 4
-  statBoostAmt: 10
+  statBoostAmt: 50

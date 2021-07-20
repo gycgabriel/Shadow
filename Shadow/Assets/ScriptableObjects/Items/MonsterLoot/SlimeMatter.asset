@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: SlimeMatter
   m_EditorClassIdentifier: 
   name: Slime Matter
+  itemNumber: 13
   icon: {fileID: -1430784085653207985, guid: bc0b784125d6b6848ab0ed4c1390ebc0, type: 3}
   isStackable: 1
   currentAmt: 1

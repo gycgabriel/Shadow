@@ -10,6 +10,7 @@ public class LoadBehaviour : MonoBehaviour
     public GameObject sorcererPrefab;
     public GameObject partyPrefab;
     public GameObject scenarioStoryManagerPrefab;
+    public ItemDex itemDexPrefab;
 
     public void load(int saveNum)
     {
@@ -97,6 +98,19 @@ public class LoadBehaviour : MonoBehaviour
         PartyController.quest = Quest.LoadQuest(data.currQuest);
         PartyController.questChain = QuestChain.LoadQuestChain(data.questChain);
 
+        ItemDex itemDex = Instantiate(itemDexPrefab);
+        PartyController.inventory.ClearInventory();
+        for (int i = 0; i < data.inventory.GetLength(0); i++)
+        {
+            Item item = Instantiate(itemDex.GetItem(data.inventory[i, 0]));
+            item.currentAmt = data.inventory[i, 1];
+            PartyController.inventory.Add(item);
+        }
+        PartyController.inventory.Gold = data.gold;
+
+        PartyController.itemHotkeyUIManager.LoadHotkeys(data.hotkeys);
+        PartyController.itemHotkeyUIManager.LoadHotkeyCooldown(data.hotkeyCooldown);
+        PartyController.itemHotkeyUIManager.LoadIsHotkeyOnCooldown(data.isHotkeyOnCooldown);
 
         // Finally bring to scene
         SceneManager.LoadScene(data.sceneName);

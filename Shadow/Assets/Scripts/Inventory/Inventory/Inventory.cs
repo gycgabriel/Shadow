@@ -33,15 +33,8 @@ public class Inventory {
 		else
         {
 			items.Add(MonoBehaviour.Instantiate(item));    // Add a clone of the item to list
+			items.Sort((x1, x2) => x1.itemNumber.CompareTo(x2.itemNumber));	// Sort the items
         }
-		
-		/*
-		Debug.Log("Current Items:");
-		foreach (Item itemInInventory in items)
-        {
-			Debug.Log("    " + itemInInventory.name + ": " + itemInInventory.currentAmt);
-		}
-		*/
 
 		// Trigger callback
 		if (onItemChangedCallback != null)
@@ -55,6 +48,7 @@ public class Inventory {
 	{
 		Item itemInInventory = items.Find(x => x == item);
 		items.Remove(itemInInventory);
+		items.Sort((x1, x2) => x1.itemNumber.CompareTo(x2.itemNumber));
 
 		if (toDestroy)
         {
@@ -75,6 +69,7 @@ public class Inventory {
         {
 			items.Remove(itemInInventory);
 			MonoBehaviour.Destroy(itemInInventory);
+			items.Sort((x1, x2) => x1.itemNumber.CompareTo(x2.itemNumber));
 		}
 
 		// Trigger callback
@@ -93,4 +88,26 @@ public class Inventory {
 			return items.Find(x => x == item).currentAmt;
 		}
 	}
+
+	public Item GetItem (int itemNumber)
+    {
+		return items.Find(x => x.itemNumber == itemNumber);
+    }
+
+	public void ClearInventory()
+    {
+		items.Clear();
+    }
+
+	public int[,] SaveInventory()
+    {
+		int[,] inventory = new int[items.Count,2];
+		for (int i = 0; i < items.Count; i++)
+        {
+			inventory[i, 0] = items[i].itemNumber;
+			inventory[i, 1] = items[i].currentAmt;
+		}
+
+		return inventory;
+    }
 }

@@ -13,13 +13,14 @@ MonoBehaviour:
   m_Name: MDefTonic
   m_EditorClassIdentifier: 
   name: Magic Defence Tonic
+  itemNumber: 12
   icon: {fileID: -9021585165060721990, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to gain +10 MDEF.
+  description: Drink to gain +50 MDEF.
   flavorText: A very bitter tonic.
   buyPrice: 2500
   sellPrice: 1250
   consumableType: 2
   statToBoost: 5
-  statBoostAmt: 10
+  statBoostAmt: 50
