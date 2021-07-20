@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cac90a348c58454695edd4a4be58523, type: 3}
+  m_Name: GoblinEar
+  m_EditorClassIdentifier: 
+  name: Goblin Ear
+  icon: {fileID: 6751781010683169555, guid: bc0b784125d6b6848ab0ed4c1390ebc0, type: 3}
+  isStackable: 1
+  currentAmt: 1
+  description: Loot obtained from Goblin Slingers.
+  flavorText: Proof of subduing a goblin. Doesn't really smell nice.
+  buyPrice: 0
+  sellPrice: 100
