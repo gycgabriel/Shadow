@@ -18,8 +18,8 @@ MonoBehaviour:
   currentAmt: 1
   description: Drink to gain +10 MATK.
   flavorText: A very bitter tonic.
-  buyPrice: 10000
-  sellPrice: 5000
+  buyPrice: 5000
+  sellPrice: 2500
   consumableType: 2
   statToBoost: 4
   statBoostAmt: 10

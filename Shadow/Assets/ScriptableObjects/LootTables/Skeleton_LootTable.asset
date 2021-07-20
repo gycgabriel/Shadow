@@ -15,23 +15,27 @@ MonoBehaviour:
   minGoldDrop: 90
   maxGoldDrop: 100
   loots:
-  - item: {fileID: 1112410174959049543, guid: 0684c17c41755ea478b4bccb2ed2d3b2, type: 3}
-    lots: 30
-    minQuantity: 1
-    maxQuantity: 1
-  - item: {fileID: 7622051132336045339, guid: eb49fe14923dde94eb2a9a7630b658cf, type: 3}
-    lots: 30
+  - item: {fileID: 9096905553129842610, guid: 05e143d95c34eab4b8bb82f3f8181328, type: 3}
+    lots: 50
     minQuantity: 1
     maxQuantity: 1
   - item: {fileID: 8114788595793461745, guid: 6bb2cf396d9fe2d45b5af75a313892bf, type: 3}
-    lots: 5
+    lots: 10
     minQuantity: 1
     maxQuantity: 1
   - item: {fileID: 3892271112326970188, guid: 149be3a81e0535f43b15677fa2a3b9db, type: 3}
+    lots: 10
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 6281907464542798778, guid: 51351537888a41b469621429929d5415, type: 3}
+    lots: 5
+    minQuantity: 1
+    maxQuantity: 1
+  - item: {fileID: 9096905553129842610, guid: 6918160f81c7c5f478ae9b7513bbb222, type: 3}
     lots: 5
     minQuantity: 1
     maxQuantity: 1
   - item: {fileID: 0}
-    lots: 30
+    lots: 20
     minQuantity: 1
     maxQuantity: 1

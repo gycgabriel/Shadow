@@ -34,6 +34,6 @@ public class AttackInfo : ScriptableObject
         }
         
         return Mathf.FloorToInt((baseDamage + attackStat * attackMultiplier / 100f)
-            / (1f + 0.01f * defenseStat));
+            / (1f + 0.002f * defenseStat));
     }
 }

@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: ManaEssence
   m_EditorClassIdentifier: 
   name: Mana Essence
-  icon: {fileID: -1808174821709965779, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
+  icon: {fileID: -8786025424518815347, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Absorb to gain +10MP.
+  description: Absorb to gain +50MP.
   flavorText: Essence of condensed mana energy.
-  buyPrice: 10000
-  sellPrice: 5000
+  buyPrice: 1000
+  sellPrice: 500
   consumableType: 2
   statToBoost: 1
-  statBoostAmt: 10
+  statBoostAmt: 50

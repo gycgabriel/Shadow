@@ -874,9 +874,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d1762d9eea107864face436b1fe8220d, type: 2}
   - {fileID: 11400000, guid: 313d216ef81659047a536ed78f88ae6b, type: 2}
   timeBetweenMoveArray:
-  - 3
   - 2
   - 1.5
+  - 1
 --- !u!114 &7974211377366655909
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +895,7 @@ MonoBehaviour:
   currentLevel: 0
   isDead: 0
   enemyInfo: {fileID: 11400000, guid: ffcce880a792d0e43a6289c46a05c408, type: 2}
+  lootTable: {fileID: 0}
 --- !u!114 &7974211377366655906
 MonoBehaviour:
   m_ObjectHideFlags: 0

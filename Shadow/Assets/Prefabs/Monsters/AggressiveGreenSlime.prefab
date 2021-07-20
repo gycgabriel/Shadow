@@ -863,7 +863,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 131072
   moveSpeed: 3
-  timeBetweenMove: 3
+  timeBetweenMove: 1.5
   MonsterAlertOn: {fileID: 1786019580934016628, guid: e270edfefd6837942993eb8a43c18351,
     type: 3}
   MonsterAlertOff: {fileID: 1786019580934016628, guid: b3843ce38ac85f14b922f5e7229597fa,

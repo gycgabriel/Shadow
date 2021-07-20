@@ -19,8 +19,8 @@ MonoBehaviour:
   description: Drink to recover 100HP.
   flavorText: Tastes of strawberries and calla lilies. Might've been made by a certain
     cat bartender.
-  buyPrice: 100
-  sellPrice: 50
+  buyPrice: 200
+  sellPrice: 100
   consumableType: 0
   recoveryAmt: 100
   recoveryEffect: {fileID: 0}

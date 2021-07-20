@@ -16,10 +16,10 @@ MonoBehaviour:
   icon: {fileID: -6947657686336534177, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Absorb to gain +10 HP.
+  description: Absorb to gain +50 HP.
   flavorText: Essence of condensed life energy.
-  buyPrice: 10000
-  sellPrice: 5000
+  buyPrice: 1000
+  sellPrice: 500
   consumableType: 2
   statToBoost: 0
-  statBoostAmt: 10
+  statBoostAmt: 50

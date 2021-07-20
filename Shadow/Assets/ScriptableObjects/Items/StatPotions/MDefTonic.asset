@@ -18,8 +18,8 @@ MonoBehaviour:
   currentAmt: 1
   description: Drink to gain +10 MDEF.
   flavorText: A very bitter tonic.
-  buyPrice: 10000
-  sellPrice: 5000
+  buyPrice: 2500
+  sellPrice: 1250
   consumableType: 2
   statToBoost: 5
   statBoostAmt: 10
