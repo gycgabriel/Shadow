@@ -16,6 +16,7 @@ public class QuestsUI : MonoBehaviour
     public TMP_Text desc;
     public TMP_Text gold;
     public TMP_Text exp;
+    public TMP_Text remaining;
 
     void Awake()
     {
@@ -28,6 +29,7 @@ public class QuestsUI : MonoBehaviour
         desc = textArr[2];
         gold = textArr[3];
         exp = textArr[4];
+        remaining = textArr[6];
     }
 
     void Update()
@@ -41,6 +43,7 @@ public class QuestsUI : MonoBehaviour
         desc.text = quest.desc;
         gold.text = quest.goldReward.ToString();
         exp.text = quest.expReward.ToString();
+        remaining.text = quest.goal.currentAmt + "/" + quest.goal.requiredAmt;
     }
 
 
