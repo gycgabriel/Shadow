@@ -106,7 +106,7 @@ public class MoveState : State<EnemyAI>
             if (hit[i].transform != null)
             {
                 // Obstacle detected, unable to move to destination
-                Debug.Log("Slime collided with " + hit[i].collider.name);
+                // Debug.Log("Slime collided with " + hit[i].collider.name);
                 canMove = false;
                 break;
             }

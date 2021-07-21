@@ -31,6 +31,15 @@ public class LoadBehaviour : MonoBehaviour
 
         Debug.Log(partyGO);
 
+        if (partyGO.transform.childCount == 2)
+        {
+            for (int i = 0; i < 2; i++)
+            {
+                Destroy(partyGO.transform.GetChild(i).gameObject);
+            }
+            partyGO.transform.DetachChildren();
+        }
+
         if (partyGO.transform.childCount == 0)
         {
             GameObject playerGO = Instantiate(getPrefab(data.playerCharclass.className));
@@ -40,8 +49,7 @@ public class LoadBehaviour : MonoBehaviour
 
             PartyController.scriptInstance.Initialize(playerGO, shadowGO);
 
-            // Changing Shadow's sprite to a darker color theme
-            SpriteRenderer[] shadowSprites = shadowGO.GetComponentsInChildren<SpriteRenderer>();
+            SpriteRenderer[] shadowSprites = PartyController.shadow.GetComponentsInChildren<SpriteRenderer>();
             foreach (SpriteRenderer shadowSprite in shadowSprites)
             {
                 shadowSprite.color = new Color32(0, 100, 170, 255);

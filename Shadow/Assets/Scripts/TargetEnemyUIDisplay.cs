@@ -18,6 +18,11 @@ public class TargetEnemyUIDisplay : MonoBehaviour
 
     protected virtual void Update()
     {
+        if (targetedEnemy == null)
+        {
+            gameObject.SetActive(false);
+        }
+
         Dictionary<string, int> enemyStats = targetedEnemy.getStats();
 
         // Update the Enemy's current HP 

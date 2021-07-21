@@ -32,7 +32,6 @@ public class HurtBehaviour : MonoBehaviour
         if (creature.isDead)
         {
             gameObject.SetActive(false);
-            // TODO: game over screen if player
         }
     }
 

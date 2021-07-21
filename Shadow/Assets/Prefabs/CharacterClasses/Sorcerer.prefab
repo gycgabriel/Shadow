@@ -134,6 +134,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureGO: {fileID: 0}
   hasInvincibility: 1
+  gameOverCanvas: {fileID: 276282698359845658, guid: 2fe7ce6a3b4bf634083f16acb30433ef,
+    type: 3}
 --- !u!114 &8754808651645558989
 MonoBehaviour:
   m_ObjectHideFlags: 0

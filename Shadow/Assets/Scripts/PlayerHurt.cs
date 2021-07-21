@@ -4,12 +4,25 @@ using UnityEngine;
 
 public class PlayerHurt : HurtBehaviour
 {
+    public GameObject gameOverCanvas;
     Player player;
 
     protected override void Start()
     {
         base.Start();
         player = (Player)creature;
+    }
+
+    protected override void Update()
+    {
+        if (player.isDead)
+        {
+            Debug.Log("Player Died. Game Over.");
+            // Game Over for the Player
+            isInvincible = false;
+            Instantiate(gameOverCanvas);
+            gameObject.SetActive(false);
+        }
     }
 
     public virtual void RecoverHP(int recoveryAmt)
