@@ -19,6 +19,7 @@ public class QuestChain
         {
             qc.quests.Add(Quest.LoadQuest(s));
         }
+        qc.currentQuest = squest.currentQuest;
         return qc;
     }
 

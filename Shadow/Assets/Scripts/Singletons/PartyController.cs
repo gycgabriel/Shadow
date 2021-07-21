@@ -1,5 +1,3 @@
- using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PartyController : Singleton<PartyController>
@@ -43,7 +41,7 @@ public class PartyController : Singleton<PartyController>
             return;     // no action while dialogue open
         }
 
-        if (QuestWindow.scriptInstance.isOpen)
+        if (QuestWindow.scriptInstance != null && QuestWindow.scriptInstance.isOpen)
             return;
 
         if (transform.childCount <= 0)
@@ -176,9 +174,31 @@ public class PartyController : Singleton<PartyController>
             if (quest.goal.IsReached())
             {
                 AddExperience(quest.expReward);
-                // add gold
+                AddGold(quest.goldReward);
                 QuestWindow.scriptInstance.OpenCompleted(quest, questChain);
             }
         }
     }
+
+    // amt is total amount in inventory
+    public static void ItemGet(string tag, int amt)
+    {
+        if (quest != null && quest.isActive)
+        {
+            quest.goal.ItemGet(tag, amt);
+            if (quest.goal.IsReached())
+            {
+                AddExperience(quest.expReward);
+                AddGold(quest.goldReward);
+                QuestWindow.scriptInstance.OpenCompleted(quest, questChain);
+            }
+        }
+    }
+
+    public void MovePlayer(Vector2 movement)
+    {
+        activePC.HandleInput(movement, false, false, false, new bool[4] { false, false, false, false });
+        inactivePC.HandleInput(movement, false, false, false, new bool[4] { false, false, false, false });
+    }
+
 }

@@ -76,6 +76,10 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public void ContinueDialogue()
     {
+        // Check quest window if open
+        if (QuestWindow.scriptInstance != null && QuestWindow.scriptInstance.isOpen)
+            return;
+
         // Show instantly on click again
         if (typingDialogue)
         {

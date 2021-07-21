@@ -817,7 +817,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 2
+  m_SortingOrder: 3
   m_TargetDisplay: 0
 --- !u!114 &3763331319556323393
 MonoBehaviour:
@@ -881,6 +881,7 @@ MonoBehaviour:
   completedGold: {fileID: 0}
   completedExp: {fileID: 0}
   ok: {fileID: 0}
+  isOpen: 0
 --- !u!1 &3763331319753238324
 GameObject:
   m_ObjectHideFlags: 0

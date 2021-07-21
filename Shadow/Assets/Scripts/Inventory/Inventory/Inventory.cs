@@ -29,16 +29,24 @@ public class Inventory {
 		if (item.isStackable && items.Find(x => x.name.Equals(item.name)) != null) {
 			Item itemInInventory = items.Find(x => x.name.Equals(item.name));
 			itemInInventory.currentAmt += item.currentAmt;
-        }
+
+			PartyController.ItemGet(item.name, itemInInventory.currentAmt);
+		}
 		else
         {
 			items.Add(MonoBehaviour.Instantiate(item));    // Add a clone of the item to list
-			items.Sort((x1, x2) => x1.itemNumber.CompareTo(x2.itemNumber));	// Sort the items
-        }
+			items.Sort((x1, x2) => x1.itemNumber.CompareTo(x2.itemNumber)); // Sort the items
+
+			PartyController.ItemGet(item.name, 1);
+		}
 
 		// Trigger callback
 		if (onItemChangedCallback != null)
 			onItemChangedCallback.Invoke();
+
+		
+		// Quest: Check if fulfil gathering quest requirements
+		Debug.Log("Item: " + item.name + " x " + GetItem(item.itemNumber)?.currentAmt);
 
 		return true;
 	}

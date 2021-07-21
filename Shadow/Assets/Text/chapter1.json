@@ -108,11 +108,15 @@
             "data": [
                 {
                     "name": "Rain",
-                    "text": ["Ah, there seems to be more slimes ahead. This is going to be troublesome."]
+                    "text": ["Ah, where did these slimes appear from! This is going to be troublesome."]
                 }, 
                 {
                     "name": "Pancakes",
                     "text": ["I think I can aid you in battle. I can’t recall much of where I came from, but I can fight. Let me help you."]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["You can use my ultimate with the V or Q button! That'll make life easier."]
                 }
             ]
         },

@@ -15,14 +15,14 @@ MonoBehaviour:
   isActive: 0
   title: Flower for Cecilia
   desc: Go deeper into the forest to get flowers for Cecilia.
-  expReward: 0
-  goldReward: 0
+  expReward: 100
+  goldReward: 100
   startChapter: -1
   startScenario: 0
-  endChapter: 1
-  endScenario: 3
+  endChapter: -1
+  endScenario: 0
   goal:
     goalType: 1
-    what: Flower
+    what: Cecilia Flower
     requiredAmt: 1
     currentAmt: 0

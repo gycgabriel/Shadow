@@ -21,7 +21,13 @@ public class PauseMenu : Singleton<PauseMenu>
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.KeypadEnter) || Input.GetKeyDown(KeyCode.X))
+        if (DialogueManager.scriptInstance != null && DialogueManager.scriptInstance.dialogueBox.activeSelf)
+            return;
+
+        if (QuestWindow.scriptInstance != null && QuestWindow.scriptInstance.isOpen)
+            return;
+
+        if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.X))
         {
             if (infoPanel.activeSelf)
             {

@@ -10,6 +10,8 @@ public class ShadowFlowerInteractable : ScenarioInteractable
     public int tutChapter;
     public int tutScenario;
 
+    public Item flower;
+
     public override void Interact()
     {
         if (StoryManager.scriptInstance.CheckEvoked(chapter, scenario))
@@ -18,7 +20,7 @@ public class ShadowFlowerInteractable : ScenarioInteractable
         {
             go2.SetActive(false);
             Flashback.scriptInstance.On(delegate() 
-            { 
+            {
                 go.SetActive(true);
                 ScenarioManager.scriptInstance.PlayScenario(chapter, scenario, delegate ()
                 {
@@ -28,7 +30,8 @@ public class ShadowFlowerInteractable : ScenarioInteractable
                     {
                         ScenarioManager.scriptInstance.PlayScenario(tutChapter, tutScenario, delegate () 
                         {
-                            StoryManager.scriptInstance.SetEvoked(tutChapter, tutScenario); 
+                            StoryManager.scriptInstance.SetEvoked(tutChapter, tutScenario);
+                            PartyController.inventory.Add(flower);
                         });
                     });
                 });

@@ -62,7 +62,25 @@
             "data": [
                 {
                     "name": "Tutorial",
-                    "text": ["Switch between you and your shadow with the C or Q button."]
+                    "text": ["Press the C or Q button to switch to your shadow."]
+                }
+            ]
+        },
+        {
+            "id": 5,
+            "data": [
+                {
+                    "name": "Tutorial",
+                    "text": ["Switch between you and your shadow with the C or Q button.", "Your shadow will share your experience points and stat points, but stat points can be allocated differently.", "Press Q or V to use your ultimate Attack."]
+                }
+            ]
+        },
+        {
+            "id": 6,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": ["Let's not go there yet."]
                 }
             ]
         }

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6495c1d7e9c12fa46aa638913c1fe7fd, type: 3}
   m_Name: Quest1
   m_EditorClassIdentifier: 
-  isActive: 1
+  isActive: 0
   title: Kill 10 slimes
   desc: Head north to Nactara Forest and kill 10 slimes.
   expReward: 600

@@ -10,7 +10,7 @@ public class WhileQuestActiveEvent : MonoBehaviour
 
     void Update()
     {
-        if (PartyController.quest == quest)
+        if (PartyController.quest.title == quest.title)
         {
             if (!StoryManager.scriptInstance.CheckEvoked(chapter, scenario))
             {

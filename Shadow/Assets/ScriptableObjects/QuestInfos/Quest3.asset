@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6495c1d7e9c12fa46aa638913c1fe7fd, type: 3}
+  m_Name: Quest3
+  m_EditorClassIdentifier: 
+  isActive: 0
+  title: Defeat 6 slimes
+  desc: Slimes have blocked your path! Defeat them all.
+  expReward: 600
+  goldReward: 100
+  startChapter: -1
+  startScenario: 0
+  endChapter: 1
+  endScenario: 7
+  goal:
+    goalType: 0
+    what: Aggressive Green Slime
+    requiredAmt: 6
+    currentAmt: 0

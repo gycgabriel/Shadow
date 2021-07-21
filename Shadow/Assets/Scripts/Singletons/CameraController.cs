@@ -12,7 +12,7 @@ public class CameraController : Singleton<CameraController>
 
     void FixedUpdate()
     {
-        followTarget = PartyController.gameInstance;
+        followTarget = PartyController.player;
 
         //Position vector of the target object
         targetPos = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z);

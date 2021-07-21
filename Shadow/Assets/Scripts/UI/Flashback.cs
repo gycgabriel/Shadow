@@ -29,7 +29,6 @@ public class Flashback : Singleton<Flashback>
             // loop over 4 seconds backwards
             for (float i = fadeTime; i >= 0; i -= (currentTime - initTime))
             {
-                Debug.Log("fading out");
                 img.color = new Color(img.color[0], img.color[1], img.color[2], i/fadeTime * initAlpha);
                 currentTime = Time.realtimeSinceStartup;
                 yield return null;
@@ -44,7 +43,6 @@ public class Flashback : Singleton<Flashback>
             // loop over 4 seconds
             for (float i = 0; i <= fadeTime; i += (Time.realtimeSinceStartup - initTime))
             {
-                Debug.Log("fading in");
                 img.color = new Color(img.color[0], img.color[1], img.color[2], i/fadeTime * initAlpha);
                 currentTime = Time.realtimeSinceStartup;
                 yield return null;
