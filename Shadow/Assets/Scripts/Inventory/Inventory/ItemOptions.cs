@@ -9,11 +9,13 @@ public class ItemOptions : MonoBehaviour
 	public GameObject discardWindow;
 	public Button useButton;
 	public Button setHotkeyButton;
+	public Button discardButton;
 
 	private void OnEnable()
 	{
 		useButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
 		setHotkeyButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
+		discardButton.interactable = !(InventoryUI.selectedItem.GetType() == (typeof(QuestItem)));
 	}
 
 	public void UseItem()
