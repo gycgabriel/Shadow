@@ -203,9 +203,48 @@
                 {
                     "name": "Pancakes",
                     "text": ["Rain… The dungeon’s call is getting stronger. I can feel the darkness within the dungeon growing. Something bad is going to happen at this rate."]
+                }, 
+                {
+                    "name": "Rain",
+                    "text": ["Ughh, even though I’ve tried to explain to the elder about the danger of the dungeon, he doesn’t believe it and has forbidden us from entering the dungeon.", "The help from the Empire and the Adventurer’s Guild is not going to come any time soon either, by the time they arrive it’s going to be too late.", "*Sigh* I guess there’s no choice. I’ll just take a look in the dungeon myself and find out what’s going on, maybe if I can find some proof the elder will believe me. Hopefully we can find some clues too as to what you are, Pancakes."]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["Umu. I’ll watch your back."]
+                }
+            ]
+        }, 
+        {
+            "id": 13,
+            "data": [
+                {
+                    "name": "",
+                    "text": ["The minotaur locks eyes with you, strange black wisps emitting from its body"]
+                }, 
+                {
+                    "name": "Minotaur",
+                    "text": ["Rooaaaaaaaaaaar", "ROOOAAAARRRRRRR!!"]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["Doesn’t seem like we can talk this out"]
+                }
+            ]
+        },
+        {
+            "id": 14,
+            "data": [
+                {
+                    "name": "Pancakes",
+                    "text": ["What’s this… it’s all coming back to me…", "Rain, we need to save the world! The ancient dragon’s fragments, the seal placed upon them is weakening… We need to destroy all the fragments of the dragon, otherwise the shadow dragon will be revived and will wreak havoc upon the world once again!", "Rain, all your loved ones are at risk!"]
+                }, 
+                {
+                    "name": "Rain",
+                    "text": ["That… That can’t be……", "We have to let the village elder know about this, then we can get help!"]
                 }
             ]
         }
+        
         
     ]
 }

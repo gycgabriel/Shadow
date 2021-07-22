@@ -14,6 +14,9 @@ public class CameraController : Singleton<CameraController>
     {
         followTarget = PartyController.player;
 
+        if (followTarget == null)
+            return;
+
         //Position vector of the target object
         targetPos = new Vector3(followTarget.transform.position.x, followTarget.transform.position.y, transform.position.z);
         

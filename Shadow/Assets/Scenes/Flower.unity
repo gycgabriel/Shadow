@@ -1613,7 +1613,7 @@ GameObject:
   - component: {fileID: 643774425}
   - component: {fileID: 643774424}
   m_Layer: 0
-  m_Name: EventStart
+  m_Name: Events
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3287,7 +3287,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1803725930}
   - component: {fileID: 1803725932}
-  - component: {fileID: 1803725931}
   - component: {fileID: 1803725933}
   m_Layer: 0
   m_Name: NoLeaving
@@ -3310,20 +3309,6 @@ Transform:
   m_Father: {fileID: 643774423}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1803725931
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1803725929}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2b675e8913c6604d8ad691cae27c8f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 999f661e0c636174ca2ab10f339bf40e, type: 2}
-  dirc: {x: 0, y: 1}
 --- !u!61 &1803725932
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -3348,7 +3333,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.5, y: 0.5}
+  m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
 --- !u!114 &1803725933
 MonoBehaviour:
@@ -3362,11 +3347,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5198607e473e3324d92f5f5853066ce4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bchapter: 1
-  bscenario: 3
-  chapter: 1
-  scenario: 7
+  afterChapter: 1
+  afterScenario: 3
+  beforeChapter: 1
+  beforeScenario: 7
   dirc: {x: 0, y: 1}
+  chapterToPlay: 0
+  scenarioToPlay: 6
 --- !u!1 &1861436627
 GameObject:
   m_ObjectHideFlags: 0

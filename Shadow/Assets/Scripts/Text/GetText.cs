@@ -18,13 +18,11 @@ public static class GetText
         string filepath = Path.Combine(Application.dataPath, "Text", filePrefix + chapterNum + ".json");
         string jsonString = File.ReadAllText(filepath);
         chapter = JsonUtility.FromJson<Chapter>(jsonString);
-        Debug.Log("Loaded chapter " + chapter.id);
     }
 
     public static void LoadScenario(int scenarioIndex)
     {
         scenario = chapter.data[scenarioIndex];
-        Debug.Log("Loaded scenario " + scenario.id);
         Singleton<ScenarioManager>.scriptInstance.InitScenario(scenario);
     }
 

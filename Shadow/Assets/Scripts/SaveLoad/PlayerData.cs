@@ -43,7 +43,10 @@ public class PlayerData
     public float[] ultimateSkillCooldown;
     public bool[] isUltimateSkillCooldown;
 
+    //StoryManager
     public Dictionary<int, Dictionary<int, bool>> evokedStory;
+    public Dictionary<int, bool> acceptedQuests;
+    public Dictionary<int, bool> completedQuests;
 
     // Quests
     public SerializableQuestChain questChain;
@@ -117,6 +120,8 @@ public class PlayerData
         isHotkeyOnCooldown = PartyController.itemHotkeyUIManager.SaveIsHotkeyOnCooldown();
 
         evokedStory = StoryManager.scriptInstance.evokedStory;
+        acceptedQuests = StoryManager.scriptInstance.acceptedQuests;
+        completedQuests = StoryManager.scriptInstance.completedQuests;
         currQuest = PartyController.quest?.SaveQuest();
         questChain = PartyController.questChain?.SaveQuestChain();
 

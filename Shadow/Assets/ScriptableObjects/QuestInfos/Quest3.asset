@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6495c1d7e9c12fa46aa638913c1fe7fd, type: 3}
   m_Name: Quest3
   m_EditorClassIdentifier: 
-  isActive: 0
+  id: 3
+  isActive: 1
   title: Defeat 6 slimes
   desc: Slimes have blocked your path! Defeat them all.
   expReward: 600
   goldReward: 100
-  startChapter: -1
+  startChapter: 0
   startScenario: 0
   endChapter: 1
   endScenario: 7

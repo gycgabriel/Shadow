@@ -8,25 +8,18 @@ public class QuestGiver : MonoBehaviour
 
     public QuestChain questChain;
 
-    public QuestWindow questWindow;
-
-    private void Update()
-    {
-        if (questWindow == null)
-        {
-            questWindow = QuestWindow.scriptInstance;
-        }
-    }
-
     public void OpenQuestWindow()
     {
+        if (QuestWindow.scriptInstance == null)
+            return;
+
         if (questChain == null)
         {
-            questWindow.Open(quest);
+            QuestWindow.scriptInstance.Open(quest);
         } 
         else
         {
-            questWindow.Open(questChain.First(), questChain);
+            QuestWindow.scriptInstance.Open(questChain.First(), questChain);
         }
     }
 

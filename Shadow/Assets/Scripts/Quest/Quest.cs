@@ -6,6 +6,8 @@ using UnityEngine;
 
 public class Quest : ScriptableObject
 {
+    public int id;
+
     public bool isActive;
 
     public string title;
@@ -40,13 +42,29 @@ public class Quest : ScriptableObject
     public void Accept()
     {
         isActive = true;
-        ScenarioManager.scriptInstance.PlayScenario(startChapter, startScenario);
+        Debug.Log("QUEST ACCEPTED: " + startChapter + " " + startScenario);
+        if (startChapter > 0 && startScenario > 0)
+            ScenarioManager.scriptInstance.PlayScenario(startChapter, startScenario, delegate() {
+                StoryManager.scriptInstance.SetEvoked(startChapter, startScenario);
+            });
     }
 
     public void Complete(System.Action nextQuestAction = null)
     {
         isActive = false;
-        Debug.Log("IM QUEST COMPLETE");
-        ScenarioManager.scriptInstance.PlayScenario(endChapter, endScenario, nextQuestAction);
+        Debug.Log("QUEST COMPLETE: " + endChapter + " " + endScenario);
+        if (endChapter > 0 && endScenario > 0)
+        {
+            ScenarioManager.scriptInstance.PlayScenario(endChapter, endScenario, delegate()
+            {
+                StoryManager.scriptInstance.SetEvoked(endChapter, endScenario);
+                nextQuestAction?.Invoke();
+            });
+        }
+        else
+        {
+            nextQuestAction();
+        }
+            
     }
 }

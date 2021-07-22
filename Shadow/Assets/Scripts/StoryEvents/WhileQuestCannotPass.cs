@@ -8,6 +8,9 @@ public class WhileQuestCannotPass : MonoBehaviour
 
     public Vector2 dirc;
 
+    public int chapterToPlay;
+    public int scenarioToPlay;
+
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Player" || collision.gameObject.name != "PlayerColliders")
@@ -24,6 +27,6 @@ public class WhileQuestCannotPass : MonoBehaviour
     {
         yield return new WaitUntil(delegate() { return !PartyController.activePC.playerMoving; });
 
-        ScenarioManager.scriptInstance.PlayScenario(0, 6);
+        ScenarioManager.scriptInstance.PlayScenario(chapterToPlay, scenarioToPlay);
     }
 }

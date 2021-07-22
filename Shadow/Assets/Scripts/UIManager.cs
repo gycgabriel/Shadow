@@ -37,6 +37,9 @@ public class UIManager : MonoBehaviour
             player = PartyController.player.GetComponent<Player>();
         }
 
+        if (PartyController.activePC == null)
+            return;
+
         if (isStatus)
         {
             player = PartyController.activePC.gameObject.GetComponent<Player>();

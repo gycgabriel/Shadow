@@ -21,22 +21,18 @@ public class QuestGoal
     {
         if (goalType == GoalType.Kill && (tag == what || what == ""))       // blank means anything
             currentAmt++;
-
-        Debug.Log("Remaining: " + (requiredAmt - currentAmt).ToString());
     }
 
     public void ItemGet(string tag, int amt)
     {
         if (goalType == GoalType.Gathering && (tag == what || what == ""))       // blank means anything
             currentAmt = amt;
-
-        Debug.Log("Remaining: " + (requiredAmt - currentAmt).ToString());
     }
-
 }
 
 public enum GoalType
 {
     Kill, 
-    Gathering
+    Gathering, 
+    Script
 }

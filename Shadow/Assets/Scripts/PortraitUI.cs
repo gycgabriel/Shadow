@@ -26,6 +26,9 @@ public class PortraitUI : MonoBehaviour
 
         GetComponent<Image>().sprite = portraitOf.portraitToDisplay;
 
+        if (PartyController.activePC == null)
+            return;
+
         if (isStatus)
         {
             portraitOf = PartyController.activePC.gameObject.GetComponent<PortraitBehaviour>();

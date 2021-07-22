@@ -102,6 +102,8 @@ public class LoadBehaviour : MonoBehaviour
         PartyController.activePC.anim.Play("Base Layer.IdleFace", 0, 0f);
 
         StoryManager.scriptInstance.evokedStory = data.evokedStory;
+        StoryManager.scriptInstance.acceptedQuests = data.acceptedQuests;
+        StoryManager.scriptInstance.completedQuests = data.completedQuests;
 
         PartyController.quest = Quest.LoadQuest(data.currQuest);
         PartyController.questChain = QuestChain.LoadQuestChain(data.questChain);

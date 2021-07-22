@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class ReqScenarioToPass : MonoBehaviour
 {
-    public int bchapter;
-    public int bscenario;
-
-    public int chapter;
-    public int scenario;
+    public int afterChapter;
+    public int afterScenario;
+    public int beforeChapter;
+    public int beforeScenario;
     public Vector2 dirc;
+
+    public int chapterToPlay;
+    public int scenarioToPlay;
 
     void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag != "Player" || collision.gameObject.name != "PlayerColliders")
             return;
 
-        if (StoryManager.scriptInstance.CheckEvoked(bchapter, bscenario) && !StoryManager.scriptInstance.CheckEvoked(chapter, scenario))
+        if (StoryManager.scriptInstance.CheckEvoked(afterChapter, afterScenario) && !StoryManager.scriptInstance.CheckEvoked(beforeChapter, beforeScenario))
         {
             PartyController.scriptInstance.MovePlayer(dirc);
             StartCoroutine(WaitforMovement());
@@ -27,6 +29,6 @@ public class ReqScenarioToPass : MonoBehaviour
     {
         yield return new WaitUntil(delegate () { return !PartyController.activePC.playerMoving; });
 
-        ScenarioManager.scriptInstance.PlayScenario(0, 6);
+        ScenarioManager.scriptInstance.PlayScenario(chapterToPlay, scenarioToPlay);
     }
 }

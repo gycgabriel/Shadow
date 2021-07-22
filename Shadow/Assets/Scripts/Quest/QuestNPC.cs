@@ -4,27 +4,26 @@ using UnityEngine;
 
 public class QuestNPC : Interactable
 {
-    public string questTitle;
-    public Dialogue defaultDialogue;
+    public Quest quest;
     public Dialogue whileQuestDialogue;
-    public int chapter;
-    public int scenario;
+    public Dialogue defaultDialogue;
 
     public override void Interact()
     {
-        if (PartyController.quest != null && PartyController.quest.title == questTitle && PartyController.quest.isActive)
+        if (StoryManager.scriptInstance.CheckCompletedQuests(quest))
+        {
+            DialogueManager.scriptInstance.StartDialogue(defaultDialogue);
+            return;
+        }
+
+        if (PartyController.quest != null && PartyController.quest.id == quest.id && PartyController.quest.isActive)
         {
             DialogueManager.scriptInstance.StartDialogue(whileQuestDialogue);      // quest ongoing lines
         }
-        else if (StoryManager.scriptInstance.CheckEvoked(1, 1))
-        {
-            DialogueManager.scriptInstance.StartDialogue(defaultDialogue);      // default npc lines
-        }
-        else
+        else if (!StoryManager.scriptInstance.CheckAcceptedQuests(quest))
         {
             QuestGiver qg = GetComponent<QuestGiver>();
-            ScenarioManager.scriptInstance.PlayScenario(chapter, scenario, delegate () { qg.OpenQuestWindow(); });
-            StoryManager.scriptInstance.SetEvoked(chapter, scenario);
+            qg.OpenQuestWindow();
         }
     }
 }

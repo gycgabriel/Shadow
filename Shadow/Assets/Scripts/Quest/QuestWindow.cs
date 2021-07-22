@@ -56,11 +56,14 @@ public class QuestWindow : Singleton<QuestWindow>
         gold.text = quest.goldReward.ToString();
         exp.text = quest.expReward.ToString();
 
+        accept.onClick.RemoveAllListeners();
         accept.onClick.AddListener(delegate () {
             panel.SetActive(false);
             isOpen = false;
+            quest.goal.currentAmt = 0;                      // scriptable objects do not reset in between plays
             PartyController.questChain = questChain;        // set to null if not questchain
             PartyController.quest = quest;
+            StoryManager.scriptInstance.SetAcceptedQuest(quest);
             quest.Accept();
             Time.timeScale = 1f;
         });
@@ -74,15 +77,27 @@ public class QuestWindow : Singleton<QuestWindow>
         completedGold.text = quest.goldReward.ToString();
         completed.SetActive(true);
         isOpen = true;
+
+        ok.onClick.RemoveAllListeners();
         ok.onClick.AddListener(delegate () {
             completed.SetActive(false);
             isOpen = false;
+            StoryManager.scriptInstance.SetCompletedQuest(quest);
             quest.Complete(delegate() {
                 if (questChain != null)
                 {
                     Debug.Log("Theres a quest chain");
-                    Open(questChain.Next(), questChain);
-                } else
+                    Quest next = questChain.Next();
+                    if (next == null)
+                    {
+                        questChain = null;
+                        Debug.Log("Quest chain ends");
+                        return;
+                    }
+                    Open(next, questChain);
+                } 
+                
+                else
                 {
                     Debug.Log("No quest chain");
                 }

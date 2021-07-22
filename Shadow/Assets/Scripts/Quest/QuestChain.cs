@@ -42,6 +42,8 @@ public class QuestChain
     public Quest Next()
     {
         currentQuest++;
+        if (currentQuest > quests.Count - 1)
+            return null;
         return quests[currentQuest];
     }
 
