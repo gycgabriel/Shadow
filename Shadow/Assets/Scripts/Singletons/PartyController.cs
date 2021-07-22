@@ -96,7 +96,7 @@ public class PartyController : Singleton<PartyController>
             bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
             
             bool dashInput = Input.GetKey(KeyCode.LeftShift);
-            bool ultimateInput = Input.GetKeyDown(KeyCode.V) || Input.GetKeyDown(KeyCode.U);
+            bool ultimateInput = Input.GetKeyDown(KeyCode.A) || Input.GetKeyDown(KeyCode.V);
             bool switchToShadowInput = Input.GetKeyDown(KeyCode.C) || Input.GetKeyDown(KeyCode.Q);
             bool[] hotkeyInputs = new bool[4] { 
                 Input.GetKeyDown(KeyCode.Alpha1), 
