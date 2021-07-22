@@ -166,6 +166,23 @@ public class PartyController : Singleton<PartyController>
         inventory.Gold += amt;
     }
 
+    public void Respawn(float expLoss)
+    {
+        playerP.isDead = false;
+        shadowP.isDead = false;
+        playerP.currentExp = (int)((1f - expLoss) * playerP.currentExp);
+        shadowP.currentExp = (int)((1f - expLoss) * shadowP.currentExp);
+    }
+
+    public void FullRestore()
+    {
+        playerP.currentHP = playerP.getStats()["hp"];
+        playerP.currentMP = playerP.getStats()["mp"];
+
+        shadowP.currentHP = shadowP.getStats()["hp"];
+        shadowP.currentMP = shadowP.getStats()["mp"];
+    }
+
     // Questing
     public static void EnemyKilled(string tag)
     {

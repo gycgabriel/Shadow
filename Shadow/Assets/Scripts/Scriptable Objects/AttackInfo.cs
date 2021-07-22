@@ -35,7 +35,6 @@ public class AttackInfo : ScriptableObject
 
         // for every level lower/higher, the attack deals 1% less/more damage to the target.
         // Capped at 10 levels lower than target and 5 levels higher than target.
-        Debug.Log("Target vs Attack Level: " + target.currentLevel + " vs " + attacker.currentLevel);
         int levelDiff = Mathf.Max(Mathf.Min((target.currentLevel - attacker.currentLevel), 10), -5);
         float levelDiffMultiplier = 1f - levelDiff * 0.02f;
         

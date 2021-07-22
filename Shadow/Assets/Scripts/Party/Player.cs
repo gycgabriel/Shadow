@@ -66,5 +66,4 @@ public class Player : Creature
         currentMP = stats.getStats(statModifiers)["mp"];
         statPoints = 10;
     }
-
 }

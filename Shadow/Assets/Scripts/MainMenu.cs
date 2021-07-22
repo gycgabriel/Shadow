@@ -8,6 +8,8 @@ public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;              //The name of the scene to be loaded
 
+    public Button loadButton;
+
     public GameObject confirmNewGameWindow;
     public GameObject confirmNoSaveDataWindow;
 
@@ -25,6 +27,11 @@ public class MainMenu : MonoBehaviour
         {
             ConfirmStartNewGame();
         }
+    }
+
+    private void OnEnable()
+    {
+        loadButton.interactable = SaveSystem.HaveSaveData(1);
     }
 
     public void CheckLoadGame()

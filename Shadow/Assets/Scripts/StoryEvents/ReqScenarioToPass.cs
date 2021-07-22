@@ -18,7 +18,8 @@ public class ReqScenarioToPass : MonoBehaviour
         if (collision.gameObject.tag != "Player" || collision.gameObject.name != "PlayerColliders")
             return;
 
-        if (StoryManager.scriptInstance.CheckEvoked(afterChapter, afterScenario) && !StoryManager.scriptInstance.CheckEvoked(beforeChapter, beforeScenario))
+        if (StoryManager.scriptInstance.CheckEvoked(afterChapter, afterScenario) && !StoryManager.scriptInstance.CheckEvoked(beforeChapter, beforeScenario)
+            && PartyController.activePC.currentMove != dirc)
         {
             PartyController.scriptInstance.MovePlayer(dirc);
             StartCoroutine(WaitforMovement());
