@@ -14,7 +14,14 @@ public class StoryManager : Singleton<StoryManager>
         {
             evokedStory.Add(chapter, new Dictionary<int, bool>());
         }
-        evokedStory[chapter].Add(scenario, true);
+        else if (evokedStory[chapter].ContainsKey(scenario))
+        {
+            evokedStory[chapter][scenario] = true;
+        }
+        else
+        {
+            evokedStory[chapter].Add(scenario, true);
+        }
     }
 
     public bool CheckEvoked(int chapter, int scenario)

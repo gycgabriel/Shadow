@@ -10,7 +10,7 @@ public class PlayScenarioOnQuestComplete : MonoBehaviour
 
     void Update()
     {
-        if (StoryManager.scriptInstance.CheckCompletedQuests(quest) && StoryManager.scriptInstance.CheckEvoked(chapter, scenario))
+        if (StoryManager.scriptInstance.CheckCompletedQuests(quest) && !StoryManager.scriptInstance.CheckEvoked(chapter, scenario))
         {
             StoryManager.scriptInstance.SetEvoked(chapter, scenario);
             StartCoroutine(StartEvent());

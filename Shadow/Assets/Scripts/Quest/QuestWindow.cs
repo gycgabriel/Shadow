@@ -90,7 +90,7 @@ public class QuestWindow : Singleton<QuestWindow>
                     Quest next = questChain.Next();
                     if (next == null)
                     {
-                        questChain = null;
+                        PartyController.questChain = null;
                         Debug.Log("Quest chain ends");
                         return;
                     }
