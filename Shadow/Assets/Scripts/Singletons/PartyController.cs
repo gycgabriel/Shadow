@@ -133,6 +133,7 @@ public class PartyController : Singleton<PartyController>
 
     public void Initialize(GameObject playerGO, GameObject shadowGO)
     {
+        shadowActive = false;
         PartyController.player = playerGO;
         PartyController.shadow = shadowGO;
         PartyController.playerPC = playerGO.GetComponent<PlayerController>();

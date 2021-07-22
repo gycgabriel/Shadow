@@ -232,6 +232,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7505dfba4fd1e4f4c9319ea6547bf81d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  monsterRigidBody: {fileID: 3505293736718498651}
   monsterGridCollider: {fileID: 8785253100810533349}
   blockingLayer:
     serializedVersion: 2
