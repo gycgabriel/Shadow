@@ -32,10 +32,6 @@ public class MainMenu : MonoBehaviour
         if (!SaveSystem.HaveSaveData(1))
         {
             confirmNoSaveDataWindow.SetActive(true);
-            foreach (Button button in GetComponentsInChildren<Button>())
-            {
-                button.interactable = false;
-            }
         }
     }
 

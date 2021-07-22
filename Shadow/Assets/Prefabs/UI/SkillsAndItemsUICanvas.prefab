@@ -806,7 +806,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -412, y: 113.5}
+  m_AnchoredPosition: {x: -448.3407, y: 113.5}
   m_SizeDelta: {x: 512, y: 128}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7981808531199533927
@@ -998,7 +998,7 @@ MonoBehaviour:
   - {fileID: 1783726840116744758}
   - {fileID: 3210387644815084609}
   hotkeyItems:
-  - {fileID: 11400000, guid: ac94a267b0d3a484d9de8104dd429d8a, type: 2}
+  - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
@@ -1170,6 +1170,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7495198289239052157}
     m_Modifications:
+    - target: {fileID: 699191848524310897, guid: 9aa1f67ec63091049bd3d7160350a3ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -3017568733523671766, guid: b49e9b42b849917439f38aed4eb6a332,
+        type: 3}
     - target: {fileID: 1941413338434467145, guid: 9aa1f67ec63091049bd3d7160350a3ac,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1331,6 +1337,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7495198289239052157}
     m_Modifications:
+    - target: {fileID: 699191848524310897, guid: 9aa1f67ec63091049bd3d7160350a3ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 328106271919005813, guid: b49e9b42b849917439f38aed4eb6a332,
+        type: 3}
     - target: {fileID: 1941413338434467145, guid: 9aa1f67ec63091049bd3d7160350a3ac,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1492,6 +1504,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7495198289239052157}
     m_Modifications:
+    - target: {fileID: 699191848524310897, guid: 9aa1f67ec63091049bd3d7160350a3ac,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -6025968899040563254, guid: b49e9b42b849917439f38aed4eb6a332,
+        type: 3}
     - target: {fileID: 1941413338434467145, guid: 9aa1f67ec63091049bd3d7160350a3ac,
         type: 3}
       propertyPath: m_Pivot.x
