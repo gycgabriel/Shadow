@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GuardianSpriteAnimation : MonoBehaviour
+public class GuardianSpriteAnimation : PlayerSprite
 {
     private PlayerController playerController;
 

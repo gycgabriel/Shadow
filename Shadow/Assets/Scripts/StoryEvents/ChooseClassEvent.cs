@@ -62,11 +62,7 @@ public class ChooseClassEvent : MonoBehaviour
         GameObject shadow = chooseClass(shadowClass);
 
         // Changing Shadow's sprite to a darker color theme
-        SpriteRenderer[] shadowSprites = shadow.GetComponentsInChildren<SpriteRenderer>();
-        foreach (SpriteRenderer shadowSprite in shadowSprites)
-        {
-            shadowSprite.color = new Color32(0, 100, 170, 255);
-        }
+        shadow.GetComponentInChildren<PlayerSprite>().isShadow = true;
 
         shadow.SetActive(false);
         SceneManager.LoadScene(loadMap);

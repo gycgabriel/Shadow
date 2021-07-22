@@ -5,6 +5,7 @@ using StateStuff;
 
 public class EnemyAI : MonoBehaviour
 {
+    public Rigidbody2D monsterRigidBody;
     public Collider2D monsterGridCollider;
     public LayerMask blockingLayer;         // Layer on which collision will be checked.
 
@@ -64,6 +65,12 @@ public class EnemyAI : MonoBehaviour
 
     protected virtual void Update()
     {
+        // Ensure rigidbody doesnt get desynced
+        Transform rbTransform = monsterRigidBody.transform;
+        Transform gcTransform = monsterGridCollider.transform;
+        if (rbTransform.position != gcTransform.position)
+            rbTransform.position = gcTransform.position;
+
         player = PartyController.activePC;
         targetEnemyUIManager = Singleton<TargetEnemyUIManager>.scriptInstance;
         stateMachine.Update();

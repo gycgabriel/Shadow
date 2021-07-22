@@ -46,14 +46,9 @@ public class LoadBehaviour : MonoBehaviour
             playerGO.transform.parent = partyGO.transform;
             GameObject shadowGO = Instantiate(getPrefab(data.shadowCharclass.className));
             shadowGO.transform.parent = partyGO.transform;
+            shadowGO.GetComponentInChildren<PlayerSprite>().isShadow = true;
 
             PartyController.scriptInstance.Initialize(playerGO, shadowGO);
-
-            SpriteRenderer[] shadowSprites = PartyController.shadow.GetComponentsInChildren<SpriteRenderer>();
-            foreach (SpriteRenderer shadowSprite in shadowSprites)
-            {
-                shadowSprite.color = new Color32(0, 100, 170, 255);
-            }
 
             shadowGO.SetActive(false);
         }

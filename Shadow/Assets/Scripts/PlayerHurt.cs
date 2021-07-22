@@ -13,6 +13,12 @@ public class PlayerHurt : HurtBehaviour
         player = (Player)creature;
     }
 
+    private void OnEnable()
+    {
+        // Make sure invincibility is not retained when hurt animation is interrupted.
+        isInvincible = false;
+    }
+
     protected override void Update()
     {
         if (player.isDead)

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SorcererSpriteAnimation : MonoBehaviour
+public class SorcererSpriteAnimation : PlayerSprite
 {
     private PlayerController playerController;
     private SorcererSkills sorcererSkills;
