@@ -39221,7 +39221,7 @@ Tilemap:
       - {fileID: 1130443196086783281, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 9198583524074516326, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1914403049905476999, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -27, y: -17, z: 0}
@@ -39263,7 +39263,7 @@ Tilemap:
       - {fileID: 3073487743081508041, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 2728398165424323210, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 4768763459304246750, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -28, y: -16, z: 0}
@@ -39907,7 +39907,7 @@ Tilemap:
       - {fileID: 1130443196086783281, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 9198583524074516326, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1914403049905476999, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -36, y: -2, z: 0}
@@ -40159,7 +40159,7 @@ Tilemap:
       - {fileID: 6348836493331808420, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 1898814397596393726, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -262505837680645528, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -38, y: 4, z: 0}
@@ -40201,7 +40201,7 @@ Tilemap:
       - {fileID: 4967909390688929021, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 1691281573737429660, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -4125396406969222490, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -40, y: 5, z: 0}
