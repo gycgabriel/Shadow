@@ -14,14 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 5
   isActive: 0
-  title: Dungeon Galore
-  desc: Report back to Village Elder
+  title: A New Dungeon
+  desc: Check the commotion in the forest
   expReward: 100
   goldReward: 10
-  startChapter: 0
-  startScenario: 0
+  startChapter: 1
+  startScenario: 8
   endChapter: 1
-  endScenario: 10
+  endScenario: 9
   goal:
     goalType: 2
     what: 

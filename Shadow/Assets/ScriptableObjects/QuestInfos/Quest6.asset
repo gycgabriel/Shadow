@@ -13,18 +13,17 @@ MonoBehaviour:
   m_Name: Quest6
   m_EditorClassIdentifier: 
   id: 6
-  isActive: 0
-  title: Time to dungeon!
-  desc: There's no choice but for you to go... check out the dungeon and kill the
-    dungeon boss
-  expReward: 1000
-  goldReward: 900
-  startChapter: 1
-  startScenario: 12
+  isActive: 1
+  title: Dungeon Galore
+  desc: Report back to Village Elder
+  expReward: 100
+  goldReward: 10
+  startChapter: 0
+  startScenario: 0
   endChapter: 1
-  endScenario: 14
+  endScenario: 10
   goal:
-    goalType: 0
-    what: Minotaur
+    goalType: 2
+    what: 
     requiredAmt: 1
     currentAmt: 0
