@@ -207,6 +207,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1383838998}
+  - {fileID: 531539128}
   - {fileID: 1566650250}
   - {fileID: 1172624441}
   m_Father: {fileID: 951962751}
@@ -252,12 +253,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   acceptedQuest:
   - {fileID: 0}
+  - {fileID: 11400000, guid: 9ba7b85c103260e448570c7c1eaf6679, type: 2}
   - {fileID: 0}
   notCompletedQuest:
   - {fileID: 11400000, guid: 999f661e0c636174ca2ab10f339bf40e, type: 2}
+  - {fileID: 11400000, guid: 9ba7b85c103260e448570c7c1eaf6679, type: 2}
   - {fileID: 11400000, guid: 17a0b2d021adee148a28c92d86111355, type: 2}
   order:
   - {fileID: 1383838997}
+  - {fileID: 531539127}
   - {fileID: 1566650249}
   - {fileID: 1172624440}
 --- !u!1 &193615311
@@ -36009,6 +36013,80 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!1 &531539127
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 531539128}
+  - component: {fileID: 531539130}
+  - component: {fileID: 531539129}
+  m_Layer: 15
+  m_Name: CompleteQuest4
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!4 &531539128
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531539127}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 98090314}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &531539129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531539127}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: caf7a7b2e59b92b4ab2ced54ab398b6e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  quest: {fileID: 11400000, guid: 9ba7b85c103260e448570c7c1eaf6679, type: 2}
+  questCompletePrefab: {fileID: 1845747122785731503, guid: 56dddeeb68d99074b985f0669ffae4ca,
+    type: 3}
+  itemToRemove: {fileID: 11400000, guid: e3d7c08caf1b4154b93f45a96a800644, type: 2}
+--- !u!61 &531539130
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 531539127}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: -0.25}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.5, y: 1.5}
+  m_EdgeRadius: 0
 --- !u!1 &588887958
 GameObject:
   m_ObjectHideFlags: 0
@@ -38079,7 +38157,7 @@ Tilemap:
       - {fileID: 3749969626445832572, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -2432148692876737034, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1409731893350466857, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -10, y: -34, z: 0}
@@ -38765,7 +38843,7 @@ Tilemap:
       - {fileID: -8711526858539700580, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -5489776585021722106, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 8660102734062077835, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -23, y: -26, z: 0}
@@ -39717,7 +39795,7 @@ Tilemap:
       - {fileID: -8711526858539700580, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -5489776585021722106, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 8660102734062077835, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5
+      m_AnimationSpeed: 5.0000005
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -36, y: -4, z: 0}
@@ -40053,7 +40131,7 @@ Tilemap:
       - {fileID: 3749969626445832572, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -2432148692876737034, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1409731893350466857, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -40, y: 4, z: 0}
@@ -106332,7 +106410,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 98090314}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1172624442
 MonoBehaviour:
@@ -125809,6 +125887,7 @@ MonoBehaviour:
     - {fileID: 11400000, guid: 7dec7b218ffd55c4aa316402764cd531, type: 2}
     - {fileID: 11400000, guid: 55f14fa79f8e60b41ab47fad93cb94ba, type: 2}
     - {fileID: 11400000, guid: 999f661e0c636174ca2ab10f339bf40e, type: 2}
+    - {fileID: 11400000, guid: 9ba7b85c103260e448570c7c1eaf6679, type: 2}
     currentQuest: 0
   questAvailablePrefab: {fileID: 4460263374818056460, guid: 4d324696b67b11548b27239829d8c741,
     type: 3}
@@ -126099,7 +126178,7 @@ GameObject:
   - component: {fileID: 1491770331}
   - component: {fileID: 1491770332}
   m_Layer: 15
-  m_Name: CompleteQuest5
+  m_Name: CompleteQuest6
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126253,7 +126332,7 @@ GameObject:
   - component: {fileID: 1566650252}
   - component: {fileID: 1566650251}
   m_Layer: 15
-  m_Name: Quest4
+  m_Name: Quest5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126271,7 +126350,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 98090314}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1566650251
 MonoBehaviour:
