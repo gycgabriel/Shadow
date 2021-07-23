@@ -23,7 +23,16 @@ public class MinotaurAI : EnemyAI
     protected override void Start()
     {
         stateMachine = new StateMachine<MinotaurAI>(this);
-        stateMachine.ChangeState(IdleState.Instance);
+
+        // If final quest is active, wait for dialogue to end before becoming active.
+        if (PartyController.quest.title == "Time to dungeon!" && PartyController.quest.isActive)
+        {
+            stateMachine.ChangeState(UnalertState.Instance);
+        }
+        else
+        {
+            stateMachine.ChangeState(IdleState.Instance);
+        }
 
         // Get a component references
         anim = GetComponentInChildren<Animator>();
@@ -44,6 +53,11 @@ public class MinotaurAI : EnemyAI
     {
         player = PartyController.activePC;
         stateMachine.Update();
+    }
+
+    public void StartBossFight()
+    {
+        stateMachine.ChangeState(IdleState.Instance);
     }
 
     public override void StopAttack()

@@ -75,19 +75,6 @@ namespace MinotaurStates
             
             }
         }
-
-        bool PlayerInLOS(MinotaurAI _owner)
-        {
-            if (_owner.player == null)
-            {
-                return false;
-            }
-
-            Vector2 playerDirection = _owner.player.transform.position - _owner.transform.position;
-
-            return playerDirection.magnitude <= _owner.detectionRange &&
-                Vector2.Dot(playerDirection.normalized, _owner.moveDirection) > 0.7;
-        }
     }
 }
 

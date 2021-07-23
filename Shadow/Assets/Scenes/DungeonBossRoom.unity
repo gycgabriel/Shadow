@@ -208,6 +208,7 @@ GameObject:
   - component: {fileID: 274915841}
   - component: {fileID: 274915843}
   - component: {fileID: 274915842}
+  - component: {fileID: 274915844}
   m_Layer: 0
   m_Name: MinoRoar
   m_TagString: Untagged
@@ -270,6 +271,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &274915844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274915840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c13aa099bdfa69469fbe8f97c47d35b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boss: {fileID: 2061414940}
 --- !u!114 &428433410 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 7974211377366655909, guid: 8c80fbf465c79a84eae8c78bf16f277e,
@@ -14056,3 +14070,15 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &2061414940 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7974211377366655965, guid: 8c80fbf465c79a84eae8c78bf16f277e,
+    type: 3}
+  m_PrefabInstance: {fileID: 889618086}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba4569d5ffc95754a91de1564ce066c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
