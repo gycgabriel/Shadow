@@ -73,8 +73,8 @@ public class QuestWindow : Singleton<QuestWindow>
     {
         //Pause game?
         Time.timeScale = 0f;
-        completedExp.text = quest.expReward.ToString() + " EXP";
-        completedGold.text = quest.goldReward.ToString() + " <sprite=3>";
+        completedExp.text = quest.expReward.ToString();
+        completedGold.text = quest.goldReward.ToString();
         completed.SetActive(true);
         isOpen = true;
 
