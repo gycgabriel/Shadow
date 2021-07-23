@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 /**
  * Manage the item description display of item selected by the player
@@ -8,6 +9,7 @@ public class SelectedSellDisplay : SelectedItemDisplay
 {
     public TMP_Text priceText;
     public GameObject sellWindow;
+    public Button sellButton;
 
     public override void UpdateUI()
     {
@@ -25,6 +27,7 @@ public class SelectedSellDisplay : SelectedItemDisplay
             nameText.text = InventoryUI.selectedItem.name;
             descText.text = InventoryUI.selectedItem.description;
             priceText.text = InventoryUI.selectedItem.sellPrice + " <sprite=3>";
+            sellButton.interactable = !(InventoryUI.selectedItem.GetType() == (typeof(QuestItem)));
         }
     }
 
