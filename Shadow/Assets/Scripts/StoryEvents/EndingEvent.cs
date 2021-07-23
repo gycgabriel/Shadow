@@ -5,6 +5,8 @@ using UnityEngine;
 public class EndingEvent : MonoBehaviour
 {
     public Quest questSix;
+    public AudioSource bgmToStop;
+    public AudioSource bgmToPlay;
 
     void Update()
     {
@@ -20,6 +22,10 @@ public class EndingEvent : MonoBehaviour
     {
 
         yield return new WaitForSeconds(0.5f);
+
+        bgmToStop.Stop();
+        bgmToPlay.loop = true;
+        bgmToPlay.Play();
 
         // set night time / darken screen?
         ScenarioManager.scriptInstance.PlayScenario(1, 15, delegate ()
