@@ -59,8 +59,8 @@ public class QuestsUI : MonoBehaviour
         // set texts in quest window
         title.text = quest.title;
         desc.text = quest.desc;
-        gold.text = quest.goldReward.ToString();
-        exp.text = quest.expReward.ToString();
+        gold.text = quest.goldReward.ToString() + " <sprite=3>";
+        exp.text = quest.expReward.ToString() + " EXP";
 
         if (quest.goal.goalType == GoalType.Kill || quest.goal.goalType == GoalType.Gathering)
         {

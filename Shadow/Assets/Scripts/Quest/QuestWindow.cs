@@ -53,8 +53,8 @@ public class QuestWindow : Singleton<QuestWindow>
         // set texts in quest window
         title.text = quest.title;
         desc.text = quest.desc;
-        gold.text = quest.goldReward.ToString();
-        exp.text = quest.expReward.ToString();
+        gold.text = quest.goldReward.ToString() +  " <sprite=3>";
+        exp.text = quest.expReward.ToString() + " EXP";
 
         accept.onClick.RemoveAllListeners();
         accept.onClick.AddListener(delegate () {
@@ -73,8 +73,8 @@ public class QuestWindow : Singleton<QuestWindow>
     {
         //Pause game?
         Time.timeScale = 0f;
-        completedExp.text = quest.expReward.ToString();
-        completedGold.text = quest.goldReward.ToString();
+        completedExp.text = quest.expReward.ToString() + " EXP";
+        completedGold.text = quest.goldReward.ToString() + " <sprite=3>";
         completed.SetActive(true);
         isOpen = true;
 
