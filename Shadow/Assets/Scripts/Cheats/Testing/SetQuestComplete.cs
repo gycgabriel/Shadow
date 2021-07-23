@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SetQuestComplete : MonoBehaviour
 {
@@ -28,6 +29,13 @@ public class SetQuestComplete : MonoBehaviour
             
             PrintQuests();
         }
+
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            SceneManager.LoadScene("DungeonBossRoom");
+            TransferPlayer.Teleport("bossEntrance", new Vector2(0, 1));
+        }
+            
 
     }
 

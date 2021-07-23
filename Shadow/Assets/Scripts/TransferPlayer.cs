@@ -55,5 +55,11 @@ public class TransferPlayer : MonoBehaviour
         player.GetComponent<PlayerController>().SetPosition(coords, direction);
     }
 
+    public static void Teleport(string transferSpot, Vector2 direction)
+    {
+        nextDirection = direction;
+        nextTransferSpot = transferSpot;
+    }
+
 
 }

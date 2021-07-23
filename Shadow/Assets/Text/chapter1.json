@@ -262,8 +262,48 @@
                     "text": ["That… That can’t be……", "We have to let the village elder know about this, then we can get help!"]
                 }
             ]
+        },
+        {
+            "id": 15,
+            "data": [
+                {
+                    "name": "Cecilia",
+                    "text": [ "Looks like not one of the villagers believed you, Rain" ]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["It’s the truth though!"]
+                }, 
+                {
+                    "name": "Rain",
+                    "text": ["They all looked at me like I was crazy. The shadow dragon, being revived? The shadow dragon has been dead for centuries."]
+                },
+                {
+                    "name": "Cecilia",
+                    "text": [ "It’s alright Rain, I believe you." ]
+                }
+            ]
+        },
+        {
+            "id": 16,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": [ "I can’t just sit around like this. If no one else is going to believe us, we have to do something ourselves.", "Pancakes, do you know where the other fragments are?"]
+                }, 
+                {
+                    "name": "Pancakes",
+                    "text": ["I can sense them when they are nearby, but I do not know where they are specifically."]
+                }, 
+                {
+                    "name": "Cecilia",
+                    "text": ["If the other fragments are going to create dungeons like here, I think we can look for news about new dungeons appearing. We should head for the Adventurer’s Guild, that is most probably where we can find the information we need."]
+                }, 
+                {
+                    "name": "Rain",
+                    "text": ["Alright. Let’s go, we have a world to save."]
+                }
+            ]
         }
-        
-        
     ]
 }
