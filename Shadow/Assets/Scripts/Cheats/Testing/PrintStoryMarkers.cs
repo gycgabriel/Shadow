@@ -28,7 +28,11 @@ public class PrintStoryMarkers : MonoBehaviour
 
         Debug.Log(toPrint);
 
-        toPrint = "Current Quest: " + PartyController.quest.id + " " + PartyController.quest.isActive;
+        if (PartyController.quest == null)
+            toPrint = "Current Quest: null";
+
+        else
+            toPrint = "Current Quest: " + PartyController.quest.id + " " + PartyController.quest.isActive;
 
         Debug.Log(toPrint);
 

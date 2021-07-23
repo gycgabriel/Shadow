@@ -5,6 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class SerializableQuest
 {
+    public int id;
     public bool isActive;
 
     public string title;
