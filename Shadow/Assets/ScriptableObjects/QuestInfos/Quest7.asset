@@ -10,20 +10,21 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6495c1d7e9c12fa46aa638913c1fe7fd, type: 3}
-  m_Name: Quest4
+  m_Name: Quest7
   m_EditorClassIdentifier: 
-  id: 4
+  id: 7
   isActive: 0
-  title: Give Cecilia flowers
-  desc: Report back to Cecilia
-  expReward: 100
-  goldReward: 100
-  startChapter: 0
-  startScenario: 0
-  endChapter: 0
-  endScenario: 0
+  title: Time to dungeon!
+  desc: There's no choice but for you to go... check out the dungeon and kill the
+    dungeon boss
+  expReward: 1000
+  goldReward: 900
+  startChapter: 1
+  startScenario: 12
+  endChapter: 1
+  endScenario: 14
   goal:
-    goalType: 2
-    what: 
+    goalType: 0
+    what: Minotaur
     requiredAmt: 1
     currentAmt: 0
