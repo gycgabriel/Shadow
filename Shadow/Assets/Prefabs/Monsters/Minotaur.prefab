@@ -896,7 +896,7 @@ MonoBehaviour:
   currentLevel: 0
   isDead: 0
   enemyInfo: {fileID: 11400000, guid: ffcce880a792d0e43a6289c46a05c408, type: 2}
-  lootTable: {fileID: 0}
+  lootTable: {fileID: 11400000, guid: 93ed471347e870343a86bee297524765, type: 2}
 --- !u!114 &7974211377366655906
 MonoBehaviour:
   m_ObjectHideFlags: 0
