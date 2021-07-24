@@ -14,6 +14,10 @@ public class BossUIDisplay : TargetEnemyUIDisplay
 
     protected override void Update()
     {
+        if (targetedEnemy == null)
+        {
+            gameObject.SetActive(false);
+        }
         Dictionary<string, int> enemyStats = targetedEnemy.getStats();
 
         int hpPerBar = enemyStats["hp"] / numOfHPBars;

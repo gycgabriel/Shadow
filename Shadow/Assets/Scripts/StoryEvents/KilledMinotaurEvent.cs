@@ -16,7 +16,7 @@ public class KilledMinotaurEvent : MonoBehaviour
             // Black screen fade
             PartyController.activePC.currentMove = new Vector2(0, -1);      // face down
             SceneManager.LoadScene("Oakheart");
-            TransferPlayer.Teleport("rainhouse", new Vector2(0, -1));
+            TransferPlayer.Teleport("nextToCecilia", new Vector2(-1, 0));
         }
     }
 

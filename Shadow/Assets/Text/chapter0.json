@@ -18,11 +18,11 @@
                 },
                 {
                     "name": "",
-                    "text": ["... ..."]
+                    "text": [ "... ..." ]
                 },
                 {
                     "name": "",
-                    "text": ["Please choose your player's character class: "]
+                    "text": [ "Please choose your player's character class: " ]
                 }
             ]
         },
@@ -31,7 +31,7 @@
             "data": [
                 {
                     "name": "",
-                    "text": ["Please choose your shadow's character class: "]
+                    "text": [ "Please choose your shadow's character class: " ]
                 }
             ]
         },
@@ -40,7 +40,7 @@
             "data": [
                 {
                     "name": "",
-                    "text": ["Your journey has just begun."]
+                    "text": [ "Your journey has just begun." ]
                 }
             ]
         },
@@ -49,11 +49,11 @@
             "data": [
                 {
                     "name": "Rain",
-                    "text": ["Wow! I leveled up!", "Let's see if I've gotten any stronger."]
+                    "text": [ "Wow! I leveled up!", "Let's see if I've gotten any stronger." ]
                 },
                 {
                     "name": "Tutorial",
-                    "text": ["Open the pause menu with 'X' or escape key.", "Select stats to view your stats.", "You can assign your character stats to make them stronger!"]
+                    "text": [ "Open the pause menu with 'X' or 'Esc' key.", "Select stats to view your stats.", "You can assign your character stats to make them stronger!" ]
                 }
             ]
         },
@@ -62,7 +62,7 @@
             "data": [
                 {
                     "name": "Tutorial",
-                    "text": ["Press the C or Q button to switch to your shadow."]
+                    "text": [ "Press the 'C' or 'Q' button to switch to your shadow." ]
                 }
             ]
         },
@@ -71,7 +71,7 @@
             "data": [
                 {
                     "name": "Tutorial",
-                    "text": ["Switch between you and your shadow with the C or Q button.", "Your shadow will share your experience points and stat points, but stat points can be allocated differently.", "Press Q or V to use your ultimate Attack."]
+                    "text": [ "Switch between you and your shadow with the 'C' or 'Q' button.", "Your shadow will share your experience points and stat points, but stat points can be allocated differently.", "Press 'A' or 'V' to use your Ultimate Skill." ]
                 }
             ]
         },
@@ -80,7 +80,7 @@
             "data": [
                 {
                     "name": "Rain",
-                    "text": ["Let's not leave yet."]
+                    "text": [ "Let's not leave yet." ]
                 }
             ]
         },
@@ -89,7 +89,7 @@
             "data": [
                 {
                     "name": "Rain",
-                    "text": ["That's not the right way, it's probably in another direction."]
+                    "text": [ "That's not the right way, it's probably in another direction." ]
                 }
             ]
         },
@@ -98,7 +98,29 @@
             "data": [
                 {
                     "name": "Pancakes",
-                    "text": ["It's too dangerous."]
+                    "text": [ "It's too dangerous." ]
+                }
+            ]
+        },
+        {
+            "id": 9,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": [ "We can't leave like this, not with the Minotaur on our backs!" ]
+                }
+            ]
+        },
+        {
+            "id": 10,
+            "data": [
+                {
+                    "name": "Rain",
+                    "text": [ "Cecilia, I'm back! And here... I got you some flowers. (>///<)" ]
+                },
+                {
+                    "name": "Cecilia",
+                    "text": [ "Welcome back! Oh thank you for the flowers, you didn't have to... (>///<)" ]
                 }
             ]
         }

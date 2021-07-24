@@ -12,6 +12,15 @@
                         "Phew, it's so hot as usual... Time to check what things I need to do today.",
                         "Let's go talk to Cecilia below. She should be in her usual spot beside the river."
                     ]
+                },
+                {
+                    "name": "Tutorial",
+                    "text": [
+                        "Press 'Z' to interact with an object or NPC, or to attack.",
+                        "Use your arrow keys to move around.",
+                        "For more instructions, open the pause menu with 'X' or escape key.",
+                        "Then select the 'How To Play' button for more controls. Have a fun journey!"
+                    ]
                 }
             ]
         },
@@ -46,7 +55,7 @@
                 },
                 {
                     "name": "Cecilia",
-                    "text": ["Be careful out there!"]
+                    "text": ["Remember, Nactara Forest is north of town. Be careful out there!"]
                 }
             ]
         },
@@ -268,7 +277,7 @@
             "data": [
                 {
                     "name": "Cecilia",
-                    "text": [ "Looks like not one of the villagers believed you, Rain" ]
+                    "text": [ "Looks like not one of the villagers believed you, Rain." ]
                 }, 
                 {
                     "name": "Pancakes",

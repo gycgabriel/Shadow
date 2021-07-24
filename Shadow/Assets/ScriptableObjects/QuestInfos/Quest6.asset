@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Quest6
   m_EditorClassIdentifier: 
   id: 6
-  isActive: 1
+  isActive: 0
   title: Dungeon Galore
-  desc: Report back to Village Elder
+  desc: Report back to the Village Elder
   expReward: 100
   goldReward: 10
   startChapter: 0

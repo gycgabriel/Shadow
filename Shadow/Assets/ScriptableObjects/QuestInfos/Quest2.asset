@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: Quest2
   m_EditorClassIdentifier: 
   id: 2
-  isActive: 1
+  isActive: 0
   title: Flower for Cecilia
-  desc: Go deeper into the forest to get flowers for Cecilia.
+  desc: Look around the area to find fresh flowers for Cecilia.
   expReward: 100
   goldReward: 100
   startChapter: 0
@@ -26,4 +26,4 @@ MonoBehaviour:
     goalType: 1
     what: Cecilia Flower
     requiredAmt: 1
-    currentAmt: 0
+    currentAmt: 1

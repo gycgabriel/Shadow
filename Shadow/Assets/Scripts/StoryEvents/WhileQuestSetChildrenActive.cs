@@ -14,6 +14,10 @@ public class WhileQuestSetChildrenActive : MonoBehaviour
         {
             foreach (Transform child in transform)
             {
+                if (Vector2.Distance(PartyController.activePC.transform.position, child.position) < 1f)
+                {
+                    child.transform.position += new Vector3(-1f, 0f);
+                }
                 child.gameObject.SetActive(true);
             }
         } 
