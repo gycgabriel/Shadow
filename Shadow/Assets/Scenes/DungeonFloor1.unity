@@ -5696,7 +5696,7 @@ GameObject:
   - component: {fileID: 1111613620}
   - component: {fileID: 1111613622}
   - component: {fileID: 1111613621}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: ToFloor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5921,7 +5921,7 @@ GameObject:
   - component: {fileID: 1282438338}
   - component: {fileID: 1282438340}
   - component: {fileID: 1282438339}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: FromFloor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -17197,4 +17197,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33a1a2601fb44af489d69ab0e80301dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quest: {fileID: 11400000, guid: 55f14fa79f8e60b41ab47fad93cb94ba, type: 2}
+  quest: {fileID: 11400000, guid: 9336f9d543af2084f8cd68e536119c83, type: 2}

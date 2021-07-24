@@ -46,7 +46,7 @@ MonoBehaviour:
   enemyToSpawn: {fileID: 7360009962843372809, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
     type: 3}
   enemySpawned: {fileID: 0}
-  spawnTime: 5
+  spawnTime: 20
   isSpawning: 0
   blockingLayer:
     serializedVersion: 2
