@@ -11,6 +11,7 @@ public class KilledMinotaurEvent : MonoBehaviour
     {
         if (StoryManager.scriptInstance.CheckCompletedQuests(questSix) && 
             StoryManager.scriptInstance.CheckEvoked(1, 14) &&
+            !StoryManager.scriptInstance.CheckEvoked(1, 15) &&     // dialogue after tp
             !DialogueManager.scriptInstance.dialogueBox.activeSelf)
         {
             // Black screen fade

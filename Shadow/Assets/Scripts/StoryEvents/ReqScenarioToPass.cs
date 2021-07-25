@@ -28,7 +28,9 @@ public class ReqScenarioToPass : MonoBehaviour
 
     IEnumerator WaitforMovement()
     {
+        // future: need to find a way to restrict user inputs while moving by script
         yield return new WaitUntil(delegate () { return !PartyController.activePC.playerMoving; });
+
 
         ScenarioManager.scriptInstance.PlayScenario(chapterToPlay, scenarioToPlay);
     }

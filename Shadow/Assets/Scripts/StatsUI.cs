@@ -21,6 +21,8 @@ public class StatsUI : MonoBehaviour
     public int[] allocatedPoints;
     private int tempPoints;
 
+    private bool isMagic;
+
     private void Start()
     {
         statTexts = GetComponentsInChildren<TMP_Text>();
@@ -77,6 +79,12 @@ public class StatsUI : MonoBehaviour
 
         portrait.sprite = player.gameObject.GetComponent<PortraitBehaviour>().portraitToDisplay;
         characlassText.text = player.GetCharClass();
+
+        if (player.GetCharClass() == "Sorcerer")
+            isMagic = true;
+        else
+            isMagic = false;
+
         levelText.text = "" + player.currentLevel;
         pointsText.text = "" + tempPoints;
         
@@ -84,18 +92,26 @@ public class StatsUI : MonoBehaviour
         statTexts[1].text = "" + (player.getBaseStats()["hp"] + allocatedPoints[0]);
         statTexts[2].text = "MP";
         statTexts[3].text = "" + (player.getBaseStats()["mp"] + allocatedPoints[1]);
-        statTexts[4].text = "Atk";
-        statTexts[5].text = "" + (player.getBaseStats()["atk"] + allocatedPoints[2]);
+
+        // Show either atk or matk
+        if (isMagic)
+        {
+            statTexts[4].text = "Matk";
+            statTexts[5].text = "" + (player.getBaseStats()["matk"] + allocatedPoints[2]);
+        } else
+        {
+            statTexts[4].text = "Atk";
+            statTexts[5].text = "" + (player.getBaseStats()["atk"] + allocatedPoints[2]);
+        }
+
         statTexts[6].text = "Def";
         statTexts[7].text = "" + (player.getBaseStats()["def"] + allocatedPoints[3]);
-        statTexts[8].text = "Matk";
-        statTexts[9].text = "" + (player.getBaseStats()["matk"] + allocatedPoints[4]);
-        statTexts[10].text = "Mdef";
-        statTexts[11].text = "" + (player.getBaseStats()["mdef"] + allocatedPoints[5]);
-        statTexts[12].text = "Agi";
+        statTexts[8].text = "Mdef";
+        statTexts[9].text = "" + (player.getBaseStats()["mdef"] + allocatedPoints[5]);
+        /*statTexts[12].text = "Agi";
         statTexts[13].text = "" + (player.getBaseStats()["agi"] + allocatedPoints[6]);
         statTexts[14].text = "Luk";
-        statTexts[15].text = "" + (player.getBaseStats()["luk"] + allocatedPoints[7]);
+        statTexts[15].text = "" + (player.getBaseStats()["luk"] + allocatedPoints[7]);*/
 
 
         for (int i = 0; i < statPointsButtons.Length; i++)
@@ -152,12 +168,16 @@ public class StatsUI : MonoBehaviour
                     1 => "mp",
                     2 => "atk",
                     3 => "def",
-                    4 => "matk",
-                    5 => "mdef",
-                    6 => "agi",
+                    4 => "mdef",
+                    5 => "agi",
+                    6 => "luk",
                     7 => "luk",
                     _ => "hp"
                 };
+
+                // catch atk and assign matk if magic
+                if (statName == "atk" && isMagic)
+                    statName = "matk";
 
                 if (player.statPoints - allocatedPoints[i] >= 0)
                 {
