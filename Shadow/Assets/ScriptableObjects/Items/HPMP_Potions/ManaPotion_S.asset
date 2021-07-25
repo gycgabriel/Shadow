@@ -20,8 +20,8 @@ MonoBehaviour:
   description: Drink to recover 50MP.
   flavorText: Tastes of strawberries and calla lilies. Might've been made by a certain
     cat bartender.
-  buyPrice: 240
-  sellPrice: 120
+  buyPrice: 100
+  sellPrice: 75
   consumableType: 1
   recoveryAmt: 50
   recoveryEffect: {fileID: 0}
