@@ -11,6 +11,7 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public GameObject pauseMenuUI;               //The UI of the pause menu
     public GameObject statsScreen;
+    public GameObject questScreen;
     public GameObject inventoryScreen;
     public GameObject howToPlayUI;
 
@@ -27,6 +28,9 @@ public class PauseMenu : Singleton<PauseMenu>
         if (QuestWindow.scriptInstance != null && QuestWindow.scriptInstance.isOpen)
             return;
 
+        if (ShopMenu.scriptInstance.ShopMenuUI.activeSelf == true)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.X))
         {
             if (infoPanel.activeSelf)
@@ -39,9 +43,19 @@ public class PauseMenu : Singleton<PauseMenu>
                 HideStats();
                 return;
             }
+            if (questScreen.activeSelf == true)
+            {
+                HideQuests();
+                return;
+            }
             if (inventoryScreen.activeSelf == true)
             {
                 HideInventory();
+                return;
+            }
+            if (howToPlayUI.activeSelf == true)
+            {
+                HideHowToPlay();
                 return;
             }
             if (gameIsPaused)
@@ -95,6 +109,12 @@ public class PauseMenu : Singleton<PauseMenu>
     public void HideStats()
     {
         statsScreen.SetActive(false);
+        pauseMenuUI.SetActive(true);
+    }
+
+    public void HideQuests()
+    {
+        questScreen.SetActive(false);
         pauseMenuUI.SetActive(true);
     }
 
