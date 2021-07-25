@@ -17,11 +17,11 @@ MonoBehaviour:
   icon: {fileID: 258794442815200856, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to recover 1000MP.
+  description: Drink to recover 500MP.
   flavorText: Tastes of raspberries and... Jueyun Chili Peppers?! Might've been made
     by a certain spice-loving nun idol.
-  buyPrice: 1200
-  sellPrice: 600
+  buyPrice: 400
+  sellPrice: 300
   consumableType: 1
-  recoveryAmt: 1000
+  recoveryAmt: 500
   recoveryEffect: {fileID: 0}

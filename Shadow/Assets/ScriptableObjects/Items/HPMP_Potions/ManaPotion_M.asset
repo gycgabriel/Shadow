@@ -17,11 +17,11 @@ MonoBehaviour:
   icon: {fileID: -5688591430339772144, guid: 53cbf90f971806042ab1227c59b87a2d, type: 3}
   isStackable: 1
   currentAmt: 1
-  description: Drink to recover 250MP.
+  description: Drink to recover 200MP.
   flavorText: Tastes of blackcurrants and valberries. Might've been made by a certain
     maid knight.
-  buyPrice: 650
-  sellPrice: 325
+  buyPrice: 200
+  sellPrice: 150
   consumableType: 1
-  recoveryAmt: 250
+  recoveryAmt: 200
   recoveryEffect: {fileID: 0}

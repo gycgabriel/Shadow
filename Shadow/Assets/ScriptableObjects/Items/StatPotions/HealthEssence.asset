@@ -19,8 +19,8 @@ MonoBehaviour:
   currentAmt: 1
   description: Absorb to gain +50 HP.
   flavorText: Essence of condensed life energy.
-  buyPrice: 1000
-  sellPrice: 500
+  buyPrice: 500
+  sellPrice: 400
   consumableType: 2
   statToBoost: 0
   statBoostAmt: 50

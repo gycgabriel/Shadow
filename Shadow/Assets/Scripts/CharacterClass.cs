@@ -46,4 +46,9 @@ public class CharacterClass
             return null;
         }
     }
+
+    protected int LogGrowthFormula(int currentLevel, float growthScaling)
+    {
+        return Mathf.RoundToInt(Mathf.Log(currentLevel) * growthScaling);
+    }
 }

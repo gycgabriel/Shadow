@@ -39,6 +39,6 @@ public class AttackInfo : ScriptableObject
         float levelDiffMultiplier = 1f - levelDiff * 0.02f;
         
         return Mathf.FloorToInt((baseDamage + attackStat * attackMultiplier / 100f) * levelDiffMultiplier
-            / (1f + 0.002f * defenseStat)) + Random.Range(0, 5);
+            / (1f + 0.005f * defenseStat)) + Random.Range(0, 5);
     }
 }

@@ -12,18 +12,18 @@ public class Sorcerer : CharacterClass
     public Sorcerer()
     {
         className = "Sorcerer";
-        startStats = new Stats(100, 100, 5, 10, 50, 15, 20, 0);
-        expFormula = x => Mathf.FloorToInt(Mathf.Pow(x, 3f) + 14f);
+        startStats = new Stats(100, 100, 5, 30, 50, 50, 20, 0);
+        expFormula = x => Mathf.RoundToInt(Mathf.Pow(x, 2.75f) + 49 * x);
         statIncreaseFormula = new Dictionary<string, System.Func<int, int>>()
         {
-            {"hp", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1f) + 10f) },
-            {"mp", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1f) + 10f) },
-            {"atk", x =>  Mathf.FloorToInt(Mathf.Pow(x, 0.5f) + 5f) },
-            {"def", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1f) + 5f) },
-            {"matk", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1.5f) + 15f) },
-            {"mdef", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1.25f) + 8f) },
-            {"agi", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1f) + 5f) },
-            {"luk", x =>  Mathf.FloorToInt(Mathf.Pow(x, 1f) + 5f) },
+            {"hp", x =>  LogGrowthFormula(x, 50) - LogGrowthFormula(x - 1, 50) },
+            {"mp", x =>  LogGrowthFormula(x, 100) - LogGrowthFormula(x - 1, 100) },
+            {"atk", x =>  LogGrowthFormula(x, 0) },
+            {"def", x =>  LogGrowthFormula(x, 45) - LogGrowthFormula(x - 1, 45) },
+            {"matk", x =>  LogGrowthFormula(x, 100) - LogGrowthFormula(x - 1, 100) },
+            {"mdef", x =>  LogGrowthFormula(x, 75) - LogGrowthFormula(x - 1, 75) },
+            {"agi", x =>  LogGrowthFormula(x, 0) },
+            {"luk", x =>  LogGrowthFormula(x, 0) },
         };
     }
 
