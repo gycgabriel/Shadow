@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EndingEvent : MonoBehaviour
 {
@@ -34,6 +35,7 @@ public class EndingEvent : MonoBehaviour
             {
                 StoryManager.scriptInstance.SetEvoked(1, 16);
                 // ending screen and credits roll
+                SceneManager.LoadScene("Credits");
             });
         });
     }
