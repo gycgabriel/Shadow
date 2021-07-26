@@ -9,6 +9,14 @@ public class FadeCanvas : Singleton<FadeCanvas>
     public string levelToLoad;
     public static bool fadeDone;
 
+    public void FadeOut()
+    {
+        fadeDone = false;
+        levelToLoad = "";
+        animator.SetBool("White", false);
+        animator.SetTrigger("FadeOut");
+    }
+
     public void FadeWhiteToScene(string levelName)
     {
         fadeDone = false;
@@ -29,9 +37,11 @@ public class FadeCanvas : Singleton<FadeCanvas>
     void OnFadeOutComplete()
     {
         animator.ResetTrigger("FadeOut");
-        Debug.Log(levelToLoad);
         if (levelToLoad == "")
+        {
+            fadeDone = true;
             return;
+        }
         SceneManager.LoadScene(levelToLoad);
         levelToLoad = "";
         animator.SetTrigger("FadeIn");

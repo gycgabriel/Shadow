@@ -108,7 +108,8 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         Time.timeScale = 1f;
         gameIsPaused = false;
-        FadeCanvas.scriptInstance.FadeToScene(levelToLoad_Menu);
+        FadeCanvas.scriptInstance.FadeOut();
+        SceneManager.LoadScene(levelToLoad_Menu);
         Destroy(this.gameObject);
         DontDestroyOnLoadManager.DestroyAll();
     }
