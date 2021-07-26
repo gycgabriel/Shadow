@@ -35,7 +35,7 @@ public class EndingEvent : MonoBehaviour
             {
                 StoryManager.scriptInstance.SetEvoked(1, 16);
                 // ending screen and credits roll
-                SceneManager.LoadScene("Credits");
+                FadeCanvas.scriptInstance.FadeToScene("Credits");
             });
         });
     }

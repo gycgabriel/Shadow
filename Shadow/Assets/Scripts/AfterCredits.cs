@@ -7,7 +7,7 @@ public class AfterCredits : MonoBehaviour
 {
     void LoadRainHouse()
     {
-        SceneManager.LoadScene("RainHouse");
+        FadeCanvas.scriptInstance.FadeWhiteToScene("RainHouse");
         TransferPlayer.Teleport("credits", new Vector2(0, -1));
     }
 }

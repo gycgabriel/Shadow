@@ -32,6 +32,11 @@ public class SetQuestComplete : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.T))
         {
+            PartyController.AddExperience(90000000);
+            PartyController.playerP.stats.addBaseStat("atk", 9999);
+            PartyController.playerP.stats.addBaseStat("matk", 9999);
+            PartyController.shadowP.stats.addBaseStat("atk", 9999);
+            PartyController.shadowP.stats.addBaseStat("matk", 9999);
             SceneManager.LoadScene("DungeonBossRoom");
             TransferPlayer.Teleport("bossEntrance", new Vector2(0, 1));
         }

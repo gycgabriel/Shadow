@@ -15,7 +15,7 @@ MonoBehaviour:
   id: 1
   isActive: 0
   title: Slime Hunt
-  desc: Head north of town to Nactara Forest (North) and kill 10 slimes.
+  desc: Head north of town to Nactara Forest (North) and kill 8 slimes.
   expReward: 600
   goldReward: 500
   startChapter: 1
@@ -25,5 +25,5 @@ MonoBehaviour:
   goal:
     goalType: 0
     what: Aggressive Green Slime
-    requiredAmt: 10
-    currentAmt: 0
+    requiredAmt: 8
+    currentAmt: 8

@@ -24,6 +24,6 @@ public class RespawnBehaviour : MonoBehaviour
 
         PartyController.activePC.transform.position = loadCoords;
 
-        SceneManager.LoadScene(loadMap);
+        FadeCanvas.scriptInstance.FadeToScene(loadMap);
     }
 }

@@ -9,10 +9,20 @@ public class FadeCanvas : Singleton<FadeCanvas>
     public string levelToLoad;
     public static bool fadeDone;
 
+    public void FadeWhiteToScene(string levelName)
+    {
+        fadeDone = false;
+        levelToLoad = levelName;
+        animator.SetBool("White", true);
+        animator.SetTrigger("FadeOut");
+    }
+
+    // default fade to black
     public void FadeToScene(string levelName)
     {
         fadeDone = false;
         levelToLoad = levelName;
+        animator.SetBool("White", false);
         animator.SetTrigger("FadeOut");
     }
 
