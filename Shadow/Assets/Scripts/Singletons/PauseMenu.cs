@@ -39,22 +39,22 @@ public class PauseMenu : Singleton<PauseMenu>
                 Return();
                 return;
             }
-            if (statsScreen.activeSelf == true)
+            if (statsScreen.activeSelf)
             {
                 HideStats();
                 return;
             }
-            if (questScreen.activeSelf == true)
+            if (questScreen.activeSelf)
             {
                 HideQuests();
                 return;
             }
-            if (inventoryScreen.activeSelf == true)
+            if (inventoryScreen.activeSelf)
             {
                 HideInventory();
                 return;
             }
-            if (howToPlayUI.activeSelf == true)
+            if (howToPlayUI.activeSelf)
             {
                 howToPlayUI.SetActive(false);
                 return;
@@ -69,7 +69,12 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && pauseMenuUI.activeSelf)
+        if (Input.GetKeyDown(KeyCode.Z) && pauseMenuUI.activeSelf &&
+            !infoPanel.activeSelf &&
+            !statsScreen.activeSelf &&
+            !questScreen.activeSelf &&
+            !inventoryScreen.activeSelf &&
+            !howToPlayUI.activeSelf)
         {
             GameObject selectedGO = EventSystem.current.currentSelectedGameObject;
             Button selectedButton = selectedGO.GetComponent<Button>();

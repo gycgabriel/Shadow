@@ -19993,11 +19993,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: HowToPlayScreen
       objectReference: {fileID: 0}
-    - target: {fileID: 7177613725258715878, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7177613725258715879, guid: cb6efb7d7386d4248a5f539113b5ca8f,
         type: 3}
       propertyPath: m_Pivot.x
@@ -20036,7 +20031,7 @@ PrefabInstance:
     - target: {fileID: 7177613725258715879, guid: cb6efb7d7386d4248a5f539113b5ca8f,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 1920
       objectReference: {fileID: 0}
     - target: {fileID: 7177613725258715879, guid: cb6efb7d7386d4248a5f539113b5ca8f,
         type: 3}
@@ -20102,41 +20097,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_Navigation.m_Mode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 3469660868762493310}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: SetActive
-      objectReference: {fileID: 0}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: UnityEngine.GameObject, UnityEngine
-      objectReference: {fileID: 0}
-    - target: {fileID: 7177613726689888300, guid: cb6efb7d7386d4248a5f539113b5ca8f,
-        type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cb6efb7d7386d4248a5f539113b5ca8f, type: 3}
