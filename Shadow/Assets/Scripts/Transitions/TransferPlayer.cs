@@ -26,7 +26,8 @@ public class TransferPlayer : MonoBehaviour
         {
             if (sceneToLoad != "")
             {
-                SceneManager.LoadScene(sceneToLoad);
+                FadeCanvas.scriptInstance.FadeToScene(sceneToLoad);
+                // SceneManager.LoadScene(sceneToLoad);
             }
             if (transferTo != "")
             {

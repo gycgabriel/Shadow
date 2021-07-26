@@ -93,6 +93,11 @@ public class PartyController : Singleton<PartyController>
             }
 
             Vector2 movement = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+            // No movement
+            if (!FadeCanvas.fadeDone)
+                movement = new Vector2(0, 0);
+
             bool attackInput = Input.GetKeyDown(KeyCode.Z) || Input.GetKeyDown(KeyCode.J);
             
             bool dashInput = Input.GetKey(KeyCode.LeftShift);

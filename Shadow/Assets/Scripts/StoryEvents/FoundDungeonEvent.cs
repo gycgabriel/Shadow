@@ -12,6 +12,10 @@ public class FoundDungeonEvent : MonoBehaviour
             return;
 
         if (PartyController.quest.id == quest.id && PartyController.quest.isActive)
+        {
+            PartyController.AddExperience(quest.expReward);
+            PartyController.AddGold(quest.goldReward);
             QuestWindow.scriptInstance.OpenCompleted(PartyController.quest, PartyController.questChain);
+        }
     }
 }
