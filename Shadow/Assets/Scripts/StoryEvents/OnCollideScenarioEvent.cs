@@ -15,9 +15,7 @@ public class OnCollideScenarioEvent : MonoBehaviour
             return;
         if (!StoryManager.scriptInstance.CheckEvoked(reqChapter, reqScenario))
             return;
-        GetText.LoadChapter(chapter);
-        GetText.LoadScenario(scenario);
-        Singleton<ScenarioManager>.scriptInstance.PlayScenario();
+        ScenarioManager.scriptInstance.PlayScenario(chapter, scenario);
         StoryManager.scriptInstance.SetEvoked(chapter, scenario);
     }
 }

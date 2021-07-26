@@ -20,9 +20,7 @@ public class CeciliaInteractable : Interactable
         else
         {
             QuestGiver qg = GetComponent<QuestGiver>();
-            GetText.LoadChapter(1);
-            GetText.LoadScenario(1);
-            ScenarioManager.scriptInstance.PlayScenario(delegate () { qg.OpenQuestWindow(); });
+            ScenarioManager.scriptInstance.PlayScenario(1, 1, delegate () { qg.OpenQuestWindow(); });
             StoryManager.scriptInstance.SetEvoked(1, 1);
         }
     }

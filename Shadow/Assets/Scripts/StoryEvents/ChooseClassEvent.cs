@@ -34,9 +34,7 @@ public class ChooseClassEvent : MonoBehaviour
             playerClass = cccUI.chosenClass;
             cccUI.confirmed = false;
             cccUI.gameObject.SetActive(false);
-            GetText.LoadChapter(0);
-            GetText.LoadScenario(1);
-            Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
+            ScenarioManager.scriptInstance.PlayScenario(0, 1, () => {
                 cccUI.gameObject.SetActive(true);
 
                 // Change displayed sprites for Shadow to darker color theme
@@ -49,9 +47,7 @@ public class ChooseClassEvent : MonoBehaviour
             shadowClass = cccUI.chosenClass;
             cccUI.confirmed = false;
             cccUI.gameObject.SetActive(false);
-            GetText.LoadChapter(0);
-            GetText.LoadScenario(2);
-            Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
+            ScenarioManager.scriptInstance.PlayScenario(0, 2, () => {
                 NextScene();
             }); 
         }

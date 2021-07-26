@@ -34,8 +34,6 @@ public class OnFirstLevelUpEvent : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        GetText.LoadChapter(0);
-        GetText.LoadScenario(3);
-        Singleton<ScenarioManager>.scriptInstance.PlayScenario();
+        ScenarioManager.scriptInstance.PlayScenario(0, 3);
     }
 }

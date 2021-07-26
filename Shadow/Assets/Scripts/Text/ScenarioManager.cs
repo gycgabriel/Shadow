@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class ScenarioManager : Singleton<ScenarioManager>
 {
+    public TextAsset chapter0;
+    public TextAsset chapter1;
     private Queue<Dialogue> queue = new Queue<Dialogue>();
     private System.Action onScenarioEnd = null;
 
@@ -16,8 +18,7 @@ public class ScenarioManager : Singleton<ScenarioManager>
             queue.Enqueue(dialogue);
         }
     }
-
-    // Overloaded for convenience 
+ 
     public void PlayScenario(int chapter, int scenario, System.Action nextAction = null)
     {
         if (chapter == -1)
@@ -25,12 +26,19 @@ public class ScenarioManager : Singleton<ScenarioManager>
             nextAction?.Invoke();
             return;
         }
-        GetText.LoadChapter(chapter);
-        GetText.LoadScenario(scenario);
+
+        if (chapter == 0)
+        {
+            GetText.Load(chapter0, scenario);
+        }
+        else if (chapter == 1)
+        {
+            GetText.Load(chapter1, scenario);
+        }
         PlayScenario(nextAction);
     }
 
-    public void PlayScenario(System.Action nextAction = null)
+    private void PlayScenario(System.Action nextAction = null)
     {
         // Assign to keep track for future ContinueText() from button press
         this.onScenarioEnd = nextAction;

@@ -13,6 +13,7 @@ public static class GetText
     private static Chapter chapter;
     private static Scenario scenario;
 
+    // deprecated: need to drag in Text folder to Build
     public static void LoadChapter(int chapterNum)
     {
         string filepath = Path.Combine(Application.dataPath, "Text", filePrefix + chapterNum + ".json");
@@ -20,10 +21,19 @@ public static class GetText
         chapter = JsonUtility.FromJson<Chapter>(jsonString);
     }
 
+    // deprecated: need to drag in Text folder to Build
     public static void LoadScenario(int scenarioIndex)
     {
         scenario = chapter.data[scenarioIndex];
-        Singleton<ScenarioManager>.scriptInstance.InitScenario(scenario);
+        ScenarioManager.scriptInstance.InitScenario(scenario);
+    }
+
+    public static void Load(TextAsset jsonText, int scenarioIndex)
+    {
+        string jsonString = jsonText.text;
+        chapter = JsonUtility.FromJson<Chapter>(jsonString);
+        scenario = chapter.data[scenarioIndex];
+        ScenarioManager.scriptInstance.InitScenario(scenario);
     }
 
 }

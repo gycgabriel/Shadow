@@ -44,10 +44,8 @@ public class OnQuestCompleteEvent : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        GetText.LoadChapter(chapter);
-        GetText.LoadScenario(scenario);
         QuestGiver qw = GetComponent<QuestGiver>();
-        Singleton<ScenarioManager>.scriptInstance.PlayScenario(delegate () {
+        ScenarioManager.scriptInstance.PlayScenario(chapter, scenario, delegate () {
             
             if (giveNextQuest)
             {

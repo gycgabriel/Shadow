@@ -10,9 +10,7 @@ public class PreludeEvent : StartonSceneLoad
 
     public override void StartEvent()
     {
-        GetText.LoadChapter(0);
-        GetText.LoadScenario(0);
-        Singleton<ScenarioManager>.scriptInstance.PlayScenario(() => {
+        ScenarioManager.scriptInstance.PlayScenario(0, 0, () => {
             SceneManager.LoadScene("ChooseClassScreen");
         });
     }

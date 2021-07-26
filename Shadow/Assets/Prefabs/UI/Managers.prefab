@@ -44,6 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5effa217b9166134a9164fb0d98722c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  chapter0: {fileID: 4900000, guid: 4b209085cde07f14fa1f9ed35a984668, type: 3}
+  chapter1: {fileID: 4900000, guid: 8270894da911e3946b9a5bc616fc8d27, type: 3}
 --- !u!114 &7788356136293055354
 MonoBehaviour:
   m_ObjectHideFlags: 0
