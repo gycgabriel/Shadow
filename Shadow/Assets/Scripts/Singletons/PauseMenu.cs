@@ -56,7 +56,7 @@ public class PauseMenu : Singleton<PauseMenu>
             }
             if (howToPlayUI.activeSelf == true)
             {
-                HideHowToPlay();
+                howToPlayUI.SetActive(false);
                 return;
             }
             if (gameIsPaused)
@@ -69,7 +69,7 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Z) && pauseMenuUI.activeSelf)
         {
             GameObject selectedGO = EventSystem.current.currentSelectedGameObject;
             Button selectedButton = selectedGO.GetComponent<Button>();

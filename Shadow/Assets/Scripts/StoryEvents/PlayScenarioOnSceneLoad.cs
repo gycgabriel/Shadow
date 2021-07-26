@@ -25,7 +25,7 @@ public class PlayScenarioOnSceneLoad : MonoBehaviour
         }
     }
 
-    IEnumerator StartEvent()
+    public virtual IEnumerator StartEvent()
     {
         yield return new WaitForSeconds(0.5f);
         ScenarioManager.scriptInstance.PlayScenario(chapter, scenario);

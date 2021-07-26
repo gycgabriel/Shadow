@@ -38303,7 +38303,7 @@ Tilemap:
       - {fileID: -8711526858539700580, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -5489776585021722106, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 8660102734062077835, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -24, y: -24, z: 0}
@@ -38989,7 +38989,7 @@ Tilemap:
       - {fileID: -8711526858539700580, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -5489776585021722106, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 8660102734062077835, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -35, y: -9, z: 0}
@@ -39143,7 +39143,7 @@ Tilemap:
       - {fileID: 3749969626445832572, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -2432148692876737034, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -1409731893350466857, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -36, y: -5, z: 0}
@@ -39409,7 +39409,7 @@ Tilemap:
       - {fileID: -4066561435097321230, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: -5536298882523217839, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
       - {fileID: 8620935075240847253, guid: 3ea1750c76fc6234ba1deb7675f19a45, type: 3}
-      m_AnimationSpeed: 5.0000005
+      m_AnimationSpeed: 5
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   - first: {x: -37, y: 1, z: 0}
@@ -140810,9 +140810,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2047685808}
-  - component: {fileID: 2047685809}
   - component: {fileID: 2047685810}
   - component: {fileID: 2047685811}
+  - component: {fileID: 2047685809}
   m_Layer: 0
   m_Name: Events
   m_TagString: Untagged
@@ -140847,7 +140847,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 2047685807}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 83f5891352b87a54faf41450f2b63a76, type: 3}
+  m_Script: {fileID: 11500000, guid: 6754e74c935c0e44c8ba3e01a543ce22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   chapter: 1
