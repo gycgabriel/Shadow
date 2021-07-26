@@ -24,14 +24,14 @@ public class DialogueManager : Singleton<DialogueManager>
 
     IEnumerator WaitForFade(Dialogue dialogue, System.Action nextAction)
     {
-        yield return new WaitUntil(() => FadeCanvas.fadeDone);
+        yield return new WaitUntil(() => FadeCanvas.fadeDone && !PauseMenu.gameIsPaused);
         StartDialogue(dialogue, nextAction);
     }
 
 
     public void StartDialogue(Dialogue dialogue, System.Action nextAction = null)
     {
-        if (!FadeCanvas.fadeDone)
+        if (!FadeCanvas.fadeDone || PauseMenu.gameIsPaused)
         {
             StartCoroutine(WaitForFade(dialogue, nextAction));
             return;

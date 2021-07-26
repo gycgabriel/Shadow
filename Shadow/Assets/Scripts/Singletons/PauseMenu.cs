@@ -23,6 +23,9 @@ public class PauseMenu : Singleton<PauseMenu>
 
     private void Update()
     {
+        if (!FadeCanvas.fadeDone)
+            return;
+
         if (DialogueManager.scriptInstance != null && DialogueManager.scriptInstance.dialogueBox.activeSelf)
             return;
 
@@ -69,7 +72,7 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Z) && pauseMenuUI.activeSelf &&
+        if (gameIsPaused && pauseMenuUI.activeSelf && Input.GetKeyDown(KeyCode.Z) &&
             !infoPanel.activeSelf &&
             !statsScreen.activeSelf &&
             !questScreen.activeSelf &&
@@ -77,9 +80,12 @@ public class PauseMenu : Singleton<PauseMenu>
             !howToPlayUI.activeSelf)
         {
             GameObject selectedGO = EventSystem.current.currentSelectedGameObject;
-            Button selectedButton = selectedGO.GetComponent<Button>();
-            if (selectedButton != null)
-                selectedButton.onClick.Invoke();
+            if (selectedGO != null)
+            {
+                Button selectedButton = selectedGO.GetComponent<Button>();
+                if (selectedButton != null)
+                    selectedButton.onClick.Invoke();
+            }
         }
     }
 

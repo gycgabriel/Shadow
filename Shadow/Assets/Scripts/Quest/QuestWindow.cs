@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using TMPro;
 
@@ -20,6 +21,8 @@ public class QuestWindow : Singleton<QuestWindow>
     public Button ok;
 
     public bool isOpen;
+
+    private float lastTapTime;
 
     private void Start()
     {
@@ -41,6 +44,37 @@ public class QuestWindow : Singleton<QuestWindow>
 
         Button[] cbuttonArr = completed.GetComponentsInChildren<Button>(true);
         ok = cbuttonArr[0];
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Z) && isOpen)
+        {
+            // Double tap
+            if (lastTapTime > 0f && Time.realtimeSinceStartup - lastTapTime <= 0.5f) {
+                if (panel.activeSelf)
+                {
+                    accept.Select();
+                    StartCoroutine(WaitFewSeconds(() => accept.onClick.Invoke()));
+                }
+                else if (completed.activeSelf)
+                {
+                    ok.Select();
+                    StartCoroutine(WaitFewSeconds(() => ok.onClick.Invoke()));
+                }
+                lastTapTime = 0f;
+            }
+            else
+            {
+                lastTapTime = Time.realtimeSinceStartup;
+            }
+        }
+    }
+
+    IEnumerator WaitFewSeconds(System.Action action)
+    {
+        yield return new WaitForSecondsRealtime(0.5f);
+        action.Invoke();
     }
 
     public void Open(Quest quest, QuestChain questChain = null)
