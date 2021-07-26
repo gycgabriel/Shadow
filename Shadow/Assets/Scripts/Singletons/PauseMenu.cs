@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : Singleton<PauseMenu>
 {
@@ -66,6 +67,14 @@ public class PauseMenu : Singleton<PauseMenu>
             {
                 PauseGame();
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            GameObject selectedGO = EventSystem.current.currentSelectedGameObject;
+            Button selectedButton = selectedGO.GetComponent<Button>();
+            if (selectedButton != null)
+                selectedButton.onClick.Invoke();
         }
     }
 
