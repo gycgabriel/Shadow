@@ -24,6 +24,11 @@ public class TalkToCompleteQuest : Interactable
             return;
 
         if (PartyController.quest != null && PartyController.quest.id == quest.id && PartyController.quest.isActive)
+        {
+            PartyController.AddExperience(quest.expReward);
+            PartyController.AddGold(quest.goldReward);
             QuestWindow.scriptInstance.OpenCompleted(PartyController.quest, PartyController.questChain);
+        }
+            
     }
 }
