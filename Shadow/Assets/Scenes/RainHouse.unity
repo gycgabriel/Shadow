@@ -1789,6 +1789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dae588a6bf4bb6343b8a3ed9fdc24523, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  lastQuest: {fileID: 11400000, guid: 9336f9d543af2084f8cd68e536119c83, type: 2}
 --- !u!4 &664779539
 Transform:
   m_ObjectHideFlags: 0

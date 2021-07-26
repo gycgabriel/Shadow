@@ -65,7 +65,7 @@ public class ChooseClassEvent : MonoBehaviour
         shadow.GetComponentInChildren<PlayerSprite>().isShadow = true;
 
         shadow.SetActive(false);
-        SceneManager.LoadScene(loadMap);
+        FadeCanvas.scriptInstance.FadeToScene(loadMap);
     }
 
     public GameObject chooseClass(string name)        // Guardian, Sorcerer, (first letter caps)

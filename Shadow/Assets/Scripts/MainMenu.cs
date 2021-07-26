@@ -51,7 +51,7 @@ public class MainMenu : MonoBehaviour
     public void ConfirmStartNewGame()
     {
         SaveSystem.DeleteSaveData(1);
-        SceneManager.LoadScene(levelToLoad);
+        FadeCanvas.scriptInstance.FadeToScene(levelToLoad);
     }
 
     public void CancelStartNewGame()

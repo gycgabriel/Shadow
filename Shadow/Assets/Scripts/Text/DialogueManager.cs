@@ -22,8 +22,21 @@ public class DialogueManager : Singleton<DialogueManager>
     public bool scenarioOngoing;
     private System.Action onDialogueEnd;
 
+    IEnumerator WaitForFade(Dialogue dialogue, System.Action nextAction)
+    {
+        yield return new WaitUntil(() => FadeCanvas.fadeDone);
+        StartDialogue(dialogue, nextAction);
+    }
+
+
     public void StartDialogue(Dialogue dialogue, System.Action nextAction = null)
     {
+        if (!FadeCanvas.fadeDone)
+        {
+            StartCoroutine(WaitForFade(dialogue, nextAction));
+            return;
+        }
+
         //Pause game?
         Time.timeScale = 0f;
         

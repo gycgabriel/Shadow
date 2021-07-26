@@ -17,7 +17,7 @@ public abstract class StartonSceneLoad : MonoBehaviour
             {
                 done = true;
             }
-            else
+            else if (FadeCanvas.fadeDone)
             {
                 StartEvent();
                 done = true;
