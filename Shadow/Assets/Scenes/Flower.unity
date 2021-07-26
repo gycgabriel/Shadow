@@ -1443,6 +1443,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6054528989439276138, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: m_RootOrder
@@ -1568,6 +1573,7 @@ MonoBehaviour:
   quest: {fileID: 11400000, guid: 999f661e0c636174ca2ab10f339bf40e, type: 2}
   chapter: 1
   scenario: 5
+  done: 0
 --- !u!1 &352468190
 GameObject:
   m_ObjectHideFlags: 0
@@ -1942,6 +1948,11 @@ PrefabInstance:
     - target: {fileID: 2667886838111953109, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054528989439276138, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
@@ -2999,6 +3010,11 @@ PrefabInstance:
       propertyPath: moveSpeed
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6054528989439276138, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: m_RootOrder
@@ -3123,6 +3139,11 @@ PrefabInstance:
     - target: {fileID: 2667886838111953109, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054528989439276138, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
@@ -3339,6 +3360,11 @@ PrefabInstance:
     - target: {fileID: 2667886838111953109, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054528989439276138, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
@@ -4160,6 +4186,11 @@ PrefabInstance:
     - target: {fileID: 2667886838111953109, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
         type: 3}
       propertyPath: moveSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6054528989439276138, guid: 5b351871b89b7c4409354f3b0dbcf8c8,
+        type: 3}
+      propertyPath: m_Color.a
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7360009962843372801, guid: 5b351871b89b7c4409354f3b0dbcf8c8,

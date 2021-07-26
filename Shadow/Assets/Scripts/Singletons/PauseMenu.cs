@@ -32,7 +32,7 @@ public class PauseMenu : Singleton<PauseMenu>
         if (QuestWindow.scriptInstance != null && QuestWindow.scriptInstance.isOpen)
             return;
 
-        if (ShopMenu.scriptInstance.ShopMenuUI.activeSelf == true)
+        if (ShopMenu.scriptInstance != null && ShopMenu.scriptInstance.ShopMenuUI.activeSelf == true)
             return;
 
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.X))
