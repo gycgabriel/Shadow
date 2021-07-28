@@ -24,6 +24,9 @@ public class QuestWindow : Singleton<QuestWindow>
 
     private float lastTapTime;
 
+    public AudioClip startSFX;
+    public AudioClip completeSFX;
+
     private void Start()
     {
         panel = transform.GetChild(0).gameObject;
@@ -79,6 +82,8 @@ public class QuestWindow : Singleton<QuestWindow>
 
     public void Open(Quest quest, QuestChain questChain = null)
     {
+        GetComponent<AudioSource>().PlayOneShot(startSFX);
+
         //Pause game?
         Time.timeScale = 0f;
         panel.SetActive(true);
@@ -105,6 +110,8 @@ public class QuestWindow : Singleton<QuestWindow>
 
     public void OpenCompleted(Quest quest, QuestChain questChain = null)
     {
+        GetComponent<AudioSource>().PlayOneShot(completeSFX);
+        
         //Pause game?
         Time.timeScale = 0f;
         completedExp.text = quest.expReward.ToString();
