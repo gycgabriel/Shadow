@@ -207,6 +207,8 @@ MonoBehaviour:
   playerGoingToAttack: 0
   playerGoingToUltimate: 0
   playerAttacking: 0
+  changeShadowPrefab: {fileID: 3468495262585849754, guid: c75f1e951f921bd4eb30216b16bfbed6,
+    type: 3}
 --- !u!210 &7021806160790640474
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -892,6 +894,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 553b7a4657850224c8099a1fb7035712, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isShadow: 0
 --- !u!1 &7612482438137026793
 GameObject:
   m_ObjectHideFlags: 0

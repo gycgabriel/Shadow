@@ -29,6 +29,10 @@ public class PlayerController : MonoBehaviour
     public bool playerGoingToUltimate;
     public bool playerAttacking;
 
+    // Change shadow transition
+    public GameObject changeShadowPrefab;
+
+
     void Start()
     {
         movePoint.parent = null;
@@ -187,6 +191,7 @@ public class PlayerController : MonoBehaviour
         {
             playerMoving = false;
             PartyController.SwitchShadow();
+            Instantiate(changeShadowPrefab, transform, false);
         }
     }
 
