@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
@@ -13,10 +13,15 @@ public class MainMenu : MonoBehaviour
     public GameObject confirmNewGameWindow;
     public GameObject confirmNoSaveDataWindow;
 
+    public GameObject newGameButtonGO, loadButtonGO, howToPlayButtonGO;
+    public GameObject confirmStartButtonGO, confirmNoSaveButtonGO;
+
     public void PlayGame()
     {
         if (SaveSystem.HaveSaveData(1))
         {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(confirmStartButtonGO);
             confirmNewGameWindow.SetActive(true);
             foreach (Button button in GetComponentsInChildren<Button>())
             {
@@ -31,6 +36,9 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
+        EventSystem.current.SetSelectedGameObject(null);
+        // set a new selected object
+        EventSystem.current.SetSelectedGameObject(newGameButtonGO);
         loadButton.interactable = SaveSystem.HaveSaveData(1);
     }
 
@@ -38,6 +46,8 @@ public class MainMenu : MonoBehaviour
     {
         if (!SaveSystem.HaveSaveData(1))
         {
+            EventSystem.current.SetSelectedGameObject(null);
+            EventSystem.current.SetSelectedGameObject(confirmNoSaveButtonGO);
             confirmNoSaveDataWindow.SetActive(true);
         }
     }
