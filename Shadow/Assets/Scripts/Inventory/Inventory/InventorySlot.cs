@@ -19,7 +19,6 @@ public class InventorySlot : MonoBehaviour  {
 
 		icon.sprite = item.icon;
 		icon.enabled = true;
-		itemButton.interactable = true;
 		if (item.currentAmt > 1)
         {
 			stackText.text = "" + item.currentAmt;
@@ -37,7 +36,6 @@ public class InventorySlot : MonoBehaviour  {
 
 		icon.sprite = null;
 		icon.enabled = false;
-		itemButton.interactable = false;
 		stackText.text = "";
 	}
 

@@ -177,14 +177,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelToLoad: Prelude
+  newGameButton: {fileID: 920322601}
   loadButton: {fileID: 270191848}
+  howToPlayButton: {fileID: 2016076468}
+  confirmStartButton: {fileID: 1683236347}
+  confirmNoSaveButton: {fileID: 1711663621}
   confirmNewGameWindow: {fileID: 1632339345}
   confirmNoSaveDataWindow: {fileID: 1560975535}
-  newGameButtonGO: {fileID: 920322599}
-  loadButtonGO: {fileID: 270191845}
-  howToPlayButtonGO: {fileID: 2016076465}
-  confirmStartButtonGO: {fileID: 1683236345}
-  confirmNoSaveButtonGO: {fileID: 1711663619}
 --- !u!1 &270191845
 GameObject:
   m_ObjectHideFlags: 0

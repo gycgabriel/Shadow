@@ -13,6 +13,18 @@ public class SelectHotkeyWindow : MonoBehaviour
 		slots = SelectHotKeyPanel.GetComponentsInChildren<InventorySlot>();
 	}
 
+    private void Update()
+    {
+		if (Input.GetKeyDown(KeyCode.Alpha1))
+			SelectHotkeySlot(0);
+		else if (Input.GetKeyDown(KeyCode.Alpha2))
+			SelectHotkeySlot(1);
+		else if (Input.GetKeyDown(KeyCode.Alpha3))
+			SelectHotkeySlot(2);
+		else if (Input.GetKeyDown(KeyCode.Alpha4))
+			SelectHotkeySlot(3);
+	}
+
     private void OnEnable()
     {
 		Debug.Log("Updating Select Hotkey UI.");
@@ -41,11 +53,13 @@ public class SelectHotkeyWindow : MonoBehaviour
     {
 		ItemHotkeyUIManager.scriptInstance.SetHotkeyItem(hotkeyNum, (Consumable)InventoryUI.selectedItem);
 		gameObject.SetActive(false);
-		PauseMenu.scriptInstance.PopInfoWindow("New Hotkey Set!");
+		PauseMenu.scriptInstance.PopInfoWindow("New Hotkey Set!", GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn);
     }
 
 	public void Return()
     {
 		gameObject.SetActive(false);
-    }
+		GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn.Select();
+		GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn.OnSelect(null);
+	}
 }

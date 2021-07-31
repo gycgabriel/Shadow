@@ -21,6 +21,15 @@ public class PauseMenu : Singleton<PauseMenu>
 
     public GameObject infoPanel;
 
+    public Transform LHSBtnParent;
+
+    Button[] LHSBtns;
+
+    private void OnEnable()
+    {
+        LHSBtns = LHSBtnParent.GetComponentsInChildren<Button>();
+    }
+
     private void Update()
     {
         if (!FadeCanvas.fadeDone)
@@ -72,6 +81,7 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
 
+        /*
         if (gameIsPaused && pauseMenuUI.activeSelf && Input.GetKeyDown(KeyCode.Z) &&
             !infoPanel.activeSelf &&
             !statsScreen.activeSelf &&
@@ -87,6 +97,7 @@ public class PauseMenu : Singleton<PauseMenu>
                     selectedButton.onClick.Invoke();
             }
         }
+        */
     }
 
     public void ResumeGame()
@@ -131,12 +142,29 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         statsScreen.SetActive(false);
         pauseMenuUI.SetActive(true);
+        SelectButton(LHSBtns[1]);
     }
 
     public void HideQuests()
     {
         questScreen.SetActive(false);
         pauseMenuUI.SetActive(true);
+        SelectButton(LHSBtns[2]);
+    }
+
+    public void ShowInventory()
+    {
+        inventoryScreen.SetActive(true);
+        pauseMenuUI.SetActive(false);
+        Debug.Log("Showing Inventory");
+    }
+
+    public void HideInventory()
+    {
+        inventoryScreen.SetActive(false);
+        pauseMenuUI.SetActive(true);
+        SelectButton(LHSBtns[3]);
+        Debug.Log("Hiding Inventory");
     }
 
     public void ShowHowToPlay()
@@ -149,17 +177,16 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         howToPlayUI.SetActive(false);
         pauseMenuUI.SetActive(true);
+        SelectButton(LHSBtns[6]);
     }
-    public void ShowInventory()
+    
+    public void PopSavedWindow()
     {
-        inventoryScreen.SetActive(true);
-        pauseMenuUI.SetActive(false);
+        PopInfoWindow("Saved!", LHSBtns[4]);
     }
-
-    public void HideInventory()
+    public void PopLoadedWindow()
     {
-        inventoryScreen.SetActive(false);
-        pauseMenuUI.SetActive(true);
+        PopInfoWindow("Loaded!", LHSBtns[5]);
     }
 
     // Pop up window with a message and an "OK" button
@@ -167,6 +194,23 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         infoPanel.SetActive(true);
         infoPanel.GetComponentInChildren<TMP_Text>().text = message;
+        infoPanel.GetComponentInChildren<Button>().Select();
+        infoPanel.GetComponentInChildren<Button>().OnSelect(null);
+    }
+
+    // Overload pop up window with which button to select after closing window
+    public void PopInfoWindow(string message, Button btn)
+    {
+        infoPanel.SetActive(true);
+        infoPanel.GetComponentInChildren<TMP_Text>().text = message;
+        Button infoBtn = infoPanel.GetComponentInChildren<Button>();
+        infoBtn.onClick.AddListener(() =>
+        {
+            btn.Select();
+            btn.OnSelect(null);
+        });
+        infoBtn.Select();
+        infoBtn.OnSelect(null);
     }
 
     // Closing of pop up window
@@ -187,5 +231,14 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         Time.timeScale = 1f;
         gameIsPaused = false;
+    }
+
+    public void SelectButton(Button btn)
+    {
+        if (btn != null)
+        {
+            btn.Select();
+            btn.OnSelect(null);
+        }
     }
 }

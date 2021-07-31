@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class ItemOptions : MonoBehaviour
 {
+	public Button selectedSlotBtn;
 	public GameObject setHotkeyWindow;
 	public GameObject discardWindow;
 	public Button useButton;
@@ -13,24 +14,37 @@ public class ItemOptions : MonoBehaviour
 
 	private void OnEnable()
 	{
-		useButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
-		setHotkeyButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
-		discardButton.interactable = !(InventoryUI.selectedItem.GetType() == (typeof(QuestItem)));
+		if (InventoryUI.selectedItem == null)
+        {
+			useButton.interactable = false;
+			setHotkeyButton.interactable = false;
+			discardButton.interactable = false;
+		}
+		else
+        {
+			useButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
+			setHotkeyButton.interactable = InventoryUI.selectedItem.GetType().IsSubclassOf(typeof(Consumable));
+			discardButton.interactable = !(InventoryUI.selectedItem.GetType() == (typeof(QuestItem)));
+		}
+		useButton.Select();
+		useButton.OnSelect(null);
 	}
 
-	public void UseItem()
+    public void UseItem()
 	{
 		Consumable item = (Consumable) InventoryUI.selectedItem;
 		if (!ItemHotkeyUIManager.scriptInstance.IsItemOnCooldown(item))
         {
 			ItemHotkeyUIManager.scriptInstance.UseItem(item);
 			gameObject.SetActive(false);
+			selectedSlotBtn.Select();
+			selectedSlotBtn.OnSelect(null);
 		}
 		else
         {
 			float remainingCD = ItemHotkeyUIManager.scriptInstance.GetRemainingCooldown(item);
 			string message = string.Format("Item still on cooldown!\n Cooldown: {0:F1}s", remainingCD);
-			PauseMenu.scriptInstance.PopInfoWindow(message);
+			PauseMenu.scriptInstance.PopInfoWindow(message, selectedSlotBtn);
         }
 	}
 
@@ -45,6 +59,13 @@ public class ItemOptions : MonoBehaviour
 	{
 		discardWindow.SetActive(true);
 		gameObject.SetActive(false);
+	}
+
+	public void OnBackButton()
+    {
+		gameObject.SetActive(false);
+		selectedSlotBtn.Select();
+		selectedSlotBtn.OnSelect(null);
 	}
 
 

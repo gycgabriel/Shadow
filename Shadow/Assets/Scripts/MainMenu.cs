@@ -1,27 +1,22 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 public class MainMenu : MonoBehaviour
 {
     public string levelToLoad;              //The name of the scene to be loaded
 
-    public Button loadButton;
+    public Button newGameButton, loadButton, howToPlayButton;
+    public Button confirmStartButton, confirmNoSaveButton;
 
     public GameObject confirmNewGameWindow;
     public GameObject confirmNoSaveDataWindow;
-
-    public GameObject newGameButtonGO, loadButtonGO, howToPlayButtonGO;
-    public GameObject confirmStartButtonGO, confirmNoSaveButtonGO;
 
     public void PlayGame()
     {
         if (SaveSystem.HaveSaveData(1))
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(confirmStartButtonGO);
+            confirmStartButton.Select();
+            confirmStartButton.OnSelect(null);
             confirmNewGameWindow.SetActive(true);
             foreach (Button button in GetComponentsInChildren<Button>())
             {
@@ -36,9 +31,8 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        EventSystem.current.SetSelectedGameObject(null);
-        // set a new selected object
-        EventSystem.current.SetSelectedGameObject(newGameButtonGO);
+        newGameButton.Select();
+        newGameButton.OnSelect(null);
         loadButton.interactable = SaveSystem.HaveSaveData(1);
     }
 
@@ -46,8 +40,8 @@ public class MainMenu : MonoBehaviour
     {
         if (!SaveSystem.HaveSaveData(1))
         {
-            EventSystem.current.SetSelectedGameObject(null);
-            EventSystem.current.SetSelectedGameObject(confirmNoSaveButtonGO);
+            confirmNoSaveButton.Select();
+            confirmNoSaveButton.OnSelect(null);
             confirmNoSaveDataWindow.SetActive(true);
         }
     }

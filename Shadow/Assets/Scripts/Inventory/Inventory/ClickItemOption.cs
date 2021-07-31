@@ -21,7 +21,7 @@ public class ClickItemOption : MonoBehaviour, IPointerClickHandler
 			GetComponentInParent<InventorySlot>().SelectItem();
 			itemOptionsWindow.gameObject.SetActive(true);
 			itemOptionsWindow.transform.position = Input.mousePosition;
-			
+			itemOptionsWindow.selectedSlotBtn = GetComponentInChildren<Button>();
 		}
 			
 	}

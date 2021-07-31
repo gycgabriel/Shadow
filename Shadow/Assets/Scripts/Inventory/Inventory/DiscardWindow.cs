@@ -1,5 +1,6 @@
 public class DiscardWindow : AmtConfirmWindow
 {
+
     public override void ConfirmAmt()
     {
         if (string.IsNullOrEmpty(amtInputField.text))
@@ -11,11 +12,11 @@ public class DiscardWindow : AmtConfirmWindow
             selectedAmt = int.Parse(amtInputField.text);
             if (selectedAmt <= 0)
             {
-                PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.");
+                PauseMenu.scriptInstance.PopInfoWindow("Amount must be greater than 0.", amtConfirmButton);
             }
             else if (selectedAmt > InventoryUI.selectedItem.GetAmtInInventory())
             {
-                PauseMenu.scriptInstance.PopInfoWindow("You do not have that much to discard.");
+                PauseMenu.scriptInstance.PopInfoWindow("You do not have that much to discard.", amtConfirmButton);
             }
             else
             {
@@ -34,7 +35,7 @@ public class DiscardWindow : AmtConfirmWindow
     public override void ConfirmAction()
     {
         InventoryUI.selectedItem.RemoveFromInventory(selectedAmt);
-        PauseMenu.scriptInstance.PopInfoWindow("Discarded!");
+        PauseMenu.scriptInstance.PopInfoWindow("Discarded!", GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn);
         gameObject.SetActive(false);
     }
 }

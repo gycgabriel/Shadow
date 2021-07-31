@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public abstract class AmtConfirmWindow : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public abstract class AmtConfirmWindow : MonoBehaviour
 
     public GameObject amtPanel;
     public GameObject confirmPanel;
+    public Button amtConfirmButton;
 
     public TMP_Text confirmActionText;
 
@@ -25,6 +27,9 @@ public abstract class AmtConfirmWindow : MonoBehaviour
     public void CancelAmt()
     {
         gameObject.SetActive(false);
+        Debug.Log(GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn);
+        GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn.Select();
+        GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn.OnSelect(null);
     }
 
     // Cancel button on <action>ing entered amount of items
