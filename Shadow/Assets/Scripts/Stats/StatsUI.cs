@@ -37,8 +37,11 @@ public class StatsUI : MonoBehaviour
                 int x = i / 2;              // each button has own x
                 statPointsButtons[i].onClick.AddListener(() =>
                 {
-                    allocatedPoints[x]++;
-                    tempPoints--;
+                    if (tempPoints > 0)
+                    {
+                        allocatedPoints[x]++;
+                        tempPoints--;
+                    }
                 });
             }
             // Minus button
@@ -47,8 +50,11 @@ public class StatsUI : MonoBehaviour
                 int x = i / 2;              // each button has own x
                 statPointsButtons[i].onClick.AddListener(() =>
                 {
-                    allocatedPoints[x]--;
-                    tempPoints++;
+                    if (allocatedPoints[x] > 0)
+                    {
+                        allocatedPoints[x]--;
+                        tempPoints++;
+                    }
                 });
             }
         }
@@ -113,7 +119,7 @@ public class StatsUI : MonoBehaviour
         statTexts[14].text = "Luk";
         statTexts[15].text = "" + (player.getBaseStats()["luk"] + allocatedPoints[7]);*/
 
-
+        /*
         for (int i = 0; i < statPointsButtons.Length; i++)
         {
             // Plus button
@@ -121,11 +127,11 @@ public class StatsUI : MonoBehaviour
             {
                 if (tempPoints > 0)
                 {
-                    statPointsButtons[i].gameObject.SetActive(true);
+                    statPointsButtons[i].interactable = true;
                 }
                 else
                 {
-                    statPointsButtons[i].gameObject.SetActive(false);
+                    statPointsButtons[i].interactable = false;
                 }
             }
 
@@ -134,14 +140,17 @@ public class StatsUI : MonoBehaviour
             {
                 if (allocatedPoints[i/2] > 0)
                 {
-                    statPointsButtons[i].gameObject.SetActive(true);
+                    statPointsButtons[i].interactable = true;
                 }
                 else
                 {
-                    statPointsButtons[i].gameObject.SetActive(false);
+                    statPointsButtons[i].interactable = false;
                 }
             }
         }
+        */
+
+        UpdateStatButtonsIsActive();
     }
 
     public void ShowShadowStats()
@@ -195,6 +204,16 @@ public class StatsUI : MonoBehaviour
     {
         allocatedPoints = new int[8];
         tempPoints = player.statPoints;
+        UpdateStatButtonsIsActive();
+    }
+
+    void UpdateStatButtonsIsActive()
+    {
+        bool isActive = (player.statPoints != 0);
+        foreach (Button btn in statPointsButtons)
+        {
+            btn.gameObject.SetActive(isActive);
+        }
     }
 
 }
