@@ -5,11 +5,14 @@ using UnityEngine.UI;
 public abstract class AmtConfirmWindow : MonoBehaviour
 {
     public int selectedAmt;
-    public TMP_InputField amtInputField;
 
     public GameObject amtPanel;
     public GameObject confirmPanel;
     public Button amtConfirmButton;
+    public Button amtCancelButton;
+
+    public TMP_Text amtText;
+    public Button plusBtn, minusBtn;
 
     public TMP_Text confirmActionText;
 
@@ -17,7 +20,8 @@ public abstract class AmtConfirmWindow : MonoBehaviour
     {
         amtPanel.SetActive(true);
         confirmPanel.SetActive(false);
-        amtInputField.text = "";
+        amtCancelButton.Select();
+        amtCancelButton.OnSelect(null);
     }
 
     public abstract void ConfirmAmt();      // Confirm button on entering how much to <action>
@@ -27,7 +31,6 @@ public abstract class AmtConfirmWindow : MonoBehaviour
     public void CancelAmt()
     {
         gameObject.SetActive(false);
-        Debug.Log(GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn);
         GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn.Select();
         GetComponentInParent<InventoryUI>().itemOptionsWindow.selectedSlotBtn.OnSelect(null);
     }
@@ -37,6 +40,12 @@ public abstract class AmtConfirmWindow : MonoBehaviour
     {
         confirmPanel.SetActive(false);
         amtPanel.SetActive(true);
+    }
+
+    public void InitialAmt(int initialAmt)
+    {
+        selectedAmt = initialAmt;
+        amtText.text = "" + selectedAmt;
     }
 
 }

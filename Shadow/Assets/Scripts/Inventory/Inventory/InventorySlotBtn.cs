@@ -13,9 +13,12 @@ public class InventorySlotBtn : MonoBehaviour, ISelectHandler
         itemOptionsWindow = GetComponentInParent<InventoryUI>().itemOptionsWindow;
         GetComponent<Button>().onClick.AddListener(() => 
         {
-            itemOptionsWindow.gameObject.SetActive(true);
-            itemOptionsWindow.transform.position = transform.position + new Vector3(30f, 0f);
-            itemOptionsWindow.selectedSlotBtn = GetComponent<Button>();
+            if (InventoryUI.selectedItem != null)
+            {
+                itemOptionsWindow.gameObject.SetActive(true);
+                itemOptionsWindow.transform.position = transform.position + new Vector3(30f, 0f);
+                itemOptionsWindow.selectedSlotBtn = GetComponent<Button>();
+            }
         });
     }
 

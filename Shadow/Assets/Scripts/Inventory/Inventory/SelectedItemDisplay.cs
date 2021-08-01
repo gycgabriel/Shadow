@@ -31,8 +31,6 @@ public class SelectedItemDisplay : MonoBehaviour
 
     private void OnEnable()
     {
-        nameText.text = "";
-        descText.text = "";
-        flavorText.text = "";
+        UpdateUI();
     }
 }

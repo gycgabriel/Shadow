@@ -1,8 +1,26 @@
+// The amount confirmation window for discarding items from the inventory
 public class DiscardWindow : AmtConfirmWindow
 {
+    private void Start()
+    {
+        minusBtn.onClick.AddListener(() =>
+        {
+            if (selectedAmt > 1)
+                selectedAmt--;
+            amtText.text = "" + selectedAmt;
+        });
+
+        plusBtn.onClick.AddListener(() =>
+        {
+            if (selectedAmt < InventoryUI.selectedItem.GetAmtInInventory())
+                selectedAmt++;
+            amtText.text = "" + selectedAmt;
+        });
+    }
 
     public override void ConfirmAmt()
     {
+        /*
         if (string.IsNullOrEmpty(amtInputField.text))
         {
             PauseMenu.scriptInstance.PopInfoWindow("Please enter something.");
@@ -29,6 +47,14 @@ public class DiscardWindow : AmtConfirmWindow
                     InventoryUI.selectedItem.name, selectedAmt);
             }
         }
+        */
+        amtPanel.SetActive(false);
+        confirmPanel.SetActive(true);
+        confirmActionText.text = string.Format(
+            "Discarding\n" +
+            "{0} x {1}\n" +
+            "Confirm?",
+            InventoryUI.selectedItem.name, selectedAmt);
     }
 
     // Confirm button on discarding entered amount of items

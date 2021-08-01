@@ -17,12 +17,23 @@ public class PauseMenu : Singleton<PauseMenu>
     public GameObject howToPlayUI;
 
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
-    public Button buttonToSelect;            // button to select when paused
 
     public GameObject infoPanel;
 
     public Transform LHSBtnParent;
 
+    /* LHS Buttons:
+     * 0 - Resume
+     * 1 - Stats
+     * 2 - Quests
+     * 3 - Inventory
+     * 4 - Save
+     * 5 - Load
+     * 6 - How To Play
+     * 7 - Settings
+     * 8 - Return to Title
+     * 9 - Quit
+     */
     Button[] LHSBtns;
 
     private void OnEnable()
@@ -81,7 +92,7 @@ public class PauseMenu : Singleton<PauseMenu>
             }
         }
 
-        /*
+        /* Deprecated, have set 'Z' as alt submit input in project's input manager settings
         if (gameIsPaused && pauseMenuUI.activeSelf && Input.GetKeyDown(KeyCode.Z) &&
             !infoPanel.activeSelf &&
             !statsScreen.activeSelf &&
@@ -111,7 +122,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         pauseMenuUI.SetActive(true);
         PlayerStatusWindow.gameInstance.SetActive(false);
-        buttonToSelect.Select();
+        SelectButton(LHSBtns[0]);
         Pause();
     }
 
@@ -156,7 +167,6 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         inventoryScreen.SetActive(true);
         pauseMenuUI.SetActive(false);
-        Debug.Log("Showing Inventory");
     }
 
     public void HideInventory()
@@ -164,7 +174,6 @@ public class PauseMenu : Singleton<PauseMenu>
         inventoryScreen.SetActive(false);
         pauseMenuUI.SetActive(true);
         SelectButton(LHSBtns[3]);
-        Debug.Log("Hiding Inventory");
     }
 
     public void ShowHowToPlay()
@@ -194,8 +203,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         infoPanel.SetActive(true);
         infoPanel.GetComponentInChildren<TMP_Text>().text = message;
-        infoPanel.GetComponentInChildren<Button>().Select();
-        infoPanel.GetComponentInChildren<Button>().OnSelect(null);
+        SelectButton(infoPanel.GetComponentInChildren<Button>());
     }
 
     // Overload pop up window with which button to select after closing window
@@ -209,8 +217,7 @@ public class PauseMenu : Singleton<PauseMenu>
             btn.Select();
             btn.OnSelect(null);
         });
-        infoBtn.Select();
-        infoBtn.OnSelect(null);
+        SelectButton(infoBtn);
     }
 
     // Closing of pop up window
