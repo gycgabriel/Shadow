@@ -3,9 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class StatsUI : MonoBehaviour
 {
+    public Button defaultSelectedBtn;
+
     public bool isShadow;
 
     public Player player;
@@ -113,13 +116,13 @@ public class StatsUI : MonoBehaviour
         statTexts[6].text = "Def";
         statTexts[7].text = "" + (player.getBaseStats()["def"] + allocatedPoints[3]);
         statTexts[8].text = "Mdef";
-        statTexts[9].text = "" + (player.getBaseStats()["mdef"] + allocatedPoints[5]);
+        statTexts[9].text = "" + (player.getBaseStats()["mdef"] + allocatedPoints[4]);
         /*statTexts[12].text = "Agi";
         statTexts[13].text = "" + (player.getBaseStats()["agi"] + allocatedPoints[6]);
         statTexts[14].text = "Luk";
         statTexts[15].text = "" + (player.getBaseStats()["luk"] + allocatedPoints[7]);*/
 
-        /*
+        
         for (int i = 0; i < statPointsButtons.Length; i++)
         {
             // Plus button
@@ -131,6 +134,14 @@ public class StatsUI : MonoBehaviour
                 }
                 else
                 {
+                    if (EventSystem.current.currentSelectedGameObject.GetComponent<Button>() == statPointsButtons[i])
+                    {
+                        // select minus on same row
+                        if (i + 1 <= statPointsButtons.Length-1 && statPointsButtons[i + 1].interactable)
+                            statPointsButtons[i + 1].Select();
+                        else
+                            defaultSelectedBtn.Select();
+                    }
                     statPointsButtons[i].interactable = false;
                 }
             }
@@ -144,13 +155,21 @@ public class StatsUI : MonoBehaviour
                 }
                 else
                 {
+                    if (EventSystem.current.currentSelectedGameObject.GetComponent<Button>() == statPointsButtons[i])
+                    {
+                        // select plus on same row
+                        if (i - 1 >= 0 && statPointsButtons[i - 1].interactable)
+                            statPointsButtons[i - 1].Select();
+                        else
+                            defaultSelectedBtn.Select();
+                    }
+                        
                     statPointsButtons[i].interactable = false;
                 }
             }
         }
-        */
 
-        UpdateStatButtonsIsActive();
+        // UpdateStatButtonsIsActive();
     }
 
     public void ShowShadowStats()
