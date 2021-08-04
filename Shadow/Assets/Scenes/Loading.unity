@@ -876,11 +876,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Main Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 2591125821539919282, guid: 6589838fbd096e945adaa712dcd1ad0c,
-        type: 3}
-      propertyPath: followTarget
-      value: 
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6589838fbd096e945adaa712dcd1ad0c, type: 3}
 --- !u!1001 &1041060449
@@ -1316,71 +1311,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 48854112991136373, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.76666665
-      objectReference: {fileID: 0}
-    - target: {fileID: 48854112991136373, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 635659849736752792, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 635659849736752792, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060002486866968087, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1060002486866968087, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554028330438522801, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.76666665
-      objectReference: {fileID: 0}
-    - target: {fileID: 2554028330438522801, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672333164124800830, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2672333164124800830, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3272367708339520467, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.x
-      value: 0.76666665
-      objectReference: {fileID: 0}
-    - target: {fileID: 3272367708339520467, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_AnchorMax.y
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3365534041116220361, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3365534041116220362, guid: d3e0fc3ea36041a4e96504c065945a35,
         type: 3}
       propertyPath: m_Pivot.x
@@ -1490,11 +1420,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PauseMenuCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 3365534041285336309, guid: d3e0fc3ea36041a4e96504c065945a35,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d3e0fc3ea36041a4e96504c065945a35, type: 3}
