@@ -55,6 +55,9 @@ public class PauseMenu : Singleton<PauseMenu>
         if (ShopMenu.scriptInstance != null && ShopMenu.scriptInstance.ShopMenuUI.activeSelf == true)
             return;
 
+        if (FullMapManager.scriptInstance != null && FullMapManager.MapIsOpen)
+            return;
+
         if (Input.GetKeyDown(KeyCode.Escape) || Input.GetKeyDown(KeyCode.X))
         {
             if (infoPanel.activeSelf)

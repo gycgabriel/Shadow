@@ -32,7 +32,6 @@ public class PlayerController : MonoBehaviour
     // Change shadow transition
     public GameObject changeShadowPrefab;
 
-
     void Start()
     {
         movePoint.parent = null;
