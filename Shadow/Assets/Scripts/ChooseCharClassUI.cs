@@ -19,6 +19,12 @@ public class ChooseCharClassUI : MonoBehaviour
     public string chosenClass;
     public bool confirmed;
 
+    private void OnEnable()
+    {
+        chooseGuardianButton.Select();
+        chooseGuardianButton.OnSelect(null);
+    }
+
     /**
      * Viewing the Guardian Class details.
      */
@@ -54,6 +60,9 @@ public class ChooseCharClassUI : MonoBehaviour
         confirmClassButton.onClick.RemoveAllListeners();
         confirmClassButton.onClick.AddListener(ChooseGuardian);
         confirmWindow.SetActive(true);
+
+        confirmClassButton.Select();
+        confirmClassButton.OnSelect(null);
     }
 
     /**
@@ -69,6 +78,9 @@ public class ChooseCharClassUI : MonoBehaviour
         confirmClassButton.onClick.RemoveAllListeners();
         confirmClassButton.onClick.AddListener(ChooseSorcerer);
         confirmWindow.SetActive(true);
+
+        confirmClassButton.Select();
+        confirmClassButton.OnSelect(null);
     }
 
     /**
@@ -80,6 +92,17 @@ public class ChooseCharClassUI : MonoBehaviour
         chooseSorcererButton.interactable = true;
         selectClassButton.interactable = true;
         confirmWindow.SetActive(false);
+
+        if (chosenClassText.text == "Guardian")
+        {
+            chooseGuardianButton.Select();
+            chooseGuardianButton.OnSelect(null);
+        }
+        else if (chosenClassText.text == "Sorcerer")
+        {
+            chooseSorcererButton.Select();
+            chooseSorcererButton.OnSelect(null);
+        }
     }
 
     public void ChooseGuardian()
@@ -91,6 +114,9 @@ public class ChooseCharClassUI : MonoBehaviour
         chooseGuardianButton.interactable = true;
         chooseSorcererButton.interactable = true;
         selectClassButton.gameObject.SetActive(false);
+
+        chooseGuardianButton.Select();
+        chooseGuardianButton.OnSelect(null);
     }
 
     public void ChooseSorcerer()
@@ -102,6 +128,9 @@ public class ChooseCharClassUI : MonoBehaviour
         chooseGuardianButton.interactable = true;
         chooseSorcererButton.interactable = true;
         selectClassButton.gameObject.SetActive(false);
+
+        chooseGuardianButton.Select();
+        chooseGuardianButton.OnSelect(null);
     }
 
 }

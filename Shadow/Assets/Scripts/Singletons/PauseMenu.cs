@@ -183,6 +183,7 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         howToPlayUI.SetActive(true);
         pauseMenuUI.SetActive(false);
+        SelectButton(howToPlayUI.GetComponentInChildren<Button>());
     }
 
     public void HideHowToPlay()

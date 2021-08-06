@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class WhileQuestCannotPass : MonoBehaviour
@@ -16,7 +15,7 @@ public class WhileQuestCannotPass : MonoBehaviour
         if (collision.gameObject.tag != "Player" || collision.gameObject.name != "PlayerColliders")
             return;
 
-        if (PartyController.quest.title == quest.title && PartyController.quest.isActive)
+        if (PartyController.quest.title == quest.title && PartyController.quest.isActive && FadeCanvas.fadeDone)
         {
             PartyController.scriptInstance.MovePlayer(dirc);
             StartCoroutine(WaitforMovement());

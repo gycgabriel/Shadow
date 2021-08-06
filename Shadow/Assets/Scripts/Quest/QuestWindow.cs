@@ -106,6 +106,8 @@ public class QuestWindow : Singleton<QuestWindow>
             quest.Accept();
             Time.timeScale = 1f;
         });
+        accept.Select();
+        accept.OnSelect(null);
     }
 
     public void OpenCompleted(Quest quest, QuestChain questChain = null)
@@ -145,6 +147,8 @@ public class QuestWindow : Singleton<QuestWindow>
             });
             Time.timeScale = 1f;
         });
+        ok.Select();
+        ok.OnSelect(null);
     }
 
 }
