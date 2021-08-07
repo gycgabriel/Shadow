@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb1504d2fd14281429d03065261a7fff, type: 3}
+  m_Name: SorcererInfo
+  m_EditorClassIdentifier: 
+  className: Sorcerer
+  classDesc: A Magic Class that specialises in a variety of powerful offensive spells.
+    A Sorcerer specialises in dealing high magic damage to the enemy using different
+    spells, but in exchange has a weak defense.

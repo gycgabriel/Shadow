@@ -1,8 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 /**
@@ -12,12 +9,15 @@ public class ChooseCharClassUI : MonoBehaviour
 {
     public Button chooseGuardianButton;
     public Button chooseSorcererButton;
+    public ClassDescriptionBox classDescBox;
     public Button selectClassButton;
     public GameObject confirmWindow;
     public Button confirmClassButton;
     public TMP_Text chosenClassText; 
     public string chosenClass;
     public bool confirmed;
+
+    public ClassInfo[] classInfos;
 
     private void OnEnable()
     {
@@ -26,57 +26,24 @@ public class ChooseCharClassUI : MonoBehaviour
     }
 
     /**
-     * Viewing the Guardian Class details.
+     * Viewing the selected Class details.
      */
-    public void SelectingGuardian()
+    public void SelectingClass(string className)
     {
-        selectClassButton.gameObject.SetActive(true);
-        selectClassButton.interactable = true;
+        classDescBox.gameObject.SetActive(true);
+        classDescBox.DisplayClassInfo(GetClassInfo(className));
         selectClassButton.onClick.RemoveAllListeners();
-        selectClassButton.onClick.AddListener(ConfirmingGuardian);
+        selectClassButton.onClick.AddListener(() => ConfirmingClass(className));
     }
 
     /**
-     * Viewing the Sorcerer Class details.
+     * Selected the Class, awaiting confirmation.
      */
-    public void SelectingSorcerer()
+    public void ConfirmingClass(string className)
     {
-        selectClassButton.gameObject.SetActive(true);
-        selectClassButton.interactable = true;
-        selectClassButton.onClick.RemoveAllListeners();
-        selectClassButton.onClick.AddListener(ConfirmingSorcerer);
-    }
-
-    /**
-     * Selected the Guardian Class, awaiting confirmation.
-     */
-    public void ConfirmingGuardian()
-    {
-        chooseGuardianButton.interactable = false;
-        chooseSorcererButton.interactable = false;
-        selectClassButton.interactable = false;
-
-        chosenClassText.text = "Guardian";
+        chosenClassText.text = className;
         confirmClassButton.onClick.RemoveAllListeners();
-        confirmClassButton.onClick.AddListener(ChooseGuardian);
-        confirmWindow.SetActive(true);
-
-        confirmClassButton.Select();
-        confirmClassButton.OnSelect(null);
-    }
-
-    /**
-     * Selected the Sorcerer Class, awaiting confirmation.
-     */
-    public void ConfirmingSorcerer()
-    {
-        chooseGuardianButton.interactable = false;
-        chooseSorcererButton.interactable = false;
-        selectClassButton.interactable = false;
-
-        chosenClassText.text = "Sorcerer";
-        confirmClassButton.onClick.RemoveAllListeners();
-        confirmClassButton.onClick.AddListener(ChooseSorcerer);
+        confirmClassButton.onClick.AddListener(() => ChooseClass(className));
         confirmWindow.SetActive(true);
 
         confirmClassButton.Select();
@@ -88,9 +55,6 @@ public class ChooseCharClassUI : MonoBehaviour
      */
     public void StopConfirmingClass()
     {
-        chooseGuardianButton.interactable = true;
-        chooseSorcererButton.interactable = true;
-        selectClassButton.interactable = true;
         confirmWindow.SetActive(false);
 
         if (chosenClassText.text == "Guardian")
@@ -105,32 +69,24 @@ public class ChooseCharClassUI : MonoBehaviour
         }
     }
 
-    public void ChooseGuardian()
+    public void ChooseClass(string className)
     {
-        chosenClass = "Guardian";
+        chosenClass = className;
         confirmed = true;
         confirmWindow.SetActive(false);
-        this.gameObject.SetActive(false);
-        chooseGuardianButton.interactable = true;
-        chooseSorcererButton.interactable = true;
-        selectClassButton.gameObject.SetActive(false);
+        classDescBox.gameObject.SetActive(false);
 
         chooseGuardianButton.Select();
         chooseGuardianButton.OnSelect(null);
     }
 
-    public void ChooseSorcerer()
+    ClassInfo GetClassInfo(string className)
     {
-        chosenClass = "Sorcerer";
-        confirmed = true;
-        confirmWindow.SetActive(false);
-        this.gameObject.SetActive(false);
-        chooseGuardianButton.interactable = true;
-        chooseSorcererButton.interactable = true;
-        selectClassButton.gameObject.SetActive(false);
-
-        chooseGuardianButton.Select();
-        chooseGuardianButton.OnSelect(null);
+        return className switch
+        {
+            "Guardian" => classInfos[0],
+            "Sorcerer" => classInfos[1],
+            _ => classInfos[0]
+        };
     }
-
 }
