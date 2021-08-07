@@ -18,8 +18,6 @@ public class PlayerController : MonoBehaviour
 
     public Player player;
     public PlayerHurt playerHurt;
-    public float regenInterval;
-    private float regenCounter;
 
     // Anim variables
     public bool playerMoving;
@@ -39,16 +37,6 @@ public class PlayerController : MonoBehaviour
         if (lastMove == Vector2.zero)
         {
             lastMove = new Vector2(0f, -1f);           // player face down 
-        }
-    }
-
-    private void Update()
-    {
-        regenCounter -= Time.deltaTime;
-        if (regenCounter <= 0)
-        {
-            PassiveRegenOverTime();
-            regenCounter = regenInterval;
         }
     }
 
@@ -288,12 +276,6 @@ public class PlayerController : MonoBehaviour
     {
         RaycastHit2D ray = Physics2D.Raycast(transform.position, lastMove, 1.5f, interactableLayer);
         return (ray.collider == null) ? null : ray.collider.gameObject;
-    }
-
-    void PassiveRegenOverTime()
-    {
-        playerHurt.RecoverHP(Mathf.FloorToInt(0.1f * player.getStats()["hp"]));
-        playerHurt.RecoverMP(Mathf.FloorToInt(0.1f * player.getStats()["mp"]));
     }
 
     /**

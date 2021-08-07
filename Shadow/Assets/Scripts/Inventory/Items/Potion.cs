@@ -17,5 +17,7 @@ public class Potion : Consumable
         {
             PartyController.activePC.GetComponent<PlayerHurt>().RecoverMP(recoveryAmt);
         }
+        GameObject effect = Instantiate(recoveryEffect, PartyController.activePC.transform.position, Quaternion.Euler(Vector3.zero));
+        effect.transform.parent = PartyController.activePC.transform;
     }
 }

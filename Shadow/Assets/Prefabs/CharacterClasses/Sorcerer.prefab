@@ -65,7 +65,6 @@ MonoBehaviour:
   playerSkillSet: {fileID: 8754808651645558989}
   player: {fileID: 7387898316764795012}
   playerHurt: {fileID: 1543881687975510557}
-  regenInterval: 10
   playerMoving: 0
   currentMove: {x: 0, y: 0}
   lastMove: {x: 0, y: 0}
@@ -74,7 +73,6 @@ MonoBehaviour:
   playerAttacking: 0
   changeShadowPrefab: {fileID: 3468495262585849754, guid: c75f1e951f921bd4eb30216b16bfbed6,
     type: 3}
-  playerMinimapIcon: {fileID: 0}
 --- !u!210 &7021806160790640474
 SortingGroup:
   m_ObjectHideFlags: 0
@@ -139,6 +137,11 @@ MonoBehaviour:
   creatureGO: {fileID: 0}
   hasInvincibility: 1
   gameOverCanvas: {fileID: 276282698359845658, guid: 2fe7ce6a3b4bf634083f16acb30433ef,
+    type: 3}
+  regenInterval: 5
+  regenEffectHP: {fileID: 5801171475162797695, guid: d4d1d3768c0cce04f96309010e14872a,
+    type: 3}
+  regenEffectMP: {fileID: 3510547958020028923, guid: d25ea481c53279945ace22351b0267c7,
     type: 3}
 --- !u!114 &8754808651645558989
 MonoBehaviour:

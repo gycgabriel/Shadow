@@ -24,4 +24,5 @@ MonoBehaviour:
   sellPrice: 75
   consumableType: 0
   recoveryAmt: 100
-  recoveryEffect: {fileID: 0}
+  recoveryEffect: {fileID: 1755726631313462535, guid: 425ef7739e182194eb4c973c781042e8,
+    type: 3}

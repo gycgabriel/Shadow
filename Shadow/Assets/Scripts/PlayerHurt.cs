@@ -7,6 +7,11 @@ public class PlayerHurt : HurtBehaviour
     public GameObject gameOverCanvas;
     Player player;
 
+    public float regenInterval;
+    private float regenCounter;
+    public GameObject regenEffectHP;
+    public GameObject regenEffectMP;
+
     protected override void Start()
     {
         base.Start();
@@ -29,6 +34,13 @@ public class PlayerHurt : HurtBehaviour
             Instantiate(gameOverCanvas);
             gameObject.SetActive(false);
         }
+
+        regenCounter -= Time.deltaTime;
+        if (regenCounter <= 0)
+        {
+            PassiveRegenOverTime();
+            regenCounter = regenInterval;
+        }
     }
 
     public virtual void RecoverHP(int recoveryAmt)
@@ -41,5 +53,23 @@ public class PlayerHurt : HurtBehaviour
         player.currentMP = Mathf.Min(player.currentMP + recoveryAmt, player.getStats()["mp"]);
     }
 
+    void PassiveRegenOverTime()
+    {
+        if (player.currentHP < player.getStats()["hp"])
+        {
+            RecoverHP(Mathf.FloorToInt(0.1f * player.getStats()["hp"]));
+            GameObject hpEffect = Instantiate(regenEffectHP, this.transform.position, Quaternion.Euler(Vector3.zero));
+            hpEffect.transform.parent = PartyController.activePC.transform;
+        }
+
+        if (player.currentMP < player.getStats()["mp"])
+        {
+            RecoverMP(Mathf.FloorToInt(0.1f * player.getStats()["mp"]));
+            GameObject mpEffect = Instantiate(regenEffectMP, this.transform.position, Quaternion.Euler(Vector3.zero));
+            mpEffect.transform.parent = PartyController.activePC.transform;
+        }
+            
+        
+    }
 
 }
