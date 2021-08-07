@@ -67,11 +67,13 @@ public class StatsUI : MonoBehaviour
     {
         if (isShadow)
         {
+            nameText.text = "Pancakes";
             player = PartyController.shadow.GetComponent<Player>();
             portrait.color = new Color32(0, 100, 170, 255);
         }
         else
         {
+            nameText.text = "Rain";
             player = PartyController.player.GetComponent<Player>();
             portrait.color = Color.white;
         }
@@ -86,6 +88,7 @@ public class StatsUI : MonoBehaviour
             tempPoints = player.statPoints;
         }
 
+        nameText.text = !isShadow ? "Rain" : "Pancakes";
         portrait.sprite = player.gameObject.GetComponent<PortraitBehaviour>().portraitToDisplay;
         characlassText.text = player.GetCharClass();
 

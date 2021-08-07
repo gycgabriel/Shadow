@@ -197,9 +197,16 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         PopInfoWindow("Saved!", LHSBtns[4]);
     }
+
     public void PopLoadedWindow()
     {
-        PopInfoWindow("Loaded!", LHSBtns[5]);
+        StartCoroutine(PopInfoWindowInNextFrame("Loaded!", LHSBtns[5]));
+    }
+
+    IEnumerator PopInfoWindowInNextFrame(string message, Button btn)
+    {
+        yield return null;
+        PopInfoWindow(message, btn);
     }
 
     // Pop up window with a message and an "OK" button
