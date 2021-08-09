@@ -55,8 +55,7 @@ public class InventoryUI : MonoBehaviour {
 
 		UpdateUI();
 
-		slots[0].GetComponentInChildren<Button>().Select();
-		slots[0].GetComponentInChildren<Button>().OnSelect(null);
+		PauseMenu.scriptInstance.SelectButton(slots[0].GetComponentInChildren<Button>());
 		slots[0].SelectItem();
 
 	}

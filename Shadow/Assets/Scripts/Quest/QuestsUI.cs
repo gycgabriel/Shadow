@@ -82,7 +82,7 @@ public class QuestsUI : MonoBehaviour
                     break; 
 
                 Quest q = qc.quests[i];
-                coords = new Vector3(coords.x, coords.y - 100, coords.z);
+                coords = new Vector3(coords.x, coords.y - 80, coords.z);
                 GameObject qcTitle = Instantiate(questChainPrefab, coords, Quaternion.identity);
                 qcTitle.transform.SetParent(drawQC.transform, false);
                 qcTitle.GetComponent<TMP_Text>().text = q.title;
@@ -90,7 +90,7 @@ public class QuestsUI : MonoBehaviour
                 // no arrow if last quest in quest chain
                 if (i == qc.quests.Count - 1)
                     break;
-                coords = new Vector3(coords.x, coords.y - 100, coords.z);
+                coords = new Vector3(coords.x, coords.y - 80, coords.z);
                 GameObject arrow = Instantiate(questChainArrowPrefab, coords, Quaternion.identity);
                 arrow.transform.SetParent(drawQC.transform, false);
             }

@@ -18,10 +18,9 @@ public abstract class AmtConfirmWindow : MonoBehaviour
 
     private void OnEnable()
     {
+        Debug.Log("Enabled AmtConfirmWindow");
         amtPanel.SetActive(true);
         confirmPanel.SetActive(false);
-        amtCancelButton.Select();
-        amtCancelButton.OnSelect(null);
     }
 
     public abstract void ConfirmAmt();      // Confirm button on entering how much to <action>

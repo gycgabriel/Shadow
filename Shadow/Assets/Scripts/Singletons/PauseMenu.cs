@@ -145,7 +145,6 @@ public class PauseMenu : Singleton<PauseMenu>
         Application.Quit();
     }
 
-
     public void ShowStats()
     {
         statsScreen.SetActive(true);
@@ -247,6 +246,13 @@ public class PauseMenu : Singleton<PauseMenu>
     // Method to resume the game
     public void Resume()
     {
+        StartCoroutine(ResumeNextFrame());
+    }
+
+    // Resume game in the next frame, to prevent sensing input in same frame as when game resumes
+    IEnumerator ResumeNextFrame()
+    {
+        yield return null;
         Time.timeScale = 1f;
         gameIsPaused = false;
     }
@@ -255,8 +261,14 @@ public class PauseMenu : Singleton<PauseMenu>
     {
         if (btn != null)
         {
-            btn.Select();
-            btn.OnSelect(null);
+            StartCoroutine(SelectButtonOnNextFrame(btn));
         }
+    }
+
+    IEnumerator SelectButtonOnNextFrame(Button btn)
+    {
+        yield return null;
+        btn.Select();
+        btn.OnSelect(null);
     }
 }

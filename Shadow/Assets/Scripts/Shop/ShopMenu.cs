@@ -27,13 +27,6 @@ public class ShopMenu : Singleton<ShopMenu>
     public void CloseShop()
     {
         ShopMenuUI.SetActive(false);
-        // Resume next frame to prevent triggering interaction with Shop in the same frame again
-        StartCoroutine(ResumeNextFrame());
-    }
-
-    IEnumerator ResumeNextFrame()
-    {
-        yield return null;
         PauseMenu.scriptInstance.Resume();
     }
 
