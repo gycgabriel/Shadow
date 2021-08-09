@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,8 +22,14 @@ public class ChooseCharClassUI : MonoBehaviour
 
     private void OnEnable()
     {
-        chooseGuardianButton.Select();
-        chooseGuardianButton.OnSelect(null);
+        StartCoroutine(SelectButtonOnNextFrame(chooseGuardianButton));
+    }
+
+    IEnumerator SelectButtonOnNextFrame(Button btn)
+    {
+        yield return null;
+        btn.Select();
+        btn.OnSelect(null);
     }
 
     /**
@@ -76,8 +83,7 @@ public class ChooseCharClassUI : MonoBehaviour
         confirmWindow.SetActive(false);
         classDescBox.gameObject.SetActive(false);
 
-        chooseGuardianButton.Select();
-        chooseGuardianButton.OnSelect(null);
+        StartCoroutine(SelectButtonOnNextFrame(chooseGuardianButton));
     }
 
     ClassInfo GetClassInfo(string className)

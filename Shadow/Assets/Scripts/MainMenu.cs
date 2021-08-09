@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,9 +16,9 @@ public class MainMenu : MonoBehaviour
     {
         if (SaveSystem.HaveSaveData(1))
         {
+            confirmNewGameWindow.SetActive(true);
             confirmStartButton.Select();
             confirmStartButton.OnSelect(null);
-            confirmNewGameWindow.SetActive(true);
             foreach (Button button in GetComponentsInChildren<Button>())
             {
                 button.interactable = false;
@@ -31,9 +32,15 @@ public class MainMenu : MonoBehaviour
 
     private void OnEnable()
     {
-        newGameButton.Select();
-        newGameButton.OnSelect(null);
+        StartCoroutine(SelectButtonOnNextFrame(newGameButton));
         loadButton.interactable = SaveSystem.HaveSaveData(1);
+    }
+
+    IEnumerator SelectButtonOnNextFrame(Button btn)
+    {
+        yield return null;
+        btn.Select();
+        btn.OnSelect(null);
     }
 
     public void CheckLoadGame()
