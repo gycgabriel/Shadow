@@ -6,8 +6,7 @@ using UnityEngine.SceneManagement;
 public class EndingEvent : MonoBehaviour
 {
     public Quest questSix;
-    public AudioSource bgmToStop;
-    public AudioSource bgmToPlay;
+    public Sound bgmToPlay;
 
     void Update()
     {
@@ -24,9 +23,7 @@ public class EndingEvent : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        bgmToStop.Stop();
-        bgmToPlay.loop = true;
-        bgmToPlay.Play();
+        AudioManager.scriptInstance.PlayBGM(bgmToPlay);
 
         // set night time / darken screen?
         ScenarioManager.scriptInstance.PlayScenario(1, 15, delegate ()
