@@ -135,6 +135,10 @@ public class PauseMenu : Singleton<PauseMenu>
         gameIsPaused = false;
         FadeCanvas.scriptInstance.FadeOut();
         SceneManager.LoadScene(levelToLoad_Menu);
+
+        // Set quests to null in case it was not
+        PartyController.quest = null;
+
         Destroy(this.gameObject);
         DontDestroyOnLoadManager.DestroyAll();
     }

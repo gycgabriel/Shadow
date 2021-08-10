@@ -57,6 +57,9 @@ public class ChooseClassEvent : MonoBehaviour
         GameObject player = chooseClass(playerClass);
         GameObject shadow = chooseClass(shadowClass);
 
+        // Set quests to null in case it was not
+        PartyController.quest = null;
+
         // Changing Shadow's sprite to a darker color theme
         shadow.GetComponentInChildren<PlayerSprite>().isShadow = true;
 
