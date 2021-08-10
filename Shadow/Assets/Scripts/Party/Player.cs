@@ -14,6 +14,7 @@ public class Player : Creature
     public int expToNextLevel;                // full exp of this level not accounting for exp already gained;
     public int statPoints;                    // to allocate
 
+    public GameObject levelUpFX;
 
     private void Start()
     {
@@ -40,7 +41,10 @@ public class Player : Creature
         currentMP = stats.getStats(statModifiers)["mp"];
         statPoints += 5;
 
-        
+        // Instantiate level up VFX
+        GameObject levelUpEffect = Instantiate(levelUpFX, this.transform.position + new Vector3(0f,0.25f), Quaternion.Euler(Vector3.zero));
+        levelUpEffect.transform.parent = PartyController.activePC.transform;
+
         if (currentExp >= expToNextLevel)       // check if current experience points is enough to level up
         {
             LevelUp();

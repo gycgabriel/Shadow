@@ -242,6 +242,8 @@ MonoBehaviour:
   currentExp: 0
   expToNextLevel: 0
   statPoints: 0
+  levelUpFX: {fileID: 2749241368772469539, guid: 0532a6f1336f7cf439826856af7febeb,
+    type: 3}
 --- !u!114 &4756731513656762835
 MonoBehaviour:
   m_ObjectHideFlags: 0
