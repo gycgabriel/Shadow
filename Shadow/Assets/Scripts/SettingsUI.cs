@@ -41,7 +41,7 @@ public class SettingsUI : MonoBehaviour
         qualDropdown.value = QualitySettings.GetQualityLevel();
         qualDropdown.RefreshShownValue();
 
-        fullscrnToggle.isOn = Screen.fullScreen;    // ?? not sure if works
+        fullscrnToggle.SetIsOnWithoutNotify(Screen.fullScreen);    // ison will trigger below method and cause chaos
 
         ChangeTotalVolume(PlayerPrefs.GetFloat("tvol", 10f));
         ChangeBGMVolume(PlayerPrefs.GetFloat("bgmvol", 10f));

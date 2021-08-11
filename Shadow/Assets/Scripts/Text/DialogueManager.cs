@@ -157,7 +157,7 @@ public class DialogueManager : Singleton<DialogueManager>
         if (skipInput)
         {
             typeSpeed = 200f;
-            autoSpeed = 10f;
+            autoSpeed = 20f;
             autoDialogue = true;
             // for instant text when skipping
             if (typingDialogue)

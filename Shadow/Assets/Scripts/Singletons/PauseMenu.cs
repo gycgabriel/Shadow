@@ -16,6 +16,8 @@ public class PauseMenu : Singleton<PauseMenu>
     public GameObject inventoryScreen;
     public GameObject howToPlayUI;
 
+    public GameObject settingsScreen;
+
     public string levelToLoad_Menu;              //The name of the scene to be loaded when returning to menu
 
     public GameObject infoPanel;
@@ -82,7 +84,14 @@ public class PauseMenu : Singleton<PauseMenu>
             }
             if (howToPlayUI.activeSelf)
             {
-                howToPlayUI.SetActive(false);
+                HideHowToPlay();
+                return;
+            }
+            if (settingsScreen.activeSelf)
+            {
+                settingsScreen.SetActive(false);
+                pauseMenuUI.SetActive(true);
+                SelectButton(LHSBtns[7]);
                 return;
             }
             if (gameIsPaused)
