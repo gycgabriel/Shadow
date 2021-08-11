@@ -204,6 +204,12 @@ public class PauseMenu : Singleton<PauseMenu>
         pauseMenuUI.SetActive(true);
         SelectButton(LHSBtns[6]);
     }
+
+    public void ShowSettings()
+    {
+        settingsScreen.SetActive(true);
+        pauseMenuUI.SetActive(false);
+    }
     
     public void PopSavedWindow()
     {
