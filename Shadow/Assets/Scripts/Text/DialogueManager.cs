@@ -9,8 +9,8 @@ public class DialogueManager : Singleton<DialogueManager>
     private Queue<string> sentences = new Queue<string>();
 
     public bool autoDialogue;
-    public float autoSpeed = 4f;
-    public float typeSpeed = 6f;
+    public float autoSpeed;
+    public float typeSpeed;
     public GameObject dialogueBox;
     public TMP_Text nameText;
     public TMP_Text dialogueText;
@@ -21,6 +21,12 @@ public class DialogueManager : Singleton<DialogueManager>
 
     public bool scenarioOngoing;
     private System.Action onDialogueEnd;
+
+    void Start()
+    {
+        typeSpeed = PlayerPrefs.GetFloat("typespd", 4f);
+        autoSpeed = PlayerPrefs.GetFloat("autospd", 6f);
+    }
 
     IEnumerator WaitForFade(Dialogue dialogue, System.Action nextAction)
     {
@@ -156,6 +162,8 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         if (skipInput)
         {
+            PlayerPrefs.SetFloat("typespd", typeSpeed);
+            PlayerPrefs.SetFloat("autospd", autoSpeed);
             typeSpeed = 200f;
             autoSpeed = 20f;
             autoDialogue = true;
@@ -166,8 +174,8 @@ public class DialogueManager : Singleton<DialogueManager>
         } 
         else
         {
-            typeSpeed = 6f;
-            autoSpeed = 4f;
+            typeSpeed = PlayerPrefs.GetFloat("typespd", 6f);
+            autoSpeed = PlayerPrefs.GetFloat("autospd", 4f);
             autoDialogue = false;
             StopCoroutine("WaitBeforeAutoDialogue");
         }

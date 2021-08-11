@@ -6,6 +6,9 @@ using TMPro;
 
 public class SettingsUI : MonoBehaviour
 {
+    public Slider autoSpd;
+    public Slider typeSpd;
+
     public Slider totalVol;
     public Slider bgmVol;
     public Slider sfxVol;
@@ -49,6 +52,9 @@ public class SettingsUI : MonoBehaviour
         totalVol.value = AudioManager.scriptInstance.totalVolume;
         bgmVol.value = AudioManager.scriptInstance.bgmVolume;
         sfxVol.value = AudioManager.scriptInstance.sfxVolume;
+
+        autoSpd.value = DialogueManager.scriptInstance.autoSpeed;
+        typeSpd.value = DialogueManager.scriptInstance.typeSpeed;
     }
 
     public void ChangeTotalVolume(float value)
@@ -103,6 +109,18 @@ public class SettingsUI : MonoBehaviour
     public void MuteAll()
     {
         ChangeTotalVolume(0f);
+    }
+
+    public void ChangeTypeSpeed(float value)
+    {
+        DialogueManager.scriptInstance.typeSpeed = value;
+        PlayerPrefs.SetFloat("typespd", value);
+    }
+
+    public void ChangeAutoSpeed(float value)
+    {
+        DialogueManager.scriptInstance.autoSpeed = value;
+        PlayerPrefs.SetFloat("autospd", value);
     }
 
 }

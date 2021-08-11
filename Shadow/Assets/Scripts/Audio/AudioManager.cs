@@ -26,6 +26,10 @@ public class AudioManager : Singleton<AudioManager>
 
     void Start()
     {
+        totalVolume = (int) PlayerPrefs.GetFloat("tvol", 10f);
+        bgmVolume = (int) PlayerPrefs.GetFloat("bgmvol", 10f);
+        sfxVolume = (int) PlayerPrefs.GetFloat("sfxvol", 10f);
+
         bgmSource = gameObject.AddComponent<AudioSource>();
         bgmSource.loop = true;      // if bgm dont loop then what are you
         bgmSource.priority = 0;     // use 0 for music tracks to avoid it being swapped out // documentation
