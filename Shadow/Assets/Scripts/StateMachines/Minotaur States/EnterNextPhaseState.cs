@@ -52,8 +52,7 @@ namespace MinotaurStates
         {
             // Debug.Log("Exiting Attack State");
             _owner.anim.SetTrigger("stopAttack");
-            _owner.GetComponent<MinotaurHurt>().hasInvincibility = false;
-            _owner.GetComponent<MinotaurHurt>().isInvincible = false;
+            _owner.GetComponent<MinotaurHurt>().enteringNewPhase = false;
         }
 
         public override void UpdateState(MinotaurAI _owner)

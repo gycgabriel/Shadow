@@ -81,7 +81,7 @@ public class EnemyAI : MonoBehaviour
         stateMachine.ChangeState(AlertIdleState.Instance);
     }
 
-    public void Die()
+    public virtual void Die()
     {
         stateMachine.ChangeState(DeathState.Instance);
     }

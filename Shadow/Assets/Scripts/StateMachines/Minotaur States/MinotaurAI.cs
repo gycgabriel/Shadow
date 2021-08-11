@@ -65,6 +65,11 @@ public class MinotaurAI : EnemyAI
         stateMachine.ChangeState(IdleState.Instance);
     }
 
+    public override void Die()
+    {
+        stateMachine.ChangeState(MinotaurStates.DeathState.Instance);
+    }
+
     public Vector3 GetPosition()
     {
         return transform.position + new Vector3(-0.5f, 0.5f);

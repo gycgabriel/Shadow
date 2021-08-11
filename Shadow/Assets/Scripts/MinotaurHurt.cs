@@ -1,10 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MinotaurHurt : HurtBehaviour
 {
     private MinotaurAI minotaurAI;
+
+    public bool enteringNewPhase;
 
     protected override void Start()
     {
@@ -16,23 +16,27 @@ public class MinotaurHurt : HurtBehaviour
     {
         if (creature.isDead)
         {
-            Destroy(gameObject);
+            minotaurAI.Die();
+            this.enabled = false;
         }
     }
 
     public override bool Hurt(int damageToGive)
     {
         // if the unit has invincibility frames and is invincible now, no damage will be taken
-        if (hasInvincibility && isInvincible)
+        if (hasInvincibility && isInvincible || enteringNewPhase || creature.isDead)
         {
             return false;
         }
 
         creature.currentHP = Mathf.Max(creature.currentHP - damageToGive, 0);        // creature health will not fall below zero
 
-        CheckPhase();
-
-        StartCoroutine(HurtEffect());
+        if (creature.currentHP > 0)
+        {
+            CheckPhase();
+            StartCoroutine(HurtEffect());
+        }
+        
         return true;
     }
 
@@ -44,8 +48,7 @@ public class MinotaurHurt : HurtBehaviour
             creature.currentHP = creature.getStats()["hp"] * (3 - minotaurAI.currentPhase) / 3;
 
             // Minotaur is invincible during phase change
-            hasInvincibility = true;
-            isInvincible = true;
+            enteringNewPhase = true;
         }
     }
 
