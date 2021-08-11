@@ -11,4 +11,8 @@ public class EnemySpriteAnimation : MonoBehaviour
         enemyController.StopAttack();
     }
 
+    void DestroyEnemy()
+    {
+        Destroy(GetComponentInParent<Enemy>().gameObject);
+    }
 }

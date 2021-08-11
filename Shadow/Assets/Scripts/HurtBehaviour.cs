@@ -39,7 +39,7 @@ public class HurtBehaviour : MonoBehaviour
     public virtual bool Hurt(int damageToGive)
     {
         // if the unit has invincibility frames and is invincible now, no damage will be taken
-        if (hasInvincibility && isInvincible)
+        if (hasInvincibility && isInvincible || creature.isDead)
         {
             return false;
         }

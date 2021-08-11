@@ -31,6 +31,7 @@ public class Enemy : Creature
             PartyController.EnemyKilled(enemyInfo.name);
             PartyController.AddGold(lootTable.GetGoldDrop());
             DropLoot();
+            this.enabled = false;
         }
         else
         {
