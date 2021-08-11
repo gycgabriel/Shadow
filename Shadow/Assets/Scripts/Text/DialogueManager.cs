@@ -26,6 +26,7 @@ public class DialogueManager : Singleton<DialogueManager>
     {
         typeSpeed = PlayerPrefs.GetFloat("typespd", 4f);
         autoSpeed = PlayerPrefs.GetFloat("autospd", 6f);
+        autoDialogue = (PlayerPrefs.GetInt("autodiag", 0) == 1);
     }
 
     IEnumerator WaitForFade(Dialogue dialogue, System.Action nextAction)
@@ -127,6 +128,8 @@ public class DialogueManager : Singleton<DialogueManager>
 
         typingDialogue = false;
 
+        Debug.Log("Auto: " + autoDialogue);
+
         if (autoDialogue)
         {
             StartCoroutine(WaitBeforeAutoDialogue());
@@ -137,6 +140,7 @@ public class DialogueManager : Singleton<DialogueManager>
 
     IEnumerator WaitBeforeAutoDialogue()
     {
+        Debug.Log("Waiting for auto...");
         yield return new WaitForSecondsRealtime(10f / (autoSpeed * 4f));
         ContinueDialogue();
     }
@@ -176,7 +180,7 @@ public class DialogueManager : Singleton<DialogueManager>
         {
             typeSpeed = PlayerPrefs.GetFloat("typespd", 6f);
             autoSpeed = PlayerPrefs.GetFloat("autospd", 4f);
-            autoDialogue = false;
+            autoDialogue = (PlayerPrefs.GetInt("autodiag", 0) == 1);
             StopCoroutine("WaitBeforeAutoDialogue");
         }
     }

@@ -8,6 +8,7 @@ public class SettingsUI : MonoBehaviour
 {
     public Slider autoSpd;
     public Slider typeSpd;
+    public Toggle autoToggle;
 
     public Slider totalVol;
     public Slider bgmVol;
@@ -55,6 +56,8 @@ public class SettingsUI : MonoBehaviour
 
         autoSpd.value = DialogueManager.scriptInstance.autoSpeed;
         typeSpd.value = DialogueManager.scriptInstance.typeSpeed;
+
+        autoToggle.SetIsOnWithoutNotify(DialogueManager.scriptInstance.autoDialogue);
     }
 
     public void ChangeTotalVolume(float value)
@@ -121,6 +124,12 @@ public class SettingsUI : MonoBehaviour
     {
         DialogueManager.scriptInstance.autoSpeed = value;
         PlayerPrefs.SetFloat("autospd", value);
+    }
+
+    public void ToggleAuto(bool value)
+    {
+        DialogueManager.scriptInstance.autoDialogue = value;
+        PlayerPrefs.SetInt("autodiag", value ? 1 : 0);
     }
 
 }
