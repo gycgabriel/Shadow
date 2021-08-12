@@ -28,6 +28,7 @@ public class PlayerHurt : HurtBehaviour
     {
         if (player.isDead)
         {
+            AudioManager.scriptInstance.PlaySFX("playerdeath");
             Debug.Log("Player Died. Game Over.");
             // Game Over for the Player
             isInvincible = false;

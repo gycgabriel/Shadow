@@ -16,6 +16,7 @@ public class EnemyHurt : HurtBehaviour
     {
         if (creature.isDead)
         {
+            AudioManager.scriptInstance.PlaySFX("monsterdeath");
             enemyAI.Die();
             this.enabled = false;
         }
