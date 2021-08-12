@@ -69,11 +69,11 @@ public class AudioManager : Singleton<AudioManager>
     {
         float prevVolume = 0f;
         // Soften current BGM
-        if (currentBGM != null)
+/*        if (currentBGM != null)
         {
             prevVolume = bgmSource.volume;
             bgmSource.volume = bgmSource.volume - 0.2f > 0f ? bgmSource.volume - 0.2f : 0.0f;
-        }
+        }   */
 
         Sound s = Array.Find(sfxSounds, sound => sound.name == name);
         if (s == null)
@@ -101,7 +101,7 @@ public class AudioManager : Singleton<AudioManager>
     {
         yield return new WaitUntil(() => !source.isPlaying);
 
-        bgmSource.volume = prevVolume;
+        //bgmSource.volume = prevVolume;
 
         Destroy(source);
     }
