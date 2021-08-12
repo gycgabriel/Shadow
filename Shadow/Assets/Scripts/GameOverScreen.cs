@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class GameOverScreen : MonoBehaviour
 {
+    public Button respawnButton;
     public Button loadButton;
 
     public void PauseTime()
@@ -21,5 +22,13 @@ public class GameOverScreen : MonoBehaviour
     {
         PauseTime();
         loadButton.interactable = SaveSystem.HaveSaveData(1);
+        StartCoroutine(SelectButtonInNextFrame(respawnButton));
+    }
+
+    IEnumerator SelectButtonInNextFrame(Button btn)
+    {
+        yield return null;
+        btn.Select();
+        btn.OnSelect(null);
     }
 }
