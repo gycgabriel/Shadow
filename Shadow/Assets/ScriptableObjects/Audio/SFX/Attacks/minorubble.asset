@@ -10,10 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a989116d1a1b7f54ea80349bcf55edcc, type: 3}
-  m_Name: monsterdeath
+  m_Name: minorubble
   m_EditorClassIdentifier: 
-  name: monsterdeath
-  clip: {fileID: 8300000, guid: 66ffb17409bca2d418024db7a0884e5e, type: 3}
+  name: minorubble
+  clip: {fileID: 8300000, guid: ce8f1066efed6d64cbc10712e0dda472, type: 3}
   volume: 0.5
   pitch: 1
   loop: 0

@@ -65,7 +65,7 @@ public class AudioManager : Singleton<AudioManager>
     }
 
 
-    public void PlaySFX(string name)
+    public AudioSource PlaySFX(string name)
     {
         float prevVolume = 0f;
         // Soften current BGM
@@ -79,7 +79,7 @@ public class AudioManager : Singleton<AudioManager>
         if (s == null)
         {
             Debug.LogWarning("Sound " + name + " was not found.");
-            return;
+            return null;
         }
 
         AudioSource source = gameObject.AddComponent<AudioSource>();
@@ -92,6 +92,8 @@ public class AudioManager : Singleton<AudioManager>
 
         if (prevVolume != 0f)
             StartCoroutine(UnsoftenVolume(sfxSource, prevVolume));
+
+        return source;
     }
 
 

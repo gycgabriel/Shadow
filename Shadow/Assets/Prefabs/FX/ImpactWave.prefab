@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 936887320675984850}
   - component: {fileID: 936887320675984862}
   - component: {fileID: -9022596419644822339}
+  - component: {fileID: -7752673615898303750}
   m_Layer: 16
   m_Name: ImpactWave
   m_TagString: Untagged
@@ -335,6 +336,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   direction: {x: 0, y: 0}
+--- !u!114 &-7752673615898303750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 936887320675984849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb60c2d09a6484880810767e071b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: minosmashwave
+  delay: 0
 --- !u!1 &936887320877279120
 GameObject:
   m_ObjectHideFlags: 0
