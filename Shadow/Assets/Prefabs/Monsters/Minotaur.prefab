@@ -253,7 +253,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec093dc6a5f60541bc3deec9178c38e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackInfo: {fileID: 11400000, guid: 744806622ea68614193eeb9d87a3aa81, type: 2}
+  attackInfo: {fileID: 11400000, guid: 11e465e4860d9e645b9fd331ee1903d8, type: 2}
   damageNumber: {fileID: 4022088767387902098, guid: f20d4060ad3bd584d8abe101b4c3dfe9,
     type: 3}
   attackingEnemy: {fileID: 7974211377366655909}
@@ -912,6 +912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   creatureGO: {fileID: 0}
   hasInvincibility: 0
+  enteringNewPhase: 0
 --- !u!114 &2781845623197389896
 MonoBehaviour:
   m_ObjectHideFlags: 0

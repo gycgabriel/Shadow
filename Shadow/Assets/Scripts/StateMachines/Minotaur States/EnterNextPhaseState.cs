@@ -40,6 +40,13 @@ namespace MinotaurStates
             _owner.attackPattern = _owner.attackPatterns[_owner.currentPhase - 1].attackPattern;
             _owner.attackPatternCounter = 0;
             _owner.timeBetweenMove = _owner.timeBetweenMoveArray[_owner.currentPhase - 1];
+            
+            _owner.GetComponent<Enemy>().statModifiers.Add("Phase " + _owner.currentPhase + ": Berserk Status",
+                new StatModifier(new System.Collections.Generic.Dictionary<string, int>() {
+                    { "atk", 75},
+                    { "def", 100},
+                    { "mdef", 100}
+                }, null));
 
             _owner.moveDirection = _owner.player.transform.position - _owner.transform.position;
             _owner.anim.SetFloat("LastMoveX", _owner.moveDirection.x);

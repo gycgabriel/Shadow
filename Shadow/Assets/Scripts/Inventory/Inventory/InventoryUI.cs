@@ -35,9 +35,10 @@ public class InventoryUI : MonoBehaviour {
 
     void OnEnable()
     {
-		if (inventory == null)
+		if (inventory == null || inventory != PartyController.inventory)
         {
 			inventory = PartyController.inventory;
+			inventory.onItemChangedCallback += UpdateUI;
 		}
 		if (slots == null)
         {
