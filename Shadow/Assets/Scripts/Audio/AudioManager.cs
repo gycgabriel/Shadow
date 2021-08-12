@@ -88,6 +88,9 @@ public class AudioManager : Singleton<AudioManager>
         source.loop = s.loop;
         source.volume = s.volume * sfxVolume / 10 * totalVolume / 10;
         source.Play();
+        
+        Debug.LogWarning("Playing " + name + " at " + source.volume + " volume.");
+
         sfxSource = source;
 
         if (prevVolume != 0f)
