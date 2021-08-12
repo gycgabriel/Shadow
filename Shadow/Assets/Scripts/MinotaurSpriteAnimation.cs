@@ -18,6 +18,7 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
      */
     public void SetImpactWaveTarget(AnimationEvent ae)
     {
+        AudioManager.scriptInstance.PlaySFX("minowaveshout");
         if (ae.animatorClipInfo.weight > 0.5f)
         {
             waveTargetLocation = enemyController.player.transform.position;
@@ -48,6 +49,7 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
      */
     public void SummonFallingRocks(AnimationEvent ae)
     {
+        AudioManager.scriptInstance.PlaySFX("minorubbleshout");
         if (ae.animatorClipInfo.weight > 0.5f)
         {
             List<Vector3> fallingRockLocations = GenerateFallingRockLocations(numOfFallingRocks);
@@ -107,6 +109,7 @@ public class MinotaurSpriteAnimation : EnemySpriteAnimation
 
     public void AddBerserkEffect(AnimationEvent ae)            // change color to show hurt
     {
+        AudioManager.scriptInstance.PlaySFX("minoberserk");
         if (ae.animatorClipInfo.weight > 0.5f)
         {
             foreach (SpriteRenderer sprite in spritesToBerserk)
