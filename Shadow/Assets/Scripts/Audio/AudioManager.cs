@@ -93,8 +93,7 @@ public class AudioManager : Singleton<AudioManager>
 
         sfxSource = source;
 
-        if (prevVolume != 0f)
-            StartCoroutine(UnsoftenVolume(sfxSource, prevVolume));
+        StartCoroutine(UnsoftenVolume(sfxSource, prevVolume));
 
         return source;
     }
