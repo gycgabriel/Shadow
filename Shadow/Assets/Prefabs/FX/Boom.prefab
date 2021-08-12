@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4398743893614607428}
   - component: {fileID: 4113809738992397169}
   - component: {fileID: 4939093632806040324}
+  - component: {fileID: -6874523211244801941}
   m_Layer: 0
   m_Name: Boom
   m_TagString: Untagged
@@ -118,3 +119,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 0.5
+--- !u!114 &-6874523211244801941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4446072348626244338}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb60c2d09a6484880810767e071b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: boom
+  delay: 0

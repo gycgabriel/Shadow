@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3757716742659041065}
   - component: {fileID: 3475192431912480796}
   - component: {fileID: 5595232491165706345}
+  - component: {fileID: 4423377488586771805}
   m_Layer: 0
   m_Name: ManaBurst
   m_TagString: Untagged
@@ -119,6 +120,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeToDestroy: 2
+--- !u!114 &4423377488586771805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3791734075851934111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb60c2d09a6484880810767e071b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: manaburst
+  delay: 0.5
 --- !u!1 &6376954128840395665
 GameObject:
   m_ObjectHideFlags: 0

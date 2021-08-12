@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 8967009326805543931}
   - component: {fileID: 8375101171116195270}
   - component: {fileID: 1310464049859803463}
+  - component: {fileID: 1844883186857008150}
   m_Layer: 18
   m_Name: SwordWave
   m_TagString: Untagged
@@ -136,6 +137,20 @@ PolygonCollider2D:
       - {x: -1.9846684, y: -1.2702769}
       - {x: 1.9999995, y: -2.1002533}
       - {x: 2.0082808, y: 0.9113989}
+--- !u!114 &1844883186857008150
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5454529185108639916}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb60c2d09a6484880810767e071b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: swordwave
+  delay: 0
 --- !u!1 &7021806160790640468
 GameObject:
   m_ObjectHideFlags: 0
@@ -308,6 +323,7 @@ GameObject:
   - component: {fileID: 7021806160996737011}
   - component: {fileID: 7021806160996736908}
   - component: {fileID: 7021806160996736909}
+  - component: {fileID: 5041694932131465934}
   m_Layer: 18
   m_Name: swing_big
   m_TagString: Untagged
@@ -442,6 +458,20 @@ PolygonCollider2D:
       - {x: 1.0311756, y: -0.09026623}
       - {x: 0.8399441, y: 0.39529616}
       - {x: 0.32082486, y: 0.8015385}
+--- !u!114 &5041694932131465934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7021806160996736911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b8fb60c2d09a6484880810767e071b2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sfx: sword
+  delay: 0
 --- !u!1 &7021806161379852793
 GameObject:
   m_ObjectHideFlags: 0

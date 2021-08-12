@@ -72,4 +72,10 @@ public class PlayerHurt : HurtBehaviour
         
     }
 
+    public override bool Hurt(int damageToGive)
+    {
+        AudioManager.scriptInstance.PlaySFX("playerhurt");
+        return base.Hurt(damageToGive);
+    }
+
 }
