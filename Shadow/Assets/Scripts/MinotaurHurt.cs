@@ -16,6 +16,7 @@ public class MinotaurHurt : HurtBehaviour
     {
         if (creature.isDead)
         {
+            AudioManager.scriptInstance.PlaySFX("minodeath");
             minotaurAI.Die();
             this.enabled = false;
         }

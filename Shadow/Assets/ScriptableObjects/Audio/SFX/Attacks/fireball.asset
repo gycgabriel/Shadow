@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: fireball
   m_EditorClassIdentifier: 
   name: fireball
-  clip: {fileID: 8300000, guid: e97d0513392996a48bef485f6f302dc1, type: 3}
+  clip: {fileID: 8300000, guid: c7eb252c8fc22f742800d023e49b98e6, type: 3}
   volume: 0.5
-  pitch: 0.8
+  pitch: 1
   loop: 0
