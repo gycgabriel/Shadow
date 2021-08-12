@@ -5671,7 +5671,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5986319945353807880}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ItemOptions, Assembly-CSharp
         m_MethodName: OnBackButton
         m_Mode: 1
@@ -9080,7 +9080,6 @@ GameObject:
   m_Component:
   - component: {fileID: 567461449077971671}
   - component: {fileID: 6507871483956850771}
-  - component: {fileID: 5986319945353807880}
   - component: {fileID: 8479964371606504607}
   m_Layer: 5
   m_Name: ItemOptionsWindow
@@ -9117,19 +9116,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2806184316715100697}
   m_CullTransparentMesh: 1
---- !u!114 &5986319945353807880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2806184316715100697}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbfc5e1119139754f8caf0810c6b242e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  selectedSlotBtn: {fileID: 0}
 --- !u!114 &8479964371606504607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21637,7 +21623,7 @@ MonoBehaviour:
   itemsParent: {fileID: 8698074337880979701}
   inventoryUI: {fileID: 7679442140344977561}
   goldText: {fileID: 6440866947748931971}
-  itemOptionsWindow: {fileID: 5986319945353807880}
+  itemOptionsWindow: {fileID: 8479964371606504607}
   amtConfirmWindow: {fileID: 1812087179723932390}
   selectHotkeyWindow: {fileID: 7784846238770683966}
   selectedItemDisplay: {fileID: 7110734237271229348}

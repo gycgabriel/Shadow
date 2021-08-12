@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: Minotaur
   m_EditorClassIdentifier: 
   name: Minotaur
-  level: 20
+  level: 15
   expReward: 3000
   hp: 30000
   mp: 0
-  atk: 200
+  atk: 150
   def: 100
   matk: 0
   mdef: 100
