@@ -10,13 +10,6 @@ You play as Rain, a young villager boy who has awakened a special being in his s
     <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/ShadowPosterShowcase.png" alt="Shadow Poster">
 </p>
 
- 
-*   Build your Character and your Shadow to a unique playstyle
-    *   Most games have multiple characters in a party. Our game focuses on one character so the player does not need to level multiple characters and have more time to enjoy the process of growing stronger! 
-    *   Your Shadow shares your character’s level and stats, but is an alternative build of your character so you can utilise another character class’s skill tree.
-*   Dynamic Combat! Change combat style mid-battle
-    *   Switch weapons and builds with your Shadow and change your skills in the middle of battle. For instance, change from a melee to a ranged attacker to attack bosses that have close ranged advantage. Or you could buff yourself and debuff the enemies with a supporter class before switching to an offensive class to attack.
-
 ## Download
 To try a demo of our game, download it from our release [Shadow v1.1](https://github.com/gycgabriel/Shadow/releases/tag/v1.1.0)
 
