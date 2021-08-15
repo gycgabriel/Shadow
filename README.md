@@ -13,11 +13,11 @@ You play as Rain, a young villager boy who has awakened a special being in his s
 ## Download
 To try a demo of our game, download it from our release [Shadow v1.1](https://github.com/gycgabriel/Shadow/releases/tag/v1.1.0)
 
-The demo includes:
+The demo includes:   
 
-One story chapter, 
-Two playable character classes,
-One final boss.
+One story chapter,   
+Two playable character classes,   
+One final boss.   
 
 
 ## Team 2leafclover
