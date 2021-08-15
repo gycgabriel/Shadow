@@ -4,6 +4,9 @@ using UnityEngine;
 
 
 /** 
+ * Modified from 
+ * http://www.unitygeek.com/unity_c_singleton/
+ * 
  * Parent class for gameObjects that can only exist one at a time.
  * Only inherit in child scripts attached to root GameObject! DontDestroyOnLoad requirement.
  * NOTE: DO NOT HAVE AWAKE() IN CHILDREN OF THIS CLASS ( it will override singleton behaviour ) 

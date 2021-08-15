@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+/**
+ * Taken from 
+ * https://gamedev.stackexchange.com/questions/140014/how-can-i-get-all-dontdestroyonload-gameobjects
+ */
 public static class DontDestroyOnLoadManager
 {
     static List<GameObject> ddolObjects = new List<GameObject>();
