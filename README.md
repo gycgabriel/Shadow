@@ -1,11 +1,14 @@
 # Shadow
 
-A 2D pixel art action-adventure role-playing game (RPG) inspired by classics like Zenonia and Log Horizon. A 2021 NUS Orbital Project.
+A 2D pixel art action-adventure role-playing game (RPG) inspired by classics like Zenonia and Log Horizon. A 2021 NUS Orbital Project made in Unity by Team 2leafclover.
 
-| <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/Screenshots/v0.3/Shadow-v0.3.0-4.png" width="800" /> | <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/Screenshots/v0.3/Shadow-v0.3.0-5.png" width="800" /> |
-| --- | --- |
-| <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/Screenshots/v0.3/Shadow-v0.3.0-7.png" width="800" /> | <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/Screenshots/v0.3/Shadow-v0.3.0-10.png" width="800" /> |
-| --- | --- |
+Shadow is a stress-relieving RPG game with swords and magic.
+
+You play as Rain, a young villager boy who has awakened a special being in his shadow. Rain must learn to use his adventurer skills and with the aid of his shadow, halt the impending threat to the world.
+
+<p align = "center">
+    <img src="https://github.com/gycgabriel/Shadow/blob/main/Resources/ShadowPosterShowcase.png" alt="Shadow Poster">
+</p>
 
 
 Many people may have played _Zenonia_, one such action-adventure RPG. Early _Zenonia_ had aesthetics reminiscent of 16-bit JRPGs, but even without stunning graphics, Zenonia was able to captivate players through <span style="text-decoration:underline;">character progression</span> and its <span style="text-decoration:underline;">stress-relieving gameplay</span>.
