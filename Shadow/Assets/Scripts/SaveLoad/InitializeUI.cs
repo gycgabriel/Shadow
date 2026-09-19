@@ -9,6 +9,8 @@ public class InitializeUI : MonoBehaviour
     public string playerClass;
     public string shadowClass;
 
+    public string[] validClasses = { "Knight", "Mage" };
+
     public GameObject mainCamera;
     public GameObject party;
     public GameObject playerStatus;
@@ -19,6 +21,8 @@ public class InitializeUI : MonoBehaviour
     void Start()
     {
         PartyController.scriptInstance.Initialize(playerGO, shadowGO);
+        if (playerClass == shadowClass && validClasses.Length > 1)
+            shadowClass = validClasses[0] == playerClass ? validClasses[1] : validClasses[0];
         playerGO.GetComponent<Player>().ChooseCharClass(playerClass);
         shadowGO.GetComponent<Player>().ChooseCharClass(shadowClass);
 
